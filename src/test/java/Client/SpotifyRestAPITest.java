@@ -15,7 +15,8 @@ class SpotifyRestAPITest {
     @Test
     void implicitGrant() throws IOException {
 
-        SpotifyClient client = new SpotifyClient("d56c8c3f79a1459bba2c286cfa7aa15b","");
+        SpotifyClient client = new SpotifyClient("","");
         client.implicitGrantTokenRequest();
+        assertTrue(client.getToken().length() > 0);
     }
 }

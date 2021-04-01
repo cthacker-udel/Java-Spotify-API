@@ -6,6 +6,7 @@ public class SpotifyClient extends SpotifyRestAPI{
 
     private String secretKey;
     private String apiKey;
+    private String token;
 
     public SpotifyClient(){
         super();
@@ -35,8 +36,16 @@ public class SpotifyClient extends SpotifyRestAPI{
         this.apiKey = apiKey;
     }
 
+    public void setToken(String token){
+        this.token = token;
+    }
+
+    public String getToken(){
+        return this.token;
+    }
+
     public void implicitGrantTokenRequest() throws IOException {
-        super.implicitGrant(this,"https://www.google.com");
+        super.baseAuth(this);
     }
 
 }

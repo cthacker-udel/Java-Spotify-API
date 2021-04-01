@@ -3,6 +3,7 @@ package Client;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 import java.io.IOException;
 import java.util.Locale;
@@ -40,20 +41,23 @@ public class SpotifyRestAPI{
 
     }
 
-    public String implicitGrant(SpotifyClient client, String redirect_uri) throws IOException {
-        String accountsUrl = "https://accounts.spotify.com/authorize";
+    public String baseAuth(SpotifyClient client) throws IOException {
+        String accountsUrl = "https://accounts.spotify.com/api/token/";
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(accountsUrl)
+                .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         Model.authorizationInterface authorizationInterface = retrofit.create(Model.authorizationInterface.class);
 
-        Call<String> implicitGrantCall = authorizationInterface.implicitGrant(client.getApiKey(),"token","https:google.com");
+        Call<Controller.baseAuthResponse> implicitGrantCall = authorizationInterface.implicitGrant(client.getApiKey(),client.getSecretKey(),"client_credentials");
 
-        Response<String> implicitGrantResponse = implicitGrantCall.execute();
+        Response<Controller.baseAuthResponse> implicitGrantResponse = implicitGrantCall.execute();
 
-        return implicitGrantResponse.body();
+        client.setToken(implicitGrantResponse.body().getToken());
+
+        return implicitGrantResponse.body().getToken();
     }
 
 }
