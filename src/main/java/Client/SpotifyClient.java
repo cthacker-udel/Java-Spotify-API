@@ -1,12 +1,18 @@
 package Client;
 
+
+import Controller.AlbumController.MultipleAlbums.BaseAlbum;
+import getRequests.Album;
+
 import java.io.IOException;
+import java.util.List;
 
 public class SpotifyClient extends SpotifyRestAPI{
 
     private String secretKey;
     private String apiKey;
     private String token;
+    private Album album;
 
     public SpotifyClient(){
         super();
@@ -18,6 +24,25 @@ public class SpotifyClient extends SpotifyRestAPI{
         super();
         this.secretKey = secretKey;
         this.apiKey = apiKey;
+    }
+
+    public SpotifyClient(String apiKey, String secretKey, String token, Album album){
+        super();
+        this.secretKey = secretKey;
+        this.apiKey = apiKey;
+        this.token  = token;
+        this.album = album;
+    }
+
+    public SpotifyClient(String apiKey, String secretKey, String token){
+        super();
+        this.secretKey = secretKey;
+        this.apiKey = apiKey;
+        this.token = token;
+    }
+
+    public Album getAlbum() {
+        return album;
     }
 
     public String getSecretKey() {
@@ -44,8 +69,14 @@ public class SpotifyClient extends SpotifyRestAPI{
         return this.token;
     }
 
-    public void implicitGrantTokenRequest() throws IOException {
-        super.baseAuth(this);
+    public String implicitGrantTokenRequest() throws IOException {
+        String theToken = super.baseAuth(this);
+        this.setToken(theToken);
+        return theToken;
+    }
+
+    public BaseAlbum getMultipleAlbums(Album album) throws IOException {
+        return super.getMultipleAlbums(this,album);
     }
 
 }

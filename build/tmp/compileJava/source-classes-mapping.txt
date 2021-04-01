@@ -1,0 +1,32 @@
+Controller/AlbumController/MultipleAlbums/Tracks.java
+ Controller.AlbumController.MultipleAlbums.Tracks
+Controller/baseAuthResponse.java
+ Controller.baseAuthResponse
+Controller/AlbumController/MultipleAlbums/ExternalUrls.java
+ Controller.AlbumController.MultipleAlbums.ExternalUrls
+Controller/AlbumController/MultipleAlbums/Artist.java
+ Controller.AlbumController.MultipleAlbums.Artist
+Model/authorizationInterface.java
+ Model.authorizationInterface
+Controller/AlbumController/MultipleAlbums/Album.java
+ Controller.AlbumController.MultipleAlbums.Album
+Controller/AlbumController/MultipleAlbums/Copyright.java
+ Controller.AlbumController.MultipleAlbums.Copyright
+Controller/AlbumController/example.java
+ Controller.AlbumController.example
+Controller/AlbumController/MultipleAlbums/Item.java
+ Controller.AlbumController.MultipleAlbums.Item
+Controller/AlbumController/MultipleAlbums/BaseAlbum.java
+ Controller.AlbumController.MultipleAlbums.BaseAlbum
+Model/albumInterface.java
+ Model.albumInterface
+Controller/AlbumController/MultipleAlbums/Image.java
+ Controller.AlbumController.MultipleAlbums.Image
+Controller/AlbumController/MultipleAlbums/ExternalIds.java
+ Controller.AlbumController.MultipleAlbums.ExternalIds
+Client/SpotifyRestAPI.java
+ Client.SpotifyRestAPI
+Client/SpotifyClient.java
+ Client.SpotifyClient
+getRequests/Album.java
+ getRequests.Album
