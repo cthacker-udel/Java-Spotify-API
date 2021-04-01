@@ -1,16 +1,20 @@
 package Client;
 
-public class SpotifyClient {
+import java.io.IOException;
+
+public class SpotifyClient extends SpotifyRestAPI{
 
     private String secretKey;
     private String apiKey;
 
     public SpotifyClient(){
+        super();
         this.secretKey = "defaultSecretKey";
         this.apiKey = "defaultApiKey";
     }
 
     public SpotifyClient(String apiKey, String secretKey){
+        super();
         this.secretKey = secretKey;
         this.apiKey = apiKey;
     }
@@ -29,6 +33,10 @@ public class SpotifyClient {
 
     public void setApiKey(String apiKey) {
         this.apiKey = apiKey;
+    }
+
+    public void implicitGrantTokenRequest() throws IOException {
+        super.implicitGrant(this,"https://www.google.com");
     }
 
 }

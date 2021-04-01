@@ -7,11 +7,15 @@ import retrofit2.Retrofit;
 import java.io.IOException;
 import java.util.Locale;
 
-public class SpotifyRestAPI extends SpotifyClient{
+public class SpotifyRestAPI{
 
     String requestType;
 
     String baseUrl = "https://api.spotify.com";
+
+    public SpotifyRestAPI(){
+        super();
+    }
 
     public SpotifyRestAPI(String requestType) {
         super();
