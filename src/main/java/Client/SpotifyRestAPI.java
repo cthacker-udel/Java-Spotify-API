@@ -1,10 +1,17 @@
 package Client;
 
+import retrofit2.Call;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+
+import java.io.IOException;
 import java.util.Locale;
 
 public class SpotifyRestAPI {
 
     String requestType;
+
+    String baseUrl = "https://api.spotify.com";
 
     public SpotifyRestAPI(String requestType) {
         this.requestType = requestType;
@@ -26,6 +33,22 @@ public class SpotifyRestAPI {
             // make delete request
         }
 
+    }
+
+    public String implicitGrant(String client_id, String redirect_uri) throws IOException {
+        String accountsUrl = "https://accounts.spotify.com/authorize";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(accountsUrl)
+                .build();
+
+        Model.authorizationInterface authorizationInterface = retrofit.create(Model.authorizationInterface.class);
+
+        Call<String> implicitGrantCall = authorizationInterface.implicitGrant(client_id,"token","https:google.com");
+
+        Response<String> implicitGrantResponse = implicitGrantCall.execute();
+
+        return implicitGrantResponse.body();
     }
 
 }
