@@ -30,4 +30,5 @@ public class SpotifyClient {
     public void setApiKey(String apiKey) {
         this.apiKey = apiKey;
     }
+
 }
