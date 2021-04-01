@@ -1,4 +1,4 @@
-getRequests/AlbumTest.java
- getRequests.AlbumTest
 Client/SpotifyRestAPITest.java
  Client.SpotifyRestAPITest
+getRequests/AlbumTest.java
+ getRequests.AlbumTest

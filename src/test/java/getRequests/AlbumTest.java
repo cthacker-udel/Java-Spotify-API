@@ -2,6 +2,7 @@ package getRequests;
 
 import Client.SpotifyClient;
 import Controller.AlbumController.MultipleAlbums.BaseAlbum;
+import Controller.AlbumController.MultipleAlbums.Tracks;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -31,6 +32,16 @@ class AlbumTest {
         Controller.AlbumController.MultipleAlbums.Album album = client.getSingleAlbum(client,theAlbum);
         assertNotNull(album);
 
+    }
+
+    @Test
+    void makeTracksRequest() throws IOException {
+
+        Album theAlbum = new Album();
+        theAlbum.addAlbumId("2UuvBxV56QWWj2uviGS0up");
+        SpotifyClient client = new SpotifyClient("","","",theAlbum);
+        Tracks theTracks = client.getAlbumsTracks(client,theAlbum.getAlbumIds().get(0));
+        assertNotNull(theTracks);
 
     }
 

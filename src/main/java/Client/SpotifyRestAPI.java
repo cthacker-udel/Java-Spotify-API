@@ -1,6 +1,7 @@
 package Client;
 
 import Controller.AlbumController.MultipleAlbums.BaseAlbum;
+import Controller.AlbumController.MultipleAlbums.Tracks;
 import Model.albumInterface;
 import getRequests.AlbumInterface;
 import retrofit2.Call;
@@ -122,7 +123,21 @@ public class SpotifyRestAPI implements AlbumInterface {
 
     }
 
-    public void getAlbumsTracks(SpotifyClient client, String id){
+    public Tracks getAlbumsTracks(SpotifyClient client, String id) throws IOException {
+        String url = baseUrl + String.format("/artist%s/",id);
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        albumInterface albumInterface = retrofit.create(Model.albumInterface.class);
+
+        Call<Tracks> call = albumInterface.getAlbumTracks(getTokenString(client.getToken()),id);
+
+        Response<Tracks> response = call.execute();
+
+        return response.body();
 
     }
 
