@@ -1,14 +1,14 @@
-public class SpotifyApi {
+public class SpotifyClient {
 
     private String secretKey;
     private String apiKey;
 
-    public SpotifyApi(){
+    public SpotifyClient(){
         this.secretKey = "defaultSecretKey";
         this.apiKey = "defaultApiKey";
     }
 
-    public SpotifyApi(String apiKey, String secretKey){
+    public SpotifyClient(String apiKey, String secretKey){
         this.secretKey = secretKey;
         this.apiKey = apiKey;
     }
