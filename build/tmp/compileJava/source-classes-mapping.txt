@@ -18,12 +18,14 @@ Controller/AlbumController/MultipleAlbums/Item.java
  Controller.AlbumController.MultipleAlbums.Item
 Controller/AlbumController/MultipleAlbums/BaseAlbum.java
  Controller.AlbumController.MultipleAlbums.BaseAlbum
-Model/albumInterface.java
- Model.albumInterface
+getRequests/AlbumInterface.java
+ getRequests.AlbumInterface
 Controller/AlbumController/MultipleAlbums/Image.java
  Controller.AlbumController.MultipleAlbums.Image
 Controller/AlbumController/MultipleAlbums/ExternalIds.java
  Controller.AlbumController.MultipleAlbums.ExternalIds
+Model/albumInterface.java
+ Model.albumInterface
 Client/SpotifyRestAPI.java
  Client.SpotifyRestAPI
 Client/SpotifyClient.java

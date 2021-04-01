@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Spotify-Java-Wrapper.iml" filepath="$PROJECT_DIR$/.idea/modules/Spotify-Java-Wrapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Spotify-Java-Wrapper.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Spotify-Java-Wrapper.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Spotify-Java-Wrapper.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Spotify-Java-Wrapper.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/untitled.iml" filepath="$PROJECT_DIR$/untitled.iml" />
     </modules>
   </component>

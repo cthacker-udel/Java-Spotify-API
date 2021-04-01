@@ -1,6 +1,7 @@
 package Client;
 
 import Controller.AlbumController.MultipleAlbums.BaseAlbum;
+import Model.albumInterface;
 import getRequests.AlbumInterface;
 import retrofit2.Call;
 import retrofit2.Response;
@@ -32,7 +33,7 @@ public class SpotifyRestAPI implements AlbumInterface {
     }
 
     public String getTokenString(String token){
-        return String.format("Bearer %s",token);
+        return String.format(" Bearer %s",token);
     }
 
 
@@ -84,7 +85,7 @@ public class SpotifyRestAPI implements AlbumInterface {
      */
 
     public BaseAlbum getMultipleAlbums(SpotifyClient client, Album album) throws IOException {
-        String commaSeparatedIds = album.getAlbumIds().stream().collect(Collectors.joining(","));
+        String commaSeparatedIds = String.join(",",album.getAlbumIds());
 
         String url = "https://api.spotify.com/v1/albums/";
 
@@ -95,11 +96,34 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         Model.albumInterface albumInterface = retrofit.create(Model.albumInterface.class);
 
-        Call<BaseAlbum> call = albumInterface.getMultipleAlbums(client.getToken(),commaSeparatedIds);
+        Call<BaseAlbum> call = albumInterface.getMultipleAlbums(getTokenString(client.getToken()),commaSeparatedIds);
 
         Response<BaseAlbum> response = call.execute();
 
         return response.body();
+    }
+
+    public Controller.AlbumController.MultipleAlbums.Album getSingleAlbum(SpotifyClient client, Album album) throws IOException {
+
+        String url = String.format("https://api.spotify.com/v1/albums/%s/",album.getAlbumIds().get(0));
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        albumInterface albumInterface = retrofit.create(Model.albumInterface.class);
+
+        Call<Controller.AlbumController.MultipleAlbums.Album> call = albumInterface.getSingleAlbum(getTokenString(client.getToken()),album.getAlbumIds().get(0));
+
+        Response<Controller.AlbumController.MultipleAlbums.Album> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public void getAlbumsTracks(SpotifyClient client, String id){
+
     }
 
     @Override
