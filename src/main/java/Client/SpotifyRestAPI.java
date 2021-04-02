@@ -267,4 +267,14 @@ public class SpotifyRestAPI implements AlbumInterface {
         return response.body();
 
     }
+
+    /*
+
+    Browse methods
+
+     */
+
+    public void getAllNewReleases(){
+
+    }
 }
