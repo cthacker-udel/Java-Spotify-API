@@ -274,7 +274,17 @@ public class SpotifyRestAPI implements AlbumInterface {
 
      */
 
-    public void getAllNewReleases(){
+    public void getAllNewReleases(SpotifyClient client){
+
+        String url = baseUrl + "/v1/browse/new-releases/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+
+
 
     }
 }
