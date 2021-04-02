@@ -18,17 +18,51 @@ Controller/AlbumController/MultipleAlbums/Item.java
  Controller.AlbumController.MultipleAlbums.Item
 Controller/AlbumController/MultipleAlbums/BaseAlbum.java
  Controller.AlbumController.MultipleAlbums.BaseAlbum
-getRequests/AlbumInterface.java
- getRequests.AlbumInterface
+Model/albumInterface.java
+ Model.albumInterface
 Controller/AlbumController/MultipleAlbums/Image.java
  Controller.AlbumController.MultipleAlbums.Image
 Controller/AlbumController/MultipleAlbums/ExternalIds.java
  Controller.AlbumController.MultipleAlbums.ExternalIds
-Model/albumInterface.java
- Model.albumInterface
+Controller/ArtistController/ExternalUrls.java
+ Controller.ArtistController.ExternalUrls
+Controller/ArtistController/Artist.java
+ Controller.ArtistController.Artist
+Controller/ArtistController/Followers.java
+ Controller.ArtistController.Followers
+Controller/ArtistController/Image.java
+ Controller.ArtistController.Image
+Controller/ArtistController/BaseArtist.java
+ Controller.ArtistController.BaseArtist
+Controller/ArtistController/Album.java
+ Controller.ArtistController.Album
+Controller/ArtistController/ArtistTopTrackArtist.java
+ Controller.ArtistController.ArtistTopTrackArtist
+Controller/ArtistController/Track.java
+ Controller.ArtistController.Track
+Controller/ArtistController/ExternalIds.java
+ Controller.ArtistController.ExternalIds
+Controller/ArtistController/ArtistTopTrack.java
+ Controller.ArtistController.ArtistTopTrack
+Controller/ArtistController/ArtistAlbumArtist.java
+ Controller.ArtistController.ArtistAlbumArtist
+Model/artistInterface.java
+ Model.artistInterface
+Controller/ArtistController/ArtistAlbum.java
+ Controller.ArtistController.ArtistAlbum
 Client/SpotifyRestAPI.java
  Client.SpotifyRestAPI
+Controller/ArtistController/ArtistAlbumItem.java
+ Controller.ArtistController.ArtistAlbumItem
+Controller/ArtistController/ArtistAlbumExternalUrls.java
+ Controller.ArtistController.ArtistAlbumExternalUrls
+getRequests/Artist.java
+ getRequests.Artist
+Controller/ArtistController/ArtistAlbumImage.java
+ Controller.ArtistController.ArtistAlbumImage
 Client/SpotifyClient.java
  Client.SpotifyClient
+getRequests/AlbumInterface.java
+ getRequests.AlbumInterface
 getRequests/Album.java
  getRequests.Album

@@ -2,8 +2,14 @@ package Client;
 
 import Controller.AlbumController.MultipleAlbums.BaseAlbum;
 import Controller.AlbumController.MultipleAlbums.Tracks;
+import Controller.ArtistController.Artist;
+import Controller.ArtistController.ArtistAlbum;
+import Controller.ArtistController.ArtistTopTrack;
+import Controller.ArtistController.BaseArtist;
 import Model.albumInterface;
+import Model.artistInterface;
 import getRequests.AlbumInterface;
+
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
@@ -81,7 +87,7 @@ public class SpotifyRestAPI implements AlbumInterface {
     }
     /*
 
-    Add multiple albums method
+    Album methods
 
      */
 
@@ -159,5 +165,106 @@ public class SpotifyRestAPI implements AlbumInterface {
 
     public void clearAlbumIds(){
         albumIds.clear();
+    }
+
+    /*
+
+    Artist Methods
+
+     */
+
+    public BaseArtist getMultipleArtists(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/artists/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        String ids = String.join(",",client.getArtists().getArtistsIDs());
+
+        artistInterface artistInterface = retrofit.create(Model.artistInterface.class);
+
+        Call<BaseArtist> call = artistInterface.getArtists(getTokenString(client.getToken()),ids);
+
+        Response<BaseArtist> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public Artist getSingleArtist(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + String.format("/v1/artists/%s/",client.getArtists().getArtistsIDs().get(0));
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        artistInterface artistInterface = retrofit.create(Model.artistInterface.class);
+
+        Call<Artist> call = artistInterface.getSingleArtist(getTokenString(client.getToken()),client.getArtists().getArtistsIDs().get(0));
+
+        Response<Artist> response = call.execute();
+
+        return response.body();
+    }
+
+    public ArtistTopTrack getArtistsTopTrack(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/artists/{id}/top-tracks/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        artistInterface artistInterface = retrofit.create(artistInterface.class);
+
+        Call<ArtistTopTrack> call = artistInterface.getArtistTopTracks(getTokenString(client.getToken()),client.getArtists().getArtistsIDs().get(0),client.getISOCountryCode());
+
+        Response<ArtistTopTrack> response = call.execute();
+
+        return response.body();
+    }
+
+    public BaseArtist getRelatedArtists(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + String.format("/v1/artists/%s/related-artists/",client.getArtists().getArtistsIDs().get(0));
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        artistInterface artistInterface = retrofit.create(artistInterface.class);
+
+        Call<BaseArtist> call = artistInterface.getRelatedArtists(getTokenString(client.getToken()),client.getArtists().getArtistsIDs().get(0));
+
+        Response<BaseArtist> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public ArtistAlbum getArtistAlbums(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + String.format("/v1/artists/%s/albums/",client.getArtists().getArtistsIDs().get(0));
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        artistInterface artistInterface = retrofit.create(artistInterface.class);
+
+        Call<ArtistAlbum> call = artistInterface.getArtistsAlbums(getTokenString(client.getToken()),client.getArtists().getArtistsIDs().get(0));
+
+        Response<ArtistAlbum> response = call.execute();
+
+        return response.body();
+
     }
 }

@@ -11,13 +11,23 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AlbumTest {
 
+    static SpotifyClient client;
+
+    static {
+        try {
+            client = new SpotifyClient("d56c8c3f79a1459bba2c286cfa7aa15b","9dcd475a773d467990dd75eede0af55f");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Test
     void makeRequestMultipleAlbums() throws IOException {
 
         Album theAlbum = new Album();
         theAlbum.addAlbumId("2UuvBxV56QWWj2uviGS0up");
         theAlbum.addAlbumId("0XFFBEzvJ7Zit24MY5oVV3");
-        SpotifyClient client = new SpotifyClient("","","",theAlbum);
+        client.setAlbum(theAlbum);
         BaseAlbum album = client.getMultipleAlbums(client.getAlbum());
         assertNotNull(album);
 
@@ -28,7 +38,7 @@ class AlbumTest {
 
         Album theAlbum = new Album();
         theAlbum.addAlbumId("2UuvBxV56QWWj2uviGS0up");
-        SpotifyClient client = new SpotifyClient("","","",theAlbum);
+        client.setAlbum(theAlbum);
         Controller.AlbumController.MultipleAlbums.Album album = client.getSingleAlbum(client,theAlbum);
         assertNotNull(album);
 
@@ -39,7 +49,7 @@ class AlbumTest {
 
         Album theAlbum = new Album();
         theAlbum.addAlbumId("2UuvBxV56QWWj2uviGS0up");
-        SpotifyClient client = new SpotifyClient("","","",theAlbum);
+        client.setAlbum(theAlbum);
         Tracks theTracks = client.getAlbumsTracks(client,theAlbum.getAlbumIds().get(0));
         assertNotNull(theTracks);
 

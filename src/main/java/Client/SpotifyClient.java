@@ -3,6 +3,7 @@ package Client;
 
 import Controller.AlbumController.MultipleAlbums.BaseAlbum;
 import getRequests.Album;
+import getRequests.Artist;
 
 import java.io.IOException;
 import java.util.List;
@@ -13,6 +14,8 @@ public class SpotifyClient extends SpotifyRestAPI{
     private String apiKey;
     private String token;
     private Album album;
+    private Artist artists;
+    private String ISOCountryCode;
 
     public SpotifyClient(){
         super();
@@ -20,18 +23,13 @@ public class SpotifyClient extends SpotifyRestAPI{
         this.apiKey = "defaultApiKey";
     }
 
-    public SpotifyClient(String apiKey, String secretKey){
+    public SpotifyClient(String apiKey, String secretKey) throws IOException {
         super();
         this.secretKey = secretKey;
         this.apiKey = apiKey;
-    }
-
-    public SpotifyClient(String apiKey, String secretKey, String token, Album album){
-        super();
-        this.secretKey = secretKey;
-        this.apiKey = apiKey;
-        this.token  = token;
-        this.album = album;
+        implicitGrantTokenRequest();
+        this.album = new Album();
+        this.artists = new Artist();
     }
 
     public SpotifyClient(String apiKey, String secretKey, String token){
@@ -39,6 +37,36 @@ public class SpotifyClient extends SpotifyRestAPI{
         this.secretKey = secretKey;
         this.apiKey = apiKey;
         this.token = token;
+        this.album = new Album();
+        this.artists = new Artist();
+    }
+
+    public String getISOCountryCode() {
+        return ISOCountryCode;
+    }
+
+    public void setISOCountryCode(String ISOCountryCode) {
+        this.ISOCountryCode = ISOCountryCode;
+    }
+
+    public Artist getArtists() {
+        return artists;
+    }
+
+    public void setAlbum(Album album) {
+        this.album = album;
+    }
+
+    public void setArtists(Artist artists) {
+        this.artists = artists;
+    }
+
+    public void clearAlbums(){
+        this.album.getAlbumIds().clear();
+    }
+
+    public void clearArtists(){
+        this.artists.getArtistsIDs().clear();
     }
 
     public Album getAlbum() {
@@ -69,10 +97,9 @@ public class SpotifyClient extends SpotifyRestAPI{
         return this.token;
     }
 
-    public String implicitGrantTokenRequest() throws IOException {
+    public void implicitGrantTokenRequest() throws IOException {
         String theToken = super.baseAuth(this);
         this.setToken(theToken);
-        return theToken;
     }
 
     public BaseAlbum getMultipleAlbums(Album album) throws IOException {
