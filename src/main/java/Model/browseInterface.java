@@ -23,5 +23,8 @@ public interface browseInterface {
     @GET("https://api.spotify.com/v1/browse/categories/{categoryId}")
     Call<Category> getSingleCategory(@Header("Authorization") String authorization, @Path("categoryId") String categoryId);
 
+    @GET("https://api.spotify.com/v1/browse/categories/{categoryId}/playlists")
+    Call<BasePlaylist> getCategoriesPlaylists(@Header("Authorization") String authorization, @Path("categoryId") String categoryId);
+
 
 }

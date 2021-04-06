@@ -350,4 +350,22 @@ public class SpotifyRestAPI implements AlbumInterface {
         return response.body();
 
     }
+
+    public BasePlaylist getCategoriesPlaylists(SpotifyClient client, String categoryId) throws IOException {
+
+        String url = baseUrl + String.format("/v1/browse/categories/%s/playlists",categoryId);
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        browseInterface browseInterface = retrofit.create(Model.browseInterface.class);
+
+        Call<BasePlaylist> call = browseInterface.getCategoriesPlaylists(getTokenString(client.getToken()),categoryId);
+
+        Response<BasePlaylist> response = call.execute();
+
+        return response.body();
+    }
 }
