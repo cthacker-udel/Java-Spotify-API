@@ -6,8 +6,10 @@ import Controller.ArtistController.Artist;
 import Controller.ArtistController.ArtistAlbum;
 import Controller.ArtistController.ArtistTopTrack;
 import Controller.ArtistController.BaseArtist;
+import Controller.BrowseController.Playlist.BasePlaylist;
 import Model.albumInterface;
 import Model.artistInterface;
+import Model.browseInterface;
 import getRequests.AlbumInterface;
 
 import retrofit2.Call;
@@ -17,9 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
-import java.util.stream.Collectors;
 
 import getRequests.Album;
 
@@ -274,7 +274,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
      */
 
-    public void getAllNewReleases(SpotifyClient client){
+    public Controller.BrowseController.Album.BaseAlbum getAllNewReleases(SpotifyClient client) throws IOException {
 
         String url = baseUrl + "/v1/browse/new-releases/";
 
@@ -283,8 +283,31 @@ public class SpotifyRestAPI implements AlbumInterface {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
+        browseInterface browseInterface = retrofit.create(browseInterface.class);
 
+        Call<Controller.BrowseController.Album.BaseAlbum> call = browseInterface.getNewReleases(getTokenString(client.getToken()));
 
+        Response<Controller.BrowseController.Album.BaseAlbum> response = call.execute();
 
+        return response.body();
+
+    }
+
+    public BasePlaylist getAllFeaturedPlaylists(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/browse/featured-playlists/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        browseInterface browseInterface = retrofit.create(Model.browseInterface.class);
+
+        Call<BasePlaylist> call = browseInterface.getFeaturedPlaylists(getTokenString(client.getToken()));
+
+        Response<BasePlaylist> response = call.execute();
+
+        return response.body();
     }
 }
