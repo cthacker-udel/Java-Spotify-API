@@ -2,10 +2,7 @@ package Client;
 
 
 import Controller.AlbumController.MultipleAlbums.BaseAlbum;
-import getRequests.Album;
-import getRequests.Artist;
-import getRequests.Episode;
-import getRequests.Seed;
+import getRequests.*;
 
 import java.io.IOException;
 import java.util.List;
@@ -20,6 +17,7 @@ public class SpotifyClient extends SpotifyRestAPI{
     private String ISOCountryCode;
     private Seed seed;
     private Episode episodes;
+    private Follow follow;
 
     public SpotifyClient(){
         super();
@@ -126,5 +124,13 @@ public class SpotifyClient extends SpotifyRestAPI{
 
     public void setEpisodes(Episode episodes) {
         this.episodes = episodes;
+    }
+
+    public Follow getFollow() {
+        return follow;
+    }
+
+    public void setFollow(Follow follow) {
+        this.follow = follow;
     }
 }

@@ -455,6 +455,12 @@ public class SpotifyRestAPI implements AlbumInterface {
 
     }
 
+    /*
+
+    Follow Methods
+
+     */
+
 
 
 }
