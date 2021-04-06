@@ -11,9 +11,11 @@ import Controller.BrowseController.Categories.Category;
 import Controller.BrowseController.Playlist.BasePlaylist;
 import Controller.BrowseController.Recommendations.BaseRecommendation;
 import Controller.BrowseController.Recommendations.RecommendationGenreList;
+import Controller.EpisodeController.BaseEpisode;
 import Model.albumInterface;
 import Model.artistInterface;
 import Model.browseInterface;
+import Model.episodeInterface;
 import getRequests.AlbumInterface;
 
 import retrofit2.Call;
@@ -407,4 +409,30 @@ public class SpotifyRestAPI implements AlbumInterface {
         return response.body();
 
     }
+
+    /*
+
+    Episodes Methods
+
+     */
+
+    public BaseEpisode getMultipleEpisodes(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/episodes/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        episodeInterface episodeInterface = retrofit.create(Model.episodeInterface.class);
+
+        Call<BaseEpisode> call = episodeInterface.getEpisodes(getTokenString(client.getToken()),client.getEpisodes().convertEpisodes());
+
+        Response<BaseEpisode> response = call.execute();
+
+        return response.body();
+
+    }
+
 }
