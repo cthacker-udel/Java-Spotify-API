@@ -9,6 +9,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface browseInterface {
 
@@ -28,7 +29,7 @@ public interface browseInterface {
     Call<BasePlaylist> getCategoriesPlaylists(@Header("Authorization") String authorization, @Path("categoryId") String categoryId);
 
     @GET("https://api.spotify.com/v1/recommendations")
-    Call<BaseRecommendation> getRecommendations(@Header("Authorization") String authorization);
+    Call<BaseRecommendation> getRecommendations(@Header("Authorization") String authorization, @Query("seed_artists") String artists, @Query("seed_genres") String genres, @Query("seed_tracks") String tracks);
 
 
 }

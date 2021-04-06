@@ -4,6 +4,7 @@ package Client;
 import Controller.AlbumController.MultipleAlbums.BaseAlbum;
 import getRequests.Album;
 import getRequests.Artist;
+import getRequests.Seed;
 
 import java.io.IOException;
 import java.util.List;
@@ -16,6 +17,7 @@ public class SpotifyClient extends SpotifyRestAPI{
     private Album album;
     private Artist artists;
     private String ISOCountryCode;
+    private Seed seed;
 
     public SpotifyClient(){
         super();
@@ -30,6 +32,7 @@ public class SpotifyClient extends SpotifyRestAPI{
         implicitGrantTokenRequest();
         this.album = new Album();
         this.artists = new Artist();
+        this.seed = new Seed();
     }
 
     public SpotifyClient(String apiKey, String secretKey, String token){
@@ -106,4 +109,11 @@ public class SpotifyClient extends SpotifyRestAPI{
         return super.getMultipleAlbums(this,album);
     }
 
+    public Seed getSeed() {
+        return seed;
+    }
+
+    public void setSeed(Seed seed) {
+        this.seed = seed;
+    }
 }

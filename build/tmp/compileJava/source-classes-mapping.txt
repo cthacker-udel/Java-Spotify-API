@@ -92,15 +92,25 @@ Controller/BrowseController/Categories/Icon.java
  Controller.BrowseController.Categories.Icon
 Controller/BrowseController/Categories/Category.java
  Controller.BrowseController.Categories.Category
-Model/browseInterface.java
- Model.browseInterface
+Controller/BrowseController/Recommendations/Seed.java
+ Controller.BrowseController.Recommendations.Seed
+Controller/BrowseController/Recommendations/Track.java
+ Controller.BrowseController.Recommendations.Track
+Controller/BrowseController/Recommendations/ExternalUrls.java
+ Controller.BrowseController.Recommendations.ExternalUrls
+Controller/BrowseController/Recommendations/Artist.java
+ Controller.BrowseController.Recommendations.Artist
 Client/SpotifyRestAPI.java
  Client.SpotifyRestAPI
 getRequests/Artist.java
  getRequests.Artist
+Model/browseInterface.java
+ Model.browseInterface
 Client/SpotifyClient.java
  Client.SpotifyClient
 getRequests/AlbumInterface.java
  getRequests.AlbumInterface
 getRequests/Album.java
  getRequests.Album
+Controller/BrowseController/Recommendations/BaseRecommendation.java
+ Controller.BrowseController.Recommendations.BaseRecommendation

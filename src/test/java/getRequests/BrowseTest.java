@@ -5,6 +5,7 @@ import Controller.BrowseController.Album.BaseAlbum;
 import Controller.BrowseController.Categories.BaseCategory;
 import Controller.BrowseController.Categories.Category;
 import Controller.BrowseController.Playlist.BasePlaylist;
+import Controller.BrowseController.Recommendations.BaseRecommendation;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -60,6 +61,14 @@ class BrowseTest {
 
         BasePlaylist categoryPlaylists = client.getCategoriesPlaylists(client,"dinner");
         assertNotNull(categoryPlaylists);
+
+    }
+
+    @Test
+    void getRecommendations() throws IOException{
+
+        BaseRecommendation recommendations = client.getRecommendations(client);
+        assertNotNull(recommendations);
 
     }
 
