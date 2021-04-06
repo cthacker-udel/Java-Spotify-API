@@ -2,6 +2,7 @@ package getRequests;
 
 import Client.SpotifyClient;
 import Controller.BrowseController.Album.BaseAlbum;
+import Controller.BrowseController.Categories.BaseCategory;
 import Controller.BrowseController.Playlist.BasePlaylist;
 import org.junit.jupiter.api.Test;
 
@@ -34,6 +35,14 @@ class BrowseTest {
 
         BasePlaylist playlist = client.getAllFeaturedPlaylists(client);
         assertNotNull(playlist);
+
+    }
+
+    @Test
+    void categoriesTest() throws IOException{
+
+        BaseCategory categories = client.getAllCategories(client);
+        assertNotNull(categories);
 
     }
 

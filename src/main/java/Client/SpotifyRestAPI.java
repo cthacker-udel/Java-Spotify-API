@@ -6,6 +6,7 @@ import Controller.ArtistController.Artist;
 import Controller.ArtistController.ArtistAlbum;
 import Controller.ArtistController.ArtistTopTrack;
 import Controller.ArtistController.BaseArtist;
+import Controller.BrowseController.Categories.BaseCategory;
 import Controller.BrowseController.Playlist.BasePlaylist;
 import Model.albumInterface;
 import Model.artistInterface;
@@ -309,5 +310,24 @@ public class SpotifyRestAPI implements AlbumInterface {
         Response<BasePlaylist> response = call.execute();
 
         return response.body();
+    }
+
+    public BaseCategory getAllCategories(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/browse/featured-playlists/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        browseInterface browseInterface = retrofit.create(Model.browseInterface.class);
+
+        Call<BaseCategory> call = browseInterface.getCategories(getTokenString(client.getToken()));
+
+        Response<BaseCategory> response = call.execute();
+
+        return response.body();
+
     }
 }
