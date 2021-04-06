@@ -55,5 +55,13 @@ class BrowseTest {
 
     }
 
+    @Test
+    void categoryPlaylistTest() throws IOException{
+
+        BasePlaylist categoryPlaylists = client.getCategoriesPlaylists(client,"dinner");
+        assertNotNull(categoryPlaylists);
+
+    }
+
 
 }

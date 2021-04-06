@@ -353,7 +353,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
     public BasePlaylist getCategoriesPlaylists(SpotifyClient client, String categoryId) throws IOException {
 
-        String url = baseUrl + String.format("/v1/browse/categories/%s/playlists",categoryId);
+        String url = baseUrl + String.format("/v1/browse/categories/%s/playlists/",categoryId);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url)

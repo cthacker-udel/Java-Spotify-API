@@ -88,19 +88,19 @@ Controller/BrowseController/Categories/Categories.java
  Controller.BrowseController.Categories.Categories
 Controller/BrowseController/Categories/Item.java
  Controller.BrowseController.Categories.Item
-Client/SpotifyRestAPI.java
- Client.SpotifyRestAPI
+Controller/BrowseController/Categories/Icon.java
+ Controller.BrowseController.Categories.Icon
 Controller/BrowseController/Categories/Category.java
  Controller.BrowseController.Categories.Category
-getRequests/Artist.java
- getRequests.Artist
 Model/browseInterface.java
  Model.browseInterface
+Client/SpotifyRestAPI.java
+ Client.SpotifyRestAPI
+getRequests/Artist.java
+ getRequests.Artist
 Client/SpotifyClient.java
  Client.SpotifyClient
 getRequests/AlbumInterface.java
  getRequests.AlbumInterface
 getRequests/Album.java
  getRequests.Album
-Controller/BrowseController/Categories/Icon.java
- Controller.BrowseController.Categories.Icon
