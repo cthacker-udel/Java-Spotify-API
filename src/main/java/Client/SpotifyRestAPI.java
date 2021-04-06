@@ -18,6 +18,7 @@ import Model.browseInterface;
 import Model.episodeInterface;
 import getRequests.AlbumInterface;
 
+import getRequests.Episode;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
@@ -427,12 +428,33 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         episodeInterface episodeInterface = retrofit.create(Model.episodeInterface.class);
 
-        Call<BaseEpisode> call = episodeInterface.getEpisodes(getTokenString(client.getToken()),client.getEpisodes().convertEpisodes());
+        Call<BaseEpisode> call = episodeInterface.getEpisodes(getTokenString(client.getToken()),client.getEpisode().convertEpisodes());
 
         Response<BaseEpisode> response = call.execute();
 
         return response.body();
 
     }
+
+    public Controller.EpisodeController.Episode getSingleEpisode(SpotifyClient client,String episodeId) throws IOException{
+
+        String url = baseUrl + String.format("/v1/episodes/%s/",episodeId);
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        episodeInterface episodeInterface = retrofit.create(Model.episodeInterface.class);
+
+        Call<Controller.EpisodeController.Episode> call = episodeInterface.getSingleEpisode(getTokenString(client.getToken()),episodeId);
+
+        Response<Controller.EpisodeController.Episode> response = call.execute();
+
+        return response.body();
+
+    }
+
+
 
 }

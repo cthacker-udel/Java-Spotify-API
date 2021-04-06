@@ -120,7 +120,7 @@ public class SpotifyClient extends SpotifyRestAPI{
         this.seed = seed;
     }
 
-    public Episode getEpisodes() {
+    public Episode getEpisode() {
         return episodes;
     }
 
