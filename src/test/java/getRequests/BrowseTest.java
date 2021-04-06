@@ -6,6 +6,7 @@ import Controller.BrowseController.Categories.BaseCategory;
 import Controller.BrowseController.Categories.Category;
 import Controller.BrowseController.Playlist.BasePlaylist;
 import Controller.BrowseController.Recommendations.BaseRecommendation;
+import Controller.BrowseController.Recommendations.RecommendationGenreList;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -69,6 +70,14 @@ class BrowseTest {
 
         BaseRecommendation recommendations = client.getRecommendations(client);
         assertNotNull(recommendations);
+
+    }
+
+    @Test
+    void getSeedGenres() throws IOException{
+
+        RecommendationGenreList seedGenres = client.getRecommendationGenres(client);
+        assertNotNull(seedGenres);
 
     }
 
