@@ -24,7 +24,7 @@ public class Episode extends SpotifyClient {
     }
 
     public ArrayList<String> getEpisodes() {
-        return episodes;
+        return this.episodes;
     }
 
     public void setEpisodes(ArrayList<String> episodes) {
