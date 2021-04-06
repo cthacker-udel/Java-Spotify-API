@@ -10,6 +10,7 @@ import Controller.BrowseController.Categories.BaseCategory;
 import Controller.BrowseController.Categories.Category;
 import Controller.BrowseController.Playlist.BasePlaylist;
 import Controller.BrowseController.Recommendations.BaseRecommendation;
+import Controller.BrowseController.Recommendations.RecommendationGenreList;
 import Model.albumInterface;
 import Model.artistInterface;
 import Model.browseInterface;
@@ -386,5 +387,24 @@ public class SpotifyRestAPI implements AlbumInterface {
         Response<BaseRecommendation> response = call.execute();
 
         return response.body();
+    }
+
+    public RecommendationGenreList getRecommendationGenres(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/recommendations/available-genre-seeds/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        browseInterface browseInterface = retrofit.create(Model.browseInterface.class);
+
+        Call<RecommendationGenreList> call = browseInterface.getSeedGenres(getTokenString(client.getToken()));
+
+        Response<RecommendationGenreList> response = call.execute();
+
+        return response.body();
+
     }
 }

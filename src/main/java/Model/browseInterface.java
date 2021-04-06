@@ -5,6 +5,7 @@ import Controller.BrowseController.Categories.BaseCategory;
 import Controller.BrowseController.Categories.Category;
 import Controller.BrowseController.Playlist.BasePlaylist;
 import Controller.BrowseController.Recommendations.BaseRecommendation;
+import Controller.BrowseController.Recommendations.RecommendationGenreList;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
@@ -31,5 +32,6 @@ public interface browseInterface {
     @GET("https://api.spotify.com/v1/recommendations")
     Call<BaseRecommendation> getRecommendations(@Header("Authorization") String authorization, @Query("seed_artists") String artists, @Query("seed_genres") String genres, @Query("seed_tracks") String tracks);
 
-
+    @GET("https://api.spotify.com/v1/recommendations/available-genre-seeds")
+    Call<RecommendationGenreList> getSeedGenres(@Header("Authorization") String authorization);
 }
