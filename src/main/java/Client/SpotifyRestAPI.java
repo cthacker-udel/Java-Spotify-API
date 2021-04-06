@@ -381,7 +381,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         browseInterface browseInterface = retrofit.create(Model.browseInterface.class);
 
-        Call<BaseRecommendation> call = browseInterface.getRecommendations(getTokenString(client.getToken()),"","","");
+        Call<BaseRecommendation> call = browseInterface.getRecommendations(getTokenString(client.getToken()),client.getSeed().convertSeedArtists(),client.getSeed().convertSeedGenres(),client.getSeed().convertSeedTracks());
 
         Response<BaseRecommendation> response = call.execute();
 
