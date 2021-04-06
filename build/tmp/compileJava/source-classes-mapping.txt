@@ -68,29 +68,39 @@ Controller/BrowseController/Album/Albums.java
  Controller.BrowseController.Album.Albums
 Controller/BrowseController/Playlist/Tracks.java
  Controller.BrowseController.Playlist.Tracks
-Model/browseInterface.java
- Model.browseInterface
-Client/SpotifyClient.java
- Client.SpotifyClient
+Controller/BrowseController/Playlist/Playlists.java
+ Controller.BrowseController.Playlist.Playlists
+Controller/BrowseController/Playlist/BasePlaylist.java
+ Controller.BrowseController.Playlist.BasePlaylist
 Controller/BrowseController/Playlist/Owner.java
  Controller.BrowseController.Playlist.Owner
 Controller/BrowseController/Album/Item.java
  Controller.BrowseController.Album.Item
-Client/SpotifyRestAPI.java
- Client.SpotifyRestAPI
+Controller/BrowseController/Playlist/ExternalUrls.java
+ Controller.BrowseController.Playlist.ExternalUrls
 Controller/BrowseController/Album/Image.java
  Controller.BrowseController.Album.Image
+Controller/BrowseController/Playlist/Item.java
+ Controller.BrowseController.Playlist.Item
+Controller/BrowseController/Categories/BaseCategory.java
+ Controller.BrowseController.Categories.BaseCategory
+Controller/BrowseController/Categories/Categories.java
+ Controller.BrowseController.Categories.Categories
+Controller/BrowseController/Categories/Item.java
+ Controller.BrowseController.Categories.Item
+Client/SpotifyRestAPI.java
+ Client.SpotifyRestAPI
+Controller/BrowseController/Categories/Category.java
+ Controller.BrowseController.Categories.Category
 getRequests/Artist.java
  getRequests.Artist
-Controller/BrowseController/Playlist/BasePlaylist.java
- Controller.BrowseController.Playlist.BasePlaylist
+Model/browseInterface.java
+ Model.browseInterface
+Client/SpotifyClient.java
+ Client.SpotifyClient
 getRequests/AlbumInterface.java
  getRequests.AlbumInterface
 getRequests/Album.java
  getRequests.Album
-Controller/BrowseController/Playlist/Playlists.java
- Controller.BrowseController.Playlist.Playlists
-Controller/BrowseController/Playlist/Item.java
- Controller.BrowseController.Playlist.Item
-Controller/BrowseController/Playlist/ExternalUrls.java
- Controller.BrowseController.Playlist.ExternalUrls
+Controller/BrowseController/Categories/Icon.java
+ Controller.BrowseController.Categories.Icon
