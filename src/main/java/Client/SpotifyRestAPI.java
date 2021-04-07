@@ -12,10 +12,7 @@ import Controller.BrowseController.Playlist.BasePlaylist;
 import Controller.BrowseController.Recommendations.BaseRecommendation;
 import Controller.BrowseController.Recommendations.RecommendationGenreList;
 import Controller.EpisodeController.BaseEpisode;
-import Model.albumInterface;
-import Model.artistInterface;
-import Model.browseInterface;
-import Model.episodeInterface;
+import Model.*;
 import getRequests.AlbumInterface;
 
 import getRequests.Episode;
@@ -44,6 +41,12 @@ public class SpotifyRestAPI implements AlbumInterface {
     public SpotifyRestAPI(String requestType) {
         super();
         this.requestType = requestType;
+    }
+
+    public String getContentType(){
+
+        return "application/json";
+
     }
 
     public String getTokenString(String token){
@@ -460,6 +463,64 @@ public class SpotifyRestAPI implements AlbumInterface {
     Follow Methods
 
      */
+
+    public boolean followAPlaylist(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + String.format("/v1/playlists/%s/followers",client.getFollow().getPlayListId());
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        followInterface followInterface = retrofit.create(Model.followInterface.class);
+
+        Call<Object> call = followInterface.followAPlaylist(getTokenString(client.getToken()),client.getContentType(),client.getFollow().getPlayListId());
+
+        Response<Object> response = call.execute();
+
+        return response.isSuccessful();
+
+    }
+
+    public boolean unfollowPlaylist(SpotifyClient client) throws IOException{
+
+        String url = baseUrl + String.format("/v1/playlists/%s/followers/",client.getFollow().getPlayListId());
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        followInterface followInterface = retrofit.create(Model.followInterface.class);
+
+        Call<Object> call = followInterface.unfollowPlaylist(getTokenString(client.getToken()),getContentType(),client.getFollow().getPlayListId());
+
+        Response<Object> response = call.execute();
+
+        return response.isSuccessful();
+
+    }
+
+
+    public boolean checkUsersFollowPlaylist(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + String.format("/v1/playlists/%s/followers/contains/",client.getFollow().getPlayListId());
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        followInterface followInterface = retrofit.create(Model.followInterface.class);
+
+        Call<Object> call = followInterface.checkUserFollowsPlaylist(getTokenString(client.getToken()),client.getFollow().getPlayListId(),client.getUserIds().convertUserIds());
+
+        Response<Object> response = call.execute();
+
+        return response.isSuccessful();
+
+    }
 
 
 

@@ -18,6 +18,7 @@ public class SpotifyClient extends SpotifyRestAPI{
     private Seed seed;
     private Episode episodes;
     private Follow follow;
+    private User userIds;
 
     public SpotifyClient(){
         super();
@@ -34,6 +35,7 @@ public class SpotifyClient extends SpotifyRestAPI{
         this.artists = new Artist();
         this.seed = new Seed();
         this.episodes = new Episode();
+        this.userIds = new User();
     }
 
     public SpotifyClient(String apiKey, String secretKey, String token){
@@ -43,6 +45,17 @@ public class SpotifyClient extends SpotifyRestAPI{
         this.token = token;
         this.album = new Album();
         this.artists = new Artist();
+        this.seed = new Seed();
+        this.episodes = new Episode();
+        this.userIds = new User();
+    }
+
+    public User getUserIds() {
+        return userIds;
+    }
+
+    public void setUserIds(User userIds) {
+        this.userIds = userIds;
     }
 
     public String getISOCountryCode() {
