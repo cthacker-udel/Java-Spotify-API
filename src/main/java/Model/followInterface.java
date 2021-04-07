@@ -21,9 +21,12 @@ public interface followInterface {
     Call<Controller.FollowController.BaseArtist> getUserFollowedArtists(@Header("Authorization") String auth, @Query("type") String type);
 
     @PUT("https://api.spotify.com/v1/me/following")
-    Call<Object> followUserOrArtist(@Header("Authorization") String auth, @Query("type") String type, @Query("ids") String ids, @Body Map<String,String[]> id);
+    Call<Object> followUserOrArtist(@Header("Authorization") String auth, @Query("type") String type, @Query("ids") String ids, @Body String id);
 
     @DELETE("https://api.spotify.com/v1/me/following")
     Call<Object> unfollowArtistOrUser(@Header("Authorization") String authorization, @Query("type") String type, @Query("ids") String ids);
+
+    @GET("https://api.spotify.com/v1/me/following/contains")
+    Call<Object> checkFollowingStateForArtistOrUser(@Header("Authorization") String auth, @Query("type") String type, @Query("ids") String ids);
 
 }

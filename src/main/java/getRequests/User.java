@@ -1,6 +1,7 @@
 package getRequests;
 
 import Client.SpotifyClient;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -28,10 +29,10 @@ public class User extends SpotifyClient {
         return String.join(",",this.userIds);
     }
 
-    public Map<String,String[]> jsonifyUserIds(){
+    public String jsonifyUserIds(){
         Map<String,String[]> ids = new LinkedHashMap<>();
         ids.put("ids",this.userIds.stream().toArray(String[]::new));
-        return ids;
+        return new Gson().toJson(ids);
     }
 
     public void addUserId(String userId){

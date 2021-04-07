@@ -559,7 +559,7 @@ public class SpotifyRestAPI implements AlbumInterface {
         return response.isSuccessful();
     }
 
-    public void unfollowArtistOrUser(SpotifyClient client){
+    public boolean unfollowArtistOrUser(SpotifyClient client) throws IOException {
 
         String url = baseUrl + "/v1/me/following/";
 
@@ -570,7 +570,31 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         followInterface followInterface = retrofit.create(Model.followInterface.class);
 
-        Call<Object> call;
+        Call<Object> call = followInterface.unfollowArtistOrUser(getTokenString(client.getToken()),client.getUserIds().getType(),client.getUserIds().convertUserIds());
+
+        Response<Object> response = call.execute();
+
+        return response.isSuccessful();
+
+    }
+
+    public boolean getFollwingStateOfUserOrArtist(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/me/following/contains/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        followInterface followInterface = retrofit.create(Model.followInterface.class);
+
+        Call<Object> call = followInterface.checkFollowingStateForArtistOrUser(getTokenString(client.getToken()),client.getUserIds().getType(),client.getUserIds().convertUserIds());
+
+        Response<Object> response = call.execute();
+
+        return response.isSuccessful();
+
 
     }
 
