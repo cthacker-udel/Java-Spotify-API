@@ -522,6 +522,25 @@ public class SpotifyRestAPI implements AlbumInterface {
 
     }
 
+    public Controller.FollowController.BaseArtist getUsersArtistsFollowed(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/me/following/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        followInterface followInterface = retrofit.create(Model.followInterface.class);
+
+        Call<Controller.FollowController.BaseArtist> call = followInterface.getUserFollowedArtists(getTokenString(client.getToken()),client.getUserIds().getType());
+
+        Response<Controller.FollowController.BaseArtist> response = call.execute();
+
+        return response.body();
+
+    }
+
 
 
 }
