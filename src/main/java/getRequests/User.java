@@ -7,10 +7,19 @@ import java.util.ArrayList;
 public class User extends SpotifyClient {
 
     private ArrayList<String> userIds;
+    private String type;
 
     public User(){
         super();
         this.userIds = new ArrayList<>();
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String convertUserIds(){

@@ -15,4 +15,7 @@ public interface followInterface {
     @GET("https://api.spotify.com/v1/playlists/{playlistId}/followers/contains")
     Call<Object> checkUserFollowsPlaylist(@Header("Authorization") String authorization, @Path("playlistId") String playListId, @Query("ids") String userIds);
 
+    @GET("https://api.spotify.com/v1/me/following")
+    Call<Controller.FollowController.BaseArtist> getUserFollowedArtists(@Header("Authorization") String auth, @Query("type") String type);
+
 }
