@@ -3,6 +3,8 @@ package getRequests;
 import Client.SpotifyClient;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class User extends SpotifyClient {
 
@@ -24,6 +26,12 @@ public class User extends SpotifyClient {
 
     public String convertUserIds(){
         return String.join(",",this.userIds);
+    }
+
+    public Map<String,String[]> jsonifyUserIds(){
+        Map<String,String[]> ids = new LinkedHashMap<>();
+        ids.put("ids",this.userIds.stream().toArray(String[]::new));
+        return ids;
     }
 
     public void addUserId(String userId){

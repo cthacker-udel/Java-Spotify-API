@@ -541,6 +541,39 @@ public class SpotifyRestAPI implements AlbumInterface {
 
     }
 
+    public boolean followArtistOrUser(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/me/following/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        followInterface followInterface = retrofit.create(Model.followInterface.class);
+
+        Call<Object> call = followInterface.followUserOrArtist(getTokenString(client.getToken()),client.getUserIds().getType(),client.getUserIds().convertUserIds(),client.getUserIds().jsonifyUserIds());
+
+        Response<Object> response = call.execute();
+
+        return response.isSuccessful();
+    }
+
+    public void unfollowArtistOrUser(SpotifyClient client){
+
+        String url = baseUrl + "/v1/me/following/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        followInterface followInterface = retrofit.create(Model.followInterface.class);
+
+        Call<Object> call;
+
+    }
+
 
 
 }

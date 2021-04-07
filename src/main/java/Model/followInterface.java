@@ -3,6 +3,8 @@ package Model;
 import retrofit2.Call;
 import retrofit2.http.*;
 
+import java.util.Map;
+
 public interface followInterface {
 
     @PUT("https://api.spotify.com/v1/playlists/{playlistId}/followers")
@@ -17,5 +19,11 @@ public interface followInterface {
 
     @GET("https://api.spotify.com/v1/me/following")
     Call<Controller.FollowController.BaseArtist> getUserFollowedArtists(@Header("Authorization") String auth, @Query("type") String type);
+
+    @PUT("https://api.spotify.com/v1/me/following")
+    Call<Object> followUserOrArtist(@Header("Authorization") String auth, @Query("type") String type, @Query("ids") String ids, @Body Map<String,String[]> id);
+
+    @DELETE("https://api.spotify.com/v1/me/following")
+    Call<Object> unfollowArtistOrUser(@Header("Authorization") String authorization, @Query("type") String type, @Query("ids") String ids);
 
 }
