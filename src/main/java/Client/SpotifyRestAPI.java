@@ -598,6 +598,31 @@ public class SpotifyRestAPI implements AlbumInterface {
 
     }
 
+    /*
+
+    Library API
+
+     */
+
+    public Controller.LibraryController.BaseAlbum getUserSavedAlbums(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/me/albums/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        libraryInterface libraryInterface = retrofit.create(Model.libraryInterface.class);
+
+        Call<Controller.LibraryController.BaseAlbum> call = libraryInterface.getUserSavedAlbums(getTokenString(client.getToken()));
+
+        Response<Controller.LibraryController.BaseAlbum> response = call.execute();
+
+        return response.body();
+
+    }
+
 
 
 }
