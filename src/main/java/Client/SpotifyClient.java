@@ -19,6 +19,7 @@ public class SpotifyClient extends SpotifyRestAPI{
     private Episode episodes;
     private Follow follow;
     private User userIds;
+    private Track trackIds;
 
     public SpotifyClient(){
         super();
@@ -36,6 +37,7 @@ public class SpotifyClient extends SpotifyRestAPI{
         this.seed = new Seed();
         this.episodes = new Episode();
         this.userIds = new User();
+        this.trackIds = new Track();
     }
 
     public SpotifyClient(String apiKey, String secretKey, String token){
@@ -48,6 +50,7 @@ public class SpotifyClient extends SpotifyRestAPI{
         this.seed = new Seed();
         this.episodes = new Episode();
         this.userIds = new User();
+        this.trackIds = new Track();
     }
 
     public User getUserIds() {
@@ -56,6 +59,14 @@ public class SpotifyClient extends SpotifyRestAPI{
 
     public void setUserIds(User userIds) {
         this.userIds = userIds;
+    }
+
+    public Track getTrackIds() {
+        return trackIds;
+    }
+
+    public void setTrackIds(Track trackIds) {
+        this.trackIds = trackIds;
     }
 
     public String getISOCountryCode() {

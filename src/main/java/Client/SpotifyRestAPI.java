@@ -700,6 +700,63 @@ public class SpotifyRestAPI implements AlbumInterface {
         return response.body();
     }
 
+    public boolean saveTracksForUser(SpotifyClient client) throws IOException {
+
+        String url = baseUrl = "/v1/me/tracks/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        libraryInterface libraryInterface = retrofit.create(Model.libraryInterface.class);
+
+        Call<Object> call = libraryInterface.saveTracksToUser(getTokenString(client.getToken()),client.getTrackIds().convertTrackIds());
+
+        Response<Object> response = call.execute();
+
+        return response.isSuccessful();
+
+    }
+
+    public boolean removeUserSavedTracks(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/me/tracks/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        libraryInterface libraryInterface = retrofit.create(Model.libraryInterface.class);
+
+        Call<Object> call = libraryInterface.deleteUserTracks(getTokenString(client.getToken()),client.getTrackIds().convertTrackIds());
+
+        Response<Object> response = call.execute();
+
+        return response.isSuccessful();
+
+    }
+
+    public boolean checkUserHasTracks(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/me/tracks/contains/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        libraryInterface libraryInterface = retrofit.create(Model.libraryInterface.class);
+
+        Call<Object> call = libraryInterface.checkUserHasOneOrMoreSavedTracks(getTokenString(client.getToken()),client.getTrackIds().convertTrackIds());
+
+        Response<Object> response = call.execute();
+
+        return response.isSuccessful();
+
+    }
+
 
 
 
