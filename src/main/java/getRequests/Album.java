@@ -22,6 +22,10 @@ public class Album extends SpotifyClient {
         this.albumIds = new ArrayList<>();
     }
 
+    public String convertAlbumIds(){
+        return String.join(",",albumIds);
+    }
+
     public void addAlbumId(String albumId){
         albumIds.add(albumId);
     }

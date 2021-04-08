@@ -12,6 +12,7 @@ import Controller.BrowseController.Playlist.BasePlaylist;
 import Controller.BrowseController.Recommendations.BaseRecommendation;
 import Controller.BrowseController.Recommendations.RecommendationGenreList;
 import Controller.EpisodeController.BaseEpisode;
+import Controller.LibraryController.BaseTrack;
 import Model.*;
 import getRequests.AlbumInterface;
 
@@ -634,7 +635,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         libraryInterface libraryInterface = retrofit.create(Model.libraryInterface.class);
 
-        Call<Object> call = libraryInterface.saveAlbumsForCurrentUser(getTokenString(client.getToken()),client.getUserIds().convertUserIds());
+        Call<Object> call = libraryInterface.saveAlbumsForCurrentUser(getTokenString(client.getToken()),client.getAlbum().convertAlbumIds());
 
         Response<Object> response = call.execute();
 
@@ -642,6 +643,64 @@ public class SpotifyRestAPI implements AlbumInterface {
 
 
     }
+
+    public boolean removeAlbumsCurrUser(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/me/albums/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        libraryInterface libraryInterface = retrofit.create(Model.libraryInterface.class);
+
+        Call<Object> call = libraryInterface.removeAlbumsForCurrentUser(getTokenString(client.getToken()),client.getAlbum().convertAlbumIds());
+
+        Response<Object> response = call.execute();
+
+        return response.isSuccessful();
+
+
+    }
+
+    public boolean checkOneOrMoreUserSavedAlbums(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/me/albums/contains/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        libraryInterface libraryInterface = retrofit.create(Model.libraryInterface.class);
+
+        Call<Object> call = libraryInterface.checkUserAlbums(getTokenString(client.getToken()),client.getAlbum().convertAlbumIds());
+
+        Response<Object> response = call.execute();
+
+        return response.isSuccessful();
+    }
+
+    public BaseTrack getUserSavedTracks(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/me/tracks/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        libraryInterface libraryInterface = retrofit.create(Model.libraryInterface.class);
+
+        Call<BaseTrack> call = libraryInterface.getUserSavedTracks(getTokenString(client.getToken()));
+
+        Response<BaseTrack> response = call.execute();
+
+        return response.body();
+    }
+
+
 
 
 
