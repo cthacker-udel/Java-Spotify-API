@@ -623,6 +623,26 @@ public class SpotifyRestAPI implements AlbumInterface {
 
     }
 
+    public boolean saveAlbumsCurrUser(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/me/albums/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        libraryInterface libraryInterface = retrofit.create(Model.libraryInterface.class);
+
+        Call<Object> call = libraryInterface.saveAlbumsForCurrentUser(getTokenString(client.getToken()),client.getUserIds().convertUserIds());
+
+        Response<Object> response = call.execute();
+
+        return response.isSuccessful();
+
+
+    }
+
 
 
 }
