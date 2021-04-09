@@ -15,6 +15,7 @@ import Controller.EpisodeController.BaseEpisode;
 import Controller.LibraryController.BaseTrack;
 import Controller.LibraryController.Show.BaseShow;
 import Controller.MarketController.Market;
+import Controller.PersonalizationController.baseUserTopTracksAndArtists;
 import Model.*;
 import getRequests.AlbumInterface;
 
@@ -969,6 +970,38 @@ public class SpotifyRestAPI implements AlbumInterface {
         return response.body().getMarkets();
 
     }
+
+
+    /************************************************************************
+
+
+
+     Personalization API
+
+
+
+     *************************************************************************/
+
+
+    public baseUserTopTracksAndArtists getUserTopTracksAndArtists(SpotifyClient client, String type) throws IOException {
+
+        String url = baseUrl + String.format("/v1/me/top/%s/",type);
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        personalizationInterface personalizationInterface = retrofit.create(Model.personalizationInterface.class);
+
+        Call<baseUserTopTracksAndArtists> call = personalizationInterface.getUserTopTracksAndArtist(getTokenString(client.getToken()),type);
+
+        Response<baseUserTopTracksAndArtists> response = call.execute();
+
+        return response.body();
+
+    }
+
 
 
 
