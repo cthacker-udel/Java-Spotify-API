@@ -35,5 +35,8 @@ public interface libraryInterface {
     @GET("https://api.spotify.com/v1/me/episodes")
     Call<BaseEpisode> getUserSavedEpisodes(@Header("Authorization") String auth);
 
+    @PUT("https://api.spotify.com/v1/me/episodes")
+    Call<Object> saveEpisodeForUser(@Header("Authorization") String auth, @Query("ids") String ids);
+
 
 }
