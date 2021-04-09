@@ -20,6 +20,7 @@ public class SpotifyClient extends SpotifyRestAPI{
     private Follow follow;
     private User userIds;
     private Track trackIds;
+    private Show show;
 
     public SpotifyClient(){
         super();
@@ -38,6 +39,7 @@ public class SpotifyClient extends SpotifyRestAPI{
         this.episodes = new Episode();
         this.userIds = new User();
         this.trackIds = new Track();
+        this.show = new Show();
     }
 
     public SpotifyClient(String apiKey, String secretKey, String token){
@@ -51,6 +53,7 @@ public class SpotifyClient extends SpotifyRestAPI{
         this.episodes = new Episode();
         this.userIds = new User();
         this.trackIds = new Track();
+        this.show = new Show();
     }
 
     public User getUserIds() {
@@ -59,6 +62,14 @@ public class SpotifyClient extends SpotifyRestAPI{
 
     public void setUserIds(User userIds) {
         this.userIds = userIds;
+    }
+
+    public Show getShow() {
+        return show;
+    }
+
+    public void setShow(Show show) {
+        this.show = show;
     }
 
     public Track getTrackIds() {
