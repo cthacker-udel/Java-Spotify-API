@@ -51,5 +51,11 @@ public interface libraryInterface {
     @PUT("https://api.spotify.com/v1/me/shows")
     Call<Object> saveShowsForUser(@Header("Authorization") String auth, @Query("ids") String ids);
 
+    @DELETE("https://api.spotify.com/v1/me/shows")
+    Call<Object> removeUserSavedShows(@Header("Authorization") String auth, @Query("ids") String ids);
+
+    @GET("https://api.spotify.com/v1/me/shows/contains")
+    Call<Object> checkUserHasSavedShows(@Header("Authorization") String auth, @Query("ids") String ids);
+
 
 }

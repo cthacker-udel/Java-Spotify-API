@@ -898,6 +898,44 @@ public class SpotifyRestAPI implements AlbumInterface {
 
     }
 
+    public boolean removeUserSavedShows(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/me/shows/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        libraryInterface libraryInterface = retrofit.create(Model.libraryInterface.class);
+
+        Call<Object> call = libraryInterface.removeUserSavedShows(getTokenString(client.getToken()),client.getShow().convertShowIds());
+
+        Response<Object> response = call.execute();
+
+        return response.isSuccessful();
+
+    }
+
+    public boolean checkUserHasSavedShows(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/me/shows/contains/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        libraryInterface libraryInterface = retrofit.create(Model.libraryInterface.class);
+
+        Call<Object> call = libraryInterface.checkUserHasSavedShows(getTokenString(client.getToken()),client.getShow().convertShowIds());
+
+        Response<Object> response = call.execute();
+
+        return response.isSuccessful();
+
+    }
+
 
 
 
