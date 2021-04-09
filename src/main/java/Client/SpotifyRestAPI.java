@@ -14,6 +14,7 @@ import Controller.BrowseController.Recommendations.RecommendationGenreList;
 import Controller.EpisodeController.BaseEpisode;
 import Controller.LibraryController.BaseTrack;
 import Controller.LibraryController.Show.BaseShow;
+import Controller.MarketController.Market;
 import Model.*;
 import getRequests.AlbumInterface;
 
@@ -25,6 +26,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import getRequests.Album;
@@ -935,6 +937,40 @@ public class SpotifyRestAPI implements AlbumInterface {
         return response.isSuccessful();
 
     }
+
+
+    /************************************************************************
+
+
+
+     Markets API
+
+
+
+     *************************************************************************/
+
+
+    public List<String> getAvailableMarkets(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/markets/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        marketInterface marketInterface = retrofit.create(Model.marketInterface.class);
+
+        Call<Market> call = marketInterface.getAvailableMarkets(getTokenString(client.getToken()));
+
+        Response<Market> response = call.execute();
+
+        assert response.body() != null;
+        return response.body().getMarkets();
+
+    }
+
+
 
 
 
