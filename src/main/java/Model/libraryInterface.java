@@ -2,6 +2,7 @@ package Model;
 
 import Controller.LibraryController.BaseAlbum;
 import Controller.LibraryController.BaseTrack;
+import Controller.LibraryController.Episode.BaseEpisode;
 import retrofit2.Call;
 import retrofit2.http.*;
 
@@ -30,6 +31,9 @@ public interface libraryInterface {
 
     @GET("https://api.spotify.com/v1/me/tracks/contains")
     Call<Object> checkUserHasOneOrMoreSavedTracks(@Header("Authorization") String auth, @Query("ids") String trackIds);
+
+    @GET("https://api.spotify.com/v1/me/episodes")
+    Call<BaseEpisode> getUserSavedEpisodes(@Header("Authorization") String auth);
 
 
 }
