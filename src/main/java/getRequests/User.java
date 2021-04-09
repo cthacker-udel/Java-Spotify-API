@@ -10,11 +10,39 @@ import java.util.Map;
 public class User extends SpotifyClient {
 
     private ArrayList<String> userIds;
+    private ArrayList<String> deviceIds;
     private String type;
 
     public User(){
         super();
         this.userIds = new ArrayList<>();
+        this.deviceIds = new ArrayList<>();
+    }
+
+    public String jsonifyDeviceIds(){
+        Map<String,String[]> ids = new LinkedHashMap<>();
+        ids.put("device_ids",this.deviceIds.stream().toArray(String[]::new));
+        return new Gson().toJson(ids);
+    }
+
+    public String convertDeviceIds(){
+        return String.join(",",this.deviceIds);
+    }
+
+    public void clearDeviceIds(){
+        this.deviceIds.clear();
+    }
+
+    public void addDeviceId(String deviceId){
+        deviceIds.add(deviceId);
+    }
+
+    public ArrayList<String> getDeviceIds() {
+        return deviceIds;
+    }
+
+    public void setDeviceIds(ArrayList<String> deviceIds) {
+        this.deviceIds = deviceIds;
     }
 
     public String getType() {
@@ -43,7 +71,7 @@ public class User extends SpotifyClient {
         this.userIds.clear();
     }
 
-    public ArrayList<String> getUser() {
+    public ArrayList<String> getTheUser() {
         return userIds;
     }
 

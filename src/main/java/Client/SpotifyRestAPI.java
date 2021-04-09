@@ -16,10 +16,11 @@ import Controller.LibraryController.BaseTrack;
 import Controller.LibraryController.Show.BaseShow;
 import Controller.MarketController.Market;
 import Controller.PersonalizationController.baseUserTopTracksAndArtists;
+import Controller.PlayerController.Devices.basePlayerDevice;
+import Controller.PlayerController.baseUserPlayback;
 import Model.*;
 import getRequests.AlbumInterface;
 
-import getRequests.Episode;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
@@ -540,7 +541,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         followInterface followInterface = retrofit.create(Model.followInterface.class);
 
-        Call<Object> call = followInterface.checkUserFollowsPlaylist(getTokenString(client.getToken()),client.getFollow().getPlayListId(),client.getUserIds().convertUserIds());
+        Call<Object> call = followInterface.checkUserFollowsPlaylist(getTokenString(client.getToken()),client.getFollow().getPlayListId(),client.getUser().convertUserIds());
 
         Response<Object> response = call.execute();
 
@@ -559,7 +560,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         followInterface followInterface = retrofit.create(Model.followInterface.class);
 
-        Call<Controller.FollowController.BaseArtist> call = followInterface.getUserFollowedArtists(getTokenString(client.getToken()),client.getUserIds().getType());
+        Call<Controller.FollowController.BaseArtist> call = followInterface.getUserFollowedArtists(getTokenString(client.getToken()),client.getUser().getType());
 
         Response<Controller.FollowController.BaseArtist> response = call.execute();
 
@@ -578,7 +579,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         followInterface followInterface = retrofit.create(Model.followInterface.class);
 
-        Call<Object> call = followInterface.followUserOrArtist(getTokenString(client.getToken()),client.getUserIds().getType(),client.getUserIds().convertUserIds(),client.getUserIds().jsonifyUserIds());
+        Call<Object> call = followInterface.followUserOrArtist(getTokenString(client.getToken()),client.getUser().getType(),client.getUser().convertUserIds(),client.getUser().jsonifyUserIds());
 
         Response<Object> response = call.execute();
 
@@ -596,7 +597,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         followInterface followInterface = retrofit.create(Model.followInterface.class);
 
-        Call<Object> call = followInterface.unfollowArtistOrUser(getTokenString(client.getToken()),client.getUserIds().getType(),client.getUserIds().convertUserIds());
+        Call<Object> call = followInterface.unfollowArtistOrUser(getTokenString(client.getToken()),client.getUser().getType(),client.getUser().convertUserIds());
 
         Response<Object> response = call.execute();
 
@@ -615,7 +616,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         followInterface followInterface = retrofit.create(Model.followInterface.class);
 
-        Call<Object> call = followInterface.checkFollowingStateForArtistOrUser(getTokenString(client.getToken()),client.getUserIds().getType(),client.getUserIds().convertUserIds());
+        Call<Object> call = followInterface.checkFollowingStateForArtistOrUser(getTokenString(client.getToken()),client.getUser().getType(),client.getUser().convertUserIds());
 
         Response<Object> response = call.execute();
 
@@ -997,6 +998,73 @@ public class SpotifyRestAPI implements AlbumInterface {
         Call<baseUserTopTracksAndArtists> call = personalizationInterface.getUserTopTracksAndArtist(getTokenString(client.getToken()),type);
 
         Response<baseUserTopTracksAndArtists> response = call.execute();
+
+        return response.body();
+
+    }
+
+    /************************************************************************
+
+
+
+     Player API
+
+
+
+     *************************************************************************/
+
+    public baseUserPlayback getInfoCurrentUserPlayback(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/me/player/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        playerInterface playerInterface = retrofit.create(Model.playerInterface.class);
+
+        Call<baseUserPlayback> call = playerInterface.getCurrentUserPlayback(getTokenString(client.getToken()));
+
+        Response<baseUserPlayback> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public boolean transferUserPlaybackToNewDevice(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/me/player/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        playerInterface playerInterface = retrofit.create(Model.playerInterface.class);
+
+        Call<Object> call = playerInterface.transferUsersPlayback(getTokenString(client.getToken()),client.getUser().jsonifyDeviceIds());
+
+        Response<Object> response = call.execute();
+
+        return response.isSuccessful();
+
+    }
+
+    public basePlayerDevice getUserAvailableDevices(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/me/player/devices/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        playerInterface playerInterface = retrofit.create(Model.playerInterface.class);
+
+        Call<basePlayerDevice> call = playerInterface.getCurrentUserAvailableDevices(getTokenString(client.getToken()));
+
+        Response<basePlayerDevice> response = call.execute();
 
         return response.body();
 

@@ -2,7 +2,11 @@ getRequests/AlbumTest.java
  getRequests.AlbumTest
 getRequests/ArtistTest.java
  getRequests.ArtistTest
+getRequests/EpisodeTest.java
+ getRequests.EpisodeTest
 Client/SpotifyRestAPITest.java
  Client.SpotifyRestAPITest
 getRequests/BrowseTest.java
  getRequests.BrowseTest
+getRequests/FollowTest.java
+ getRequests.FollowTest

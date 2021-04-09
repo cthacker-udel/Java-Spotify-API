@@ -1,7 +1,6 @@
 package getRequests;
 
 import Client.SpotifyClient;
-import Controller.EpisodeController.BaseEpisode;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -40,7 +39,7 @@ public class FollowTest {
     void testCheckUserFollowPlaylist() throws IOException{
 
         Follow follow = client.getFollow();
-        User user = client.getUserIds();
+        User user = client.getUser();
         follow.setPlayListId("playlist1");
         user.addUserId("user1");
         assertTrue(client.checkUsersFollowPlaylist(client));
@@ -50,7 +49,7 @@ public class FollowTest {
     @Test
     void testGetUsersFollowedArtists() throws IOException{
 
-        User user = client.getUserIds();
+        User user = client.getUser();
         user.setType("type1");
         assertNotNull(client.getUsersArtistsFollowed(client));
 
@@ -59,7 +58,7 @@ public class FollowTest {
     @Test
     void testFollowArtistOrUser() throws IOException{
 
-        User user = client.getUserIds();
+        User user = client.getUser();
         user.setType("type1");
         user.addUserId("user1");
         assertTrue(client.followArtistOrUser(client));
@@ -70,7 +69,7 @@ public class FollowTest {
     @Test
     void testUnfollowArtistOrUser() throws IOException{
 
-        User user = client.getUserIds();
+        User user = client.getUser();
         user.clearUserIds();
         user.addUserId("user1");
         user.addUserId("user2");
@@ -82,7 +81,7 @@ public class FollowTest {
     @Test
     void testGetFollowingStateForArtistOrUser() throws IOException {
 
-        User user = client.getUserIds();
+        User user = client.getUser();
         user.clearUserIds();
         user.setType("type3");
         user.addUserId("user1");

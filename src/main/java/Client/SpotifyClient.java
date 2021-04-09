@@ -56,7 +56,8 @@ public class SpotifyClient extends SpotifyRestAPI{
         this.show = new Show();
     }
 
-    public User getUserIds() {
+
+    public User getUser() {
         return userIds;
     }
 
