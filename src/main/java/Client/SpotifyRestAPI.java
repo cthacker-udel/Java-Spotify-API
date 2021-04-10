@@ -20,6 +20,7 @@ import Controller.PlayerController.CurrentTrack.baseCurrentTrack;
 import Controller.PlayerController.Devices.basePlayerDevice;
 import Controller.PlayerController.baseUserPlayback;
 import Model.*;
+import com.google.gson.GsonBuilder;
 import getRequests.AlbumInterface;
 
 import retrofit2.Call;
@@ -1158,6 +1159,44 @@ public class SpotifyRestAPI implements AlbumInterface {
         playerInterface playerInterface = retrofit.create(Model.playerInterface.class);
 
         Call<Object> call = playerInterface.skipUserPlaybackToPreviousTrack(getTokenString(client.getToken()));
+
+        Response<Object> response = call.execute();
+
+        return response.isSuccessful();
+
+    }
+
+    public boolean seekToPositionInCurrentUserTrack(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/me/player/seek/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        playerInterface playerInterface = retrofit.create(Model.playerInterface.class);
+
+        Call<Object> call = playerInterface.seekToCurrentUserTrackPosition(getTokenString(client.getToken()),client.getSeekPosition());
+
+        Response<Object> response = call.execute();
+
+        return response.isSuccessful();
+
+    }
+
+    public boolean setRepeatModeOnUserPlayback(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/me/player/repeat/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        playerInterface playerInterface = retrofit.create(Model.playerInterface.class);
+
+        Call<Object> call = playerInterface.setRepeatModeOnUserPlayback(getTokenString(client.getToken()),client.getState());
 
         Response<Object> response = call.execute();
 

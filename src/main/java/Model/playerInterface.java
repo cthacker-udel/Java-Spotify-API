@@ -34,4 +34,10 @@ public interface playerInterface {
     @POST("https://api.spotify.com/v1/me/player/previous")
     Call<Object> skipUserPlaybackToPreviousTrack(@Header("Authorization") String auth);
 
+    @PUT("https://api.spotify.com/v1/me/player/seek")
+    Call<Object> seekToCurrentUserTrackPosition(@Header("Authorization") String auth, @Query("position_ms") Integer position);
+
+    @PUT("https://api.spotify.com/v1/me/player/repeat")
+    Call<Object> setRepeatModeOnUserPlayback(@Header("Authorization") String auth, @Query("state") String state);
+
 }
