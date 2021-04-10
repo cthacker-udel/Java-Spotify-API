@@ -15,3 +15,22 @@
 **All additions and recommendations are welcome!**
 
 * Please check the Project Tab for Updates on current objectives
+
+
+## Usage
+
+* How to use the Java-Spotify-API wrapper 
+
+Create an instance of `SpotifyClient` by calling the constructors listed in this [file](https://github.com/cthacker-udel/Java-Spotify-API/blob/master/src/main/java/Client/SpotifyClient.java)
+
+**examples**
+
+### [Client package](https://github.com/cthacker-udel/Java-Spotify-API/tree/master/src/main/java/Client) → [SpotifyClient](https://github.com/cthacker-udel/Java-Spotify-API/blob/master/src/main/java/Client/SpotifyClient.java)
+
+> `SpotifyClient client = new SpotifyClient();` → creates an instance of SpotifyClient with empty API key and Secret Key
+> `SpotifyClient client = new SpotifyClient("apikey","secretkey");` → creates an instance of SpotifyClient with API key `"apikey"` and Secret Key `"secretkey"` **recommended usage**
+> `SpotifyClient client = new SpotifyClient("apikey","secretkey","accessToken");` → creates an instance of SpotifyClient with API key `"apikey"` and Secret Key `"secretkey"` as well as access token `"accessToken"`
+
+### [Client package](https://github.com/cthacker-udel/Java-Spotify-API/tree/master/src/main/java/Client) → [SpotifyRestAPI](https://github.com/cthacker-udel/Java-Spotify-API/blob/master/src/main/java/Client/SpotifyRestAPI.java)
+
+> For reference on Implementation of SpotifyClient in coordination with SpotifyRestAPI, check the [Test package](https://github.com/cthacker-udel/Java-Spotify-API/tree/master/src/test/java)
