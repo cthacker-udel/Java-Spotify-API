@@ -30,6 +30,8 @@ Model/playerInterface.java
  Model.playerInterface
 Controller/PlayerController/Context.java
  Controller.PlayerController.Context
+Controller/PlayerController/CurrentUserRecentTrack/BaseTrack.java
+ Controller.PlayerController.CurrentUserRecentTrack.BaseTrack
 Controller/LibraryController/TrackAlbum.java
  Controller.LibraryController.TrackAlbum
 Controller/PlayerController/ExternalUrls.java
@@ -62,6 +64,8 @@ Controller/LibraryController/Show/Image.java
  Controller.LibraryController.Show.Image
 Controller/AlbumController/MultipleAlbums/Artist.java
  Controller.AlbumController.MultipleAlbums.Artist
+Controller/PlayerController/CurrentUserRecentTrack/Item.java
+ Controller.PlayerController.CurrentUserRecentTrack.Item
 Controller/PlayerController/CurrentTrack/Context.java
  Controller.PlayerController.CurrentTrack.Context
 Controller/BrowseController/Categories/Icon.java
@@ -88,6 +92,8 @@ Controller/AlbumController/MultipleAlbums/Image.java
  Controller.AlbumController.MultipleAlbums.Image
 Controller/PlayerController/CurrentTrack/ExternalUrls.java
  Controller.PlayerController.CurrentTrack.ExternalUrls
+Controller/PlayerController/CurrentUserRecentTrack/ExternalUrls.java
+ Controller.PlayerController.CurrentUserRecentTrack.ExternalUrls
 Controller/BrowseController/Recommendations/Artist.java
  Controller.BrowseController.Recommendations.Artist
 Controller/BrowseController/Album/Albums.java
@@ -120,6 +126,8 @@ Controller/EpisodeController/Show.java
  Controller.EpisodeController.Show
 Controller/BrowseController/Categories/BaseCategory.java
  Controller.BrowseController.Categories.BaseCategory
+Controller/PlayerController/CurrentUserRecentTrack/Cursors.java
+ Controller.PlayerController.CurrentUserRecentTrack.Cursors
 Controller/LibraryController/Episode/Item.java
  Controller.LibraryController.Episode.Item
 Model/albumInterface.java
@@ -132,6 +140,8 @@ Controller/LibraryController/Episode/Episode.java
  Controller.LibraryController.Episode.Episode
 Model/authorizationInterface.java
  Model.authorizationInterface
+getRequests/Player.java
+ getRequests.Player
 Controller/BrowseController/Recommendations/Seed.java
  Controller.BrowseController.Recommendations.Seed
 Controller/LibraryController/Episode/ResumePoint.java
@@ -188,6 +198,8 @@ Controller/LibraryController/ExternalUrls.java
  Controller.LibraryController.ExternalUrls
 getRequests/User.java
  getRequests.User
+Controller/PlayerController/CurrentUserRecentTrack/Artist.java
+ Controller.PlayerController.CurrentUserRecentTrack.Artist
 Controller/PlayerController/baseUserPlayback.java
  Controller.PlayerController.baseUserPlayback
 Controller/BrowseController/Recommendations/RecommendationGenreList.java
@@ -254,8 +266,12 @@ Model/browseInterface.java
  Model.browseInterface
 Controller/BrowseController/Recommendations/BaseRecommendation.java
  Controller.BrowseController.Recommendations.BaseRecommendation
+Controller/PlayerController/CurrentUserRecentTrack/Track.java
+ Controller.PlayerController.CurrentUserRecentTrack.Track
 Controller/PlayerController/Item.java
  Controller.PlayerController.Item
+Controller/PlayerController/CurrentUserRecentTrack/Context.java
+ Controller.PlayerController.CurrentUserRecentTrack.Context
 Controller/BrowseController/Album/Item.java
  Controller.BrowseController.Album.Item
 Controller/EpisodeController/BaseEpisode.java
