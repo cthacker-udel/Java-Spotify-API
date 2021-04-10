@@ -10,7 +10,7 @@
 
 * The Interfaces corresponding to section in the Web API Reference are located in the Model folder located here : [Model](https://github.com/cthacker-udel/Java-Spotify-API/tree/master/src/main/java/Model)
 
-* All requests are made via Retrofit interface and tested for functionality, if any functions do not function properly, please raise an issue!
+* All requests are made via Retrofit interface and tested for functionality, if any functions do not function properly, please raise an issue! Raise an issue [here](https://github.com/cthacker-udel/Java-Spotify-API/issues)
 
 **All additions and recommendations are welcome!**
 
