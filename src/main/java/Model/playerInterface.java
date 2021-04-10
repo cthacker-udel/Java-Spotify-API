@@ -1,6 +1,7 @@
 package Model;
 
 import Controller.PlayerController.CurrentTrack.baseCurrentTrack;
+import Controller.PlayerController.CurrentUserRecentTrack.BaseTrack;
 import Controller.PlayerController.Devices.basePlayerDevice;
 import Controller.PlayerController.baseUserPlayback;
 import retrofit2.Call;
@@ -39,5 +40,17 @@ public interface playerInterface {
 
     @PUT("https://api.spotify.com/v1/me/player/repeat")
     Call<Object> setRepeatModeOnUserPlayback(@Header("Authorization") String auth, @Query("state") String state);
+
+    @PUT("https://api.spotify.com/v1/me/player/volume")
+    Call<Object> setVolumeForUserPlayback(@Header("Authorization") String auth, @Query("volume_percent") Integer volume_percent);
+
+    @PUT("https://api.spotify.com/v1/me/player/shuffle")
+    Call<Object> toggleShuffleForUserPlayback(@Header("Authorization") String auth, @Query("state") String shuffleState);
+
+    @GET("https://api.spotify.com/v1/me/player/recently-played")
+    Call<BaseTrack> getCurrentUserRecentlyPlayedTracks(@Header("Authorization") String auth);
+
+    @POST("https://api.spotify.com/v1/me/playr/queue")
+    Call<Object> addItemToUserQueue(@Header("Authorization") String auth, @Query("uri") String uri);
 
 }

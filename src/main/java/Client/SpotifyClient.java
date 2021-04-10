@@ -21,8 +21,7 @@ public class SpotifyClient extends SpotifyRestAPI{
     private User userIds;
     private Track trackIds;
     private Show show;
-    private Integer seekPosition;
-    private String state;
+    private Player player;
 
     public SpotifyClient(){
         super();
@@ -42,6 +41,7 @@ public class SpotifyClient extends SpotifyRestAPI{
         this.userIds = new User();
         this.trackIds = new Track();
         this.show = new Show();
+        this.player = new Player();
     }
 
     public SpotifyClient(String apiKey, String secretKey, String token){
@@ -56,22 +56,15 @@ public class SpotifyClient extends SpotifyRestAPI{
         this.userIds = new User();
         this.trackIds = new Track();
         this.show = new Show();
+        this.player = new Player();
     }
 
-    public String getState() {
-        return state;
+    public Player getPlayer() {
+        return player;
     }
 
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public Integer getSeekPosition() {
-        return seekPosition;
-    }
-
-    public void setSeekPosition(Integer seekPosition) {
-        this.seekPosition = seekPosition;
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 
     public User getUser() {

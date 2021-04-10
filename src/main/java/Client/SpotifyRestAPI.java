@@ -1177,7 +1177,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         playerInterface playerInterface = retrofit.create(Model.playerInterface.class);
 
-        Call<Object> call = playerInterface.seekToCurrentUserTrackPosition(getTokenString(client.getToken()),client.getSeekPosition());
+        Call<Object> call = playerInterface.seekToCurrentUserTrackPosition(getTokenString(client.getToken()),client.getPlayer().getSeekPosition());
 
         Response<Object> response = call.execute();
 
@@ -1196,11 +1196,87 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         playerInterface playerInterface = retrofit.create(Model.playerInterface.class);
 
-        Call<Object> call = playerInterface.setRepeatModeOnUserPlayback(getTokenString(client.getToken()),client.getState());
+        Call<Object> call = playerInterface.setRepeatModeOnUserPlayback(getTokenString(client.getToken()),client.getPlayer().getRepeatState());
 
         Response<Object> response = call.execute();
 
         return response.isSuccessful();
+
+    }
+
+    public boolean setVolumeUserPlayback(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/me/player/volume/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        playerInterface playerInterface = retrofit.create(Model.playerInterface.class);
+
+        Call<Object> call = playerInterface.setVolumeForUserPlayback(getTokenString(client.getToken()),client.getPlayer().getVolume_percent());
+
+        Response<Object> response = call.execute();
+
+        return response.isSuccessful();
+
+    }
+
+    public boolean toggleShuffleForUserPlayback(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/me/player/shuffle/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        playerInterface playerInterface = retrofit.create(Model.playerInterface.class);
+
+        Call<Object> call = playerInterface.toggleShuffleForUserPlayback(getTokenString(client.getToken()),client.getPlayer().getShuffleState());
+
+        Response<Object> response = call.execute();
+
+        return response.isSuccessful();
+
+    }
+
+    public Controller.PlayerController.CurrentUserRecentTrack.BaseTrack getCurrUserRecentPlayedTracks(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/me/player/recently-played/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        playerInterface playerInterface = retrofit.create(Model.playerInterface.class);
+
+        Call<Controller.PlayerController.CurrentUserRecentTrack.BaseTrack> call = playerInterface.getCurrentUserRecentlyPlayedTracks(getTokenString(client.getToken()));
+
+        Response<Controller.PlayerController.CurrentUserRecentTrack.BaseTrack> response = call.execute();
+
+        return response.body();
+    }
+
+    public boolean addItemtoQueue(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/me/player/queue/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        playerInterface playerInterface = retrofit.create(Model.playerInterface.class);
+
+        Call<Object> call = playerInterface.addItemToUserQueue(getTokenString(client.getToken()),client.getPlayer().getUri());
+
+        Response<Object> response = call.execute();
+
+        return response.isSuccessful();
+
 
     }
 
