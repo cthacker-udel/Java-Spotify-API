@@ -1127,6 +1127,44 @@ public class SpotifyRestAPI implements AlbumInterface {
 
     }
 
+    public boolean skipUserPlaybackToNextTrack(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/me/player/next/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        playerInterface playerInterface = retrofit.create(Model.playerInterface.class);
+
+        Call<Object> call = playerInterface.skipUserPlaybackToNextTrack(getTokenString(client.getToken()));
+
+        Response<Object> response = call.execute();
+
+        return response.isSuccessful();
+
+    }
+
+    public boolean skipUserPlaybackToPreviousTrack(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/me/player/previous/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        playerInterface playerInterface = retrofit.create(Model.playerInterface.class);
+
+        Call<Object> call = playerInterface.skipUserPlaybackToPreviousTrack(getTokenString(client.getToken()));
+
+        Response<Object> response = call.execute();
+
+        return response.isSuccessful();
+
+    }
+
 
 
 

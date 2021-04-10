@@ -28,4 +28,10 @@ public interface playerInterface {
     @PUT("https://api.spotify.com/v1/me/player/pause")
     Call<Object> pauseUsersPlayback(@Header("Authorization") String auth);
 
+    @POST("https://api.spotify.com/v1/me/player/next")
+    Call<Object> skipUserPlaybackToNextTrack(@Header("Authorization") String auth);
+
+    @POST("https://api.spotify.com/v1/me/player/previous")
+    Call<Object> skipUserPlaybackToPreviousTrack(@Header("Authorization") String auth);
+
 }
