@@ -16,6 +16,7 @@ import Controller.LibraryController.BaseTrack;
 import Controller.LibraryController.Show.BaseShow;
 import Controller.MarketController.Market;
 import Controller.PersonalizationController.baseUserTopTracksAndArtists;
+import Controller.PlayerController.CurrentTrack.baseCurrentTrack;
 import Controller.PlayerController.Devices.basePlayerDevice;
 import Controller.PlayerController.baseUserPlayback;
 import Model.*;
@@ -1067,6 +1068,62 @@ public class SpotifyRestAPI implements AlbumInterface {
         Response<basePlayerDevice> response = call.execute();
 
         return response.body();
+
+    }
+
+    public baseCurrentTrack getUserCurrentPlayingTrack(SpotifyClient client) throws IOException {
+        String url = baseUrl + "/v1/me/player/currently-playing/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        playerInterface playerInterface = retrofit.create(Model.playerInterface.class);
+
+        Call<baseCurrentTrack> call = playerInterface.getCurrentUserTrack(getTokenString(client.getToken()),client.getISOCountryCode());
+
+        Response<baseCurrentTrack> response = call.execute();
+
+        return response.body();
+    }
+
+    public boolean startOrResumeAUsersPlayback(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/me/player/play/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        playerInterface playerInterface = retrofit.create(Model.playerInterface.class);
+
+        Call<Object> call = playerInterface.startOrResumeCurrentUserPlayback(getTokenString(client.getToken()));
+
+        Response<Object> response = call.execute();
+
+        return response.isSuccessful();
+
+    }
+
+    public boolean pauseUserPlayback(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/me/player/pause/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        playerInterface playerInterface = retrofit.create(Model.playerInterface.class);
+
+        Call<Object> call = playerInterface.pauseUsersPlayback(getTokenString(client.getToken()));
+
+        Response<Object> response = call.execute();
+
+        return response.isSuccessful();
+
 
     }
 

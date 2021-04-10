@@ -1,107 +1,139 @@
-Controller/AlbumController/MultipleAlbums/Tracks.java
- Controller.AlbumController.MultipleAlbums.Tracks
-Controller/baseAuthResponse.java
- Controller.baseAuthResponse
-Controller/AlbumController/MultipleAlbums/ExternalUrls.java
- Controller.AlbumController.MultipleAlbums.ExternalUrls
-Controller/AlbumController/MultipleAlbums/Artist.java
- Controller.AlbumController.MultipleAlbums.Artist
-Model/authorizationInterface.java
- Model.authorizationInterface
-Controller/AlbumController/MultipleAlbums/Album.java
- Controller.AlbumController.MultipleAlbums.Album
+Controller/ArtistController/ExternalUrls.java
+ Controller.ArtistController.ExternalUrls
+Controller/BrowseController/Recommendations/ExternalUrls.java
+ Controller.BrowseController.Recommendations.ExternalUrls
+Controller/ArtistController/Image.java
+ Controller.ArtistController.Image
+Controller/BrowseController/Playlist/Image.java
+ Controller.BrowseController.Playlist.Image
+Controller/ArtistController/ArtistAlbumExternalUrls.java
+ Controller.ArtistController.ArtistAlbumExternalUrls
+Controller/LibraryController/BaseTrack.java
+ Controller.LibraryController.BaseTrack
+Model/episodeInterface.java
+ Model.episodeInterface
+Controller/MarketController/Market.java
+ Controller.MarketController.Market
 Controller/AlbumController/MultipleAlbums/Copyright.java
  Controller.AlbumController.MultipleAlbums.Copyright
 Controller/AlbumController/example.java
  Controller.AlbumController.example
-Controller/AlbumController/MultipleAlbums/Item.java
- Controller.AlbumController.MultipleAlbums.Item
-Controller/AlbumController/MultipleAlbums/BaseAlbum.java
- Controller.AlbumController.MultipleAlbums.BaseAlbum
-Model/albumInterface.java
- Model.albumInterface
-Controller/AlbumController/MultipleAlbums/Image.java
- Controller.AlbumController.MultipleAlbums.Image
-Controller/AlbumController/MultipleAlbums/ExternalIds.java
- Controller.AlbumController.MultipleAlbums.ExternalIds
-Controller/ArtistController/ExternalUrls.java
- Controller.ArtistController.ExternalUrls
 Controller/ArtistController/Artist.java
  Controller.ArtistController.Artist
+Controller/PersonalizationController/Item.java
+ Controller.PersonalizationController.Item
+Controller/AlbumController/MultipleAlbums/Item.java
+ Controller.AlbumController.MultipleAlbums.Item
 Controller/ArtistController/Followers.java
  Controller.ArtistController.Followers
-Controller/ArtistController/Image.java
- Controller.ArtistController.Image
-Controller/ArtistController/BaseArtist.java
- Controller.ArtistController.BaseArtist
-Controller/ArtistController/Album.java
- Controller.ArtistController.Album
-Controller/ArtistController/ArtistTopTrackArtist.java
- Controller.ArtistController.ArtistTopTrackArtist
-Controller/ArtistController/Track.java
- Controller.ArtistController.Track
-Controller/ArtistController/ExternalIds.java
- Controller.ArtistController.ExternalIds
-Controller/ArtistController/ArtistTopTrack.java
- Controller.ArtistController.ArtistTopTrack
-Controller/ArtistController/ArtistAlbumArtist.java
- Controller.ArtistController.ArtistAlbumArtist
-Model/artistInterface.java
- Model.artistInterface
-Controller/ArtistController/ArtistAlbum.java
- Controller.ArtistController.ArtistAlbum
-Controller/ArtistController/ArtistAlbumImage.java
- Controller.ArtistController.ArtistAlbumImage
-Controller/ArtistController/ArtistAlbumItem.java
- Controller.ArtistController.ArtistAlbumItem
-Controller/ArtistController/ArtistAlbumExternalUrls.java
- Controller.ArtistController.ArtistAlbumExternalUrls
-Controller/BrowseController/Album/Artist.java
- Controller.BrowseController.Album.Artist
-Controller/BrowseController/Album/BaseAlbum.java
- Controller.BrowseController.Album.BaseAlbum
-Controller/BrowseController/Playlist/Image.java
- Controller.BrowseController.Playlist.Image
-Controller/BrowseController/Album/ExternalUrls.java
- Controller.BrowseController.Album.ExternalUrls
-Controller/BrowseController/Album/Albums.java
- Controller.BrowseController.Album.Albums
-Controller/BrowseController/Playlist/Tracks.java
- Controller.BrowseController.Playlist.Tracks
+Model/playerInterface.java
+ Model.playerInterface
+Controller/PlayerController/Context.java
+ Controller.PlayerController.Context
+Controller/LibraryController/TrackAlbum.java
+ Controller.LibraryController.TrackAlbum
+Controller/PlayerController/ExternalUrls.java
+ Controller.PlayerController.ExternalUrls
+Controller/LibraryController/Show/Show.java
+ Controller.LibraryController.Show.Show
+Controller/LibraryController/TrackImage.java
+ Controller.LibraryController.TrackImage
+getRequests/Album.java
+ getRequests.Album
+Controller/PlayerController/CurrentTrack/ExternalIds.java
+ Controller.PlayerController.CurrentTrack.ExternalIds
 Controller/BrowseController/Playlist/Playlists.java
  Controller.BrowseController.Playlist.Playlists
-Controller/BrowseController/Playlist/BasePlaylist.java
- Controller.BrowseController.Playlist.BasePlaylist
-Controller/BrowseController/Playlist/Owner.java
- Controller.BrowseController.Playlist.Owner
-Controller/BrowseController/Album/Item.java
- Controller.BrowseController.Album.Item
-Controller/BrowseController/Playlist/ExternalUrls.java
- Controller.BrowseController.Playlist.ExternalUrls
-Controller/BrowseController/Album/Image.java
- Controller.BrowseController.Album.Image
 Controller/BrowseController/Playlist/Item.java
  Controller.BrowseController.Playlist.Item
-Controller/BrowseController/Categories/BaseCategory.java
- Controller.BrowseController.Categories.BaseCategory
-Controller/BrowseController/Categories/Categories.java
- Controller.BrowseController.Categories.Categories
-Controller/BrowseController/Categories/Item.java
- Controller.BrowseController.Categories.Item
+Controller/LibraryController/Copyright.java
+ Controller.LibraryController.Copyright
+Controller/BrowseController/Album/BaseAlbum.java
+ Controller.BrowseController.Album.BaseAlbum
+getRequests/Track.java
+ getRequests.Track
+Controller/FollowController/Followers.java
+ Controller.FollowController.Followers
+Controller/ArtistController/ArtistAlbumItem.java
+ Controller.ArtistController.ArtistAlbumItem
+Controller/FollowController/Item.java
+ Controller.FollowController.Item
+Controller/LibraryController/Show/Image.java
+ Controller.LibraryController.Show.Image
+Controller/AlbumController/MultipleAlbums/Artist.java
+ Controller.AlbumController.MultipleAlbums.Artist
+Controller/PlayerController/CurrentTrack/Context.java
+ Controller.PlayerController.CurrentTrack.Context
 Controller/BrowseController/Categories/Icon.java
  Controller.BrowseController.Categories.Icon
-Controller/BrowseController/Categories/Category.java
- Controller.BrowseController.Categories.Category
-Controller/BrowseController/Recommendations/Seed.java
- Controller.BrowseController.Recommendations.Seed
-Controller/BrowseController/Recommendations/Track.java
- Controller.BrowseController.Recommendations.Track
-Controller/BrowseController/Recommendations/ExternalUrls.java
- Controller.BrowseController.Recommendations.ExternalUrls
+Controller/AlbumController/MultipleAlbums/Album.java
+ Controller.AlbumController.MultipleAlbums.Album
+Controller/PlayerController/CurrentTrack/Item.java
+ Controller.PlayerController.CurrentTrack.Item
+Controller/ArtistController/Track.java
+ Controller.ArtistController.Track
+Controller/LibraryController/Episode/BaseEpisode.java
+ Controller.LibraryController.Episode.BaseEpisode
+Controller/ArtistController/ArtistAlbumArtist.java
+ Controller.ArtistController.ArtistAlbumArtist
+Controller/PlayerController/CurrentTrack/Image.java
+ Controller.PlayerController.CurrentTrack.Image
+Controller/AlbumController/MultipleAlbums/ExternalIds.java
+ Controller.AlbumController.MultipleAlbums.ExternalIds
+Controller/FollowController/Cursors.java
+ Controller.FollowController.Cursors
+Controller/PlayerController/Device.java
+ Controller.PlayerController.Device
+Controller/AlbumController/MultipleAlbums/Image.java
+ Controller.AlbumController.MultipleAlbums.Image
+Controller/PlayerController/CurrentTrack/ExternalUrls.java
+ Controller.PlayerController.CurrentTrack.ExternalUrls
 Controller/BrowseController/Recommendations/Artist.java
  Controller.BrowseController.Recommendations.Artist
-Controller/BrowseController/Recommendations/BaseRecommendation.java
- Controller.BrowseController.Recommendations.BaseRecommendation
+Controller/BrowseController/Album/Albums.java
+ Controller.BrowseController.Album.Albums
+Controller/ArtistController/BaseArtist.java
+ Controller.ArtistController.BaseArtist
+Controller/PlayerController/Devices/basePlayerDevice.java
+ Controller.PlayerController.Devices.basePlayerDevice
+Controller/LibraryController/Artist.java
+ Controller.LibraryController.Artist
+Controller/PersonalizationController/Image.java
+ Controller.PersonalizationController.Image
+Model/marketInterface.java
+ Model.marketInterface
+Controller/LibraryController/TrackItem.java
+ Controller.LibraryController.TrackItem
+Controller/ArtistController/Album.java
+ Controller.ArtistController.Album
+Controller/FollowController/ExternalUrls.java
+ Controller.FollowController.ExternalUrls
+Controller/EpisodeController/Image.java
+ Controller.EpisodeController.Image
+Controller/AlbumController/MultipleAlbums/ExternalUrls.java
+ Controller.AlbumController.MultipleAlbums.ExternalUrls
+Controller/EpisodeController/ExternalUrls.java
+ Controller.EpisodeController.ExternalUrls
+Controller/FollowController/Artists.java
+ Controller.FollowController.Artists
+Controller/EpisodeController/Show.java
+ Controller.EpisodeController.Show
+Controller/BrowseController/Categories/BaseCategory.java
+ Controller.BrowseController.Categories.BaseCategory
+Controller/LibraryController/Episode/Item.java
+ Controller.LibraryController.Episode.Item
+Model/albumInterface.java
+ Model.albumInterface
+Model/followInterface.java
+ Model.followInterface
+Controller/LibraryController/Episode/ExternalUrls.java
+ Controller.LibraryController.Episode.ExternalUrls
+Controller/LibraryController/Episode/Episode.java
+ Controller.LibraryController.Episode.Episode
+Model/authorizationInterface.java
+ Model.authorizationInterface
+Controller/BrowseController/Recommendations/Seed.java
+ Controller.BrowseController.Recommendations.Seed
 Controller/LibraryController/Episode/ResumePoint.java
  Controller.LibraryController.Episode.ResumePoint
 Controller/LibraryController/TrackExternalUrls.java
@@ -110,137 +142,125 @@ Controller/FollowController/Image.java
  Controller.FollowController.Image
 Controller/LibraryController/Album.java
  Controller.LibraryController.Album
-Controller/LibraryController/BaseTrack.java
- Controller.LibraryController.BaseTrack
-Model/browseInterface.java
- Model.browseInterface
-Model/episodeInterface.java
- Model.episodeInterface
-Controller/MarketController/Market.java
- Controller.MarketController.Market
+Controller/BrowseController/Album/ExternalUrls.java
+ Controller.BrowseController.Album.ExternalUrls
+Client/SpotifyClient.java
+ Client.SpotifyClient
+Controller/PlayerController/CurrentTrack/Artist.java
+ Controller.PlayerController.CurrentTrack.Artist
+Controller/BrowseController/Playlist/Owner.java
+ Controller.BrowseController.Playlist.Owner
 Model/libraryInterface.java
  Model.libraryInterface
-Controller/PersonalizationController/Item.java
- Controller.PersonalizationController.Item
-Controller/EpisodeController/BaseEpisode.java
- Controller.EpisodeController.BaseEpisode
-Model/playerInterface.java
- Model.playerInterface
-Controller/PlayerController/Context.java
- Controller.PlayerController.Context
-Controller/LibraryController/Episode/ExternalUrls.java
- Controller.LibraryController.Episode.ExternalUrls
-Controller/LibraryController/TrackExternalIds.java
- Controller.LibraryController.TrackExternalIds
-Model/followInterface.java
- Model.followInterface
-Controller/LibraryController/Episode/Item.java
- Controller.LibraryController.Episode.Item
-Controller/LibraryController/TrackAlbum.java
- Controller.LibraryController.TrackAlbum
-Controller/PlayerController/ExternalUrls.java
- Controller.PlayerController.ExternalUrls
-Controller/LibraryController/Show/Show.java
- Controller.LibraryController.Show.Show
-Controller/LibraryController/ExternalIds.java
- Controller.LibraryController.ExternalIds
-Controller/LibraryController/TrackImage.java
- Controller.LibraryController.TrackImage
-Controller/EpisodeController/Show.java
- Controller.EpisodeController.Show
-Controller/LibraryController/Copyright.java
- Controller.LibraryController.Copyright
-Controller/LibraryController/Episode/Episode.java
- Controller.LibraryController.Episode.Episode
-Controller/FollowController/Followers.java
- Controller.FollowController.Followers
-Controller/FollowController/Item.java
- Controller.FollowController.Item
-Controller/LibraryController/Show/Image.java
- Controller.LibraryController.Show.Image
-Controller/LibraryController/Track.java
- Controller.LibraryController.Track
-Controller/PersonalizationController/Followers.java
- Controller.PersonalizationController.Followers
-Controller/LibraryController/Episode/BaseEpisode.java
- Controller.LibraryController.Episode.BaseEpisode
-Controller/LibraryController/Tracks.java
- Controller.LibraryController.Tracks
-Controller/FollowController/Cursors.java
- Controller.FollowController.Cursors
-Controller/LibraryController/ExternalUrls.java
- Controller.LibraryController.ExternalUrls
-Controller/PlayerController/Item.java
- Controller.PlayerController.Item
-Controller/PlayerController/Device.java
- Controller.PlayerController.Device
-Controller/PlayerController/baseUserPlayback.java
- Controller.PlayerController.baseUserPlayback
-Controller/BrowseController/Recommendations/RecommendationGenreList.java
- Controller.BrowseController.Recommendations.RecommendationGenreList
-Model/personalizationInterface.java
- Model.personalizationInterface
-Controller/LibraryController/Item.java
- Controller.LibraryController.Item
-Controller/FollowController/BaseArtist.java
- Controller.FollowController.BaseArtist
-Controller/PersonalizationController/ExternalUrls.java
- Controller.PersonalizationController.ExternalUrls
-Controller/LibraryController/Artist.java
- Controller.LibraryController.Artist
-Controller/LibraryController/Show/Item.java
- Controller.LibraryController.Show.Item
-Controller/PersonalizationController/baseUserTopTracksAndArtists.java
- Controller.PersonalizationController.baseUserTopTracksAndArtists
-Controller/PersonalizationController/Image.java
- Controller.PersonalizationController.Image
-Model/marketInterface.java
- Model.marketInterface
-Controller/LibraryController/Episode/Image.java
- Controller.LibraryController.Episode.Image
-Controller/LibraryController/Image.java
- Controller.LibraryController.Image
-Controller/EpisodeController/Episode.java
- Controller.EpisodeController.Episode
-Controller/LibraryController/TrackItem.java
- Controller.LibraryController.TrackItem
-Controller/LibraryController/Episode/Show.java
- Controller.LibraryController.Episode.Show
-Controller/LibraryController/TrackArtist.java
- Controller.LibraryController.TrackArtist
-Controller/LibraryController/Show/ExternalUrls.java
- Controller.LibraryController.Show.ExternalUrls
-Controller/FollowController/ExternalUrls.java
- Controller.FollowController.ExternalUrls
-Controller/LibraryController/BaseAlbum.java
- Controller.LibraryController.BaseAlbum
-Controller/EpisodeController/Image.java
- Controller.EpisodeController.Image
-Controller/EpisodeController/ExternalUrls.java
- Controller.EpisodeController.ExternalUrls
-Controller/LibraryController/Show/BaseShow.java
- Controller.LibraryController.Show.BaseShow
-Controller/FollowController/Artists.java
- Controller.FollowController.Artists
-getRequests/Show.java
- getRequests.Show
-getRequests/Follow.java
- getRequests.Follow
-getRequests/Track.java
- getRequests.Track
 getRequests/Episode.java
  getRequests.Episode
 Client/SpotifyRestAPI.java
  Client.SpotifyRestAPI
+Controller/BrowseController/Categories/Category.java
+ Controller.BrowseController.Categories.Category
+Controller/LibraryController/TrackExternalIds.java
+ Controller.LibraryController.TrackExternalIds
 getRequests/Seed.java
  getRequests.Seed
 getRequests/Artist.java
  getRequests.Artist
+Controller/ArtistController/ArtistAlbumImage.java
+ Controller.ArtistController.ArtistAlbumImage
+Controller/LibraryController/ExternalIds.java
+ Controller.LibraryController.ExternalIds
+Controller/baseAuthResponse.java
+ Controller.baseAuthResponse
+Controller/LibraryController/Track.java
+ Controller.LibraryController.Track
+Controller/BrowseController/Playlist/Tracks.java
+ Controller.BrowseController.Playlist.Tracks
+Controller/PersonalizationController/Followers.java
+ Controller.PersonalizationController.Followers
+Controller/AlbumController/MultipleAlbums/BaseAlbum.java
+ Controller.AlbumController.MultipleAlbums.BaseAlbum
+Controller/BrowseController/Categories/Item.java
+ Controller.BrowseController.Categories.Item
+Model/artistInterface.java
+ Model.artistInterface
+Controller/LibraryController/Tracks.java
+ Controller.LibraryController.Tracks
+Controller/LibraryController/ExternalUrls.java
+ Controller.LibraryController.ExternalUrls
 getRequests/User.java
  getRequests.User
-Client/SpotifyClient.java
- Client.SpotifyClient
+Controller/PlayerController/baseUserPlayback.java
+ Controller.PlayerController.baseUserPlayback
+Controller/BrowseController/Recommendations/RecommendationGenreList.java
+ Controller.BrowseController.Recommendations.RecommendationGenreList
+Controller/BrowseController/Recommendations/Track.java
+ Controller.BrowseController.Recommendations.Track
+Controller/AlbumController/MultipleAlbums/Tracks.java
+ Controller.AlbumController.MultipleAlbums.Tracks
+getRequests/Follow.java
+ getRequests.Follow
+Controller/LibraryController/Item.java
+ Controller.LibraryController.Item
+Controller/BrowseController/Categories/Categories.java
+ Controller.BrowseController.Categories.Categories
+Controller/PlayerController/CurrentTrack/baseCurrentTrack.java
+ Controller.PlayerController.CurrentTrack.baseCurrentTrack
+Controller/ArtistController/ArtistTopTrack.java
+ Controller.ArtistController.ArtistTopTrack
+Controller/ArtistController/ArtistAlbum.java
+ Controller.ArtistController.ArtistAlbum
+Controller/PlayerController/Devices/Device.java
+ Controller.PlayerController.Devices.Device
+Controller/FollowController/BaseArtist.java
+ Controller.FollowController.BaseArtist
+Controller/PlayerController/CurrentTrack/Album.java
+ Controller.PlayerController.CurrentTrack.Album
+Controller/PersonalizationController/ExternalUrls.java
+ Controller.PersonalizationController.ExternalUrls
+Controller/LibraryController/Show/Item.java
+ Controller.LibraryController.Show.Item
+Controller/PersonalizationController/baseUserTopTracksAndArtists.java
+ Controller.PersonalizationController.baseUserTopTracksAndArtists
+Controller/LibraryController/Episode/Image.java
+ Controller.LibraryController.Episode.Image
+Controller/BrowseController/Album/Image.java
+ Controller.BrowseController.Album.Image
+Controller/LibraryController/Image.java
+ Controller.LibraryController.Image
+Controller/BrowseController/Playlist/BasePlaylist.java
+ Controller.BrowseController.Playlist.BasePlaylist
+Controller/EpisodeController/Episode.java
+ Controller.EpisodeController.Episode
+Controller/BrowseController/Playlist/ExternalUrls.java
+ Controller.BrowseController.Playlist.ExternalUrls
+getRequests/Show.java
+ getRequests.Show
+Controller/BrowseController/Album/Artist.java
+ Controller.BrowseController.Album.Artist
+Controller/ArtistController/ArtistTopTrackArtist.java
+ Controller.ArtistController.ArtistTopTrackArtist
+Controller/LibraryController/TrackArtist.java
+ Controller.LibraryController.TrackArtist
+Controller/ArtistController/ExternalIds.java
+ Controller.ArtistController.ExternalIds
+Controller/LibraryController/Show/ExternalUrls.java
+ Controller.LibraryController.Show.ExternalUrls
+Controller/LibraryController/BaseAlbum.java
+ Controller.LibraryController.BaseAlbum
+Controller/LibraryController/Show/BaseShow.java
+ Controller.LibraryController.Show.BaseShow
+Controller/LibraryController/Episode/Show.java
+ Controller.LibraryController.Episode.Show
+Model/browseInterface.java
+ Model.browseInterface
+Controller/BrowseController/Recommendations/BaseRecommendation.java
+ Controller.BrowseController.Recommendations.BaseRecommendation
+Controller/PlayerController/Item.java
+ Controller.PlayerController.Item
+Controller/BrowseController/Album/Item.java
+ Controller.BrowseController.Album.Item
+Controller/EpisodeController/BaseEpisode.java
+ Controller.EpisodeController.BaseEpisode
+Model/personalizationInterface.java
+ Model.personalizationInterface
 getRequests/AlbumInterface.java
  getRequests.AlbumInterface
-getRequests/Album.java
- getRequests.Album
