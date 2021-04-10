@@ -16,6 +16,10 @@
 
 * Please check the Project Tab for Updates on current objectives
 
+## Project Progress
+
+You can view the progress towards the completion of the Project [here](https://github.com/cthacker-udel/Java-Spotify-API/projects/1)
+
 
 ## Usage
 
