@@ -33,7 +33,7 @@ When you create an instance of `SpotifyClient` using the constructors listed abo
 
 ---
 
-#### **Examples - SpotifyClient**
+#### **SpotifyClient**
 
 ### [Client package](https://github.com/cthacker-udel/Java-Spotify-API/tree/master/src/main/java/Client) → [SpotifyClient](https://github.com/cthacker-udel/Java-Spotify-API/blob/master/src/main/java/Client/SpotifyClient.java)
 
