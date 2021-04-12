@@ -1579,6 +1579,25 @@ public class SpotifyRestAPI implements AlbumInterface {
 
     }
 
+    public Controller.ShowController.BaseEpisode getShowsEpisodes(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + String.format("/v1/shows/%s/episodes/",client.getShow().getShowIds().get(0));
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        showInterface showInterface = retrofit.create(Model.showInterface.class);
+
+        Call<Controller.ShowController.BaseEpisode> call = showInterface.getAShowsEpisodes(getTokenString(client.getToken()),client.getShow().getShowIds().get(0));
+
+        Response<Controller.ShowController.BaseEpisode> response = call.execute();
+
+        return response.body();
+
+    }
+
 
 
 

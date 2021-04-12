@@ -1,5 +1,6 @@
 package Model;
 
+import Controller.ShowController.BaseEpisode;
 import Controller.ShowController.MultipleShows.BaseShow;
 import Controller.ShowController.MultipleShows.Show;
 import retrofit2.Call;
@@ -14,5 +15,8 @@ public interface showInterface {
 
     @GET("https://api.spotify.com/v1/shows/{id}")
     Call<Show> getASpecificShow(@Header("Authorization") String auth, @Query("id") String showId);
+
+    @GET("https://api.spotify.com/v1/shows/{id}/episodes")
+    Call<BaseEpisode> getAShowsEpisodes(@Header("Authorization") String auth, @Query("id") String showId);
 
 }
