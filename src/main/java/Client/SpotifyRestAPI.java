@@ -38,6 +38,15 @@ import java.util.*;
 
 import getRequests.Album;
 
+/*
+
+    Spotify Rest API Class
+    Implements all Spotify Rest API Methods
+
+
+ */
+
+
 public class SpotifyRestAPI implements AlbumInterface {
 
     String requestType;
