@@ -1,4 +1,4 @@
-# Public Rest API for Spotify - Cameron Thacker - Started (4/1/2021)
+# Public Rest API for Spotify - Cameron Thacker (4/1/2021)
 
 ## General API Information
 
