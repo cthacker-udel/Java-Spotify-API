@@ -12,6 +12,7 @@ import Controller.BrowseController.Playlist.BasePlaylist;
 import Controller.BrowseController.Recommendations.BaseRecommendation;
 import Controller.BrowseController.Recommendations.RecommendationGenreList;
 import Controller.EpisodeController.BaseEpisode;
+import Controller.ItemController.BaseItem;
 import Controller.LibraryController.BaseTrack;
 import Controller.LibraryController.Show.BaseShow;
 import Controller.MarketController.Market;
@@ -1499,7 +1500,24 @@ public class SpotifyRestAPI implements AlbumInterface {
 
      *************************************************************************/
 
+    public BaseItem searchForItem(SpotifyClient client) throws IOException {
 
+        String url = baseUrl + "/v1/search/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        searchInterface searchInterface = retrofit.create(Model.searchInterface.class);
+
+        Call<BaseItem> call = searchInterface.searchForAnItem(getTokenString(client.getToken()),client.getItem().getQueryType(),client.getItem().convertItemTypes());
+
+        Response<BaseItem> response = call.execute();
+
+        return response.body();
+
+    }
 
 
 

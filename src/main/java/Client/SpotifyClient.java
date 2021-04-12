@@ -23,6 +23,7 @@ public class SpotifyClient extends SpotifyRestAPI{
     private Show show;
     private Player player;
     private Playlist playlist;
+    private Item item;
 
     public SpotifyClient(){
         super();
@@ -44,6 +45,7 @@ public class SpotifyClient extends SpotifyRestAPI{
         this.show = new Show();
         this.player = new Player();
         this.playlist = new Playlist();
+        this.item = new Item();
     }
 
     public SpotifyClient(String apiKey, String secretKey, String token){
@@ -60,6 +62,15 @@ public class SpotifyClient extends SpotifyRestAPI{
         this.show = new Show();
         this.player = new Player();
         this.playlist = new Playlist();
+        this.item = new Item();
+    }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item items) {
+        this.item = items;
     }
 
     public Playlist getPlaylist() {
