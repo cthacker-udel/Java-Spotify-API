@@ -3,6 +3,7 @@ package getRequests;
 import Client.SpotifyClient;
 import com.google.gson.Gson;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,7 +12,7 @@ public class Playlist extends SpotifyClient {
     private String name;
     private String playlistId;
 
-    public Playlist(){
+    public Playlist() throws IOException {
         super();
     }
 
