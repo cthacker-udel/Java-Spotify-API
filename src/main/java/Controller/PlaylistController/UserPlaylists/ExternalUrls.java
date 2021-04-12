@@ -1,4 +1,4 @@
-package Controller.PlaylistController.currUserPlaylists;
+package Controller.PlaylistController.UserPlaylists;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

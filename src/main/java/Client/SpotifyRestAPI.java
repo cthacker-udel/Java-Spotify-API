@@ -20,7 +20,6 @@ import Controller.PlayerController.CurrentTrack.baseCurrentTrack;
 import Controller.PlayerController.Devices.basePlayerDevice;
 import Controller.PlayerController.baseUserPlayback;
 import Model.*;
-import com.google.gson.GsonBuilder;
 import getRequests.AlbumInterface;
 
 import retrofit2.Call;
@@ -1291,7 +1290,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
      *************************************************************************/
 
-    public Controller.PlaylistController.currUserPlaylists.BasePlaylist getListCurrUserPlaylists(SpotifyClient client) throws IOException {
+    public Controller.PlaylistController.UserPlaylists.BasePlaylist getListCurrUserPlaylists(SpotifyClient client) throws IOException {
 
         String url = baseUrl + "/v1/me/playlists/";
 
@@ -1302,9 +1301,30 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         playlistInterface playlistInterface = retrofit.create(Model.playlistInterface.class);
 
-        Call<Controller.PlaylistController.currUserPlaylists.BasePlaylist> call = playlistInterface.getListOfCurrUserPlaylists(getTokenString(client.getToken()));
+        Call<Controller.PlaylistController.UserPlaylists.BasePlaylist> call = playlistInterface.getListOfCurrUserPlaylists(getTokenString(client.getToken()));
 
-        Response<Controller.PlaylistController.currUserPlaylists.BasePlaylist> response = call.execute();
+        Response<Controller.PlaylistController.UserPlaylists.BasePlaylist> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public Controller.PlaylistController.UserPlaylists.BasePlaylist getListUserPlaylists(SpotifyClient client) throws IOException {
+
+        String userId = client.getUser().getTheUser().get(0);
+
+        String url = baseUrl + String.format("/v1/users/%s/playlists/",userId);
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        playlistInterface playlistInterface = retrofit.create(Model.playlistInterface.class);
+
+        Call<Controller.PlaylistController.UserPlaylists.BasePlaylist> call = playlistInterface.getListOfSpecifiedUserPlaylists(getTokenString(client.getToken()),userId);
+
+        Response<Controller.PlaylistController.UserPlaylists.BasePlaylist> response = call.execute();
 
         return response.body();
 
