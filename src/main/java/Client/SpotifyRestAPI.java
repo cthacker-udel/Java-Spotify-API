@@ -19,6 +19,7 @@ import Controller.PersonalizationController.baseUserTopTracksAndArtists;
 import Controller.PlayerController.CurrentTrack.baseCurrentTrack;
 import Controller.PlayerController.Devices.basePlayerDevice;
 import Controller.PlayerController.baseUserPlayback;
+import Controller.PlaylistController.Playlist;
 import Model.*;
 import getRequests.AlbumInterface;
 
@@ -28,9 +29,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 import getRequests.Album;
 
@@ -1349,6 +1348,44 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         return response.body();
 
+    }
+
+    public Playlist getAPlaylist(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + String.format("/v1/playlists/%s/",client.getPlaylist().getPlaylistId());
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        playlistInterface playlistInterface = retrofit.create(Model.playlistInterface.class);
+
+        Call<Playlist> call = playlistInterface.getPlaylist(getTokenString(client.getToken()),client.getPlaylist().getPlaylistId());
+
+        Response<Playlist> response = call.execute();
+
+        return response.body();
+
+
+    }
+
+    public boolean changePlaylistDetails(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + String.format("/v1/playlists/%s/",client.getPlaylist().getPlaylistId());
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        playlistInterface playlistInterface = retrofit.create(Model.playlistInterface.class);
+
+        Call<Object> call = playlistInterface.changePlaylistDetails(getTokenString(client.getToken()),client.getPlaylist().getPlaylistId());
+
+        Response<Object> response = call.execute();
+
+        return response.isSuccessful();
     }
 
 

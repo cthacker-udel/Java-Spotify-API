@@ -5,20 +5,17 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Playlist {
+public class Album {
 
-    @SerializedName("collaborative")
+    @SerializedName("album_type")
     @Expose
-    private Boolean collaborative;
-    @SerializedName("description")
+    private String albumType;
+    @SerializedName("available_markets")
     @Expose
-    private String description;
+    private List<String> availableMarkets = null;
     @SerializedName("external_urls")
     @Expose
     private ExternalUrls externalUrls;
-    @SerializedName("followers")
-    @Expose
-    private Followers followers;
     @SerializedName("href")
     @Expose
     private String href;
@@ -31,18 +28,6 @@ public class Playlist {
     @SerializedName("name")
     @Expose
     private String name;
-    @SerializedName("owner")
-    @Expose
-    private Owner owner;
-    @SerializedName("public")
-    @Expose
-    private Object _public;
-    @SerializedName("snapshot_id")
-    @Expose
-    private String snapshotId;
-    @SerializedName("tracks")
-    @Expose
-    private Tracks tracks;
     @SerializedName("type")
     @Expose
     private String type;
@@ -50,20 +35,20 @@ public class Playlist {
     @Expose
     private String uri;
 
-    public Boolean getCollaborative() {
-        return collaborative;
+    public String getAlbumType() {
+        return albumType;
     }
 
-    public void setCollaborative(Boolean collaborative) {
-        this.collaborative = collaborative;
+    public void setAlbumType(String albumType) {
+        this.albumType = albumType;
     }
 
-    public String getDescription() {
-        return description;
+    public List<String> getAvailableMarkets() {
+        return availableMarkets;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setAvailableMarkets(List<String> availableMarkets) {
+        this.availableMarkets = availableMarkets;
     }
 
     public ExternalUrls getExternalUrls() {
@@ -72,14 +57,6 @@ public class Playlist {
 
     public void setExternalUrls(ExternalUrls externalUrls) {
         this.externalUrls = externalUrls;
-    }
-
-    public Followers getFollowers() {
-        return followers;
-    }
-
-    public void setFollowers(Followers followers) {
-        this.followers = followers;
     }
 
     public String getHref() {
@@ -112,38 +89,6 @@ public class Playlist {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Owner getOwner() {
-        return owner;
-    }
-
-    public void setOwner(Owner owner) {
-        this.owner = owner;
-    }
-
-    public Object getPublic() {
-        return _public;
-    }
-
-    public void setPublic(Object _public) {
-        this._public = _public;
-    }
-
-    public String getSnapshotId() {
-        return snapshotId;
-    }
-
-    public void setSnapshotId(String snapshotId) {
-        this.snapshotId = snapshotId;
-    }
-
-    public Tracks getTracks() {
-        return tracks;
-    }
-
-    public void setTracks(Tracks tracks) {
-        this.tracks = tracks;
     }
 
     public String getType() {
