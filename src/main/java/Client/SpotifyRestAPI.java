@@ -1291,6 +1291,17 @@ public class SpotifyRestAPI implements AlbumInterface {
 
      *************************************************************************/
 
+    public void getListCurrUserPlaylists(SpotifyClient client){
+
+        String url = baseUrl + "/v1/me/playlists/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+    }
+
 
 
 
