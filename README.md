@@ -29,6 +29,8 @@ Create an instance of `SpotifyClient` by calling the constructors listed in this
 
 ### **Examples**
 
+---
+
 #### **Examples - SpotifyClient**
 
 ### [Client package](https://github.com/cthacker-udel/Java-Spotify-API/tree/master/src/main/java/Client) → [SpotifyClient](https://github.com/cthacker-udel/Java-Spotify-API/blob/master/src/main/java/Client/SpotifyClient.java)
