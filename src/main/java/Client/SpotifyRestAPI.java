@@ -1487,9 +1487,17 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         return response.isSuccessful();
 
-
-
     }
+
+    /************************************************************************
+
+
+
+     Search API
+
+
+
+     *************************************************************************/
 
 
 
