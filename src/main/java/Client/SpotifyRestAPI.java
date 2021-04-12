@@ -1330,6 +1330,28 @@ public class SpotifyRestAPI implements AlbumInterface {
 
     }
 
+    public Controller.PlaylistController.UserPlaylists.CreatePlaylist.BasePlaylist createAPlaylist(SpotifyClient client) throws IOException {
+
+        String userId = client.getUser().getTheUser().get(0);
+
+        String url = baseUrl + String.format("v1/users/%s/playlists/",userId);
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        playlistInterface playlistInterface = retrofit.create(Model.playlistInterface.class);
+
+        Call<Controller.PlaylistController.UserPlaylists.CreatePlaylist.BasePlaylist> call = playlistInterface.createAPlaylist(getTokenString(client.getToken()),client.getUser().getTheUser().get(0),client.getPlaylist().getName());
+
+        Response<Controller.PlaylistController.UserPlaylists.CreatePlaylist.BasePlaylist> response = call.execute();
+
+        return response.body();
+
+
+    }
+
 
 
 

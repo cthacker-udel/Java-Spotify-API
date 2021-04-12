@@ -22,11 +22,10 @@ public class SpotifyClient extends SpotifyRestAPI{
     private Track trackIds;
     private Show show;
     private Player player;
+    private Playlist playlist;
 
-    public SpotifyClient(){
-        super();
-        this.secretKey = "defaultSecretKey";
-        this.apiKey = "defaultApiKey";
+    public SpotifyClient() throws IOException {
+        this("defaultApiKey","defaultSecretKey");
     }
 
     public SpotifyClient(String apiKey, String secretKey) throws IOException {
@@ -42,6 +41,7 @@ public class SpotifyClient extends SpotifyRestAPI{
         this.trackIds = new Track();
         this.show = new Show();
         this.player = new Player();
+        this.playlist = new Playlist();
     }
 
     public SpotifyClient(String apiKey, String secretKey, String token){
@@ -57,6 +57,15 @@ public class SpotifyClient extends SpotifyRestAPI{
         this.trackIds = new Track();
         this.show = new Show();
         this.player = new Player();
+        this.playlist = new Playlist();
+    }
+
+    public Playlist getPlaylist() {
+        return playlist;
+    }
+
+    public void setPlaylist(Playlist playlist) {
+        this.playlist = playlist;
     }
 
     public Player getPlayer() {
