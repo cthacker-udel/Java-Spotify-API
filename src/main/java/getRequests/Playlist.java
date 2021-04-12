@@ -12,7 +12,7 @@ public class Playlist extends SpotifyClient {
     private String name;
     private String playlistId;
 
-    public Playlist() throws IOException {
+    public Playlist() {
         super();
     }
 

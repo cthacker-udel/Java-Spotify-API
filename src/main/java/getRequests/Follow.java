@@ -2,14 +2,15 @@ package getRequests;
 
 import Client.SpotifyClient;
 
+import java.io.IOException;
+
 public class Follow extends SpotifyClient {
 
     private String contentType;
     private String playListId;
 
-    public Follow(){
+    public Follow() throws IOException {
         super();
-
     }
 
     public String getContentType() {
