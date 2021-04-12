@@ -2,6 +2,7 @@ package Model;
 
 import Controller.PlaylistController.Playlist;
 import Controller.PlaylistController.PlaylistItems.BasePlaylistItems;
+import Controller.PlaylistController.SnapshotId;
 import Controller.PlaylistController.UserPlaylists.BasePlaylist;
 import retrofit2.Call;
 import retrofit2.http.*;
@@ -27,5 +28,11 @@ public interface playlistInterface {
 
     @GET("https://api.spotify.com/v1/playlists/{playlistId}/tracks")
     Call<BasePlaylistItems> getPlaylistItems(@Header("Authorization") String auth, @Path("playlistId") String playlistId);
+
+    @POST("https://api.spotify.com/v1/playlists/{playlistId}/tracks")
+    Call<SnapshotId> addItemsToPlaylist(@Header("Authorization") String auth, @Path("playlistId") String playlistId);
+
+    @PUT("https://api.spotify.com/v1/playlists/{playlistId}/tracks")
+    Call<SnapshotId> reorderOrReplacePlaylistsItems(@Header("Authorization") String auth, @Path("playlistId") String playlistId);
 
 }

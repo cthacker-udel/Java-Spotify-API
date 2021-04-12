@@ -21,7 +21,9 @@ import Controller.PlayerController.Devices.basePlayerDevice;
 import Controller.PlayerController.baseUserPlayback;
 import Controller.PlaylistController.Playlist;
 import Controller.PlaylistController.PlaylistItems.BasePlaylistItems;
+import Controller.PlaylistController.SnapshotId;
 import Model.*;
+import com.google.gson.internal.GsonBuildConfig;
 import getRequests.AlbumInterface;
 
 import retrofit2.Call;
@@ -1403,6 +1405,44 @@ public class SpotifyRestAPI implements AlbumInterface {
         Call<BasePlaylistItems> call = playlistInterface.getPlaylistItems(getTokenString(client.getToken()),client.getPlaylist().getPlaylistId());
 
         Response<BasePlaylistItems> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public SnapshotId addItemsToPlaylist(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + String.format("/v1/playlists/%s/tracks/",client.getPlaylist().getPlaylistId());
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        playlistInterface playlistInterface = retrofit.create(Model.playlistInterface.class);
+
+        Call<SnapshotId> call = playlistInterface.addItemsToPlaylist(getTokenString(client.getToken()),client.getPlaylist().getPlaylistId());
+
+        Response<SnapshotId> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public SnapshotId reorderOrReplacePlaylistItems(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + String.format("/v1/playlists/%s/tracks/",client.getPlaylist().getPlaylistId());
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        playlistInterface playlistInterface = retrofit.create(Model.playlistInterface.class);
+
+        Call<SnapshotId> call = playlistInterface.reorderOrReplacePlaylistsItems(getTokenString(client.getToken()),client.getPlaylist().getPlaylistId());
+
+        Response<SnapshotId> response = call.execute();
 
         return response.body();
 
