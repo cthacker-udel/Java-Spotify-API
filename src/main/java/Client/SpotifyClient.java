@@ -25,7 +25,9 @@ public class SpotifyClient extends SpotifyRestAPI{
     private Playlist playlist;
 
     public SpotifyClient() throws IOException {
-        this("defaultApiKey","defaultSecretKey");
+        super();
+        this.apiKey = "defaultapikey";
+        this.secretKey = "defaultsecretkey";
     }
 
     public SpotifyClient(String apiKey, String secretKey) throws IOException {

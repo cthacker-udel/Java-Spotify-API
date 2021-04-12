@@ -1349,7 +1349,6 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         return response.body();
 
-
     }
 
 
