@@ -1610,6 +1610,26 @@ public class SpotifyRestAPI implements AlbumInterface {
      *************************************************************************/
 
 
+    public Controller.TrackController.MultipleTracks.BaseTrack getMultipleTracks(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/tracks/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        trackInterface trackInterface = retrofit.create(Model.trackInterface.class);
+
+        Call<Controller.TrackController.MultipleTracks.BaseTrack> call = trackInterface.getMultipleTracks(getTokenString(client.getToken()),client.getTrackIds().convertTrackIds());
+
+        Response<Controller.TrackController.MultipleTracks.BaseTrack> response = call.execute();
+
+        return response.body();
+
+    }
+
+
 
 
 
