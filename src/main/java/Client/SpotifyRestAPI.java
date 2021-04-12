@@ -20,6 +20,7 @@ import Controller.PlayerController.CurrentTrack.baseCurrentTrack;
 import Controller.PlayerController.Devices.basePlayerDevice;
 import Controller.PlayerController.baseUserPlayback;
 import Controller.PlaylistController.Playlist;
+import Controller.PlaylistController.PlaylistItems.BasePlaylistItems;
 import Model.*;
 import getRequests.AlbumInterface;
 
@@ -1386,6 +1387,25 @@ public class SpotifyRestAPI implements AlbumInterface {
         Response<Object> response = call.execute();
 
         return response.isSuccessful();
+    }
+
+    public BasePlaylistItems getPlaylistItems(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + String.format("/v1/playlists/%s/tracks/",client.getPlaylist().getPlaylistId());
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        playlistInterface playlistInterface = retrofit.create(Model.playlistInterface.class);
+
+        Call<BasePlaylistItems> call = playlistInterface.getPlaylistItems(getTokenString(client.getToken()),client.getPlaylist().getPlaylistId());
+
+        Response<BasePlaylistItems> response = call.execute();
+
+        return response.body();
+
     }
 
 
