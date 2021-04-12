@@ -24,6 +24,7 @@ import Controller.PlaylistController.CoverImage;
 import Controller.PlaylistController.Playlist;
 import Controller.PlaylistController.PlaylistItems.BasePlaylistItems;
 import Controller.PlaylistController.SnapshotId;
+import Controller.ShowController.MultipleShows.Show;
 import Model.*;
 import com.google.gson.internal.GsonBuildConfig;
 import getRequests.AlbumInterface;
@@ -1554,6 +1555,25 @@ public class SpotifyRestAPI implements AlbumInterface {
         Call<Controller.ShowController.MultipleShows.BaseShow> call = showInterface.getMultipleShows(getTokenString(client.getToken()),client.getShow().convertShowIds());
 
         Response<Controller.ShowController.MultipleShows.BaseShow> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public Show getSpecificShow(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + String.format("/v1/shows/%s/",client.getShow().getShowIds().get(0));
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        showInterface showInterface = retrofit.create(Model.showInterface.class);
+
+        Call<Show> call = showInterface.getASpecificShow(getTokenString(client.getToken()),client.getShow().getShowIds().get(0));
+
+        Response<Show> response = call.execute();
 
         return response.body();
 
