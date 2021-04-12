@@ -27,7 +27,9 @@ You can view the progress towards the completion of the Project [here](https://g
 
 Create an instance of `SpotifyClient` by calling the constructors listed in this [file](https://github.com/cthacker-udel/Java-Spotify-API/blob/master/src/main/java/Client/SpotifyClient.java)
 
-#### **Examples**
+### **Examples**
+
+#### **Examples - SpotifyClient**
 
 ### [Client package](https://github.com/cthacker-udel/Java-Spotify-API/tree/master/src/main/java/Client) → [SpotifyClient](https://github.com/cthacker-udel/Java-Spotify-API/blob/master/src/main/java/Client/SpotifyClient.java)
 
