@@ -6,6 +6,7 @@ import Controller.ShowController.MultipleShows.Show;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface showInterface {
@@ -14,9 +15,9 @@ public interface showInterface {
     Call<BaseShow> getMultipleShows(@Header("Authorization") String auth, @Query("ids") String ids);
 
     @GET("https://api.spotify.com/v1/shows/{id}")
-    Call<Show> getASpecificShow(@Header("Authorization") String auth, @Query("id") String showId);
+    Call<Show> getASpecificShow(@Header("Authorization") String auth, @Path("id") String showId);
 
     @GET("https://api.spotify.com/v1/shows/{id}/episodes")
-    Call<BaseEpisode> getAShowsEpisodes(@Header("Authorization") String auth, @Query("id") String showId);
+    Call<BaseEpisode> getAShowsEpisodes(@Header("Authorization") String auth, @Path("id") String showId);
 
 }
