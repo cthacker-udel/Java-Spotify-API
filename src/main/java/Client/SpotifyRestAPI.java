@@ -25,6 +25,9 @@ import Controller.PlaylistController.Playlist;
 import Controller.PlaylistController.PlaylistItems.BasePlaylistItems;
 import Controller.PlaylistController.SnapshotId;
 import Controller.ShowController.MultipleShows.Show;
+import Controller.TrackController.AudioFeatures.AudioFeature;
+import Controller.TrackController.AudioFeatures.BaseAudioFeature;
+import Controller.TrackController.MultipleTracks.Track;
 import Model.*;
 import com.google.gson.internal.GsonBuildConfig;
 import getRequests.AlbumInterface;
@@ -1624,6 +1627,67 @@ public class SpotifyRestAPI implements AlbumInterface {
         Call<Controller.TrackController.MultipleTracks.BaseTrack> call = trackInterface.getMultipleTracks(getTokenString(client.getToken()),client.getTrackIds().convertTrackIds());
 
         Response<Controller.TrackController.MultipleTracks.BaseTrack> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public Track getTrack(SpotifyClient client) throws IOException {
+
+        String trackId = client.getTrackIds().getTracks().get(0);
+
+        String url = baseUrl + String.format("/v1/tracks/%s/",trackId);
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        trackInterface trackInterface = retrofit.create(Model.trackInterface.class);
+
+        Call<Track> call = trackInterface.getATrack(getTokenString(client.getToken()),trackId);
+
+        Response<Track> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public BaseAudioFeature getAudioFeaturesForSeveralTracks(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/audio-features/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        trackInterface trackInterface = retrofit.create(Model.trackInterface.class);
+
+        Call<BaseAudioFeature> call = trackInterface.getAudioFeaturesMultipleTracks(getTokenString(client.getToken()),client.getTrackIds().convertTrackIds());
+
+        Response<BaseAudioFeature> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public AudioFeature getTrackAudioFeature(SpotifyClient client) throws IOException {
+
+        String trackId = client.getTrackIds().getTracks().get(0);
+
+        String url = baseUrl + String.format("/v1/audio-features/%s/",trackId);
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        trackInterface trackInterface = retrofit.create(Model.trackInterface.class);
+
+        Call<AudioFeature> call = trackInterface.getTrackAudioFeatures(getTokenString(client.getToken()),trackId);
+
+        Response<AudioFeature> response = call.execute();
 
         return response.body();
 
