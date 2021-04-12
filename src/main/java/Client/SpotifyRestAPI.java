@@ -25,6 +25,7 @@ import Controller.PlaylistController.Playlist;
 import Controller.PlaylistController.PlaylistItems.BasePlaylistItems;
 import Controller.PlaylistController.SnapshotId;
 import Controller.ShowController.MultipleShows.Show;
+import Controller.TrackController.AudioAnalysis.BaseAudioAnalysis;
 import Controller.TrackController.AudioFeatures.AudioFeature;
 import Controller.TrackController.AudioFeatures.BaseAudioFeature;
 import Controller.TrackController.MultipleTracks.Track;
@@ -1688,6 +1689,27 @@ public class SpotifyRestAPI implements AlbumInterface {
         Call<AudioFeature> call = trackInterface.getTrackAudioFeatures(getTokenString(client.getToken()),trackId);
 
         Response<AudioFeature> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public BaseAudioAnalysis getTrackAudioAnalysis(SpotifyClient client) throws IOException {
+
+        String trackId = client.getTrackIds().getTracks().get(0);
+
+        String url = baseUrl + String.format("/v1/audio-analysis/%s/",trackId);
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        trackInterface trackInterface = retrofit.create(Model.trackInterface.class);
+
+        Call<BaseAudioAnalysis> call = trackInterface.getTrackAudioAnalysis(getTokenString(client.getToken()),trackId);
+
+        Response<BaseAudioAnalysis> response = call.execute();
 
         return response.body();
 

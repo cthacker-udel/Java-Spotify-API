@@ -1,5 +1,6 @@
 package Model;
 
+import Controller.TrackController.AudioAnalysis.BaseAudioAnalysis;
 import Controller.TrackController.AudioFeatures.AudioFeature;
 import Controller.TrackController.AudioFeatures.BaseAudioFeature;
 import Controller.TrackController.MultipleTracks.BaseTrack;
@@ -23,6 +24,9 @@ public interface trackInterface {
 
     @GET("https://api.spotify.com/v1/audio-features/{id}")
     Call<AudioFeature> getTrackAudioFeatures(@Header("Authorization") String auth, @Path("id") String trackId);
+
+    @GET("https://api.spotify.com/v1/audio-analysis/{id}")
+    Call<BaseAudioAnalysis> getTrackAudioAnalysis(@Header("Authorization") String auth, @Path("id") String trackId);
 
 
 }
