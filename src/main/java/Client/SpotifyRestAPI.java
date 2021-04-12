@@ -1291,7 +1291,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
      *************************************************************************/
 
-    public void getListCurrUserPlaylists(SpotifyClient client){
+    public Controller.PlaylistController.currUserPlaylists.BasePlaylist getListCurrUserPlaylists(SpotifyClient client) throws IOException {
 
         String url = baseUrl + "/v1/me/playlists/";
 
@@ -1299,6 +1299,14 @@ public class SpotifyRestAPI implements AlbumInterface {
                 .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
+
+        playlistInterface playlistInterface = retrofit.create(Model.playlistInterface.class);
+
+        Call<Controller.PlaylistController.currUserPlaylists.BasePlaylist> call = playlistInterface.getListOfCurrUserPlaylists(getTokenString(client.getToken()));
+
+        Response<Controller.PlaylistController.currUserPlaylists.BasePlaylist> response = call.execute();
+
+        return response.body();
 
     }
 
