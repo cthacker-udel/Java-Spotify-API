@@ -29,7 +29,9 @@ import Controller.TrackController.AudioAnalysis.BaseAudioAnalysis;
 import Controller.TrackController.AudioFeatures.AudioFeature;
 import Controller.TrackController.AudioFeatures.BaseAudioFeature;
 import Controller.TrackController.MultipleTracks.Track;
+import Controller.UserProfileController.CurrUser.BaseProfile;
 import Model.*;
+import com.google.gson.Gson;
 import com.google.gson.internal.GsonBuildConfig;
 import getRequests.AlbumInterface;
 
@@ -1724,6 +1726,45 @@ public class SpotifyRestAPI implements AlbumInterface {
 
 
      *************************************************************************/
+
+    public BaseProfile getCurrUserProfile(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + "/v1/me/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        userprofileInterface userprofileInterface = retrofit.create(Model.userprofileInterface.class);
+
+        Call<BaseProfile> call = userprofileInterface.getCurrentUserProfile(getTokenString(client.getToken()));
+
+        Response<BaseProfile> response = call.execute();
+
+        return response.body();
+    }
+
+    public Controller.UserProfileController.BaseProfile getUserProfile(SpotifyClient client) throws IOException {
+
+        String userId = client.getUser().getTheUser().get(0);
+
+        String url = baseUrl + String.format("/v1/users/%s/",userId);
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        userprofileInterface userprofileInterface = retrofit.create(Model.userprofileInterface.class);
+
+        Call<Controller.UserProfileController.BaseProfile> call = userprofileInterface.getSpecificUserProfile(getTokenString(client.getToken()),userId);
+
+        Response<Controller.UserProfileController.BaseProfile> response = call.execute();
+
+        return response.body();
+
+    }
 
 
 
