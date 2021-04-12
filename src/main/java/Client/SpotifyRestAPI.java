@@ -19,6 +19,7 @@ import Controller.PersonalizationController.baseUserTopTracksAndArtists;
 import Controller.PlayerController.CurrentTrack.baseCurrentTrack;
 import Controller.PlayerController.Devices.basePlayerDevice;
 import Controller.PlayerController.baseUserPlayback;
+import Controller.PlaylistController.CoverImage;
 import Controller.PlaylistController.Playlist;
 import Controller.PlaylistController.PlaylistItems.BasePlaylistItems;
 import Controller.PlaylistController.SnapshotId;
@@ -62,23 +63,6 @@ public class SpotifyRestAPI implements AlbumInterface {
         return String.format(" Bearer %s",token);
     }
 
-
-    public void makeRequest(String requestType){
-
-        if(requestType.toLowerCase(Locale.ENGLISH).equals("get")){
-            // make get request
-        }
-        else if(requestType.toLowerCase(Locale.ENGLISH).equals("post")){
-            // make post request
-        }
-        else if(requestType.toLowerCase(Locale.ENGLISH).equals("put")){
-            // make put request
-        }
-        else{
-            // make delete request
-        }
-
-    }
 
     /*
 
@@ -1445,6 +1429,65 @@ public class SpotifyRestAPI implements AlbumInterface {
         Response<SnapshotId> response = call.execute();
 
         return response.body();
+
+    }
+
+    public SnapshotId removePlaylistItems(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + String.format("/v1/playlists/%s/tracks/",client.getPlaylist().getPlaylistId());
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        playlistInterface playlistInterface = retrofit.create(Model.playlistInterface.class);
+
+        Call<SnapshotId> call = playlistInterface.removeItemsFromPlaylist(getTokenString(client.getToken()),client.getPlaylist().getPlaylistId(),client.getTrackIds().convertTrackIds());
+
+        Response<SnapshotId> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public CoverImage getPlaylistCoverImage(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + String.format("/v1/playlists/%s/images/",client.getPlaylist().getPlaylistId());
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        playlistInterface playlistInterface = retrofit.create(Model.playlistInterface.class);
+
+        Call<CoverImage> call = playlistInterface.getPlaylistCoverImage(getTokenString(client.getToken()),client.getPlaylist().getPlaylistId());
+
+        Response<CoverImage> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public boolean uploadCustomPlaylistImage(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + String.format("/v1/playlists/%s/images/",client.getPlaylist().getPlaylistId());
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        playlistInterface playlistInterface = retrofit.create(Model.playlistInterface.class);
+
+        Call<Object> call = playlistInterface.uploadPlaylistCoverImage(getTokenString(client.getToken()),client.getContentType(),client.getPlaylist().getPlaylistId());
+
+        Response<Object> response = call.execute();
+
+        return response.isSuccessful();
+
+
 
     }
 

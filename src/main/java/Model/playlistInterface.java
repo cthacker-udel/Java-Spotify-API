@@ -1,5 +1,6 @@
 package Model;
 
+import Controller.PlaylistController.CoverImage;
 import Controller.PlaylistController.Playlist;
 import Controller.PlaylistController.PlaylistItems.BasePlaylistItems;
 import Controller.PlaylistController.SnapshotId;
@@ -34,5 +35,14 @@ public interface playlistInterface {
 
     @PUT("https://api.spotify.com/v1/playlists/{playlistId}/tracks")
     Call<SnapshotId> reorderOrReplacePlaylistsItems(@Header("Authorization") String auth, @Path("playlistId") String playlistId);
+
+    @DELETE("https://api.spotify.com/v1/playlists/{playlistId}/tracks")
+    Call<SnapshotId> removeItemsFromPlaylist(@Header("Authorization") String auth, @Path("playlistId") String playlistId, @Body String tracks);
+
+    @GET("https://api.spotify.com/v1/playlists/{playlistId}/images")
+    Call<CoverImage> getPlaylistCoverImage(@Header("Authorization") String auth, @Path("playlistId") String playlistId);
+
+    @PUT("https://api.spotify.com/v1/playlists/{playlistId}/images")
+    Call<Object> uploadPlaylistCoverImage(@Header("Authorization") String auth, @Header("Content-Type") String contentType, @Path("playlistId") String playlistId);
 
 }
