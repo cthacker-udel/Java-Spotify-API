@@ -68,6 +68,11 @@ class BrowseTest {
     @Test
     void getRecommendations() throws IOException{
 
+        Seed seed = client.getSeed();
+        seed.addSeedArtist("4NHQUGzhtTLFvgF5SZesLK");
+        seed.addSeedTrack("0c6xIDDpzE81m2q797ordA");
+        seed.addSeedGenre("hip-hop");
+
         BaseRecommendation recommendations = client.getRecommendations(client);
         assertNotNull(recommendations);
 

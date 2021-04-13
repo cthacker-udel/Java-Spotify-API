@@ -17,15 +17,15 @@ public class Seed extends SpotifyClient {
         this.seedTracks = new ArrayList<>();
     }
 
-    public void AddSeedArtist(String seedArtist){
-        this.seedArtists.add("seedArtist");
+    public void addSeedArtist(String seedArtist){
+        this.seedArtists.add(seedArtist);
     }
 
-    public void AddSeedGenre(String seedGenre){
+    public void addSeedGenre(String seedGenre){
         this.seedGenres.add(seedGenre);
     }
 
-    public void AddSeedTrack(String seedTrack){
+    public void addSeedTrack(String seedTrack){
         this.seedTracks.add(seedTrack);
     }
 
