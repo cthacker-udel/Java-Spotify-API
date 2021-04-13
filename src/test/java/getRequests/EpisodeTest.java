@@ -24,7 +24,8 @@ public class EpisodeTest {
     @Test
     void testGetEpisodes() throws IOException {
         Episode episode = client.getEpisode();
-        episode.getEpisodes().add("episode1");
+        episode.addEpisode("77o6BIVlYM3msb4MMIL1jH");
+        episode.addEpisode("0Q86acNRm6V9GYx55SXKwf");
         BaseEpisode episodes = client.getMultipleEpisodes(client);
         assertNotNull(episodes);
 
@@ -34,8 +35,8 @@ public class EpisodeTest {
     void testSingleEpisode() throws IOException{
 
         Episode episode = client.getEpisode();
-        episode.addEpisode("Episode1");
-        Controller.EpisodeController.Episode episode2 = client.getSingleEpisode(client,client.getEpisode().getEpisodes().get(0));
+        episode.addEpisode("77o6BIVlYM3msb4MMIL1jH");
+        Controller.EpisodeController.Episode episode2 = client.getSingleEpisode(client);
         assertNotNull(episode2);
 
     }

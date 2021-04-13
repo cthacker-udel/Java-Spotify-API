@@ -15,6 +15,6 @@ public interface episodeInterface {
     Call<BaseEpisode> getEpisodes(@Header("Authorization") String authorization, @Query("ids") String ids);
 
     @GET("https://api.spotify.com/v1/episodes/{episodeId}")
-    Call<Episode> getSingleEpisode(@Header("Authorization") String authorization, @Path("episodeId") String episodeId);
+    Call<Episode> getSingleEpisode(@Header("Authorization") String authorization, @Path("episodeId") String episodeId, @Query("market") String market);
 
 }
