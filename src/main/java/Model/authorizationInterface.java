@@ -12,7 +12,7 @@ public interface authorizationInterface {
     Call<Controller.baseAuthResponse> implicitGrant(@Field("client_id") String client_id, @Field("client_secret") String secretKey, @Field("grant_type") String grantType);
 
     @GET("https://accounts.spotify.com/authorize")
-    Call<String> requestAuthorizationCodeFlow(@Query("client_id") String client_id, @Query("response_type") String code, @Query("redirect_uri") String redirect_uri);
+    Call<String> requestAuthorizationCodeFlow(@Query("client_id") String client_id, @Query("response_type") String code, @Query("redirect_uri") String redirect_uri, @Query("scope") String scopes);
 
     @FormUrlEncoded
     @POST("https://accounts.spotify.com/api/token")

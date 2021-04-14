@@ -1,5 +1,7 @@
 package Client;
 
+import java.util.ArrayList;
+
 public class SpotifyLogin extends SpotifyClient {
 
     private String emailOrUsername;
@@ -8,14 +10,17 @@ public class SpotifyLogin extends SpotifyClient {
     private String refreshToken;
     private String authCode;
     private String redirectUri;
+    private ArrayList<String> scopes;
 
     public SpotifyLogin(){
         super();
+        this.scopes = new ArrayList<>();
     }
 
     public SpotifyLogin(String username, String password){
         this.emailOrUsername = username;
         this.password = password;
+        this.scopes = new ArrayList<>();
     }
 
     public String getRedirectUri() {
@@ -24,6 +29,22 @@ public class SpotifyLogin extends SpotifyClient {
 
     public void setRedirectUri(String redirectUri) {
         this.redirectUri = redirectUri;
+    }
+
+    public String convertScopes(){
+        return String.join(" ",this.scopes);
+    }
+
+    public void addScope(String scope){
+        this.scopes.add(scope);
+    }
+
+    public ArrayList<String> getScopes() {
+        return scopes;
+    }
+
+    public void setScopes(ArrayList<String> scopes) {
+        this.scopes = scopes;
     }
 
     public String getAuthCode() {

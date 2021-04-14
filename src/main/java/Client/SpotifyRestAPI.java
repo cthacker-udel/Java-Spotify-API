@@ -47,6 +47,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -143,6 +144,7 @@ public class SpotifyRestAPI implements AlbumInterface {
         urlBuilder.addQueryParameter("client_id",client.getApiKey());
         urlBuilder.addQueryParameter("response_type","code");
         urlBuilder.addQueryParameter("redirect_uri",client.getLogin().getRedirectUri());
+        urlBuilder.addQueryParameter("scope",client.getLogin().convertScopes());
 
         WebDriverManager.chromedriver().setup();
 
@@ -156,7 +158,16 @@ public class SpotifyRestAPI implements AlbumInterface {
         browser.findElement(By.id("login-password")).sendKeys(password);
         browser.findElement(By.id("login-button")).click();
         sleep(10000);
-        browser.findElement(By.id("auth-accept")).click();
+        //browser.findElement(By.id("auth-accept")).click();
+        try {
+            WebElement authAccept = browser.findElement(By.id("auth-accept"));
+            if (authAccept != null) {
+                authAccept.click();
+            }
+        }
+        catch(Exception ignored){
+
+        }
 
         sleep(1);
         while(!browser.getCurrentUrl().contains("code=")){
@@ -236,7 +247,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
      */
 
-    public String getAccessToken(SpotifyClient client){
+    public String getAccessToken(SpotifyClient client) throws IOException {
 
         return client.getLogin().getAccessToken();
 
@@ -648,9 +659,9 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         followInterface followInterface = retrofit.create(Model.followInterface.class);
 
-        Call<Object> call = followInterface.followAPlaylist(getTokenString(client.getToken()),client.getContentType(),client.getFollow().getPlayListId());
+        Call<Void> call = followInterface.followAPlaylist(getTokenString(client.getAccessToken(client)),client.getContentType(),client.getFollow().getPlayListId());
 
-        Response<Object> response = call.execute();
+        Response<Void> response = call.execute();
 
         return response.isSuccessful();
 
@@ -667,9 +678,9 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         followInterface followInterface = retrofit.create(Model.followInterface.class);
 
-        Call<Object> call = followInterface.unfollowPlaylist(getTokenString(client.getToken()),getContentType(),client.getFollow().getPlayListId());
+        Call<Void> call = followInterface.unfollowPlaylist(getTokenString(client.getAccessToken(client)),getContentType(),client.getFollow().getPlayListId());
 
-        Response<Object> response = call.execute();
+        Response<Void> response = call.execute();
 
         return response.isSuccessful();
 
@@ -687,7 +698,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         followInterface followInterface = retrofit.create(Model.followInterface.class);
 
-        Call<Object> call = followInterface.checkUserFollowsPlaylist(getTokenString(client.getToken()),client.getFollow().getPlayListId(),client.getUser().convertUserIds());
+        Call<Object> call = followInterface.checkUserFollowsPlaylist(getTokenString(client.getAccessToken(client)),client.getFollow().getPlayListId(),client.getUser().convertUserIds());
 
         Response<Object> response = call.execute();
 
@@ -706,7 +717,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         followInterface followInterface = retrofit.create(Model.followInterface.class);
 
-        Call<Controller.FollowController.BaseArtist> call = followInterface.getUserFollowedArtists(getTokenString(client.getToken()),client.getUser().getType());
+        Call<Controller.FollowController.BaseArtist> call = followInterface.getUserFollowedArtists(getTokenString(client.getAccessToken(client)),client.getUser().getType());
 
         Response<Controller.FollowController.BaseArtist> response = call.execute();
 
@@ -725,9 +736,9 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         followInterface followInterface = retrofit.create(Model.followInterface.class);
 
-        Call<Object> call = followInterface.followUserOrArtist(getTokenString(client.getToken()),client.getUser().getType(),client.getUser().convertUserIds(),client.getUser().jsonifyUserIds());
+        Call<Void> call = followInterface.followUserOrArtist(getTokenString(client.getAccessToken(client)),client.getUser().getType(),client.getUser().convertUserIds(),client.getUser().jsonifyUserIds());
 
-        Response<Object> response = call.execute();
+        Response<Void> response = call.execute();
 
         return response.isSuccessful();
     }
@@ -743,9 +754,9 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         followInterface followInterface = retrofit.create(Model.followInterface.class);
 
-        Call<Object> call = followInterface.unfollowArtistOrUser(getTokenString(client.getToken()),client.getUser().getType(),client.getUser().convertUserIds());
+        Call<Void> call = followInterface.unfollowArtistOrUser(getTokenString(client.getAccessToken(client)),client.getUser().getType(),client.getUser().convertUserIds());
 
-        Response<Object> response = call.execute();
+        Response<Void> response = call.execute();
 
         return response.isSuccessful();
 
@@ -762,7 +773,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         followInterface followInterface = retrofit.create(Model.followInterface.class);
 
-        Call<Object> call = followInterface.checkFollowingStateForArtistOrUser(getTokenString(client.getToken()),client.getUser().getType(),client.getUser().convertUserIds());
+        Call<Object> call = followInterface.checkFollowingStateForArtistOrUser(getTokenString(client.getAccessToken(client)),client.getUser().getType(),client.getUser().convertUserIds());
 
         Response<Object> response = call.execute();
 

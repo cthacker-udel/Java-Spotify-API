@@ -1,6 +1,7 @@
 package getRequests;
 
 import Client.SpotifyClient;
+import Client.SpotifyLogin;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,7 +15,27 @@ public class FollowTest {
     static {
         try {
             client = new SpotifyClient("d56c8c3f79a1459bba2c286cfa7aa15b", "9dcd475a773d467990dd75eede0af55f");
-        } catch (IOException e) {
+            /*
+
+            ------------------------------
+
+            DELETE THIS AFTERWARDS
+
+            ------------------------------
+
+
+             */
+            SpotifyLogin login = client.getLogin();
+            login.setEmailOrUsername("defaultUsername");
+            login.setPassword("defaultPassword");
+            login.setRedirectUri("defaultRedirectUri");
+            login.addScope("playlist-modify-public");
+            login.addScope("playlist-modify-private");
+            client.requestAuthCodeFlowCode(client);
+            client.generateAccessTokenAndRefreshToken(client);
+
+
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
     }
@@ -23,7 +44,7 @@ public class FollowTest {
     @Test
     void testFollowAPlaylist() throws IOException {
         Follow follow = client.getFollow();
-        follow.setPlayListId("37i9dQZF1DWUFmyho2wkQU");
+        follow.setPlayListId("2v3iNvBX8Ay1Gt2uXtUKUT");
         assertTrue(client.followAPlaylist(client));
     }
 
@@ -31,7 +52,7 @@ public class FollowTest {
     void testUnfollowAPlaylist() throws IOException {
 
         Follow follow = client.getFollow();
-        follow.setPlayListId("playlist1");
+        follow.setPlayListId("2v3iNvBX8Ay1Gt2uXtUKUT");
         assertTrue(client.unfollowPlaylist(client));
     }
 
@@ -40,8 +61,8 @@ public class FollowTest {
 
         Follow follow = client.getFollow();
         User user = client.getUser();
-        follow.setPlayListId("playlist1");
-        user.addUserId("user1");
+        follow.setPlayListId("2v3iNvBX8Ay1Gt2uXtUKUT");
+        user.addUserId("possan");
         assertTrue(client.checkUsersFollowPlaylist(client));
 
     }
@@ -50,7 +71,7 @@ public class FollowTest {
     void testGetUsersFollowedArtists() throws IOException{
 
         User user = client.getUser();
-        user.setType("type1");
+        user.setType("artist");
         assertNotNull(client.getUsersArtistsFollowed(client));
 
     }
@@ -59,8 +80,8 @@ public class FollowTest {
     void testFollowArtistOrUser() throws IOException{
 
         User user = client.getUser();
-        user.setType("type1");
-        user.addUserId("user1");
+        user.setType("artist");
+        user.addUserId("6SWohEYYTym0RIBxvoh6wt");
         assertTrue(client.followArtistOrUser(client));
 
     }
@@ -71,9 +92,8 @@ public class FollowTest {
 
         User user = client.getUser();
         user.clearUserIds();
-        user.addUserId("user1");
-        user.addUserId("user2");
-        user.setType("type2");
+        user.addUserId("6SWohEYYTym0RIBxvoh6wt");
+        user.setType("artist");
         assertTrue(client.unfollowArtistOrUser(client));
 
     }
@@ -83,8 +103,8 @@ public class FollowTest {
 
         User user = client.getUser();
         user.clearUserIds();
-        user.setType("type3");
-        user.addUserId("user1");
+        user.setType("artist");
+        user.addUserId("6SWohEYYTym0RIBxvoh6wt");
         assertTrue(client.getFollwingStateOfUserOrArtist(client));
     }
 
