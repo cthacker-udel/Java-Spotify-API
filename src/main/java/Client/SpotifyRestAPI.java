@@ -195,6 +195,10 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         Response<baseAccessTokenResponse> response = call.execute();
 
+        client.getLogin().setAccessToken(response.body().getAccessToken());
+
+        client.getLogin().setRefreshToken(response.body().getRefreshToken());
+
         return response.body();
 
     }
@@ -223,6 +227,24 @@ public class SpotifyRestAPI implements AlbumInterface {
         Response<baseRefreshTokenResponse> response = call.execute();
 
         return response.body();
+
+    }
+
+    /*
+
+        Authorization - Getters for Access Token and Refresh Token
+
+     */
+
+    public String getAccessToken(SpotifyClient client){
+
+        return client.getLogin().getAccessToken();
+
+    }
+
+    public String getRefreshToken(SpotifyClient client){
+
+        return client.getLogin().getRefreshToken();
 
     }
 
