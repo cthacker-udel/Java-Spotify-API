@@ -23,7 +23,7 @@ public class FollowTest {
     @Test
     void testFollowAPlaylist() throws IOException {
         Follow follow = client.getFollow();
-        follow.setPlayListId("playlist1");
+        follow.setPlayListId("37i9dQZF1DWUFmyho2wkQU");
         assertTrue(client.followAPlaylist(client));
     }
 

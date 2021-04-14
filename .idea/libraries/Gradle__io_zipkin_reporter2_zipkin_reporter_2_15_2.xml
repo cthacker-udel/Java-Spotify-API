@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: io.zipkin.reporter2:zipkin-reporter:2.15.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.zipkin.reporter2/zipkin-reporter/2.15.2/cafd9ebd62106382bea4ddeebd04d1363fb2ab9a/zipkin-reporter-2.15.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.zipkin.reporter2/zipkin-reporter/2.15.2/9c4806a87405acc7cc139aa3a7a7e94421efe5f2/zipkin-reporter-2.15.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

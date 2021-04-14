@@ -9,7 +9,7 @@ public class Follow extends SpotifyClient {
     private String contentType;
     private String playListId;
 
-    public Follow() throws IOException {
+    public Follow(){
         super();
     }
 

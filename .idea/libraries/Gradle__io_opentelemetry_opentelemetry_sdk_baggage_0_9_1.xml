@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: io.opentelemetry:opentelemetry-sdk-baggage:0.9.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.opentelemetry/opentelemetry-sdk-baggage/0.9.1/f69ee76ae413a0d16c05af134d2e38fd4dd640e5/opentelemetry-sdk-baggage-0.9.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.opentelemetry/opentelemetry-sdk-baggage/0.9.1/f4fb3db2238fb48347cd6dd14052ed88f3c41a81/opentelemetry-sdk-baggage-0.9.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

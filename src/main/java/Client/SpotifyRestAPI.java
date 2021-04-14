@@ -30,20 +30,37 @@ import Controller.TrackController.AudioFeatures.AudioFeature;
 import Controller.TrackController.AudioFeatures.BaseAudioFeature;
 import Controller.TrackController.MultipleTracks.Track;
 import Controller.UserProfileController.CurrUser.BaseProfile;
+import Controller.baseAccessTokenResponse;
+import Controller.baseRefreshTokenResponse;
 import Model.*;
-import com.google.gson.Gson;
-import com.google.gson.internal.GsonBuildConfig;
+
 import getRequests.AlbumInterface;
 
+import io.github.bonigarcia.wdm.ChromeDriverManager;
+import io.github.bonigarcia.wdm.FirefoxDriverManager;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import okhttp3.*;
+import okhttp3.logging.HttpLoggingInterceptor;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriverService;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import java.io.IOException;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
-
+import java.util.List;
 import getRequests.Album;
+
+import static java.lang.Thread.sleep;
+
 
 /*
 
@@ -80,6 +97,11 @@ public class SpotifyRestAPI implements AlbumInterface {
         return String.format(" Bearer %s",token);
     }
 
+    public String getRefreshTokenString(String clientId, String clientSecret){
+        byte[] clientIdEncoded = Base64.getEncoder().encode(clientId.getBytes(StandardCharsets.UTF_8));
+        byte[] clientSecretEncoded = Base64.getEncoder().encode(clientSecret.getBytes(StandardCharsets.UTF_8));
+        return String.format(" Basic %s:%s",new String(clientIdEncoded,StandardCharsets.UTF_8),new String(clientSecretEncoded,StandardCharsets.UTF_8));
+    }
 
     /*
 
@@ -104,6 +126,105 @@ public class SpotifyRestAPI implements AlbumInterface {
         client.setToken(implicitGrantResponse.body().getToken());
 
         return implicitGrantResponse.body().getToken();
+    }
+
+    /*
+
+    Authorization Method - Access User Profile - Generate Access Token Code to generate Refresh Token and AccessToken
+
+     */
+
+
+    public String requestAuthCodeFlowCode(SpotifyClient client) throws IOException, InterruptedException {
+
+        MediaType JSON = MediaType.get("application/json; charset=utf-8");
+
+        HttpUrl.Builder urlBuilder = HttpUrl.parse("https://accounts.spotify.com/authorize").newBuilder();
+
+        urlBuilder.addQueryParameter("client_id",client.getApiKey());
+        urlBuilder.addQueryParameter("response_type","code");
+        urlBuilder.addQueryParameter("redirect_uri",client.getLogin().getRedirectUri());
+
+        WebDriverManager.chromedriver().setup();
+
+        WebDriver browser = new ChromeDriver();
+
+        CharSequence email = client.getLogin().getEmailOrUsername();
+        CharSequence password = client.getLogin().getPassword();
+
+        browser.get(URLDecoder.decode(urlBuilder.build().url().toString(),StandardCharsets.UTF_8));
+        browser.findElement(By.id("login-username")).sendKeys(email);
+        browser.findElement(By.id("login-password")).sendKeys(password);
+        browser.findElement(By.id("login-button")).click();
+        sleep(10000);
+        browser.findElement(By.id("auth-accept")).click();
+
+        sleep(1);
+        while(!browser.getCurrentUrl().contains("code=")){
+            continue;
+        }
+
+        String newUrl = browser.getCurrentUrl();
+        String code = newUrl.split("code=")[1];
+
+        client.getLogin().setAuthCode(code);
+
+        return code;
+    }
+
+    /*
+
+
+    Authorization - Generate Access Token And Refresh Token
+
+
+     */
+
+
+    public baseAccessTokenResponse generateAccessTokenAndRefreshToken(SpotifyClient client) throws IOException {
+
+        String url = "https://accounts.spotify.com/api/token/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        authorizationInterface authorizationInterface = retrofit.create(Model.authorizationInterface.class);
+
+        Call<baseAccessTokenResponse> call = authorizationInterface.getAccessTokenAndRefreshToken("authorization_code",client.getLogin().getAuthCode(),client.getLogin().getRedirectUri(),client.getApiKey(),client.getSecretKey());
+
+        Response<baseAccessTokenResponse> response = call.execute();
+
+        return response.body();
+
+    }
+
+    /*
+
+
+        Authorization - Refresh Access Token
+
+
+     */
+
+    public baseRefreshTokenResponse refreshAccessToken(SpotifyClient client) throws IOException {
+
+        String url = "https://accounts.spotify.com/api/token/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        authorizationInterface authorizationInterface = retrofit.create(Model.authorizationInterface.class);
+
+        Call<baseRefreshTokenResponse> call = authorizationInterface.refreshAccessToken(client.getRefreshTokenString(client.getApiKey(),client.getSecretKey()),"refresh_token",client.getLogin().getRefreshToken());
+
+        Response<baseRefreshTokenResponse> response = call.execute();
+
+        return response.body();
+
     }
 
     /************************************************************************
@@ -497,7 +618,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
     public boolean followAPlaylist(SpotifyClient client) throws IOException {
 
-        String url = baseUrl + String.format("/v1/playlists/%s/followers",client.getFollow().getPlayListId());
+        String url = baseUrl + String.format("/v1/playlists/%s/followers/",client.getFollow().getPlayListId());
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url)
