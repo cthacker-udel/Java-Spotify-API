@@ -45,7 +45,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
+import org.openqa.selenium.chromium.ChromiumDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -147,8 +153,42 @@ public class SpotifyRestAPI implements AlbumInterface {
         urlBuilder.addQueryParameter("scope",client.getLogin().convertScopes());
 
         WebDriverManager.chromedriver().setup();
+        WebDriver browser = null;
+        try {
+            browser = new ChromeDriver();
+        }
+        catch(Exception ignored){
+            try{
+                WebDriverManager.firefoxdriver().setup();
+                browser = new FirefoxDriver();
+            }
+            catch(Exception ignored1){
+                try{
+                    WebDriverManager.edgedriver().setup();
+                    browser = new EdgeDriver();
+                }
+                catch(Exception ignored2){
+                    try{
+                        WebDriverManager.iedriver().setup();
+                        browser = new InternetExplorerDriver();
+                    }
+                    catch(Exception ignored3){
+                        try{
+                            WebDriverManager.operadriver().setup();
+                            browser = new OperaDriver();
+                        }
+                        catch(Exception ignored4){
+                            try{
+                                browser = new SafariDriver();
+                            }
+                            catch(Exception ignored5){
 
-        WebDriver browser = new ChromeDriver();
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
         CharSequence email = client.getLogin().getEmailOrUsername();
         CharSequence password = client.getLogin().getPassword();
@@ -803,7 +843,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         libraryInterface libraryInterface = retrofit.create(Model.libraryInterface.class);
 
-        Call<Controller.LibraryController.BaseAlbum> call = libraryInterface.getUserSavedAlbums(getTokenString(client.getToken()));
+        Call<Controller.LibraryController.BaseAlbum> call = libraryInterface.getUserSavedAlbums(getTokenString(client.getLogin().getAccessToken()));
 
         Response<Controller.LibraryController.BaseAlbum> response = call.execute();
 
@@ -822,9 +862,9 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         libraryInterface libraryInterface = retrofit.create(Model.libraryInterface.class);
 
-        Call<Object> call = libraryInterface.saveAlbumsForCurrentUser(getTokenString(client.getToken()),client.getAlbum().convertAlbumIds());
+        Call<Void> call = libraryInterface.saveAlbumsForCurrentUser(getTokenString(client.getLogin().getAccessToken()),client.getAlbum().convertAlbumIds());
 
-        Response<Object> response = call.execute();
+        Response<Void> response = call.execute();
 
         return response.isSuccessful();
 
@@ -842,16 +882,16 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         libraryInterface libraryInterface = retrofit.create(Model.libraryInterface.class);
 
-        Call<Object> call = libraryInterface.removeAlbumsForCurrentUser(getTokenString(client.getToken()),client.getAlbum().convertAlbumIds());
+        Call<Void> call = libraryInterface.removeAlbumsForCurrentUser(getTokenString(client.getLogin().getAccessToken()),client.getAlbum().convertAlbumIds());
 
-        Response<Object> response = call.execute();
+        Response<Void> response = call.execute();
 
         return response.isSuccessful();
 
 
     }
 
-    public boolean checkOneOrMoreUserSavedAlbums(SpotifyClient client) throws IOException {
+    public boolean checkUserSavedAlbums(SpotifyClient client) throws IOException {
 
         String url = baseUrl + "/v1/me/albums/contains/";
 
@@ -862,9 +902,9 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         libraryInterface libraryInterface = retrofit.create(Model.libraryInterface.class);
 
-        Call<Object> call = libraryInterface.checkUserAlbums(getTokenString(client.getToken()),client.getAlbum().convertAlbumIds());
+        Call<Void> call = libraryInterface.checkUserAlbums(getTokenString(client.getLogin().getAccessToken()),client.getAlbum().convertAlbumIds());
 
-        Response<Object> response = call.execute();
+        Response<Void> response = call.execute();
 
         return response.isSuccessful();
     }
@@ -880,7 +920,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         libraryInterface libraryInterface = retrofit.create(Model.libraryInterface.class);
 
-        Call<BaseTrack> call = libraryInterface.getUserSavedTracks(getTokenString(client.getToken()));
+        Call<BaseTrack> call = libraryInterface.getUserSavedTracks(getTokenString(client.getLogin().getAccessToken()));
 
         Response<BaseTrack> response = call.execute();
 
@@ -889,7 +929,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
     public boolean saveTracksForUser(SpotifyClient client) throws IOException {
 
-        String url = baseUrl = "/v1/me/tracks/";
+        String url = baseUrl + "/v1/me/tracks/";
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url)
@@ -898,9 +938,9 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         libraryInterface libraryInterface = retrofit.create(Model.libraryInterface.class);
 
-        Call<Object> call = libraryInterface.saveTracksToUser(getTokenString(client.getToken()),client.getTrackIds().convertTrackIds());
+        Call<Void> call = libraryInterface.saveTracksToUser(getTokenString(client.getLogin().getAccessToken()),client.getTrackIds().convertTrackIds());
 
-        Response<Object> response = call.execute();
+        Response<Void> response = call.execute();
 
         return response.isSuccessful();
 
@@ -917,9 +957,9 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         libraryInterface libraryInterface = retrofit.create(Model.libraryInterface.class);
 
-        Call<Object> call = libraryInterface.deleteUserTracks(getTokenString(client.getToken()),client.getTrackIds().convertTrackIds());
+        Call<Void> call = libraryInterface.deleteUserTracks(getTokenString(client.getLogin().getAccessToken()),client.getTrackIds().convertTrackIds());
 
-        Response<Object> response = call.execute();
+        Response<Void> response = call.execute();
 
         return response.isSuccessful();
 
@@ -936,7 +976,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         libraryInterface libraryInterface = retrofit.create(Model.libraryInterface.class);
 
-        Call<Object> call = libraryInterface.checkUserHasOneOrMoreSavedTracks(getTokenString(client.getToken()),client.getTrackIds().convertTrackIds());
+        Call<Object> call = libraryInterface.checkUserHasOneOrMoreSavedTracks(getTokenString(client.getLogin().getAccessToken()),client.getTrackIds().convertTrackIds());
 
         Response<Object> response = call.execute();
 
@@ -955,7 +995,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         libraryInterface libraryInterface = retrofit.create(Model.libraryInterface.class);
 
-        Call<Controller.LibraryController.Episode.BaseEpisode> call = libraryInterface.getUserSavedEpisodes(getTokenString(client.getToken()));
+        Call<Controller.LibraryController.Episode.BaseEpisode> call = libraryInterface.getUserSavedEpisodes(getTokenString(client.getLogin().getAccessToken()));
 
         Response<Controller.LibraryController.Episode.BaseEpisode> response = call.execute();
 
@@ -974,9 +1014,9 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         libraryInterface libraryInterface = retrofit.create(Model.libraryInterface.class);
 
-        Call<Object> call = libraryInterface.saveEpisodeForUser(getTokenString(client.getToken()),client.getEpisode().convertEpisodes());
+        Call<Void> call = libraryInterface.saveEpisodeForUser(getTokenString(client.getLogin().getAccessToken()),client.getEpisode().convertEpisodes());
 
-        Response<Object> response = call.execute();
+        Response<Void> response = call.execute();
 
         return response.isSuccessful();
 
@@ -994,9 +1034,9 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         libraryInterface libraryInterface = retrofit.create(Model.libraryInterface.class);
 
-        Call<Object> call = libraryInterface.removeUserEpisode(getTokenString(client.getToken()),client.getEpisode().convertEpisodes());
+        Call<Void> call = libraryInterface.removeUserEpisode(getTokenString(client.getLogin().getAccessToken()),client.getEpisode().convertEpisodes());
 
-        Response<Object> response = call.execute();
+        Response<Void> response = call.execute();
 
         return response.isSuccessful();
 
@@ -1013,7 +1053,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         libraryInterface libraryInterface = retrofit.create(Model.libraryInterface.class);
 
-        Call<Object> call = libraryInterface.checkUserHasEpisodes(getTokenString(client.getToken()),client.getEpisode().convertEpisodes());
+        Call<Object> call = libraryInterface.checkUserHasEpisodes(getTokenString(client.getLogin().getAccessToken()),client.getEpisode().convertEpisodes());
 
         Response<Object> response = call.execute();
 
@@ -1032,7 +1072,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         libraryInterface libraryInterface = retrofit.create(Model.libraryInterface.class);
 
-        Call<BaseShow> call = libraryInterface.getUserSavedShows(getTokenString(client.getToken()));
+        Call<BaseShow> call = libraryInterface.getUserSavedShows(getTokenString(client.getLogin().getAccessToken()));
 
         Response<BaseShow> response = call.execute();
 
@@ -1051,9 +1091,9 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         libraryInterface libraryInterface = retrofit.create(Model.libraryInterface.class);
 
-        Call<Object> call = libraryInterface.saveEpisodeForUser(getTokenString(client.getToken()),client.getShow().convertShowIds());
+        Call<Void> call = libraryInterface.saveShowsForUser(getTokenString(client.getLogin().getAccessToken()),client.getShow().convertShowIds());
 
-        Response<Object> response = call.execute();
+        Response<Void> response = call.execute();
 
         return response.isSuccessful();
 
@@ -1070,9 +1110,9 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         libraryInterface libraryInterface = retrofit.create(Model.libraryInterface.class);
 
-        Call<Object> call = libraryInterface.removeUserSavedShows(getTokenString(client.getToken()),client.getShow().convertShowIds());
+        Call<Void> call = libraryInterface.removeUserSavedShows(getTokenString(client.getLogin().getAccessToken()),client.getShow().convertShowIds());
 
-        Response<Object> response = call.execute();
+        Response<Void> response = call.execute();
 
         return response.isSuccessful();
 
@@ -1089,7 +1129,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         libraryInterface libraryInterface = retrofit.create(Model.libraryInterface.class);
 
-        Call<Object> call = libraryInterface.checkUserHasSavedShows(getTokenString(client.getToken()),client.getShow().convertShowIds());
+        Call<Object> call = libraryInterface.checkUserHasSavedShows(getTokenString(client.getLogin().getAccessToken()),client.getShow().convertShowIds());
 
         Response<Object> response = call.execute();
 

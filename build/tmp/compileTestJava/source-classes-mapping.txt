@@ -4,6 +4,8 @@ getRequests/ArtistTest.java
  getRequests.ArtistTest
 getRequests/EpisodeTest.java
  getRequests.EpisodeTest
+getRequests/LibraryTest.java
+ getRequests.LibraryTest
 Client/SpotifyRestAPITest.java
  Client.SpotifyRestAPITest
 getRequests/BrowseTest.java
