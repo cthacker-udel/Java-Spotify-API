@@ -1192,7 +1192,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         personalizationInterface personalizationInterface = retrofit.create(Model.personalizationInterface.class);
 
-        Call<baseUserTopTracksAndArtists> call = personalizationInterface.getUserTopTracksAndArtist(getTokenString(client.getToken()),type);
+        Call<baseUserTopTracksAndArtists> call = personalizationInterface.getUserTopTracksAndArtist(getTokenString(client.getLogin().getAccessToken()),type);
 
         Response<baseUserTopTracksAndArtists> response = call.execute();
 
