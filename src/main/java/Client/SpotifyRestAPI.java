@@ -1931,7 +1931,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         userprofileInterface userprofileInterface = retrofit.create(Model.userprofileInterface.class);
 
-        Call<BaseProfile> call = userprofileInterface.getCurrentUserProfile(getTokenString(client.getToken()));
+        Call<BaseProfile> call = userprofileInterface.getCurrentUserProfile(getTokenString(client.getLogin().getAccessToken()));
 
         Response<BaseProfile> response = call.execute();
 
