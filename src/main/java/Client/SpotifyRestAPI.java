@@ -1240,9 +1240,9 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         playerInterface playerInterface = retrofit.create(Model.playerInterface.class);
 
-        Call<Object> call = playerInterface.transferUsersPlayback(getTokenString(client.getToken()),client.getUser().jsonifyDeviceIds());
+        Call<Void> call = playerInterface.transferUsersPlayback(getTokenString(client.getLogin().getAccessToken()),client.getUser().jsonifyDeviceIds());
 
-        Response<Object> response = call.execute();
+        Response<Void> response = call.execute();
 
         return response.isSuccessful();
 
@@ -1259,7 +1259,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         playerInterface playerInterface = retrofit.create(Model.playerInterface.class);
 
-        Call<basePlayerDevice> call = playerInterface.getCurrentUserAvailableDevices(getTokenString(client.getToken()));
+        Call<basePlayerDevice> call = playerInterface.getCurrentUserAvailableDevices(getTokenString(client.getLogin().getAccessToken()));
 
         Response<basePlayerDevice> response = call.execute();
 
@@ -1277,7 +1277,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         playerInterface playerInterface = retrofit.create(Model.playerInterface.class);
 
-        Call<baseCurrentTrack> call = playerInterface.getCurrentUserTrack(getTokenString(client.getToken()),client.getISOCountryCode());
+        Call<baseCurrentTrack> call = playerInterface.getCurrentUserTrack(getTokenString(client.getLogin().getAccessToken()),client.getISOCountryCode());
 
         Response<baseCurrentTrack> response = call.execute();
 
@@ -1295,9 +1295,9 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         playerInterface playerInterface = retrofit.create(Model.playerInterface.class);
 
-        Call<Object> call = playerInterface.startOrResumeCurrentUserPlayback(getTokenString(client.getToken()));
+        Call<Void> call = playerInterface.startOrResumeCurrentUserPlayback(getTokenString(client.getLogin().getAccessToken()));
 
-        Response<Object> response = call.execute();
+        Response<Void> response = call.execute();
 
         return response.isSuccessful();
 
@@ -1314,9 +1314,9 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         playerInterface playerInterface = retrofit.create(Model.playerInterface.class);
 
-        Call<Object> call = playerInterface.pauseUsersPlayback(getTokenString(client.getToken()));
+        Call<Void> call = playerInterface.pauseUsersPlayback(getTokenString(client.getLogin().getAccessToken()));
 
-        Response<Object> response = call.execute();
+        Response<Void> response = call.execute();
 
         return response.isSuccessful();
 
@@ -1334,9 +1334,9 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         playerInterface playerInterface = retrofit.create(Model.playerInterface.class);
 
-        Call<Object> call = playerInterface.skipUserPlaybackToNextTrack(getTokenString(client.getToken()));
+        Call<Void> call = playerInterface.skipUserPlaybackToNextTrack(getTokenString(client.getLogin().getAccessToken()));
 
-        Response<Object> response = call.execute();
+        Response<Void> response = call.execute();
 
         return response.isSuccessful();
 
@@ -1353,9 +1353,9 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         playerInterface playerInterface = retrofit.create(Model.playerInterface.class);
 
-        Call<Object> call = playerInterface.skipUserPlaybackToPreviousTrack(getTokenString(client.getToken()));
+        Call<Void> call = playerInterface.skipUserPlaybackToPreviousTrack(getTokenString(client.getLogin().getAccessToken()));
 
-        Response<Object> response = call.execute();
+        Response<Void> response = call.execute();
 
         return response.isSuccessful();
 
@@ -1372,9 +1372,9 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         playerInterface playerInterface = retrofit.create(Model.playerInterface.class);
 
-        Call<Object> call = playerInterface.seekToCurrentUserTrackPosition(getTokenString(client.getToken()),client.getPlayer().getSeekPosition());
+        Call<Void> call = playerInterface.seekToCurrentUserTrackPosition(getTokenString(client.getLogin().getAccessToken()),client.getPlayer().getSeekPosition());
 
-        Response<Object> response = call.execute();
+        Response<Void> response = call.execute();
 
         return response.isSuccessful();
 
@@ -1391,9 +1391,9 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         playerInterface playerInterface = retrofit.create(Model.playerInterface.class);
 
-        Call<Object> call = playerInterface.setRepeatModeOnUserPlayback(getTokenString(client.getToken()),client.getPlayer().getRepeatState());
+        Call<Void> call = playerInterface.setRepeatModeOnUserPlayback(getTokenString(client.getLogin().getAccessToken()),client.getPlayer().getRepeatState());
 
-        Response<Object> response = call.execute();
+        Response<Void> response = call.execute();
 
         return response.isSuccessful();
 
@@ -1410,9 +1410,9 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         playerInterface playerInterface = retrofit.create(Model.playerInterface.class);
 
-        Call<Object> call = playerInterface.setVolumeForUserPlayback(getTokenString(client.getToken()),client.getPlayer().getVolume_percent());
+        Call<Void> call = playerInterface.setVolumeForUserPlayback(getTokenString(client.getLogin().getAccessToken()),client.getPlayer().getVolume_percent());
 
-        Response<Object> response = call.execute();
+        Response<Void> response = call.execute();
 
         return response.isSuccessful();
 
@@ -1429,9 +1429,9 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         playerInterface playerInterface = retrofit.create(Model.playerInterface.class);
 
-        Call<Object> call = playerInterface.toggleShuffleForUserPlayback(getTokenString(client.getToken()),client.getPlayer().getShuffleState());
+        Call<Void> call = playerInterface.toggleShuffleForUserPlayback(getTokenString(client.getLogin().getAccessToken()),client.getPlayer().getShuffleState());
 
-        Response<Object> response = call.execute();
+        Response<Void> response = call.execute();
 
         return response.isSuccessful();
 
@@ -1448,7 +1448,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         playerInterface playerInterface = retrofit.create(Model.playerInterface.class);
 
-        Call<Controller.PlayerController.CurrentUserRecentTrack.BaseTrack> call = playerInterface.getCurrentUserRecentlyPlayedTracks(getTokenString(client.getToken()));
+        Call<Controller.PlayerController.CurrentUserRecentTrack.BaseTrack> call = playerInterface.getCurrentUserRecentlyPlayedTracks(getTokenString(client.getLogin().getAccessToken()));
 
         Response<Controller.PlayerController.CurrentUserRecentTrack.BaseTrack> response = call.execute();
 
@@ -1466,9 +1466,9 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         playerInterface playerInterface = retrofit.create(Model.playerInterface.class);
 
-        Call<Object> call = playerInterface.addItemToUserQueue(getTokenString(client.getToken()),client.getPlayer().getUri());
+        Call<Void> call = playerInterface.addItemToUserQueue(getTokenString(client.getLogin().getAccessToken()),client.getPlayer().getUri());
 
-        Response<Object> response = call.execute();
+        Response<Void> response = call.execute();
 
         return response.isSuccessful();
 

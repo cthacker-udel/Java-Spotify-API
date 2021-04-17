@@ -15,7 +15,7 @@ public interface playerInterface {
     Call<baseUserPlayback> getCurrentUserPlayback(@Header("Authorization") String auth);
 
     @PUT("https://api.spotify.com/v1/me/player")
-    Call<Object> transferUsersPlayback(@Header("Authorization") String auth, @Body String deviceIds);
+    Call<Void> transferUsersPlayback(@Header("Authorization") String auth, @Body String deviceIds);
 
     @GET("https://api.spotify.com/v1/me/player/devices")
     Call<basePlayerDevice> getCurrentUserAvailableDevices(@Header("Authorization") String auth);
@@ -24,33 +24,33 @@ public interface playerInterface {
     Call<baseCurrentTrack> getCurrentUserTrack(@Header("Authorization") String auth, @Query("market") String isoCountryCode);
 
     @PUT("https://api.spotify.com/v1/me/player/play")
-    Call<Object> startOrResumeCurrentUserPlayback(@Header("Authorization") String auth);
+    Call<Void> startOrResumeCurrentUserPlayback(@Header("Authorization") String auth);
 
     @PUT("https://api.spotify.com/v1/me/player/pause")
-    Call<Object> pauseUsersPlayback(@Header("Authorization") String auth);
+    Call<Void> pauseUsersPlayback(@Header("Authorization") String auth);
 
     @POST("https://api.spotify.com/v1/me/player/next")
-    Call<Object> skipUserPlaybackToNextTrack(@Header("Authorization") String auth);
+    Call<Void> skipUserPlaybackToNextTrack(@Header("Authorization") String auth);
 
     @POST("https://api.spotify.com/v1/me/player/previous")
-    Call<Object> skipUserPlaybackToPreviousTrack(@Header("Authorization") String auth);
+    Call<Void> skipUserPlaybackToPreviousTrack(@Header("Authorization") String auth);
 
     @PUT("https://api.spotify.com/v1/me/player/seek")
-    Call<Object> seekToCurrentUserTrackPosition(@Header("Authorization") String auth, @Query("position_ms") Integer position);
+    Call<Void> seekToCurrentUserTrackPosition(@Header("Authorization") String auth, @Query("position_ms") Integer position);
 
     @PUT("https://api.spotify.com/v1/me/player/repeat")
-    Call<Object> setRepeatModeOnUserPlayback(@Header("Authorization") String auth, @Query("state") String state);
+    Call<Void> setRepeatModeOnUserPlayback(@Header("Authorization") String auth, @Query("state") String state);
 
     @PUT("https://api.spotify.com/v1/me/player/volume")
-    Call<Object> setVolumeForUserPlayback(@Header("Authorization") String auth, @Query("volume_percent") Integer volume_percent);
+    Call<Void> setVolumeForUserPlayback(@Header("Authorization") String auth, @Query("volume_percent") Integer volume_percent);
 
     @PUT("https://api.spotify.com/v1/me/player/shuffle")
-    Call<Object> toggleShuffleForUserPlayback(@Header("Authorization") String auth, @Query("state") String shuffleState);
+    Call<Void> toggleShuffleForUserPlayback(@Header("Authorization") String auth, @Query("state") String shuffleState);
 
     @GET("https://api.spotify.com/v1/me/player/recently-played")
     Call<BaseTrack> getCurrentUserRecentlyPlayedTracks(@Header("Authorization") String auth);
 
     @POST("https://api.spotify.com/v1/me/playr/queue")
-    Call<Object> addItemToUserQueue(@Header("Authorization") String auth, @Query("uri") String uri);
+    Call<Void> addItemToUserQueue(@Header("Authorization") String auth, @Query("uri") String uri);
 
 }
