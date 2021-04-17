@@ -1497,7 +1497,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         playlistInterface playlistInterface = retrofit.create(Model.playlistInterface.class);
 
-        Call<Controller.PlaylistController.UserPlaylists.BasePlaylist> call = playlistInterface.getListOfCurrUserPlaylists(getTokenString(client.getToken()));
+        Call<Controller.PlaylistController.UserPlaylists.BasePlaylist> call = playlistInterface.getListOfCurrUserPlaylists(getTokenString(client.getLogin().getAccessToken()));
 
         Response<Controller.PlaylistController.UserPlaylists.BasePlaylist> response = call.execute();
 
@@ -1518,7 +1518,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         playlistInterface playlistInterface = retrofit.create(Model.playlistInterface.class);
 
-        Call<Controller.PlaylistController.UserPlaylists.BasePlaylist> call = playlistInterface.getListOfSpecifiedUserPlaylists(getTokenString(client.getToken()),userId);
+        Call<Controller.PlaylistController.UserPlaylists.BasePlaylist> call = playlistInterface.getListOfSpecifiedUserPlaylists(getTokenString(client.getLogin().getAccessToken()),userId);
 
         Response<Controller.PlaylistController.UserPlaylists.BasePlaylist> response = call.execute();
 
@@ -1539,7 +1539,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         playlistInterface playlistInterface = retrofit.create(Model.playlistInterface.class);
 
-        Call<Controller.PlaylistController.UserPlaylists.CreatePlaylist.BasePlaylist> call = playlistInterface.createAPlaylist(getTokenString(client.getToken()),client.getUser().getTheUser().get(0),client.getPlaylist().getName());
+        Call<Controller.PlaylistController.UserPlaylists.CreatePlaylist.BasePlaylist> call = playlistInterface.createAPlaylist(getTokenString(client.getLogin().getAccessToken()),client.getUser().getTheUser().get(0),client.getPlaylist().getName());
 
         Response<Controller.PlaylistController.UserPlaylists.CreatePlaylist.BasePlaylist> response = call.execute();
 
@@ -1558,7 +1558,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         playlistInterface playlistInterface = retrofit.create(Model.playlistInterface.class);
 
-        Call<Playlist> call = playlistInterface.getPlaylist(getTokenString(client.getToken()),client.getPlaylist().getPlaylistId());
+        Call<Playlist> call = playlistInterface.getPlaylist(getTokenString(client.getLogin().getAccessToken()),client.getPlaylist().getPlaylistId());
 
         Response<Playlist> response = call.execute();
 
@@ -1578,7 +1578,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         playlistInterface playlistInterface = retrofit.create(Model.playlistInterface.class);
 
-        Call<Object> call = playlistInterface.changePlaylistDetails(getTokenString(client.getToken()),client.getPlaylist().getPlaylistId());
+        Call<Object> call = playlistInterface.changePlaylistDetails(getTokenString(client.getLogin().getAccessToken()),client.getPlaylist().getPlaylistId());
 
         Response<Object> response = call.execute();
 
@@ -1596,7 +1596,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         playlistInterface playlistInterface = retrofit.create(Model.playlistInterface.class);
 
-        Call<BasePlaylistItems> call = playlistInterface.getPlaylistItems(getTokenString(client.getToken()),client.getPlaylist().getPlaylistId());
+        Call<BasePlaylistItems> call = playlistInterface.getPlaylistItems(getTokenString(client.getLogin().getAccessToken()),client.getPlaylist().getPlaylistId());
 
         Response<BasePlaylistItems> response = call.execute();
 
@@ -1615,7 +1615,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         playlistInterface playlistInterface = retrofit.create(Model.playlistInterface.class);
 
-        Call<SnapshotId> call = playlistInterface.addItemsToPlaylist(getTokenString(client.getToken()),client.getPlaylist().getPlaylistId());
+        Call<SnapshotId> call = playlistInterface.addItemsToPlaylist(getTokenString(client.getLogin().getAccessToken()),client.getPlaylist().getPlaylistId());
 
         Response<SnapshotId> response = call.execute();
 
@@ -1634,7 +1634,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         playlistInterface playlistInterface = retrofit.create(Model.playlistInterface.class);
 
-        Call<SnapshotId> call = playlistInterface.reorderOrReplacePlaylistsItems(getTokenString(client.getToken()),client.getPlaylist().getPlaylistId());
+        Call<SnapshotId> call = playlistInterface.reorderOrReplacePlaylistsItems(getTokenString(client.getLogin().getAccessToken()),client.getPlaylist().getPlaylistId());
 
         Response<SnapshotId> response = call.execute();
 
@@ -1653,7 +1653,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         playlistInterface playlistInterface = retrofit.create(Model.playlistInterface.class);
 
-        Call<SnapshotId> call = playlistInterface.removeItemsFromPlaylist(getTokenString(client.getToken()),client.getPlaylist().getPlaylistId(),client.getTrackIds().convertTrackIds());
+        Call<SnapshotId> call = playlistInterface.removeItemsFromPlaylist(getTokenString(client.getLogin().getAccessToken()),client.getPlaylist().getPlaylistId(),client.getTrackIds().convertTrackIds());
 
         Response<SnapshotId> response = call.execute();
 
@@ -1672,7 +1672,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         playlistInterface playlistInterface = retrofit.create(Model.playlistInterface.class);
 
-        Call<CoverImage> call = playlistInterface.getPlaylistCoverImage(getTokenString(client.getToken()),client.getPlaylist().getPlaylistId());
+        Call<CoverImage> call = playlistInterface.getPlaylistCoverImage(getTokenString(client.getLogin().getAccessToken()),client.getPlaylist().getPlaylistId());
 
         Response<CoverImage> response = call.execute();
 
@@ -1691,7 +1691,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         playlistInterface playlistInterface = retrofit.create(Model.playlistInterface.class);
 
-        Call<Object> call = playlistInterface.uploadPlaylistCoverImage(getTokenString(client.getToken()),client.getContentType(),client.getPlaylist().getPlaylistId());
+        Call<Object> call = playlistInterface.uploadPlaylistCoverImage(getTokenString(client.getLogin().getAccessToken()),client.getContentType(),client.getPlaylist().getPlaylistId());
 
         Response<Object> response = call.execute();
 
