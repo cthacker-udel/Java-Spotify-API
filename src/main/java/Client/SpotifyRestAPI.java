@@ -34,8 +34,6 @@ import Controller.baseAccessTokenResponse;
 import Controller.baseRefreshTokenResponse;
 import Model.*;
 
-import getRequests.AlbumInterface;
-
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import okhttp3.*;
