@@ -338,9 +338,9 @@ public class SpotifyRestAPI {
     }
 
 
-    public Controller.AlbumController.MultipleAlbums.Album getSingleAlbum(SpotifyClient client, Album album) throws IOException {
+    public Controller.AlbumController.MultipleAlbums.Album getSingleAlbum(SpotifyClient client) throws IOException {
 
-        String url = String.format("https://api.spotify.com/v1/albums/%s/",album.getAlbumIds().get(0));
+        String url = String.format("https://api.spotify.com/v1/albums/%s/",client.getAlbum().getAlbumIds().get(0));
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url)
@@ -349,7 +349,26 @@ public class SpotifyRestAPI {
 
         albumInterface albumInterface = retrofit.create(Model.albumInterface.class);
 
-        Call<Controller.AlbumController.MultipleAlbums.Album> call = albumInterface.getSingleAlbum(getTokenString(client.getToken()),album.getAlbumIds().get(0));
+        Call<Controller.AlbumController.MultipleAlbums.Album> call = albumInterface.getSingleAlbum(getTokenString(client.getToken()),client.getAlbum().getAlbumIds().get(0));
+
+        Response<Controller.AlbumController.MultipleAlbums.Album> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public Controller.AlbumController.MultipleAlbums.Album getSingleAlbumMarket(SpotifyClient client) throws IOException {
+
+        String url = String.format("https://api.spotify.com/v1/albums/%s/",client.getAlbum().getAlbumIds().get(0));
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        albumInterface albumInterface = retrofit.create(Model.albumInterface.class);
+
+        Call<Controller.AlbumController.MultipleAlbums.Album> call = albumInterface.getSingleAlbumMarket(getTokenString(client.getToken()),client.getAlbum().getAlbumIds().get(0),client.getAlbum().getMarket());
 
         Response<Controller.AlbumController.MultipleAlbums.Album> response = call.execute();
 

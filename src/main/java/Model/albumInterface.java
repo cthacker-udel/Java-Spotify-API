@@ -19,6 +19,9 @@ public interface albumInterface {
     @GET("https://api.spotify.com/v1/albums/{id}")
     Call<Album> getSingleAlbum(@Header("Authorization") String bearer_token, @Path("id") String id);
 
+    @GET("https://api.spotify.com/v1/albums/{id}")
+    Call<Album> getSingleAlbumMarket(@Header("Authorization") String bearer_token, @Path("id") String id, @Query("market") String marketISO);
+
     @GET("https://api.spotify.com/v1/albums/{id}/tracks")
     Call<Tracks> getAlbumTracks(@Header("Authorization") String bearer_token, @Path("id") String id);
 

@@ -52,7 +52,18 @@ class AlbumTest {
         Album theAlbum = new Album();
         theAlbum.addAlbumId("2UuvBxV56QWWj2uviGS0up");
         client.setAlbum(theAlbum);
-        Controller.AlbumController.MultipleAlbums.Album album = client.getSingleAlbum(client,theAlbum);
+        Controller.AlbumController.MultipleAlbums.Album album = client.getSingleAlbum(client);
+        assertNotNull(album);
+
+    }
+
+    @Test
+    void makeSingleAlbumRequestMarket() throws IOException {
+
+        Album theAlbum = client.getAlbum();
+        theAlbum.addAlbumId("2UuvBxV56QWWj2uviGS0up");
+        theAlbum.setMarket("US");
+        Controller.AlbumController.MultipleAlbums.Album album = client.getSingleAlbumMarket(client);
         assertNotNull(album);
 
     }
