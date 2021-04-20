@@ -27,4 +27,50 @@ public interface artistInterface {
     @GET("https://api.spotify.com/v1/artists/{id}/albums")
     Call<ArtistAlbum>  getArtistsAlbums(@Header("Authorization") String bearer_token, @Path("id") String id);
 
+    @GET("https://api.spotify.com/v1/artists/{id}/albums")
+    Call<ArtistAlbum>  getArtistsAlbumsIncludeGroups(@Header("Authorization") String bearer_token, @Path("id") String id, @Query("include_groups") String includeGroups);
+
+    @GET("https://api.spotify.com/v1/artists/{id}/albums")
+    Call<ArtistAlbum>  getArtistsAlbumsMarket(@Header("Authorization") String bearer_token, @Path("id") String id, @Query("market") String market);
+
+    @GET("https://api.spotify.com/v1/artists/{id}/albums")
+    Call<ArtistAlbum>  getArtistsAlbumsLimit(@Header("Authorization") String bearer_token, @Path("id") String id, @Query("limit") Integer limit);
+
+    @GET("https://api.spotify.com/v1/artists/{id}/albums")
+    Call<ArtistAlbum>  getArtistsAlbumsOffset(@Header("Authorization") String bearer_token, @Path("id") String id, @Query("offset") Integer offset);
+
+    @GET("https://api.spotify.com/v1/artists/{id}/albums")
+    Call<ArtistAlbum>  getArtistsAlbumsIncludeGroupsMarket(@Header("Authorization") String bearer_token, @Path("id") String id, @Query("include_groups") String includeGroups, @Query("market") String market);
+
+    @GET("https://api.spotify.com/v1/artists/{id}/albums")
+    Call<ArtistAlbum>  getArtistsAlbumsIncludeGroupsLimit(@Header("Authorization") String bearer_token, @Path("id") String id, @Query("include_groups") String includeGroups, @Query("limit") Integer limit);
+
+    @GET("https://api.spotify.com/v1/artists/{id}/albums")
+    Call<ArtistAlbum>  getArtistsAlbumsIncludeGroupsOffset(@Header("Authorization") String bearer_token, @Path("id") String id, @Query("include_groups") String includeGroups, @Query("offset") Integer offset);
+
+    @GET("https://api.spotify.com/v1/artists/{id}/albums")
+    Call<ArtistAlbum>  getArtistsAlbumsMarketLimit(@Header("Authorization") String bearer_token, @Path("id") String id, @Query("market") String market, @Query("limit") Integer limit);
+
+    @GET("https://api.spotify.com/v1/artists/{id}/albums")
+    Call<ArtistAlbum>  getArtistsAlbumsMarketOffset(@Header("Authorization") String bearer_token, @Path("id") String id, @Query("market") String market, @Query("offset") Integer offset);
+
+    @GET("https://api.spotify.com/v1/artists/{id}/albums")
+    Call<ArtistAlbum>  getArtistsAlbumsLimitOffset(@Header("Authorization") String bearer_token, @Path("id") String id, @Query("limit") Integer market, @Query("offset") Integer offset);
+
+    @GET("https://api.spotify.com/v1/artists/{id}/albums")
+    Call<ArtistAlbum>  getArtistsAlbumsIncludeGroupsMarketLimit(@Header("Authorization") String bearer_token, @Path("id") String id, @Query("include_groups") String includeGroups, @Query("market") String market, @Query("limit") Integer limit);
+
+    @GET("https://api.spotify.com/v1/artists/{id}/albums")
+    Call<ArtistAlbum>  getArtistsAlbumsIncludeGroupsMarketOffset(@Header("Authorization") String bearer_token, @Path("id") String id, @Query("include_groups") String includeGroups, @Query("market") String market, @Query("offset") Integer offset);
+
+    @GET("https://api.spotify.com/v1/artists/{id}/albums")
+    Call<ArtistAlbum>  getArtistsAlbumsIncludeGroupsLimitOffset(@Header("Authorization") String bearer_token, @Path("id") String id, @Query("include_groups") String includeGroups, @Query("limit") Integer limit, @Query("offset") Integer offset);
+
+    @GET("https://api.spotify.com/v1/artists/{id}/albums")
+    Call<ArtistAlbum>  getArtistsAlbumsMarketLimitOffset(@Header("Authorization") String bearer_token, @Path("id") String id, @Query("market") String market, @Query("limit") Integer limit, @Query("offset") Integer offset);
+
+    @GET("https://api.spotify.com/v1/artists/{id}/albums")
+    Call<ArtistAlbum>  getArtistsAlbumsIncludeGroupsMarketLimitOffset(@Header("Authorization") String bearer_token, @Path("id") String id, @Query("include_groups") String includeGroups, @Query("market") String market, @Query("limit") Integer limit, @Query("offset") Integer offset);
+
+
 }

@@ -628,6 +628,297 @@ public class SpotifyRestAPI {
 
     }
 
+
+    public ArtistAlbum getArtistAlbumsIncludeGroups(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + String.format("/v1/artists/%s/albums/",client.getArtists().getArtistsIDs().get(0));
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        artistInterface artistInterface = retrofit.create(artistInterface.class);
+
+        Call<ArtistAlbum> call = artistInterface.getArtistsAlbumsIncludeGroups(getTokenString(client.getToken()),client.getArtists().getArtistsIDs().get(0),client.getArtists().convertIncludeGroups());
+
+        Response<ArtistAlbum> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public ArtistAlbum getArtistAlbumsMarket(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + String.format("/v1/artists/%s/albums/",client.getArtists().getArtistsIDs().get(0));
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        artistInterface artistInterface = retrofit.create(artistInterface.class);
+
+        Call<ArtistAlbum> call = artistInterface.getArtistsAlbumsMarket(getTokenString(client.getToken()),client.getArtists().getArtistsIDs().get(0),client.getArtists().getMarket());
+
+        Response<ArtistAlbum> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public ArtistAlbum getArtistAlbumsLimit(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + String.format("/v1/artists/%s/albums/",client.getArtists().getArtistsIDs().get(0));
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        artistInterface artistInterface = retrofit.create(artistInterface.class);
+
+        Call<ArtistAlbum> call = artistInterface.getArtistsAlbumsLimit(getTokenString(client.getToken()),client.getArtists().getArtistsIDs().get(0),client.getArtists().getLimit());
+
+        Response<ArtistAlbum> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public ArtistAlbum getArtistAlbumsOffset(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + String.format("/v1/artists/%s/albums/",client.getArtists().getArtistsIDs().get(0));
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        artistInterface artistInterface = retrofit.create(artistInterface.class);
+
+        Call<ArtistAlbum> call = artistInterface.getArtistsAlbumsOffset(getTokenString(client.getToken()),client.getArtists().getArtistsIDs().get(0),client.getArtists().getOffset());
+
+        Response<ArtistAlbum> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public ArtistAlbum getArtistAlbumsIncludeGroupsMarket(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + String.format("/v1/artists/%s/albums/",client.getArtists().getArtistsIDs().get(0));
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        artistInterface artistInterface = retrofit.create(artistInterface.class);
+
+        Call<ArtistAlbum> call = artistInterface.getArtistsAlbumsIncludeGroupsMarket(getTokenString(client.getToken()),client.getArtists().getArtistsIDs().get(0),client.getArtists().convertIncludeGroups(), client.getArtists().getMarket());
+
+        Response<ArtistAlbum> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public ArtistAlbum getArtistAlbumsIncludeGroupsLimit(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + String.format("/v1/artists/%s/albums/",client.getArtists().getArtistsIDs().get(0));
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        artistInterface artistInterface = retrofit.create(artistInterface.class);
+
+        Call<ArtistAlbum> call = artistInterface.getArtistsAlbumsIncludeGroupsLimit(getTokenString(client.getToken()),client.getArtists().getArtistsIDs().get(0),client.getArtists().convertIncludeGroups(),client.getArtists().getLimit());
+
+        Response<ArtistAlbum> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public ArtistAlbum getArtistAlbumsIncludeGroupsOffset(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + String.format("/v1/artists/%s/albums/",client.getArtists().getArtistsIDs().get(0));
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        artistInterface artistInterface = retrofit.create(artistInterface.class);
+
+        Call<ArtistAlbum> call = artistInterface.getArtistsAlbumsIncludeGroupsOffset(getTokenString(client.getToken()),client.getArtists().getArtistsIDs().get(0),client.getArtists().convertIncludeGroups(),client.getArtists().getOffset());
+
+        Response<ArtistAlbum> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public ArtistAlbum getArtistAlbumsMarketLimit(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + String.format("/v1/artists/%s/albums/",client.getArtists().getArtistsIDs().get(0));
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        artistInterface artistInterface = retrofit.create(artistInterface.class);
+
+        Call<ArtistAlbum> call = artistInterface.getArtistsAlbumsMarketLimit(getTokenString(client.getToken()),client.getArtists().getArtistsIDs().get(0),client.getArtists().getMarket(),client.getArtists().getLimit());
+
+        Response<ArtistAlbum> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public ArtistAlbum getArtistAlbumsMarketOffset(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + String.format("/v1/artists/%s/albums/",client.getArtists().getArtistsIDs().get(0));
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        artistInterface artistInterface = retrofit.create(artistInterface.class);
+
+        Call<ArtistAlbum> call = artistInterface.getArtistsAlbumsMarketOffset(getTokenString(client.getToken()),client.getArtists().getArtistsIDs().get(0),client.getArtists().getMarket(),client.getArtists().getOffset());
+
+        Response<ArtistAlbum> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public ArtistAlbum getArtistAlbumsLimitOffset(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + String.format("/v1/artists/%s/albums/",client.getArtists().getArtistsIDs().get(0));
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        artistInterface artistInterface = retrofit.create(artistInterface.class);
+
+        Call<ArtistAlbum> call = artistInterface.getArtistsAlbumsLimitOffset(getTokenString(client.getToken()),client.getArtists().getArtistsIDs().get(0),client.getArtists().getLimit(),client.getArtists().getOffset());
+
+        Response<ArtistAlbum> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public ArtistAlbum getArtistAlbumsIncludeGroupsMarketLimit(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + String.format("/v1/artists/%s/albums/",client.getArtists().getArtistsIDs().get(0));
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        artistInterface artistInterface = retrofit.create(artistInterface.class);
+
+        Call<ArtistAlbum> call = artistInterface.getArtistsAlbumsIncludeGroupsMarketLimit(getTokenString(client.getToken()),client.getArtists().getArtistsIDs().get(0),client.getArtists().convertIncludeGroups(),client.getArtists().getMarket(),client.getArtists().getLimit());
+
+        Response<ArtistAlbum> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public ArtistAlbum getArtistAlbumsIncludeGroupsMarketOffset(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + String.format("/v1/artists/%s/albums/",client.getArtists().getArtistsIDs().get(0));
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        artistInterface artistInterface = retrofit.create(artistInterface.class);
+
+        Call<ArtistAlbum> call = artistInterface.getArtistsAlbumsIncludeGroupsMarketLimit(getTokenString(client.getToken()),client.getArtists().getArtistsIDs().get(0),client.getArtists().convertIncludeGroups(),client.getArtists().getMarket(),client.getArtists().getOffset());
+
+        Response<ArtistAlbum> response = call.execute();
+
+        return response.body();
+
+    }
+
+
+    public ArtistAlbum getArtistAlbumsIncludeGroupsLimitOffset(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + String.format("/v1/artists/%s/albums/",client.getArtists().getArtistsIDs().get(0));
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        artistInterface artistInterface = retrofit.create(artistInterface.class);
+
+        Call<ArtistAlbum> call = artistInterface.getArtistsAlbumsIncludeGroupsLimitOffset(getTokenString(client.getToken()),client.getArtists().getArtistsIDs().get(0),client.getArtists().convertIncludeGroups(),client.getArtists().getLimit(),client.getArtists().getOffset());
+
+        Response<ArtistAlbum> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public ArtistAlbum getArtistAlbumsMarketLimitOffset(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + String.format("/v1/artists/%s/albums/",client.getArtists().getArtistsIDs().get(0));
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        artistInterface artistInterface = retrofit.create(artistInterface.class);
+
+        Call<ArtistAlbum> call = artistInterface.getArtistsAlbumsIncludeGroupsLimitOffset(getTokenString(client.getToken()),client.getArtists().getArtistsIDs().get(0),client.getArtists().getMarket(),client.getArtists().getLimit(),client.getArtists().getOffset());
+
+        Response<ArtistAlbum> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public ArtistAlbum getArtistAlbumsIncludeGroupsMarketLimitOffset(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + String.format("/v1/artists/%s/albums/",client.getArtists().getArtistsIDs().get(0));
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        artistInterface artistInterface = retrofit.create(artistInterface.class);
+
+        Call<ArtistAlbum> call = artistInterface.getArtistsAlbumsIncludeGroupsMarketLimitOffset(getTokenString(client.getToken()),client.getArtists().getArtistsIDs().get(0),client.getArtists().convertIncludeGroups(),client.getArtists().getMarket(),client.getArtists().getLimit(),client.getArtists().getOffset());
+
+        Response<ArtistAlbum> response = call.execute();
+
+        return response.body();
+
+    }
+
+
+
+
+
     /************************************************************************
 
 
