@@ -187,10 +187,6 @@ public class SpotifyClient extends SpotifyRestAPI{
         this.setToken(theToken);
     }
 
-    public BaseAlbum getMultipleAlbums(Album album) throws IOException {
-        return super.getMultipleAlbums(this,album);
-    }
-
     public Seed getSeed() {
         return seed;
     }

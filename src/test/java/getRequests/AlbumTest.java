@@ -28,7 +28,20 @@ class AlbumTest {
         theAlbum.addAlbumId("2UuvBxV56QWWj2uviGS0up");
         theAlbum.addAlbumId("0XFFBEzvJ7Zit24MY5oVV3");
         client.setAlbum(theAlbum);
-        BaseAlbum album = client.getMultipleAlbums(client.getAlbum());
+        BaseAlbum album = client.getMultipleAlbums(client);
+        assertNotNull(album);
+
+    }
+
+    @Test
+    void makeRequestMultipleAlbumsMarket() throws IOException {
+
+        Album theAlbum = new Album();
+        theAlbum.addAlbumId("2UuvBxV56QWWj2uviGS0up");
+        theAlbum.addAlbumId("0XFFBEzvJ7Zit24MY5oVV3");
+        theAlbum.setMarket("US");
+        client.setAlbum(theAlbum);
+        BaseAlbum album = client.getMultipleAlbumsMarket(client);
         assertNotNull(album);
 
     }

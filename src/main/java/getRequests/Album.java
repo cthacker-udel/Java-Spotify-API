@@ -17,9 +17,19 @@ public class Album extends SpotifyClient {
 
     private ArrayList<String> albumIds;
 
+    private String market;
+
     public Album(){
         super();
         this.albumIds = new ArrayList<>();
+    }
+
+    public String getMarket() {
+        return market;
+    }
+
+    public void setMarket(String market) {
+        this.market = market;
     }
 
     public String convertAlbumIds(){

@@ -36,24 +36,19 @@ import Model.*;
 
 import getRequests.AlbumInterface;
 
-import io.github.bonigarcia.wdm.ChromeDriverManager;
-import io.github.bonigarcia.wdm.FirefoxDriverManager;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import okhttp3.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeDriverService;
-import org.openqa.selenium.chromium.ChromiumDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.opera.OperaDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -77,7 +72,7 @@ import static java.lang.Thread.sleep;
  */
 
 
-public class SpotifyRestAPI implements AlbumInterface {
+public class SpotifyRestAPI {
 
     String requestType;
 
@@ -198,7 +193,6 @@ public class SpotifyRestAPI implements AlbumInterface {
         browser.findElement(By.id("login-password")).sendKeys(password);
         browser.findElement(By.id("login-button")).click();
         sleep(10000);
-        //browser.findElement(By.id("auth-accept")).click();
         try {
             WebElement authAccept = browser.findElement(By.id("auth-accept"));
             if (authAccept != null) {
@@ -309,8 +303,7 @@ public class SpotifyRestAPI implements AlbumInterface {
 
      *************************************************************************/
 
-    public BaseAlbum getMultipleAlbums(SpotifyClient client, Album album) throws IOException {
-        String commaSeparatedIds = String.join(",",album.getAlbumIds());
+    public BaseAlbum getMultipleAlbums(SpotifyClient client) throws IOException {
 
         String url = "https://api.spotify.com/v1/albums/";
 
@@ -321,12 +314,31 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         Model.albumInterface albumInterface = retrofit.create(Model.albumInterface.class);
 
-        Call<BaseAlbum> call = albumInterface.getMultipleAlbums(getTokenString(client.getToken()),commaSeparatedIds);
+        Call<BaseAlbum> call = albumInterface.getMultipleAlbums(getTokenString(client.getToken()),client.getAlbum().convertAlbumIds());
 
         Response<BaseAlbum> response = call.execute();
 
         return response.body();
     }
+
+    public BaseAlbum getMultipleAlbumsMarket(SpotifyClient client) throws IOException {
+
+        String url = "https://api.spotify.com/v1/albums/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        Model.albumInterface albumInterface = retrofit.create(Model.albumInterface.class);
+
+        Call<BaseAlbum> call = albumInterface.getMultipleAlbumsMarket(getTokenString(client.getToken()),client.getAlbum().convertAlbumIds(), client.getAlbum().getMarket());
+
+        Response<BaseAlbum> response = call.execute();
+
+        return response.body();
+    }
+
 
     public Controller.AlbumController.MultipleAlbums.Album getSingleAlbum(SpotifyClient client, Album album) throws IOException {
 
@@ -363,26 +375,6 @@ public class SpotifyRestAPI implements AlbumInterface {
 
         return response.body();
 
-    }
-
-    @Override
-    public void addAlbumId(String albumId) {
-        albumIds.add(albumId);
-    }
-
-    @Override
-    public ArrayList<String> getAlbumIds() {
-        return albumIds;
-    }
-
-    @Override
-    public void setAlbumIds(ArrayList<String> newAlbumIds) {
-        albumIds.clear();
-        albumIds.addAll(newAlbumIds);
-    }
-
-    public void clearAlbumIds(){
-        albumIds.clear();
     }
 
     /************************************************************************
