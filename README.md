@@ -45,4 +45,4 @@ When you create an instance of `SpotifyClient` using the constructors listed abo
 
 ### [Client package](https://github.com/cthacker-udel/Java-Spotify-API/tree/master/src/main/java/Client) → [SpotifyRestAPI](https://github.com/cthacker-udel/Java-Spotify-API/blob/master/src/main/java/Client/SpotifyRestAPI.java)
 
-> For reference on Implementation of SpotifyClient in coordination with SpotifyRestAPI, check the [Test package](https://github.com/cthacker-udel/Java-Spotify-API/tree/master/src/test/java) (**specifically the getRequests package**)
+> For reference on Implementation of SpotifyClient in coordination with SpotifyRestAPI, check the [Test package](https://github.com/cthacker-udel/Java-Spotify-API/tree/master/src/test/java) (**specifically the [getRequests](https://github.com/cthacker-udel/Java-Spotify-API/tree/master/src/test/java/getRequests) package**)
