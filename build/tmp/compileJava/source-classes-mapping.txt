@@ -380,8 +380,8 @@ Controller/UserProfileController/CurrUser/Image.java
  Controller.UserProfileController.CurrUser.Image
 Controller/BrowseController/Categories/Item.java
  Controller.BrowseController.Categories.Item
-Model/artistInterface.java
- Model.artistInterface
+Model/albumInterface.java
+ Model.albumInterface
 Controller/LibraryController/Tracks.java
  Controller.LibraryController.Tracks
 Controller/PlaylistController/UserPlaylists/CreatePlaylist/BasePlaylist.java
@@ -414,6 +414,8 @@ Controller/BrowseController/Playlist/BasePlaylist.java
  Controller.BrowseController.Playlist.BasePlaylist
 Controller/BrowseController/Playlist/ExternalUrls.java
  Controller.BrowseController.Playlist.ExternalUrls
+Model/artistInterface.java
+ Model.artistInterface
 getRequests/Show.java
  getRequests.Show
 getRequests/Player.java
@@ -426,8 +428,6 @@ Client/SpotifyClient.java
  Client.SpotifyClient
 getRequests/Episode.java
  getRequests.Episode
-Model/albumInterface.java
- Model.albumInterface
 Client/SpotifyRestAPI.java
  Client.SpotifyRestAPI
 getRequests/Item.java
