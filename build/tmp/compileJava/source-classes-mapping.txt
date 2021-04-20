@@ -18,8 +18,8 @@ Model/playerInterface.java
  Model.playerInterface
 Controller/PlayerController/Context.java
  Controller.PlayerController.Context
-Controller/ArtistController/ExternalIds.java
- Controller.ArtistController.ExternalIds
+getRequests/Album.java
+ getRequests.Album
 Controller/BrowseController/Playlist/Playlists.java
  Controller.BrowseController.Playlist.Playlists
 Controller/LibraryController/Copyright.java
@@ -62,8 +62,8 @@ Controller/PlayerController/Devices/basePlayerDevice.java
  Controller.PlayerController.Devices.basePlayerDevice
 Controller/PersonalizationController/Image.java
  Controller.PersonalizationController.Image
-Controller/PlayerController/Item.java
- Controller.PlayerController.Item
+getRequests/Item.java
+ getRequests.Item
 Controller/UserProfileController/CurrUser/BaseProfile.java
  Controller.UserProfileController.CurrUser.BaseProfile
 Controller/PlaylistController/ExternalUrls.java
@@ -94,38 +94,38 @@ Controller/PlaylistController/UserPlaylists/CreatePlaylist/ExternalUrls.java
  Controller.PlaylistController.UserPlaylists.CreatePlaylist.ExternalUrls
 Model/albumInterface.java
  Model.albumInterface
-Model/authorizationInterface.java
- Model.authorizationInterface
+Model/followInterface.java
+ Model.followInterface
 Controller/TrackController/MultipleTracks/Image.java
  Controller.TrackController.MultipleTracks.Image
-Controller/BrowseController/Album/Artist.java
- Controller.BrowseController.Album.Artist
-Model/personalizationInterface.java
- Model.personalizationInterface
+Model/authorizationInterface.java
+ Model.authorizationInterface
+getRequests/Player.java
+ getRequests.Player
 Controller/LibraryController/Episode/ResumePoint.java
  Controller.LibraryController.Episode.ResumePoint
 Controller/TrackController/MultipleTracks/Album.java
  Controller.TrackController.MultipleTracks.Album
 Controller/FollowController/Image.java
  Controller.FollowController.Image
-Controller/BrowseController/Album/Item.java
- Controller.BrowseController.Album.Item
+Client/SpotifyClient.java
+ Client.SpotifyClient
 Controller/BrowseController/Playlist/Owner.java
  Controller.BrowseController.Playlist.Owner
 Controller/PlaylistController/PlaylistItems/AddedBy.java
  Controller.PlaylistController.PlaylistItems.AddedBy
-Controller/PlaylistController/Artist.java
- Controller.PlaylistController.Artist
+Client/SpotifyRestAPI.java
+ Client.SpotifyRestAPI
 Controller/BrowseController/Categories/Category.java
  Controller.BrowseController.Categories.Category
 Controller/TrackController/MultipleTracks/ExternalUrls.java
  Controller.TrackController.MultipleTracks.ExternalUrls
 Controller/LibraryController/TrackExternalIds.java
  Controller.LibraryController.TrackExternalIds
-Controller/BrowseController/Recommendations/BaseRecommendation.java
- Controller.BrowseController.Recommendations.BaseRecommendation
-Model/browseInterface.java
- Model.browseInterface
+getRequests/Seed.java
+ getRequests.Seed
+getRequests/Artist.java
+ getRequests.Artist
 Controller/LibraryController/ExternalIds.java
  Controller.LibraryController.ExternalIds
 Controller/PlaylistController/Item.java
@@ -140,12 +140,12 @@ Controller/AlbumController/MultipleAlbums/BaseAlbum.java
  Controller.AlbumController.MultipleAlbums.BaseAlbum
 Controller/PlaylistController/Track.java
  Controller.PlaylistController.Track
-Controller/LibraryController/Show/BaseShow.java
- Controller.LibraryController.Show.BaseShow
+getRequests/User.java
+ getRequests.User
 Controller/PlayerController/CurrentUserRecentTrack/Artist.java
  Controller.PlayerController.CurrentUserRecentTrack.Artist
-Controller/PlaylistController/UserPlaylists/Owner.java
- Controller.PlaylistController.UserPlaylists.Owner
+Client/SpotifyLogin.java
+ Client.SpotifyLogin
 Controller/PlayerController/baseUserPlayback.java
  Controller.PlayerController.baseUserPlayback
 Controller/BrowseController/Recommendations/RecommendationGenreList.java
@@ -186,8 +186,8 @@ Controller/PlaylistController/CoverImage.java
  Controller.PlaylistController.CoverImage
 Controller/EpisodeController/Episode.java
  Controller.EpisodeController.Episode
-Controller/LibraryController/BaseAlbum.java
- Controller.LibraryController.BaseAlbum
+getRequests/Show.java
+ getRequests.Show
 Controller/PlaylistController/UserPlaylists/ExternalUrls.java
  Controller.PlaylistController.UserPlaylists.ExternalUrls
 Controller/ShowController/ExternalUrls.java
@@ -226,16 +226,18 @@ Controller/BrowseController/Recommendations/ExternalUrls.java
  Controller.BrowseController.Recommendations.ExternalUrls
 Model/episodeInterface.java
  Model.episodeInterface
-Controller/AlbumController/MultipleAlbums/Copyright.java
- Controller.AlbumController.MultipleAlbums.Copyright
 Controller/ItemController/Artists.java
  Controller.ItemController.Artists
+Controller/AlbumController/MultipleAlbums/Copyright.java
+ Controller.AlbumController.MultipleAlbums.Copyright
 Controller/ArtistController/Artist.java
  Controller.ArtistController.Artist
-Controller/AlbumController/MultipleAlbums/Item.java
- Controller.AlbumController.MultipleAlbums.Item
 Controller/ArtistController/Followers.java
  Controller.ArtistController.Followers
+Controller/AlbumController/MultipleAlbums/Item.java
+ Controller.AlbumController.MultipleAlbums.Item
+Client/SpotifyClientException.java
+ Client.SpotifyClientException
 Controller/PlayerController/CurrentUserRecentTrack/BaseTrack.java
  Controller.PlayerController.CurrentUserRecentTrack.BaseTrack
 Controller/LibraryController/TrackAlbum.java
@@ -250,8 +252,8 @@ Controller/PlayerController/CurrentTrack/ExternalIds.java
  Controller.PlayerController.CurrentTrack.ExternalIds
 Controller/BrowseController/Playlist/Item.java
  Controller.BrowseController.Playlist.Item
-Controller/ItemController/BaseItem.java
- Controller.ItemController.BaseItem
+getRequests/Track.java
+ getRequests.Track
 Controller/ShowController/MultipleShows/Image.java
  Controller.ShowController.MultipleShows.Image
 Controller/FollowController/Followers.java
@@ -296,8 +298,8 @@ Controller/PlaylistController/UserPlaylists/BasePlaylist.java
  Controller.PlaylistController.UserPlaylists.BasePlaylist
 Model/marketInterface.java
  Model.marketInterface
-Controller/TrackController/AudioAnalysis/Section.java
- Controller.TrackController.AudioAnalysis.Section
+getRequests/Playlist.java
+ getRequests.Playlist
 Controller/ItemController/ExternalUrls.java
  Controller.ItemController.ExternalUrls
 Controller/ShowController/BaseEpisode.java
@@ -348,10 +350,10 @@ Controller/BrowseController/Album/ExternalUrls.java
  Controller.BrowseController.Album.ExternalUrls
 Controller/PlayerController/CurrentTrack/Artist.java
  Controller.PlayerController.CurrentTrack.Artist
-Client/SpotifyClientException.java
- Client.SpotifyClientException
-Controller/TrackController/AudioFeatures/BaseAudioFeature.java
- Controller.TrackController.AudioFeatures.BaseAudioFeature
+Model/libraryInterface.java
+ Model.libraryInterface
+getRequests/Episode.java
+ getRequests.Episode
 Controller/UserProfileController/CurrUser/ExternalUrls.java
  Controller.UserProfileController.CurrUser.ExternalUrls
 Model/playlistInterface.java
@@ -392,8 +394,8 @@ Controller/PlaylistController/PlaylistItems/BasePlaylistItems.java
  Controller.PlaylistController.PlaylistItems.BasePlaylistItems
 Controller/BrowseController/Recommendations/Track.java
  Controller.BrowseController.Recommendations.Track
-Controller/PlaylistController/UserPlaylists/Tracks.java
- Controller.PlaylistController.UserPlaylists.Tracks
+getRequests/Follow.java
+ getRequests.Follow
 Controller/BrowseController/Categories/Categories.java
  Controller.BrowseController.Categories.Categories
 Controller/ArtistController/ArtistTopTrack.java
@@ -412,37 +414,35 @@ Controller/BrowseController/Playlist/BasePlaylist.java
  Controller.BrowseController.Playlist.BasePlaylist
 Controller/BrowseController/Playlist/ExternalUrls.java
  Controller.BrowseController.Playlist.ExternalUrls
-Model/followInterface.java
- Model.followInterface
-getRequests/Show.java
- getRequests.Show
-getRequests/Player.java
- getRequests.Player
-getRequests/Follow.java
- getRequests.Follow
-getRequests/Track.java
- getRequests.Track
-Client/SpotifyClient.java
- Client.SpotifyClient
-Model/libraryInterface.java
- Model.libraryInterface
-getRequests/Episode.java
- getRequests.Episode
-Client/SpotifyRestAPI.java
- Client.SpotifyRestAPI
-getRequests/Item.java
- getRequests.Item
-getRequests/Seed.java
- getRequests.Seed
-getRequests/Artist.java
- getRequests.Artist
-getRequests/Playlist.java
- getRequests.Playlist
-getRequests/User.java
- getRequests.User
+Controller/BrowseController/Album/Artist.java
+ Controller.BrowseController.Album.Artist
+Controller/PlaylistController/UserPlaylists/Owner.java
+ Controller.PlaylistController.UserPlaylists.Owner
+Controller/ArtistController/ExternalIds.java
+ Controller.ArtistController.ExternalIds
+Controller/LibraryController/BaseAlbum.java
+ Controller.LibraryController.BaseAlbum
+Controller/LibraryController/Show/BaseShow.java
+ Controller.LibraryController.Show.BaseShow
+Controller/TrackController/AudioAnalysis/Section.java
+ Controller.TrackController.AudioAnalysis.Section
+Model/browseInterface.java
+ Model.browseInterface
+Controller/BrowseController/Recommendations/BaseRecommendation.java
+ Controller.BrowseController.Recommendations.BaseRecommendation
+Controller/PlayerController/Item.java
+ Controller.PlayerController.Item
+Controller/PlaylistController/Artist.java
+ Controller.PlaylistController.Artist
+Controller/TrackController/AudioFeatures/BaseAudioFeature.java
+ Controller.TrackController.AudioFeatures.BaseAudioFeature
+Controller/BrowseController/Album/Item.java
+ Controller.BrowseController.Album.Item
+Controller/ItemController/BaseItem.java
+ Controller.ItemController.BaseItem
+Controller/PlaylistController/UserPlaylists/Tracks.java
+ Controller.PlaylistController.UserPlaylists.Tracks
+Model/personalizationInterface.java
+ Model.personalizationInterface
 getRequests/AlbumInterface.java
  getRequests.AlbumInterface
-getRequests/Album.java
- getRequests.Album
-Client/SpotifyLogin.java
- Client.SpotifyLogin

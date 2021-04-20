@@ -1,14 +1,30 @@
 getRequests/AlbumTest.java
  getRequests.AlbumTest
-getRequests/ArtistTest.java
- getRequests.ArtistTest
+getRequests/UsersProfileTest.java
+ getRequests.UsersProfileTest
+getRequests/SearchTest.java
+ getRequests.SearchTest
 getRequests/EpisodeTest.java
  getRequests.EpisodeTest
-getRequests/LibraryTest.java
- getRequests.LibraryTest
+getRequests/TracksTest.java
+ getRequests.TracksTest
 Client/SpotifyRestAPITest.java
  Client.SpotifyRestAPITest
+getRequests/ShowsTest.java
+ getRequests.ShowsTest
+getRequests/PlayerTest.java
+ getRequests.PlayerTest
+getRequests/ArtistTest.java
+ getRequests.ArtistTest
+getRequests/LibraryTest.java
+ getRequests.LibraryTest
+getRequests/MarketTest.java
+ getRequests.MarketTest
+getRequests/PlaylistTest.java
+ getRequests.PlaylistTest
 getRequests/BrowseTest.java
  getRequests.BrowseTest
+getRequests/PersonalizationTest.java
+ getRequests.PersonalizationTest
 getRequests/FollowTest.java
  getRequests.FollowTest
