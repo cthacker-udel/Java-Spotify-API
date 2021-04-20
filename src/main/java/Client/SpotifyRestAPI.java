@@ -888,7 +888,7 @@ public class SpotifyRestAPI {
 
         artistInterface artistInterface = retrofit.create(artistInterface.class);
 
-        Call<ArtistAlbum> call = artistInterface.getArtistsAlbumsIncludeGroupsLimitOffset(getTokenString(client.getToken()),client.getArtists().getArtistsIDs().get(0),client.getArtists().getMarket(),client.getArtists().getLimit(),client.getArtists().getOffset());
+        Call<ArtistAlbum> call = artistInterface.getArtistsAlbumsMarketLimitOffset(getTokenString(client.getToken()),client.getArtists().getArtistsIDs().get(0),client.getArtists().getMarket(),client.getArtists().getLimit(),client.getArtists().getOffset());
 
         Response<ArtistAlbum> response = call.execute();
 

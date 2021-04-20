@@ -77,4 +77,244 @@ class ArtistTest {
 
     }
 
+    @Test
+    void getArtistAlbumsIncludeGroups() throws IOException {
+
+        Artist artists = client.getArtists();
+        artists.addArtistId("0Mz5XE0kb1GBnbLQm2VbcO");
+        artists.getIncludeGroups().add("album");
+        artists.getIncludeGroups().add("single");
+        artists.setMarket("US");
+        artists.setLimit(2);
+        artists.setOffset(5);
+        ArtistAlbum result = client.getArtistAlbumsIncludeGroups(client);
+        assertNotNull(result);
+        client.clearArtists();
+
+    }
+
+    @Test
+    void getArtistAlbumsMarket() throws IOException {
+
+        Artist artists = client.getArtists();
+        artists.addArtistId("0Mz5XE0kb1GBnbLQm2VbcO");
+        artists.getIncludeGroups().add("album");
+        artists.getIncludeGroups().add("single");
+        artists.setMarket("US");
+        artists.setLimit(2);
+        artists.setOffset(5);
+        ArtistAlbum result = client.getArtistAlbumsMarket(client);
+        assertNotNull(result);
+        client.clearArtists();
+
+    }
+
+    @Test
+    void getArtistAlbumsLimit() throws IOException {
+
+        Artist artists = client.getArtists();
+        artists.addArtistId("0Mz5XE0kb1GBnbLQm2VbcO");
+        artists.getIncludeGroups().add("album");
+        artists.getIncludeGroups().add("single");
+        artists.setMarket("US");
+        artists.setLimit(2);
+        artists.setOffset(5);
+        ArtistAlbum result = client.getArtistAlbumsLimit(client);
+        assertNotNull(result);
+        client.clearArtists();
+
+    }
+
+    @Test
+    void getArtistAlbumsOffset() throws IOException {
+
+        Artist artists = client.getArtists();
+        artists.addArtistId("0Mz5XE0kb1GBnbLQm2VbcO");
+        artists.getIncludeGroups().add("album");
+        artists.getIncludeGroups().add("single");
+        artists.setMarket("US");
+        artists.setLimit(2);
+        artists.setOffset(5);
+        ArtistAlbum result = client.getArtistAlbumsOffset(client);
+        assertNotNull(result);
+        client.clearArtists();
+
+    }
+
+    @Test
+    void getArtistAlbumsIncludeGroupsMarket() throws IOException {
+
+        Artist artists = client.getArtists();
+        artists.addArtistId("0Mz5XE0kb1GBnbLQm2VbcO");
+        artists.getIncludeGroups().add("album");
+        artists.getIncludeGroups().add("single");
+        artists.setMarket("US");
+        artists.setLimit(2);
+        artists.setOffset(5);
+        ArtistAlbum result = client.getArtistAlbumsIncludeGroupsMarket(client);
+        assertNotNull(result);
+        client.clearArtists();
+
+    }
+
+    @Test
+    void getArtistAlbumsIncludeGroupsLimit() throws IOException {
+
+        Artist artists = client.getArtists();
+        artists.addArtistId("0Mz5XE0kb1GBnbLQm2VbcO");
+        artists.getIncludeGroups().add("album");
+        artists.getIncludeGroups().add("single");
+        artists.setMarket("US");
+        artists.setLimit(2);
+        artists.setOffset(5);
+        ArtistAlbum result = client.getArtistAlbumsIncludeGroupsLimit(client);
+        assertNotNull(result);
+        client.clearArtists();
+
+    }
+
+    @Test
+    void getArtistAlbumsIncludeGroupsOffset() throws IOException {
+
+        Artist artists = client.getArtists();
+        artists.addArtistId("0Mz5XE0kb1GBnbLQm2VbcO");
+        artists.getIncludeGroups().add("album");
+        artists.getIncludeGroups().add("single");
+        artists.setMarket("US");
+        artists.setLimit(2);
+        artists.setOffset(5);
+        ArtistAlbum result = client.getArtistAlbumsIncludeGroupsOffset(client);
+        assertNotNull(result);
+        client.clearArtists();
+
+    }
+
+    @Test
+    void getArtistAlbumsMarketLimit() throws IOException {
+
+        Artist artists = client.getArtists();
+        artists.addArtistId("0Mz5XE0kb1GBnbLQm2VbcO");
+        artists.getIncludeGroups().add("album");
+        artists.getIncludeGroups().add("single");
+        artists.setMarket("US");
+        artists.setLimit(2);
+        artists.setOffset(5);
+        ArtistAlbum result = client.getArtistAlbumsMarketLimit(client);
+        assertNotNull(result);
+        client.clearArtists();
+
+    }
+
+    @Test
+    void getArtistAlbumsMarketOffset() throws IOException {
+
+        Artist artists = client.getArtists();
+        artists.addArtistId("0Mz5XE0kb1GBnbLQm2VbcO");
+        artists.getIncludeGroups().add("album");
+        artists.getIncludeGroups().add("single");
+        artists.setMarket("US");
+        artists.setLimit(2);
+        artists.setOffset(5);
+        ArtistAlbum result = client.getArtistAlbumsMarketOffset(client);
+        assertNotNull(result);
+        client.clearArtists();
+
+    }
+
+    @Test
+    void getArtistAlbumsLimitOffset() throws IOException {
+
+        Artist artists = client.getArtists();
+        artists.addArtistId("0Mz5XE0kb1GBnbLQm2VbcO");
+        artists.getIncludeGroups().add("album");
+        artists.getIncludeGroups().add("single");
+        artists.setMarket("US");
+        artists.setLimit(2);
+        artists.setOffset(5);
+        ArtistAlbum result = client.getArtistAlbumsLimitOffset(client);
+        assertNotNull(result);
+        client.clearArtists();
+
+    }
+
+    @Test
+    void getArtistAlbumsIncludeGroupsMarketLimit() throws IOException {
+
+        Artist artists = client.getArtists();
+        artists.addArtistId("0Mz5XE0kb1GBnbLQm2VbcO");
+        artists.getIncludeGroups().add("album");
+        artists.getIncludeGroups().add("single");
+        artists.setMarket("US");
+        artists.setLimit(2);
+        artists.setOffset(5);
+        ArtistAlbum result = client.getArtistAlbumsIncludeGroupsMarketLimit(client);
+        assertNotNull(result);
+        client.clearArtists();
+
+    }
+
+    @Test
+    void getArtistAlbumsIncludeGroupsMarketOffset() throws IOException {
+
+        Artist artists = client.getArtists();
+        artists.addArtistId("0Mz5XE0kb1GBnbLQm2VbcO");
+        artists.getIncludeGroups().add("album");
+        artists.getIncludeGroups().add("single");
+        artists.setMarket("US");
+        artists.setLimit(2);
+        artists.setOffset(5);
+        ArtistAlbum result = client.getArtistAlbumsIncludeGroupsMarketOffset(client);
+        assertNotNull(result);
+        client.clearArtists();
+
+    }
+
+    @Test
+    void getArtistAlbumsIncludeGroupsLimitOffset() throws IOException {
+
+        Artist artists = client.getArtists();
+        artists.addArtistId("0Mz5XE0kb1GBnbLQm2VbcO");
+        artists.getIncludeGroups().add("album");
+        artists.getIncludeGroups().add("single");
+        artists.setMarket("US");
+        artists.setLimit(2);
+        artists.setOffset(5);
+        ArtistAlbum result = client.getArtistAlbumsIncludeGroupsLimitOffset(client);
+        assertNotNull(result);
+        client.clearArtists();
+
+    }
+
+    @Test
+    void getArtistAlbumsMarketLimitOffset() throws IOException {
+
+        Artist artists = client.getArtists();
+        artists.addArtistId("0Mz5XE0kb1GBnbLQm2VbcO");
+        artists.getIncludeGroups().add("album");
+        artists.getIncludeGroups().add("single");
+        artists.setMarket("US");
+        artists.setLimit(2);
+        artists.setOffset(5);
+        ArtistAlbum result = client.getArtistAlbumsMarketLimitOffset(client);
+        assertNotNull(result);
+        client.clearArtists();
+
+    }
+
+    @Test
+    void getArtistAlbumsIncludeGroupsMarketLimitOffset() throws IOException {
+
+        Artist artists = client.getArtists();
+        artists.addArtistId("0Mz5XE0kb1GBnbLQm2VbcO");
+        artists.getIncludeGroups().add("album");
+        artists.getIncludeGroups().add("single");
+        artists.setMarket("US");
+        artists.setLimit(2);
+        artists.setOffset(5);
+        ArtistAlbum result = client.getArtistAlbumsIncludeGroupsMarketLimitOffset(client);
+        assertNotNull(result);
+        client.clearArtists();
+
+    }
+
 }
