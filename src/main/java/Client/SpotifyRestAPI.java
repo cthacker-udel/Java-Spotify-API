@@ -376,8 +376,8 @@ public class SpotifyRestAPI {
 
     }
 
-    public Tracks getAlbumsTracks(SpotifyClient client, String id) throws IOException {
-        String url = baseUrl + String.format("/artist%s/",id);
+    public Tracks getAlbumsTracks(SpotifyClient client) throws IOException {
+        String url = baseUrl + String.format("/artist%s/",client.getAlbum().getAlbumIds().get(0));
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url)
@@ -386,13 +386,142 @@ public class SpotifyRestAPI {
 
         albumInterface albumInterface = retrofit.create(Model.albumInterface.class);
 
-        Call<Tracks> call = albumInterface.getAlbumTracks(getTokenString(client.getToken()),id);
+        Call<Tracks> call = albumInterface.getAlbumTracks(getTokenString(client.getToken()),client.getAlbum().getAlbumIds().get(0));
 
         Response<Tracks> response = call.execute();
 
         return response.body();
 
     }
+
+    public Tracks getAlbumsTracksMarket(SpotifyClient client) throws IOException {
+        String url = baseUrl + String.format("/artist%s/",client.getAlbum().getAlbumIds().get(0));
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        albumInterface albumInterface = retrofit.create(Model.albumInterface.class);
+
+        Call<Tracks> call = albumInterface.getAlbumTracksMarket(getTokenString(client.getToken()),client.getAlbum().getAlbumIds().get(0), client.getAlbum().getMarket());
+
+        Response<Tracks> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public Tracks getAlbumsTracksLimit(SpotifyClient client) throws IOException {
+        String url = baseUrl + String.format("/artist%s/",client.getAlbum().getAlbumIds().get(0));
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        albumInterface albumInterface = retrofit.create(Model.albumInterface.class);
+
+        Call<Tracks> call = albumInterface.getAlbumTracksLimit(getTokenString(client.getToken()),client.getAlbum().getAlbumIds().get(0),client.getAlbum().getLimit());
+
+        Response<Tracks> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public Tracks getAlbumsTracksOffset(SpotifyClient client) throws IOException {
+        String url = baseUrl + String.format("/artist%s/",client.getAlbum().getAlbumIds().get(0));
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        albumInterface albumInterface = retrofit.create(Model.albumInterface.class);
+
+        Call<Tracks> call = albumInterface.getAlbumTracksOffset(getTokenString(client.getToken()),client.getAlbum().getAlbumIds().get(0),client.getAlbum().getOffset());
+
+        Response<Tracks> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public Tracks getAlbumsTracksMarketLimit(SpotifyClient client) throws IOException {
+        String url = baseUrl + String.format("/artist%s/",client.getAlbum().getAlbumIds().get(0));
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        albumInterface albumInterface = retrofit.create(Model.albumInterface.class);
+
+        Call<Tracks> call = albumInterface.getAlbumTracksMarketLimit(getTokenString(client.getToken()),client.getAlbum().getAlbumIds().get(0),client.getAlbum().getMarket(), client.getAlbum().getLimit());
+
+        Response<Tracks> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public Tracks getAlbumsTracksMarketOffset(SpotifyClient client) throws IOException {
+        String url = baseUrl + String.format("/artist%s/",client.getAlbum().getAlbumIds().get(0));
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        albumInterface albumInterface = retrofit.create(Model.albumInterface.class);
+
+        Call<Tracks> call = albumInterface.getAlbumTracksMarketOffset(getTokenString(client.getToken()),client.getAlbum().getAlbumIds().get(0),client.getAlbum().getMarket(), client.getAlbum().getOffset());
+
+        Response<Tracks> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public Tracks getAlbumsTracksLimitOffset(SpotifyClient client) throws IOException {
+        String url = baseUrl + String.format("/artist%s/",client.getAlbum().getAlbumIds().get(0));
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        albumInterface albumInterface = retrofit.create(Model.albumInterface.class);
+
+        Call<Tracks> call = albumInterface.getAlbumTracksLimitOffset(getTokenString(client.getToken()),client.getAlbum().getAlbumIds().get(0),client.getAlbum().getLimit(), client.getAlbum().getOffset());
+
+        Response<Tracks> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public Tracks getAlbumsTracksMarketLimitOffset(SpotifyClient client) throws IOException {
+        String url = baseUrl + String.format("/artist%s/",client.getAlbum().getAlbumIds().get(0));
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        albumInterface albumInterface = retrofit.create(Model.albumInterface.class);
+
+        Call<Tracks> call = albumInterface.getAlbumTracksMarketLimitOffset(getTokenString(client.getToken()),client.getAlbum().getAlbumIds().get(0),client.getAlbum().getMarket(), client.getAlbum().getLimit(), client.getAlbum().getOffset());
+
+        Response<Tracks> response = call.execute();
+
+        return response.body();
+
+    }
+
+
+
 
     /************************************************************************
 

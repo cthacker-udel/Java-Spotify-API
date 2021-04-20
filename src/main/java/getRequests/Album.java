@@ -19,6 +19,10 @@ public class Album extends SpotifyClient {
 
     private String market;
 
+    private Integer limit;
+
+    private Integer offset;
+
     public Album(){
         super();
         this.albumIds = new ArrayList<>();
@@ -30,6 +34,22 @@ public class Album extends SpotifyClient {
 
     public void setMarket(String market) {
         this.market = market;
+    }
+
+    public Integer getLimit() {
+        return limit;
+    }
+
+    public void setLimit(Integer limit) {
+        this.limit = limit;
+    }
+
+    public Integer getOffset() {
+        return offset;
+    }
+
+    public void setOffset(Integer offset) {
+        this.offset = offset;
     }
 
     public String convertAlbumIds(){

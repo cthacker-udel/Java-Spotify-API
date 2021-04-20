@@ -71,10 +71,91 @@ class AlbumTest {
     @Test
     void makeTracksRequest() throws IOException {
 
-        Album theAlbum = new Album();
+        Album theAlbum = client.getAlbum();
         theAlbum.addAlbumId("2UuvBxV56QWWj2uviGS0up");
-        client.setAlbum(theAlbum);
-        Tracks theTracks = client.getAlbumsTracks(client,theAlbum.getAlbumIds().get(0));
+        Tracks theTracks = client.getAlbumsTracks(client);
+        assertNotNull(theTracks);
+
+    }
+
+    @Test
+    void makeTracksRequestMarket() throws IOException {
+
+        Album theAlbum = client.getAlbum();
+        theAlbum.addAlbumId("2UuvBxV56QWWj2uviGS0up");
+        theAlbum.setMarket("US");
+        Tracks theTracks = client.getAlbumsTracks(client);
+        assertNotNull(theTracks);
+
+    }
+
+    @Test
+    void makeTracksRequestLimit() throws IOException {
+
+        Album theAlbum = client.getAlbum();
+        theAlbum.addAlbumId("2UuvBxV56QWWj2uviGS0up");
+        theAlbum.setLimit(10);
+        Tracks theTracks = client.getAlbumsTracks(client);
+        assertNotNull(theTracks);
+
+    }
+
+    @Test
+    void makeTracksRequestOffset() throws IOException {
+
+        Album theAlbum = client.getAlbum();
+        theAlbum.addAlbumId("2UuvBxV56QWWj2uviGS0up");
+        theAlbum.setOffset(5);
+        Tracks theTracks = client.getAlbumsTracks(client);
+        assertNotNull(theTracks);
+
+    }
+
+    @Test
+    void makeTracksRequestMarketLimit() throws IOException {
+
+        Album theAlbum = client.getAlbum();
+        theAlbum.addAlbumId("2UuvBxV56QWWj2uviGS0up");
+        theAlbum.setMarket("US");
+        theAlbum.setLimit(10);
+        Tracks theTracks = client.getAlbumsTracks(client);
+        assertNotNull(theTracks);
+
+    }
+
+    @Test
+    void makeTracksRequestMarketOffset() throws IOException {
+
+        Album theAlbum = client.getAlbum();
+        theAlbum.addAlbumId("2UuvBxV56QWWj2uviGS0up");
+        theAlbum.setMarket("US");
+        theAlbum.setOffset(5);
+        Tracks theTracks = client.getAlbumsTracks(client);
+        assertNotNull(theTracks);
+
+    }
+
+    @Test
+    void makeTracksRequestLimitOffset() throws IOException {
+
+        Album theAlbum = client.getAlbum();
+        theAlbum.addAlbumId("2UuvBxV56QWWj2uviGS0up");
+        theAlbum.setLimit(10);
+        theAlbum.setOffset(5);
+        Tracks theTracks = client.getAlbumsTracks(client);
+        assertNotNull(theTracks);
+
+    }
+
+    @Test
+    void makeTracksRequestMarketLimitOffset() throws IOException {
+
+        Album theAlbum = client.getAlbum();
+        theAlbum.addAlbumId("2UuvBxV56QWWj2uviGS0up");
+        theAlbum.setMarket("US");
+        theAlbum.setLimit(10);
+        theAlbum.setOffset(5);
+        Tracks theTracks = client.getAlbumsTracks(client);
         assertNotNull(theTracks);
 
     }
