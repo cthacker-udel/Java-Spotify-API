@@ -1610,9 +1610,9 @@ public class SpotifyRestAPI {
      *************************************************************************/
 
 
-    public baseUserTopTracksAndArtists getUserTopTracksAndArtists(SpotifyClient client, String type) throws IOException {
+    public baseUserTopTracksAndArtists getUserTopTracksAndArtists(SpotifyClient client) throws IOException {
 
-        String url = baseUrl + String.format("/v1/me/top/%s/",type);
+        String url = baseUrl + String.format("/v1/me/top/%s/",client.getPersonalization().getType());
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url)
@@ -1621,7 +1621,7 @@ public class SpotifyRestAPI {
 
         personalizationInterface personalizationInterface = retrofit.create(Model.personalizationInterface.class);
 
-        Call<baseUserTopTracksAndArtists> call = personalizationInterface.getUserTopTracksAndArtist(getTokenString(client.getLogin().getAccessToken()),type);
+        Call<baseUserTopTracksAndArtists> call = personalizationInterface.getUserTopTracksAndArtist(getTokenString(client.getLogin().getAccessToken()),client.getPersonalization().getType(),client.getPersonalization().convertQueries());
 
         Response<baseUserTopTracksAndArtists> response = call.execute();
 

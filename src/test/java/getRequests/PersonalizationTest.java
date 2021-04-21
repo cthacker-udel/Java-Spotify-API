@@ -20,7 +20,7 @@ public class PersonalizationTest {
             login.setEmailOrUsername("exampleEmail");
             login.setPassword("examplePasword");
             login.setRedirectUri("exampleRedirectURI");
-            login.addScope("user-library-modify");
+            login.addScope("user-top-read");
             client.requestAuthCodeFlowCode(client);
             client.generateAccessTokenAndRefreshToken(client);
 
@@ -31,9 +31,26 @@ public class PersonalizationTest {
     }
 
     @Test
-    void getUserTopArtistAndTracks() throws IOException {
+    void getUserTopArtist() throws IOException {
 
-        assertNotNull(client.getUserTopTracksAndArtists(client,"artists"));
+        Personalization personalization = client.getPersonalization();
+        personalization.setType("artists");
+        personalization.setTime_range("medium_term");
+        personalization.setLimit(5);
+        personalization.setOffset(10);
+        assertNotNull(client.getUserTopTracksAndArtists(client));
+
+    }
+
+    @Test
+    void getUserTopTracks() throws IOException {
+
+        Personalization personalization = client.getPersonalization();
+        personalization.setType("tracks");
+        personalization.setTime_range("medium_term");
+        personalization.setLimit(5);
+        personalization.setOffset(10);
+        assertNotNull(client.getUserTopTracksAndArtists(client));
 
     }
 

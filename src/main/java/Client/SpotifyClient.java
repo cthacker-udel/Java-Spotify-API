@@ -26,6 +26,7 @@ public class SpotifyClient extends SpotifyRestAPI{
     private Item item;
     private SpotifyLogin login;
     private Category category;
+    private Personalization personalization;
 
     public SpotifyClient(){
         super();
@@ -51,6 +52,7 @@ public class SpotifyClient extends SpotifyRestAPI{
         this.item = new Item();
         this.login = new SpotifyLogin();
         this.category = new Category();
+        this.personalization = new Personalization();
     }
 
     public SpotifyClient(String apiKey, String secretKey, String token){
@@ -71,6 +73,15 @@ public class SpotifyClient extends SpotifyRestAPI{
         this.item = new Item();
         this.login = new SpotifyLogin();
         this.category = new Category();
+        this.personalization = new Personalization();
+    }
+
+    public Personalization getPersonalization() {
+        return personalization;
+    }
+
+    public void setPersonalization(Personalization personalization) {
+        this.personalization = personalization;
     }
 
     public SpotifyLogin getLogin() {
