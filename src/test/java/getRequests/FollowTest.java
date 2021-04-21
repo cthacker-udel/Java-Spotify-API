@@ -49,6 +49,14 @@ public class FollowTest {
     }
 
     @Test
+    void testFollowAPlaylistFalse() throws IOException {
+        Follow follow = client.getFollow();
+        follow.setPublic(false);
+        follow.setPlayListId("2v3iNvBX8Ay1Gt2uXtUKUT");
+        assertTrue(client.followAPlaylist(client));
+    }
+
+    @Test
     void testUnfollowAPlaylist() throws IOException {
 
         Follow follow = client.getFollow();
@@ -72,12 +80,15 @@ public class FollowTest {
 
         User user = client.getUser();
         user.setType("artist");
+        Follow follow = client.getFollow();
+        follow.setAfter("0I2XqVXqHScXjHhk6AYYRe");
+        follow.setLimit(20);
         assertNotNull(client.getUsersArtistsFollowed(client));
 
     }
 
     @Test
-    void testFollowArtistOrUser() throws IOException{
+    void testFollowArtist() throws IOException{
 
         User user = client.getUser();
         user.setType("artist");
@@ -86,9 +97,19 @@ public class FollowTest {
 
     }
 
+    @Test
+    void testFollowUser() throws IOException{
+
+        User user = client.getUser();
+        user.setType("user");
+        user.addUserId("6SWohEYYTym0RIBxvoh6wt");
+        assertTrue(client.followArtistOrUser(client));
+
+    }
+
 
     @Test
-    void testUnfollowArtistOrUser() throws IOException{
+    void testUnfollowArtist() throws IOException{
 
         User user = client.getUser();
         user.clearUserIds();
@@ -99,11 +120,32 @@ public class FollowTest {
     }
 
     @Test
-    void testGetFollowingStateForArtistOrUser() throws IOException {
+    void testUnfollowArtistOrUser() throws IOException{
+
+        User user = client.getUser();
+        user.clearUserIds();
+        user.addUserId("6SWohEYYTym0RIBxvoh6wt");
+        user.setType("user");
+        assertTrue(client.unfollowArtistOrUser(client));
+
+    }
+
+    @Test
+    void testGetFollowingStateForArtist() throws IOException {
 
         User user = client.getUser();
         user.clearUserIds();
         user.setType("artist");
+        user.addUserId("6SWohEYYTym0RIBxvoh6wt");
+        assertTrue(client.getFollwingStateOfUserOrArtist(client));
+    }
+
+    @Test
+    void testGetFollowingStateForUser() throws IOException {
+
+        User user = client.getUser();
+        user.clearUserIds();
+        user.setType("user");
         user.addUserId("6SWohEYYTym0RIBxvoh6wt");
         assertTrue(client.getFollwingStateOfUserOrArtist(client));
     }

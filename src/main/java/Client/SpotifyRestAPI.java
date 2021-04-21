@@ -1128,7 +1128,7 @@ public class SpotifyRestAPI {
 
         followInterface followInterface = retrofit.create(Model.followInterface.class);
 
-        Call<Void> call = followInterface.followAPlaylist(getTokenString(client.getAccessToken(client)),client.getContentType(),client.getFollow().getPlayListId());
+        Call<Void> call = followInterface.followAPlaylist(getTokenString(client.getAccessToken(client)),client.getContentType(),client.getFollow().getPlayListId(),client.getFollow().isPublic());
 
         Response<Void> response = call.execute();
 
@@ -1186,7 +1186,7 @@ public class SpotifyRestAPI {
 
         followInterface followInterface = retrofit.create(Model.followInterface.class);
 
-        Call<Controller.FollowController.BaseArtist> call = followInterface.getUserFollowedArtists(getTokenString(client.getAccessToken(client)),client.getUser().getType());
+        Call<Controller.FollowController.BaseArtist> call = followInterface.getUserFollowedArtists(getTokenString(client.getAccessToken(client)),client.getUser().getType(),client.getFollow().convertQueries());
 
         Response<Controller.FollowController.BaseArtist> response = call.execute();
 
