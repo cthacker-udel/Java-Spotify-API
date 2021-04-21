@@ -3,14 +3,58 @@ package getRequests;
 import Client.SpotifyClient;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Show extends SpotifyClient {
 
     ArrayList<String> showIds;
 
+    private Integer limit;
+    private Integer offset;
+    private String market;
+
     public Show(){
         super();
         this.showIds = new ArrayList<String>();
+    }
+
+    public HashMap<String,Object> convertQueries(){
+
+        HashMap<String,Object> queries = new HashMap<>();
+        if(limit != null){
+            queries.put("limit",this.limit);
+        }
+        if(offset != null){
+            queries.put("offset",this.offset);
+        }
+        if(market != null){
+            queries.put("market",this.market);
+        }
+        return queries;
+    }
+
+    public String getMarket() {
+        return market;
+    }
+
+    public void setMarket(String market) {
+        this.market = market;
+    }
+
+    public Integer getLimit() {
+        return limit;
+    }
+
+    public void setLimit(Integer limit) {
+        this.limit = limit;
+    }
+
+    public Integer getOffset() {
+        return offset;
+    }
+
+    public void setOffset(Integer offset) {
+        this.offset = offset;
     }
 
     public String convertShowIds(){

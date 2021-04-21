@@ -1272,7 +1272,7 @@ public class SpotifyRestAPI {
 
         libraryInterface libraryInterface = retrofit.create(Model.libraryInterface.class);
 
-        Call<Controller.LibraryController.BaseAlbum> call = libraryInterface.getUserSavedAlbums(getTokenString(client.getLogin().getAccessToken()));
+        Call<Controller.LibraryController.BaseAlbum> call = libraryInterface.getUserSavedAlbums(getTokenString(client.getLogin().getAccessToken()),client.getAlbum().convertQueryParams());
 
         Response<Controller.LibraryController.BaseAlbum> response = call.execute();
 
@@ -1349,7 +1349,7 @@ public class SpotifyRestAPI {
 
         libraryInterface libraryInterface = retrofit.create(Model.libraryInterface.class);
 
-        Call<BaseTrack> call = libraryInterface.getUserSavedTracks(getTokenString(client.getLogin().getAccessToken()));
+        Call<BaseTrack> call = libraryInterface.getUserSavedTracks(getTokenString(client.getLogin().getAccessToken()),client.getTrackIds().convertQueries());
 
         Response<BaseTrack> response = call.execute();
 
@@ -1424,7 +1424,7 @@ public class SpotifyRestAPI {
 
         libraryInterface libraryInterface = retrofit.create(Model.libraryInterface.class);
 
-        Call<Controller.LibraryController.Episode.BaseEpisode> call = libraryInterface.getUserSavedEpisodes(getTokenString(client.getLogin().getAccessToken()));
+        Call<Controller.LibraryController.Episode.BaseEpisode> call = libraryInterface.getUserSavedEpisodes(getTokenString(client.getLogin().getAccessToken()),client.getEpisode().convertQueries());
 
         Response<Controller.LibraryController.Episode.BaseEpisode> response = call.execute();
 
@@ -1501,7 +1501,7 @@ public class SpotifyRestAPI {
 
         libraryInterface libraryInterface = retrofit.create(Model.libraryInterface.class);
 
-        Call<BaseShow> call = libraryInterface.getUserSavedShows(getTokenString(client.getLogin().getAccessToken()));
+        Call<BaseShow> call = libraryInterface.getUserSavedShows(getTokenString(client.getLogin().getAccessToken()),client.getShow().convertQueries());
 
         Response<BaseShow> response = call.execute();
 
@@ -1539,7 +1539,7 @@ public class SpotifyRestAPI {
 
         libraryInterface libraryInterface = retrofit.create(Model.libraryInterface.class);
 
-        Call<Void> call = libraryInterface.removeUserSavedShows(getTokenString(client.getLogin().getAccessToken()),client.getShow().convertShowIds());
+        Call<Void> call = libraryInterface.removeUserSavedShows(getTokenString(client.getLogin().getAccessToken()),client.getShow().convertShowIds(),client.getShow().convertQueries());
 
         Response<Void> response = call.execute();
 
