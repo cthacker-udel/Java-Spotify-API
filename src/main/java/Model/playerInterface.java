@@ -7,15 +7,16 @@ import Controller.PlayerController.baseUserPlayback;
 import retrofit2.Call;
 import retrofit2.http.*;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public interface playerInterface {
 
     @GET("https://api.spotify.com/v1/me/player")
-    Call<baseUserPlayback> getCurrentUserPlayback(@Header("Authorization") String auth);
+    Call<baseUserPlayback> getCurrentUserPlayback(@Header("Authorization") String auth, @QueryMap HashMap<String,Object> queries);
 
     @PUT("https://api.spotify.com/v1/me/player")
-    Call<Void> transferUsersPlayback(@Header("Authorization") String auth, @Body String deviceIds);
+    Call<Void> transferUsersPlayback(@Header("Authorization") String auth, @Body String deviceIds, @QueryMap HashMap<String,Object> queries);
 
     @GET("https://api.spotify.com/v1/me/player/devices")
     Call<basePlayerDevice> getCurrentUserAvailableDevices(@Header("Authorization") String auth);

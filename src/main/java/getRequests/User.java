@@ -4,6 +4,7 @@ import Client.SpotifyClient;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -11,18 +12,65 @@ public class User extends SpotifyClient {
 
     private ArrayList<String> userIds;
     private ArrayList<String> deviceIds;
+    private String market;
+    private ArrayList<String> additionalTypes;
     private String type;
+    private boolean play;
 
     public User(){
         super();
         this.userIds = new ArrayList<>();
         this.deviceIds = new ArrayList<>();
+        this.additionalTypes = new ArrayList<>();
+    }
+
+    public HashMap<String,Object> convertQueries(){
+        HashMap<String,Object> queries = new HashMap<>();
+
+        if(additionalTypes != null && additionalTypes.size() > 0){
+            queries.put("additional_types",String.join(",",this.additionalTypes));
+        }
+        if(market != null){
+            queries.put("market",this.market);
+        }
+        if(play){
+            queries.put("play",this.play);
+        }
+        return queries;
     }
 
     public String jsonifyDeviceIds(){
         Map<String,String[]> ids = new LinkedHashMap<>();
         ids.put("device_ids",this.deviceIds.stream().toArray(String[]::new));
         return new Gson().toJson(ids);
+    }
+
+    public boolean isPlay() {
+        return play;
+    }
+
+    public void setPlay(boolean play) {
+        this.play = play;
+    }
+
+    public ArrayList<String> getUserIds() {
+        return userIds;
+    }
+
+    public String getMarket() {
+        return market;
+    }
+
+    public void setMarket(String market) {
+        this.market = market;
+    }
+
+    public ArrayList<String> getAdditionalTypes() {
+        return additionalTypes;
+    }
+
+    public void setAdditionalTypes(ArrayList<String> additionalTypes) {
+        this.additionalTypes = additionalTypes;
     }
 
     public String convertDeviceIds(){

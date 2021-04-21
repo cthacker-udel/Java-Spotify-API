@@ -1650,7 +1650,7 @@ public class SpotifyRestAPI {
 
         playerInterface playerInterface = retrofit.create(Model.playerInterface.class);
 
-        Call<baseUserPlayback> call = playerInterface.getCurrentUserPlayback(getTokenString(client.getToken()));
+        Call<baseUserPlayback> call = playerInterface.getCurrentUserPlayback(getTokenString(client.getToken()),client.getUser().convertQueries());
 
         Response<baseUserPlayback> response = call.execute();
 
@@ -1669,7 +1669,7 @@ public class SpotifyRestAPI {
 
         playerInterface playerInterface = retrofit.create(Model.playerInterface.class);
 
-        Call<Void> call = playerInterface.transferUsersPlayback(getTokenString(client.getLogin().getAccessToken()),client.getUser().jsonifyDeviceIds());
+        Call<Void> call = playerInterface.transferUsersPlayback(getTokenString(client.getLogin().getAccessToken()),client.getUser().jsonifyDeviceIds(),client.getUser().convertQueries());
 
         Response<Void> response = call.execute();
 
