@@ -1080,7 +1080,7 @@ public class SpotifyRestAPI {
 
         episodeInterface episodeInterface = retrofit.create(Model.episodeInterface.class);
 
-        Call<BaseEpisode> call = episodeInterface.getEpisodes(getTokenString(client.getToken()),client.getEpisode().convertEpisodes());
+        Call<BaseEpisode> call = episodeInterface.getEpisodes(getTokenString(client.getToken()),client.getEpisode().convertQueries());
 
         Response<BaseEpisode> response = call.execute();
 
@@ -1099,7 +1099,7 @@ public class SpotifyRestAPI {
 
         episodeInterface episodeInterface = retrofit.create(Model.episodeInterface.class);
 
-        Call<Controller.EpisodeController.Episode> call = episodeInterface.getSingleEpisode(getTokenString(client.getToken()),client.getEpisode().getEpisodes().get(0),"US");
+        Call<Controller.EpisodeController.Episode> call = episodeInterface.getSingleEpisode(getTokenString(client.getToken()),client.getEpisode().getEpisodes().get(0),client.getEpisode().getMarket());
 
         Response<Controller.EpisodeController.Episode> response = call.execute();
 

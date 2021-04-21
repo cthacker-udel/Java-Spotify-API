@@ -224,8 +224,8 @@ Controller/baseRefreshTokenResponse.java
  Controller.baseRefreshTokenResponse
 Controller/BrowseController/Recommendations/ExternalUrls.java
  Controller.BrowseController.Recommendations.ExternalUrls
-Model/episodeInterface.java
- Model.episodeInterface
+Controller/BrowseController/Playlist/ExternalUrls.java
+ Controller.BrowseController.Playlist.ExternalUrls
 Controller/ItemController/Artists.java
  Controller.ItemController.Artists
 Controller/AlbumController/MultipleAlbums/Copyright.java
@@ -414,8 +414,6 @@ Controller/BrowseController/Album/Image.java
  Controller.BrowseController.Album.Image
 Controller/BrowseController/Playlist/BasePlaylist.java
  Controller.BrowseController.Playlist.BasePlaylist
-Controller/BrowseController/Playlist/ExternalUrls.java
- Controller.BrowseController.Playlist.ExternalUrls
 getRequests/Show.java
  getRequests.Show
 getRequests/Player.java
@@ -428,6 +426,8 @@ getRequests/Category.java
  getRequests.Category
 Client/SpotifyClient.java
  Client.SpotifyClient
+Model/episodeInterface.java
+ Model.episodeInterface
 getRequests/Episode.java
  getRequests.Episode
 Client/SpotifyRestAPI.java
