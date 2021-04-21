@@ -94,8 +94,8 @@ Controller/PlaylistController/UserPlaylists/CreatePlaylist/ExternalUrls.java
  Controller.PlaylistController.UserPlaylists.CreatePlaylist.ExternalUrls
 Model/albumInterface.java
  Model.albumInterface
-Model/followInterface.java
- Model.followInterface
+Model/episodeInterface.java
+ Model.episodeInterface
 Controller/TrackController/MultipleTracks/Image.java
  Controller.TrackController.MultipleTracks.Image
 Model/authorizationInterface.java
@@ -186,8 +186,8 @@ Controller/PlaylistController/CoverImage.java
  Controller.PlaylistController.CoverImage
 Controller/EpisodeController/Episode.java
  Controller.EpisodeController.Episode
-Model/personalizationInterface.java
- Model.personalizationInterface
+Controller/BrowseController/Album/Image.java
+ Controller.BrowseController.Album.Image
 Controller/PlaylistController/UserPlaylists/ExternalUrls.java
  Controller.PlaylistController.UserPlaylists.ExternalUrls
 Controller/ShowController/ExternalUrls.java
@@ -352,8 +352,8 @@ Controller/BrowseController/Album/ExternalUrls.java
  Controller.BrowseController.Album.ExternalUrls
 Controller/PlayerController/CurrentTrack/Artist.java
  Controller.PlayerController.CurrentTrack.Artist
-Model/libraryInterface.java
- Model.libraryInterface
+Controller/BrowseController/Playlist/BasePlaylist.java
+ Controller.BrowseController.Playlist.BasePlaylist
 Controller/PlayerController/Item.java
  Controller.PlayerController.Item
 Controller/UserProfileController/CurrUser/ExternalUrls.java
@@ -410,14 +410,12 @@ Model/searchInterface.java
  Model.searchInterface
 Controller/LibraryController/Episode/Image.java
  Controller.LibraryController.Episode.Image
-Controller/BrowseController/Album/Image.java
- Controller.BrowseController.Album.Image
-Controller/BrowseController/Playlist/BasePlaylist.java
- Controller.BrowseController.Playlist.BasePlaylist
 getRequests/Show.java
  getRequests.Show
 getRequests/Player.java
  getRequests.Player
+getRequests/Personalization.java
+ getRequests.Personalization
 getRequests/Follow.java
  getRequests.Follow
 getRequests/Track.java
@@ -426,10 +424,12 @@ getRequests/Category.java
  getRequests.Category
 Client/SpotifyClient.java
  Client.SpotifyClient
-Model/episodeInterface.java
- Model.episodeInterface
+Model/libraryInterface.java
+ Model.libraryInterface
 getRequests/Episode.java
  getRequests.Episode
+Model/followInterface.java
+ Model.followInterface
 Client/SpotifyRestAPI.java
  Client.SpotifyRestAPI
 getRequests/Item.java
@@ -442,6 +442,8 @@ getRequests/Playlist.java
  getRequests.Playlist
 getRequests/User.java
  getRequests.User
+Model/personalizationInterface.java
+ Model.personalizationInterface
 getRequests/Album.java
  getRequests.Album
 Client/SpotifyLogin.java

@@ -24,7 +24,7 @@ getRequests/PlaylistTest.java
  getRequests.PlaylistTest
 getRequests/BrowseTest.java
  getRequests.BrowseTest
-getRequests/PersonalizationTest.java
- getRequests.PersonalizationTest
 getRequests/FollowTest.java
  getRequests.FollowTest
+getRequests/PersonalizationTest.java
+ getRequests.PersonalizationTest
