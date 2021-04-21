@@ -2,16 +2,9 @@ package getRequests;
 
 
 import Client.SpotifyClient;
-import Client.SpotifyRestAPI;
-import Controller.AlbumController.MultipleAlbums.BaseAlbum;
-import retrofit2.Call;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.stream.Collectors;
+import java.util.HashMap;
 
 public class Album extends SpotifyClient {
 
@@ -26,6 +19,22 @@ public class Album extends SpotifyClient {
     public Album(){
         super();
         this.albumIds = new ArrayList<>();
+    }
+
+    public HashMap<String,Object> convertQueryParams(){
+
+        HashMap<String,Object> params = new HashMap<>();
+        if(this.market != null){
+            params.put("country",this.market);
+        }
+        if(this.limit != null) {
+            params.put("limit", this.limit);
+        }
+        if(this.offset != null) {
+            params.put("offset", this.offset);
+        }
+        return params;
+
     }
 
     public String getMarket() {

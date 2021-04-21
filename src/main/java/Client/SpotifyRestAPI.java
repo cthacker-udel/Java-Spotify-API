@@ -940,7 +940,7 @@ public class SpotifyRestAPI {
 
         browseInterface browseInterface = retrofit.create(browseInterface.class);
 
-        Call<Controller.BrowseController.Album.BaseAlbum> call = browseInterface.getNewReleases(getTokenString(client.getToken()));
+        Call<Controller.BrowseController.Album.BaseAlbum> call = browseInterface.getNewReleases(getTokenString(client.getToken()),client.getAlbum().convertQueryParams());
 
         Response<Controller.BrowseController.Album.BaseAlbum> response = call.execute();
 
@@ -959,7 +959,7 @@ public class SpotifyRestAPI {
 
         browseInterface browseInterface = retrofit.create(Model.browseInterface.class);
 
-        Call<BasePlaylist> call = browseInterface.getFeaturedPlaylists(getTokenString(client.getToken()));
+        Call<BasePlaylist> call = browseInterface.getFeaturedPlaylists(getTokenString(client.getToken()),client.getPlaylist().convertQueryParams());
 
         Response<BasePlaylist> response = call.execute();
 
@@ -977,7 +977,7 @@ public class SpotifyRestAPI {
 
         browseInterface browseInterface = retrofit.create(Model.browseInterface.class);
 
-        Call<BaseCategory> call = browseInterface.getCategories(getTokenString(client.getToken()));
+        Call<BaseCategory> call = browseInterface.getCategories(getTokenString(client.getToken()),client.getCategory().convertQueryParams());
 
         Response<BaseCategory> response = call.execute();
 
@@ -996,7 +996,7 @@ public class SpotifyRestAPI {
 
         browseInterface browseInterface = retrofit.create(Model.browseInterface.class);
 
-        Call<Category> call = browseInterface.getSingleCategory(getTokenString(client.getToken()),categoryId);
+        Call<Category> call = browseInterface.getSingleCategory(getTokenString(client.getToken()),categoryId,client.getCategory().convertQueryParams());
 
         Response<Category> response = call.execute();
 
@@ -1015,7 +1015,7 @@ public class SpotifyRestAPI {
 
         browseInterface browseInterface = retrofit.create(Model.browseInterface.class);
 
-        Call<BasePlaylist> call = browseInterface.getCategoriesPlaylists(getTokenString(client.getToken()),categoryId);
+        Call<BasePlaylist> call = browseInterface.getCategoriesPlaylists(getTokenString(client.getToken()),categoryId,client.getCategory().convertQueryParams());
 
         Response<BasePlaylist> response = call.execute();
 
@@ -1033,7 +1033,7 @@ public class SpotifyRestAPI {
 
         browseInterface browseInterface = retrofit.create(Model.browseInterface.class);
 
-        Call<BaseRecommendation> call = browseInterface.getRecommendations(getTokenString(client.getToken()),client.getSeed().convertSeedArtists(),client.getSeed().convertSeedGenres(),client.getSeed().convertSeedTracks());
+        Call<BaseRecommendation> call = browseInterface.getRecommendations(getTokenString(client.getToken()),client.getSeed().convertSeedArtists(),client.getSeed().convertSeedGenres(),client.getSeed().convertSeedTracks(),client.getSeed().convertQueryParams());
 
         Response<BaseRecommendation> response = call.execute();
 
