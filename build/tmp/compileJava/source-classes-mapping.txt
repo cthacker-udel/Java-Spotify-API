@@ -14,8 +14,8 @@ Controller/PersonalizationController/Item.java
  Controller.PersonalizationController.Item
 Controller/PlaylistController/Followers.java
  Controller.PlaylistController.Followers
-Model/playerInterface.java
- Model.playerInterface
+Model/followInterface.java
+ Model.followInterface
 Controller/PlayerController/Context.java
  Controller.PlayerController.Context
 Controller/PlaylistController/UserPlaylists/Owner.java
@@ -410,6 +410,12 @@ Model/searchInterface.java
  Model.searchInterface
 Controller/LibraryController/Episode/Image.java
  Controller.LibraryController.Episode.Image
+Model/personalizationInterface.java
+ Model.personalizationInterface
+Model/libraryInterface.java
+ Model.libraryInterface
+Model/playerInterface.java
+ Model.playerInterface
 getRequests/Show.java
  getRequests.Show
 getRequests/Player.java
@@ -424,12 +430,8 @@ getRequests/Category.java
  getRequests.Category
 Client/SpotifyClient.java
  Client.SpotifyClient
-Model/libraryInterface.java
- Model.libraryInterface
 getRequests/Episode.java
  getRequests.Episode
-Model/followInterface.java
- Model.followInterface
 Client/SpotifyRestAPI.java
  Client.SpotifyRestAPI
 getRequests/Item.java
@@ -442,8 +444,6 @@ getRequests/Playlist.java
  getRequests.Playlist
 getRequests/User.java
  getRequests.User
-Model/personalizationInterface.java
- Model.personalizationInterface
 getRequests/Album.java
  getRequests.Album
 Client/SpotifyLogin.java

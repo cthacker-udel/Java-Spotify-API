@@ -12,8 +12,8 @@ Client/SpotifyRestAPITest.java
  Client.SpotifyRestAPITest
 getRequests/ShowsTest.java
  getRequests.ShowsTest
-getRequests/PlayerTest.java
- getRequests.PlayerTest
+getRequests/FollowTest.java
+ getRequests.FollowTest
 getRequests/ArtistTest.java
  getRequests.ArtistTest
 getRequests/LibraryTest.java
@@ -24,7 +24,7 @@ getRequests/PlaylistTest.java
  getRequests.PlaylistTest
 getRequests/BrowseTest.java
  getRequests.BrowseTest
-getRequests/FollowTest.java
- getRequests.FollowTest
 getRequests/PersonalizationTest.java
  getRequests.PersonalizationTest
+getRequests/PlayerTest.java
+ getRequests.PlayerTest
