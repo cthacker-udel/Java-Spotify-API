@@ -22,6 +22,11 @@ public class User extends SpotifyClient {
     private Integer offset;
     private Integer position_ms;
 
+    private String singleDeviceId;
+    private Integer limit;
+    private Integer after;
+    private Integer before;
+
 
     public User(){
         super();
@@ -54,6 +59,18 @@ public class User extends SpotifyClient {
         }
         if(this.position_ms != null){
             queries.put("position_ms",this.position_ms);
+        }
+        if(this.singleDeviceId != null){
+            queries.put("deivce_id",this.singleDeviceId);
+        }
+        if(limit != null){
+            queries.put("limit",this.limit);
+        }
+        if(after != null){
+            queries.put("after",this.after);
+        }
+        if(before != null){
+            queries.put("before",this.before);
         }
         return queries;
     }

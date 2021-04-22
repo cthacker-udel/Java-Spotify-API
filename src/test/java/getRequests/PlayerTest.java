@@ -62,6 +62,7 @@ public class PlayerTest {
     @Test
     void startResumeUserPlayback() throws IOException{
 
+
         assertTrue(client.startOrResumeAUsersPlayback(client));
 
     }
