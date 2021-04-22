@@ -22,10 +22,10 @@ public interface playerInterface {
     Call<basePlayerDevice> getCurrentUserAvailableDevices(@Header("Authorization") String auth);
 
     @GET("https://api.spotify.com/v1/me/player/currently-playing")
-    Call<baseCurrentTrack> getCurrentUserTrack(@Header("Authorization") String auth, @Query("market") String isoCountryCode);
+    Call<baseCurrentTrack> getCurrentUserTrack(@Header("Authorization") String auth, @Query("market") String isoCountryCode, @QueryMap HashMap<String,Object> queries);
 
     @PUT("https://api.spotify.com/v1/me/player/play")
-    Call<Void> startOrResumeCurrentUserPlayback(@Header("Authorization") String auth);
+    Call<Void> startOrResumeCurrentUserPlayback(@Header("Authorization") String auth, @Body HashMap<String,Object> body);
 
     @PUT("https://api.spotify.com/v1/me/player/pause")
     Call<Void> pauseUsersPlayback(@Header("Authorization") String auth);

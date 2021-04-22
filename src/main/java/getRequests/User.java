@@ -17,11 +17,18 @@ public class User extends SpotifyClient {
     private String type;
     private boolean play;
 
+    private String context_uri;
+    private ArrayList<String> uris;
+    private Integer offset;
+    private Integer position_ms;
+
+
     public User(){
         super();
         this.userIds = new ArrayList<>();
         this.deviceIds = new ArrayList<>();
         this.additionalTypes = new ArrayList<>();
+        this.uris = new ArrayList<>();
     }
 
     public HashMap<String,Object> convertQueries(){
@@ -36,13 +43,59 @@ public class User extends SpotifyClient {
         if(play){
             queries.put("play",this.play);
         }
+        if(context_uri != null){
+            queries.put("context_uri",this.context_uri);
+        }
+        if(uris != null){
+            queries.put("uris",new Gson().toJson(this.uris.stream().toArray(String[]::new)));
+        }
+        if(this.offset != null){
+            queries.put("offset",this.offset);
+        }
+        if(this.position_ms != null){
+            queries.put("position_ms",this.position_ms);
+        }
         return queries;
     }
+
+
 
     public String jsonifyDeviceIds(){
         Map<String,String[]> ids = new LinkedHashMap<>();
         ids.put("device_ids",this.deviceIds.stream().toArray(String[]::new));
         return new Gson().toJson(ids);
+    }
+
+    public String getContext_uri() {
+        return context_uri;
+    }
+
+    public void setContext_uri(String context_uri) {
+        this.context_uri = context_uri;
+    }
+
+    public ArrayList<String> getUris() {
+        return uris;
+    }
+
+    public void setUris(ArrayList<String> uris) {
+        this.uris = uris;
+    }
+
+    public Integer getOffset() {
+        return offset;
+    }
+
+    public void setOffset(Integer offset) {
+        this.offset = offset;
+    }
+
+    public Integer getPosition_ms() {
+        return position_ms;
+    }
+
+    public void setPosition_ms(Integer position_ms) {
+        this.position_ms = position_ms;
     }
 
     public boolean isPlay() {
