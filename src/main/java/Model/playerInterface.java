@@ -25,7 +25,7 @@ public interface playerInterface {
     Call<baseCurrentTrack> getCurrentUserTrack(@Header("Authorization") String auth, @QueryMap HashMap<String,Object> queries);
 
     @PUT("https://api.spotify.com/v1/me/player/play")
-    Call<Void> startOrResumeCurrentUserPlayback(@Header("Authorization") String auth, @Body HashMap<String,Object> body);
+    Call<Void> startOrResumeCurrentUserPlayback(@Header("Authorization") String auth, @Query("device_id") String deviceId, @Body HashMap<String,Object> body);
 
     @PUT("https://api.spotify.com/v1/me/player/pause")
     Call<Void> pauseUsersPlayback(@Header("Authorization") String auth);

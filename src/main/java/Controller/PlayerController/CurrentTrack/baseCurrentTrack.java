@@ -10,7 +10,7 @@ public class baseCurrentTrack {
     private Context context;
     @SerializedName("timestamp")
     @Expose
-    private Integer timestamp;
+    private Double timestamp;
     @SerializedName("progress_ms")
     @Expose
     private Integer progressMs;
@@ -32,11 +32,11 @@ public class baseCurrentTrack {
         this.context = context;
     }
 
-    public Integer getTimestamp() {
+    public Double getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Integer timestamp) {
+    public void setTimestamp(Double timestamp) {
         this.timestamp = timestamp;
     }
 

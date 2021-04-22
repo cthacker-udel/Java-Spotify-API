@@ -1,6 +1,7 @@
 package getRequests;
 
 import Client.SpotifyClient;
+import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,9 +11,11 @@ public class Player extends SpotifyClient {
     private String repeatState;
     private Integer volume_percent;
     private Integer seekPosition;
-    private String shuffleState;
+    private boolean shuffleState;
     private String uri;
     private ArrayList<String> uris;
+    private JsonObject offsetObj;
+    private String contextUri;
     private String deviceId;
     private Integer limit;
     private Integer after;
@@ -28,6 +31,7 @@ public class Player extends SpotifyClient {
         this.uris = new ArrayList<>();
         this.additionalTypes = new ArrayList<>();
         this.deviceIds = new ArrayList<>();
+        this.offsetObj = new JsonObject();
     }
 
     public HashMap<String,Object> convertQueries(){
@@ -37,13 +41,16 @@ public class Player extends SpotifyClient {
         if(repeatState != null){
             queries.put("state",this.repeatState);
         }
+        if(offsetObj != null){
+            queries.put("offset",this.offsetObj);
+        }
         if(volume_percent != null){
             queries.put("volume_percent",this.volume_percent);
         }
         if(seekPosition != null){
             queries.put("position_ms",this.seekPosition);
         }
-        if(shuffleState != null){
+        if(shuffleState){
             queries.put("state",this.shuffleState);
         }
         if(uri != null){
@@ -68,7 +75,7 @@ public class Player extends SpotifyClient {
             queries.put("offset",this.offset);
         }
         if(additionalTypes.size() != 0){
-            queries.put("additional_types",this.additionalTypes);
+            queries.put("additional_types",String.join(",",this.additionalTypes));
         }
         if(market != null){
             queries.put("market",this.market);
@@ -79,7 +86,70 @@ public class Player extends SpotifyClient {
         if(play){
             queries.put("play",this.play);
         }
+        if(contextUri != null){
+            queries.put("context_uri",this.contextUri);
+        }
         return queries;
+    }
+
+    public void clearAllQueries(){
+        this.repeatState = null;
+        this.volume_percent = null;
+        this.seekPosition = null;
+        this.shuffleState = false;
+        this.uri = null;
+        this.uris.clear();
+        this.deviceId = null;
+        this.limit = null;
+        this.after = null;
+        this.before = null;
+        this.offset = null;
+        this.additionalTypes.clear();
+        this.market = null;
+        this.deviceIds.clear();
+        this.play = false;
+        this.contextUri = null;
+        this.offsetObj = null;
+    }
+
+    public void initializeOffsetObj(){
+        this.offsetObj = new JsonObject();
+    }
+
+    public JsonObject getOffsetObj() {
+        return offsetObj;
+    }
+
+    public void setOffsetObj(JsonObject offsetObj) {
+        this.offsetObj = offsetObj;
+    }
+
+    public String getContextUri() {
+        return contextUri;
+    }
+
+    public void setContextUri(String contextUri) {
+        this.contextUri = contextUri;
+    }
+
+    public boolean isShuffleState() {
+        return shuffleState;
+    }
+
+    public boolean isPlay() {
+        return play;
+    }
+
+    public void setPlay(boolean play) {
+        this.play = play;
+    }
+
+    public ArrayList<String> getDeviceIds() {
+        return deviceIds;
+    }
+
+    public void setDeviceIds(ArrayList<String> deviceIds) {
+        this.deviceIds = deviceIds;
     }
 
     public ArrayList<String> getUris() {
@@ -154,11 +224,11 @@ public class Player extends SpotifyClient {
         this.uri = uri;
     }
 
-    public String getShuffleState() {
+    public boolean getShuffleState() {
         return shuffleState;
     }
 
-    public void setShuffleState(String shuffleState) {
+    public void setShuffleState(boolean shuffleState) {
         this.shuffleState = shuffleState;
     }
 
