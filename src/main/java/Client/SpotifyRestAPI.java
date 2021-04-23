@@ -35,6 +35,7 @@ import Controller.baseRefreshTokenResponse;
 import Model.*;
 
 
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import okhttp3.*;
 import org.openqa.selenium.By;
@@ -1939,9 +1940,7 @@ public class SpotifyRestAPI {
 
     public Controller.PlaylistController.UserPlaylists.BasePlaylist getListUserPlaylists(SpotifyClient client) throws IOException {
 
-        String userId = client.getUser().getTheUser().get(0);
-
-        String url = baseUrl + String.format("/v1/users/%s/playlists/",userId);
+        String url = baseUrl + String.format("/v1/users/%s/playlists/",client.getPlaylist().getUserId());
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url)
@@ -1950,7 +1949,7 @@ public class SpotifyRestAPI {
 
         playlistInterface playlistInterface = retrofit.create(Model.playlistInterface.class);
 
-        Call<Controller.PlaylistController.UserPlaylists.BasePlaylist> call = playlistInterface.getListOfSpecifiedUserPlaylists(getTokenString(client.getLogin().getAccessToken()),userId);
+        Call<Controller.PlaylistController.UserPlaylists.BasePlaylist> call = playlistInterface.getListOfSpecifiedUserPlaylists(getTokenString(client.getLogin().getAccessToken()),client.getPlaylist().getUserId(),client.getPlaylist().convertQueryParams());
 
         Response<Controller.PlaylistController.UserPlaylists.BasePlaylist> response = call.execute();
 
@@ -1971,7 +1970,7 @@ public class SpotifyRestAPI {
 
         playlistInterface playlistInterface = retrofit.create(Model.playlistInterface.class);
 
-        Call<Controller.PlaylistController.UserPlaylists.CreatePlaylist.BasePlaylist> call = playlistInterface.createAPlaylist(getTokenString(client.getLogin().getAccessToken()),client.getUser().getTheUser().get(0),client.getPlaylist().getName());
+        Call<Controller.PlaylistController.UserPlaylists.CreatePlaylist.BasePlaylist> call = playlistInterface.createAPlaylist(getTokenString(client.getLogin().getAccessToken()),client.getUser().getTheUser().get(0),client.getPlaylist().convertQueryParams());
 
         Response<Controller.PlaylistController.UserPlaylists.CreatePlaylist.BasePlaylist> response = call.execute();
 

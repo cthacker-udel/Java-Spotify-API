@@ -26,14 +26,16 @@ public class Playlist extends SpotifyClient {
 
     private Integer offset;
 
+    private String userId;
+
+    private boolean Public;
+
+    private boolean collaborative;
+
+    private String description;
+
     public Playlist() {
         super();
-    }
-
-    public String getName() {
-        Map<String,String> nameParams = new HashMap<>();
-        nameParams.put("name",this.name);
-        return new Gson().toJson(nameParams);
     }
 
     public HashMap<String,Object> convertQueryParams(){
@@ -54,6 +56,18 @@ public class Playlist extends SpotifyClient {
         }
         if(this.offset != null){
             queryParams.put("offset",this.offset);
+        }
+        if(!this.Public){
+            queryParams.put("public",this.Public);
+        }
+        if(!this.collaborative){
+            queryParams.put("collaborative",this.collaborative);
+        }
+        if(this.description != null){
+            queryParams.put("description",this.description);
+        }
+        if(this.name != null){
+            queryParams.put("name",this.name);
         }
         return queryParams;
 
@@ -76,6 +90,14 @@ public class Playlist extends SpotifyClient {
         df.setTimeZone(tz);
         return df.format(new Date());
 
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getCountry() {
