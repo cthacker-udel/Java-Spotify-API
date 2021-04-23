@@ -80,6 +80,10 @@ public class Playlist extends SpotifyClient {
         this.timestamp = null;
         this.limit = null;
         this.offset = null;
+        this.Public = true;
+        this.collaborative = false;
+        this.description = null;
+        this.name = null;
 
     }
 

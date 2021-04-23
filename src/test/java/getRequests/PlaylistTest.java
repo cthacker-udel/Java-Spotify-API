@@ -55,12 +55,18 @@ public class PlaylistTest {
     @Test
     void testGetListOfUserPlaylist() throws IOException{
 
+        Playlist clientPlaylist = client.getPlaylist();
+        clientPlaylist.setUserId("ExampleUserId");
+        clientPlaylist.setLimit(10);
+        clientPlaylist.setOffset(10);
         assertNotNull(client.getListUserPlaylists(client));
 
     }
 
     @Test
     void testCreateAPlaylist() throws IOException{
+
+        Playlist clientPlaylist = client.getPlaylist();
 
         assertNotNull(client.createAPlaylist(client));
 
