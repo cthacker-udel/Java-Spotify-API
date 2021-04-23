@@ -2,6 +2,7 @@ package getRequests;
 
 import Client.SpotifyClient;
 import Client.SpotifyLogin;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -18,10 +19,15 @@ public class PlaylistTest {
             client = new SpotifyClient("d56c8c3f79a1459bba2c286cfa7aa15b", "9dcd475a773d467990dd75eede0af55f");
 
             SpotifyLogin login = client.getLogin();
-            login.setEmailOrUsername("exampleEmail");
-            login.setPassword("examplePasword");
-            login.setRedirectUri("exampleRedirectURI");
+
+            // DELETE BEFORE PUSHING
+
+            login.setEmailOrUsername("exampleusername");
+            login.setPassword("examplepassword");
+            login.setRedirectUri("examplecallback");
             login.addScope("user-modify-playback-state");
+            login.addScope("playlist-read-private");
+            login.addScope("playlist-read-collaborative");
             client.requestAuthCodeFlowCode(client);
             client.generateAccessTokenAndRefreshToken(client);
 
@@ -31,9 +37,17 @@ public class PlaylistTest {
         }
     }
 
+    @BeforeEach
+    void init(){
+        Playlist clientPlaylist = client.getPlaylist();
+        clientPlaylist.clearQueryParams();
+    }
+
     @Test
     void testGetListOfCurrUserPlaylist() throws IOException {
-
+        Playlist clientPlaylist = client.getPlaylist();
+        clientPlaylist.setLimit(10);
+        clientPlaylist.setOffset(20);
         assertNotNull(client.getListCurrUserPlaylists(client));
 
     }

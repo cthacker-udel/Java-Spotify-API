@@ -59,6 +59,16 @@ public class Playlist extends SpotifyClient {
 
     }
 
+    public void clearQueryParams(){
+
+        this.country = null;
+        this.locale = null;
+        this.timestamp = null;
+        this.limit = null;
+        this.offset = null;
+
+    }
+
     public String getCurrentDateISO(){
 
         TimeZone tz = TimeZone.getTimeZone("UTC");
