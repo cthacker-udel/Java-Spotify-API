@@ -38,6 +38,18 @@ public class Playlist extends SpotifyClient {
 
     private ArrayList<String> additionalTypes;
 
+    private Integer position;
+
+    private ArrayList<String> uris;
+
+    private Integer rangeStart;
+
+    private Integer insertBefore;
+
+    private Integer rangeLength;
+
+    private String snapshotId;
+
     public Playlist() {
         super();
     }
@@ -82,6 +94,24 @@ public class Playlist extends SpotifyClient {
         if(this.additionalTypes.size() > 0){
             queryParams.put("additional_types",String.join(",",this.additionalTypes));
         }
+        if(this.position != null){
+            queryParams.put("position",this.position);
+        }
+        if(this.uris.size() > 0){
+            queryParams.put("uris",String.join(",",this.uris));
+        }
+        if(this.rangeStart != null){
+            queryParams.put("range_start",this.rangeStart);
+        }
+        if(this.insertBefore != null){
+            queryParams.put("insert_before",this.insertBefore);
+        }
+        if(this.rangeLength != null){
+            queryParams.put("range_length",this.rangeLength);
+        }
+        if(this.snapshotId != null){
+            queryParams.put("snapshot_id",this.snapshotId);
+        }
         return queryParams;
 
     }
@@ -100,6 +130,8 @@ public class Playlist extends SpotifyClient {
         this.market = null;
         this.fields.clear();
         this.additionalTypes.clear();
+        this.position = null;
+        this.uris.clear();
     }
 
     public String getName() {

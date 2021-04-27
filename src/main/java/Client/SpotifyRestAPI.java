@@ -2027,7 +2027,7 @@ public class SpotifyRestAPI {
 
         playlistInterface playlistInterface = retrofit.create(Model.playlistInterface.class);
 
-        Call<BasePlaylistItems> call = playlistInterface.getPlaylistItems(getTokenString(client.getLogin().getAccessToken()),client.getPlaylist().getPlaylistId());
+        Call<BasePlaylistItems> call = playlistInterface.getPlaylistItems(getTokenString(client.getLogin().getAccessToken()),client.getPlaylist().getPlaylistId(),client.getPlaylist().convertQueryParams());
 
         Response<BasePlaylistItems> response = call.execute();
 
@@ -2046,7 +2046,7 @@ public class SpotifyRestAPI {
 
         playlistInterface playlistInterface = retrofit.create(Model.playlistInterface.class);
 
-        Call<SnapshotId> call = playlistInterface.addItemsToPlaylist(getTokenString(client.getLogin().getAccessToken()),client.getPlaylist().getPlaylistId());
+        Call<SnapshotId> call = playlistInterface.addItemsToPlaylist(getTokenString(client.getLogin().getAccessToken()),client.getPlaylist().getPlaylistId(),client.getPlaylist().convertQueryParams());
 
         Response<SnapshotId> response = call.execute();
 
@@ -2065,7 +2065,26 @@ public class SpotifyRestAPI {
 
         playlistInterface playlistInterface = retrofit.create(Model.playlistInterface.class);
 
-        Call<SnapshotId> call = playlistInterface.reorderOrReplacePlaylistsItems(getTokenString(client.getLogin().getAccessToken()),client.getPlaylist().getPlaylistId());
+        Call<SnapshotId> call = playlistInterface.replacePlaylistsItems(getTokenString(client.getLogin().getAccessToken()),client.getPlaylist().getPlaylistId(),client.getPlaylist().convertQueryParams());
+
+        Response<SnapshotId> response = call.execute();
+
+        return response.body();
+
+    }
+
+    public SnapshotId reorderPlaylistItems(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + String.format("/v1/playlists/%s/tracks/",client.getPlaylist().getPlaylistId());
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        playlistInterface playlistInterface = retrofit.create(Model.playlistInterface.class);
+
+        Call<SnapshotId> call = playlistInterface.reorderPlaylistsItems(getTokenString(client.getLogin().getAccessToken()),client.getPlaylist().getPlaylistId(),client.getPlaylist().convertQueryParams());
 
         Response<SnapshotId> response = call.execute();
 

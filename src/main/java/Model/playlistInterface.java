@@ -29,13 +29,16 @@ public interface playlistInterface {
     Call<Object> changePlaylistDetails(@Header("Authorization") String auth, @Path("playlistId") String playlistId, @QueryMap HashMap<String,Object> queries);
 
     @GET("https://api.spotify.com/v1/playlists/{playlistId}/tracks")
-    Call<BasePlaylistItems> getPlaylistItems(@Header("Authorization") String auth, @Path("playlistId") String playlistId);
+    Call<BasePlaylistItems> getPlaylistItems(@Header("Authorization") String auth, @Path("playlistId") String playlistId, @QueryMap HashMap<String,Object> queries);
 
     @POST("https://api.spotify.com/v1/playlists/{playlistId}/tracks")
-    Call<SnapshotId> addItemsToPlaylist(@Header("Authorization") String auth, @Path("playlistId") String playlistId);
+    Call<SnapshotId> addItemsToPlaylist(@Header("Authorization") String auth, @Path("playlistId") String playlistId, @QueryMap HashMap<String,Object> queries);
 
     @PUT("https://api.spotify.com/v1/playlists/{playlistId}/tracks")
-    Call<SnapshotId> reorderOrReplacePlaylistsItems(@Header("Authorization") String auth, @Path("playlistId") String playlistId);
+    Call<SnapshotId> replacePlaylistsItems(@Header("Authorization") String auth, @Path("playlistId") String playlistId, @QueryMap HashMap<String,Object> queries);
+
+    @PUT("https://api.spotify.com/v1/playlists/{playlistId}/tracks")
+    Call<SnapshotId> reorderPlaylistsItems(@Header("Authorization") String auth, @Path("playlistId") String playlistId, @Body HashMap<String,Object> body);
 
     @DELETE("https://api.spotify.com/v1/playlists/{playlistId}/tracks")
     Call<SnapshotId> removeItemsFromPlaylist(@Header("Authorization") String auth, @Path("playlistId") String playlistId, @Body String tracks);
