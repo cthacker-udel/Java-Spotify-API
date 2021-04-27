@@ -64,18 +64,26 @@ public class PlaylistTest {
     }
 
     @Test
-    void testCreateAPlaylist() throws IOException{
+    void testGetAPlaylist() throws IOException{
 
         Playlist clientPlaylist = client.getPlaylist();
-
-        assertNotNull(client.createAPlaylist(client));
+        clientPlaylist.setMarket("US");
+        clientPlaylist.getFields().add("description");
+        clientPlaylist.getFields().add("url");
+        clientPlaylist.getAdditionalTypes().add("track");
+        assertNotNull(client.getAPlaylist(client));
 
     }
 
     @Test
-    void testGetAPlaylist() throws IOException{
+    void testCreateAPlaylist() throws IOException{
 
-        assertNotNull(client.getAPlaylist(client));
+        Playlist clientPlaylist = client.getPlaylist();
+        clientPlaylist.setName("API-Playlist");
+        clientPlaylist.setPublic(true);
+        clientPlaylist.setCollaborative(true);
+        clientPlaylist.setDescription("This is a playlist created by the Java-Spotify-API");
+        assertNotNull(client.createAPlaylist(client));
 
     }
 

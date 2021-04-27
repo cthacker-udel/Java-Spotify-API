@@ -1989,7 +1989,7 @@ public class SpotifyRestAPI {
 
         playlistInterface playlistInterface = retrofit.create(Model.playlistInterface.class);
 
-        Call<Playlist> call = playlistInterface.getPlaylist(getTokenString(client.getLogin().getAccessToken()),client.getPlaylist().getPlaylistId());
+        Call<Playlist> call = playlistInterface.getPlaylist(getTokenString(client.getLogin().getAccessToken()),client.getPlaylist().getPlaylistId(),client.getPlaylist().convertQueryParams());
 
         Response<Playlist> response = call.execute();
 

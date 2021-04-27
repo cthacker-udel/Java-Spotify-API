@@ -6,10 +6,7 @@ import com.google.gson.Gson;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TimeZone;
+import java.util.*;
 
 public class Playlist extends SpotifyClient {
 
@@ -33,6 +30,12 @@ public class Playlist extends SpotifyClient {
     private boolean collaborative;
 
     private String description;
+
+    private String market;
+
+    private ArrayList<String> fields;
+
+    private ArrayList<String> additionalTypes;
 
     public Playlist() {
         super();
@@ -69,6 +72,15 @@ public class Playlist extends SpotifyClient {
         if(this.name != null){
             queryParams.put("name",this.name);
         }
+        if(this.market != null){
+            queryParams.put("market",this.market);
+        }
+        if(this.fields.size() > 0){
+            queryParams.put("fields",String.join(",",this.fields));
+        }
+        if(this.additionalTypes.size() > 0){
+            queryParams.put("additional_types",String.join(",",this.additionalTypes));
+        }
         return queryParams;
 
     }
@@ -84,7 +96,61 @@ public class Playlist extends SpotifyClient {
         this.collaborative = false;
         this.description = null;
         this.name = null;
+        this.market = null;
+        this.fields.clear();
+        this.additionalTypes.clear();
+    }
 
+    public String getName() {
+        return name;
+    }
+
+    public boolean isPublic() {
+        return Public;
+    }
+
+    public void setPublic(boolean aPublic) {
+        Public = aPublic;
+    }
+
+    public boolean isCollaborative() {
+        return collaborative;
+    }
+
+    public void setCollaborative(boolean collaborative) {
+        this.collaborative = collaborative;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getMarket() {
+        return market;
+    }
+
+    public void setMarket(String market) {
+        this.market = market;
+    }
+
+    public ArrayList<String> getFields() {
+        return fields;
+    }
+
+    public void setFields(ArrayList<String> fields) {
+        this.fields = fields;
+    }
+
+    public ArrayList<String> getAdditionalTypes() {
+        return additionalTypes;
+    }
+
+    public void setAdditionalTypes(ArrayList<String> additionalTypes) {
+        this.additionalTypes = additionalTypes;
     }
 
     public String getCurrentDateISO(){

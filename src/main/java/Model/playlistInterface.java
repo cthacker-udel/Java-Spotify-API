@@ -23,7 +23,7 @@ public interface playlistInterface {
     Call<Controller.PlaylistController.UserPlaylists.CreatePlaylist.BasePlaylist> createAPlaylist(@Header("Authorization") String auth, @Path("userId") String path, @Body HashMap<String,Object> queries);
 
     @GET("https://api.spotify.com/v1/playlists/{playlistId}")
-    Call<Playlist> getPlaylist(@Header("Authorzation") String auth, @Path("playlistId") String playListId);
+    Call<Playlist> getPlaylist(@Header("Authorzation") String auth, @Path("playlistId") String playListId, @QueryMap HashMap<String,Object> queries);
 
     @PUT("https://api.spotify.com/v1/playlists/{playlistId}")
     Call<Object> changePlaylistDetails(@Header("Authorization") String auth, @Path("playlistId") String playlistId);
