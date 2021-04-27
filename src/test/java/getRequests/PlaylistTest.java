@@ -79,6 +79,7 @@ public class PlaylistTest {
     void testCreateAPlaylist() throws IOException{
 
         Playlist clientPlaylist = client.getPlaylist();
+        clientPlaylist.setPlaylistId("playlistId");
         clientPlaylist.setName("API-Playlist");
         clientPlaylist.setPublic(true);
         clientPlaylist.setCollaborative(true);
@@ -90,6 +91,11 @@ public class PlaylistTest {
     @Test
     void testChangePlaylistDetails() throws IOException{
 
+        Playlist clientPlaylist = client.getPlaylist();
+        clientPlaylist.setPlaylistId("playlistId");
+        clientPlaylist.setDescription("This playlist description has been modified by the Java-Spotify-API");
+        clientPlaylist.setPublic(false);
+        clientPlaylist.setCollaborative(true);
         assertTrue(client.changePlaylistDetails(client));
 
     }

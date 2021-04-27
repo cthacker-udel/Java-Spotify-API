@@ -11,6 +11,7 @@ import java.util.*;
 public class Playlist extends SpotifyClient {
 
     private String name;
+
     private String playlistId;
 
     private String country;
@@ -86,7 +87,7 @@ public class Playlist extends SpotifyClient {
     }
 
     public void clearQueryParams(){
-
+        this.playlistId = "";
         this.country = null;
         this.locale = null;
         this.timestamp = null;
