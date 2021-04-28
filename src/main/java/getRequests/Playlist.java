@@ -144,6 +144,14 @@ public class Playlist extends SpotifyClient {
         this.tracks.clear();
     }
 
+    public ArrayList<String> getTracks() {
+        return tracks;
+    }
+
+    public void setTracks(ArrayList<String> tracks) {
+        this.tracks = tracks;
+    }
+
     public Integer getPosition() {
         return position;
     }

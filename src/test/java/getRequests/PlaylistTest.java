@@ -161,7 +161,9 @@ public class PlaylistTest {
 
     @Test
     void testRemoveItemsFromPlaylist() throws IOException{
-
+        Playlist clientPlaylist = client.getPlaylist();
+        clientPlaylist.getTracks().add("exampleTrackId");
+        clientPlaylist.setSnapshotId("exampleSnapshotID");
         assertNotNull(client.removePlaylistItems(client));
 
     }
