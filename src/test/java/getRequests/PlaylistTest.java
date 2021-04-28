@@ -103,6 +103,13 @@ public class PlaylistTest {
     @Test
     void testGetPlaylistItems() throws IOException{
 
+        Playlist clientPlaylist = client.getPlaylist();
+        clientPlaylist.setMarket("US");
+        clientPlaylist.setPlaylistId("playlistId");
+        clientPlaylist.getFields().add("total");
+        clientPlaylist.setLimit(10);
+        clientPlaylist.setOffset(1);
+        clientPlaylist.getAdditionalTypes().add("track");
         assertNotNull(client.getPlaylistItems(client));
 
     }
@@ -110,13 +117,44 @@ public class PlaylistTest {
     @Test
     void testAddItemsToPlaylist() throws IOException{
 
+        Playlist clientPlaylist = client.getPlaylist();
+        clientPlaylist.setPlaylistId("playlistId");
+        clientPlaylist.setPosition(2);
+        clientPlaylist.getUris().add("exampleUri");
         assertNotNull(client.addItemsToPlaylist(client));
 
     }
 
     @Test
-    void testReorderOrReplacePlaylistItems() throws IOException{
+    void testReorderPlaylistItems() throws IOException{
 
+        Playlist clientPlaylist = client.getPlaylist();
+        clientPlaylist.setPlaylistId("playlistId");
+        clientPlaylist.getUris().add("exampleURI");
+        assertNotNull(client.reorderOrReplacePlaylistItems(client));
+
+    }
+
+    @Test
+    void testReorderPlaylistItemsBody() throws IOException{
+
+        Playlist clientPlaylist = client.getPlaylist();
+        clientPlaylist.setPlaylistId("playlistId");
+        clientPlaylist.getUris().add("exampleURI");
+        clientPlaylist.setRangeStart(0);
+        clientPlaylist.setInsertBefore(0);
+        clientPlaylist.setRangeLength(10);
+        clientPlaylist.setSnapshotId("snapshotId");
+        assertNotNull(client.reorderOrReplacePlaylistItems(client));
+
+    }
+
+    @Test
+    void testReplacePlaylistItems() throws IOException{
+
+        Playlist clientPlaylist = client.getPlaylist();
+        clientPlaylist.setPlaylistId("playlistId");
+        clientPlaylist.getUris().add("exampleURI");
         assertNotNull(client.reorderOrReplacePlaylistItems(client));
 
     }

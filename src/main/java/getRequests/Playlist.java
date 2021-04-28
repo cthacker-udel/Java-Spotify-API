@@ -50,6 +50,8 @@ public class Playlist extends SpotifyClient {
 
     private String snapshotId;
 
+    private ArrayList<String> tracks;
+
     public Playlist() {
         super();
     }
@@ -112,6 +114,9 @@ public class Playlist extends SpotifyClient {
         if(this.snapshotId != null){
             queryParams.put("snapshot_id",this.snapshotId);
         }
+        if(this.tracks.size() > 0){
+            queryParams.put("tracks",this.tracks.toArray(String[]::new));
+        }
         return queryParams;
 
     }
@@ -132,6 +137,59 @@ public class Playlist extends SpotifyClient {
         this.additionalTypes.clear();
         this.position = null;
         this.uris.clear();
+        this.snapshotId = null;
+        this.rangeStart = null;
+        this.insertBefore = null;
+        this.rangeLength = null;
+        this.tracks.clear();
+    }
+
+    public Integer getPosition() {
+        return position;
+    }
+
+    public void setPosition(Integer position) {
+        this.position = position;
+    }
+
+    public ArrayList<String> getUris() {
+        return uris;
+    }
+
+    public void setUris(ArrayList<String> uris) {
+        this.uris = uris;
+    }
+
+    public Integer getRangeStart() {
+        return rangeStart;
+    }
+
+    public void setRangeStart(Integer rangeStart) {
+        this.rangeStart = rangeStart;
+    }
+
+    public Integer getInsertBefore() {
+        return insertBefore;
+    }
+
+    public void setInsertBefore(Integer insertBefore) {
+        this.insertBefore = insertBefore;
+    }
+
+    public Integer getRangeLength() {
+        return rangeLength;
+    }
+
+    public void setRangeLength(Integer rangeLength) {
+        this.rangeLength = rangeLength;
+    }
+
+    public String getSnapshotId() {
+        return snapshotId;
+    }
+
+    public void setSnapshotId(String snapshotId) {
+        this.snapshotId = snapshotId;
     }
 
     public String getName() {
