@@ -41,7 +41,7 @@ public interface playlistInterface {
     Call<SnapshotId> reorderPlaylistsItems(@Header("Authorization") String auth, @Path("playlistId") String playlistId, @Body HashMap<String,Object> body);
 
     @DELETE("https://api.spotify.com/v1/playlists/{playlistId}/tracks")
-    Call<SnapshotId> removeItemsFromPlaylist(@Header("Authorization") String auth, @Path("playlistId") String playlistId, @Body String tracks);
+    Call<SnapshotId> removeItemsFromPlaylist(@Header("Authorization") String auth, @Path("playlistId") String playlistId, @Body HashMap<String,Object> queries);
 
     @GET("https://api.spotify.com/v1/playlists/{playlistId}/images")
     Call<CoverImage> getPlaylistCoverImage(@Header("Authorization") String auth, @Path("playlistId") String playlistId);

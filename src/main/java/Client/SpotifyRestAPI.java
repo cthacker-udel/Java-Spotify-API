@@ -2103,7 +2103,7 @@ public class SpotifyRestAPI {
 
         playlistInterface playlistInterface = retrofit.create(Model.playlistInterface.class);
 
-        Call<SnapshotId> call = playlistInterface.removeItemsFromPlaylist(getTokenString(client.getLogin().getAccessToken()),client.getPlaylist().getPlaylistId(),client.getTrackIds().convertTrackIds());
+        Call<SnapshotId> call = playlistInterface.removeItemsFromPlaylist(getTokenString(client.getLogin().getAccessToken()),client.getPlaylist().getPlaylistId(),client.getPlaylist().convertQueryParams());
 
         Response<SnapshotId> response = call.execute();
 
