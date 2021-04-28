@@ -54,6 +54,10 @@ public class Playlist extends SpotifyClient {
 
     public Playlist() {
         super();
+        this.fields = new ArrayList<>();
+        this.additionalTypes = new ArrayList<>();
+        this.uris = new ArrayList<>();
+        this.tracks = new ArrayList<>();
     }
 
     public HashMap<String,Object> convertQueryParams(){

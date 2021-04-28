@@ -1,11 +1,9 @@
 package Client;
 
 
-import Controller.AlbumController.MultipleAlbums.BaseAlbum;
 import getRequests.*;
 
 import java.io.IOException;
-import java.util.List;
 
 public class SpotifyClient extends SpotifyRestAPI{
 
@@ -23,7 +21,7 @@ public class SpotifyClient extends SpotifyRestAPI{
     private Show show;
     private Player player;
     private Playlist playlist;
-    private Item item;
+    private Search search;
     private SpotifyLogin login;
     private Category category;
     private Personalization personalization;
@@ -49,7 +47,7 @@ public class SpotifyClient extends SpotifyRestAPI{
         this.show = new Show();
         this.player = new Player();
         this.playlist = new Playlist();
-        this.item = new Item();
+        this.search = new Search();
         this.login = new SpotifyLogin();
         this.category = new Category();
         this.personalization = new Personalization();
@@ -70,7 +68,7 @@ public class SpotifyClient extends SpotifyRestAPI{
         this.show = new Show();
         this.player = new Player();
         this.playlist = new Playlist();
-        this.item = new Item();
+        this.search = new Search();
         this.login = new SpotifyLogin();
         this.category = new Category();
         this.personalization = new Personalization();
@@ -100,12 +98,12 @@ public class SpotifyClient extends SpotifyRestAPI{
         this.category = category;
     }
 
-    public Item getItem() {
-        return item;
+    public Search getSearch() {
+        return search;
     }
 
-    public void setItem(Item items) {
-        this.item = items;
+    public void setSearch(Search items) {
+        this.search = items;
     }
 
     public Playlist getPlaylist() {

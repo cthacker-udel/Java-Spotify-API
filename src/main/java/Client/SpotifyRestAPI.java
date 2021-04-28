@@ -2170,7 +2170,7 @@ public class SpotifyRestAPI {
 
         searchInterface searchInterface = retrofit.create(Model.searchInterface.class);
 
-        Call<BaseItem> call = searchInterface.searchForAnItem(getTokenString(client.getToken()),client.getItem().getQueryType(),client.getItem().convertItemTypes());
+        Call<BaseItem> call = searchInterface.searchForAnItem(getTokenString(client.getToken()),client.getSearch().convertQueryParams());
 
         Response<BaseItem> response = call.execute();
 

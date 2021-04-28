@@ -33,6 +33,14 @@ public class SearchTest {
     @Test
     void testSearchForAnItem() throws IOException{
 
+        Search clientSearchParams = client.getSearch();
+        clientSearchParams.getQueryKeywords().add("roadhouse blues");
+        clientSearchParams.getItemTypes().add("album");
+        clientSearchParams.getItemTypes().add("track");
+        clientSearchParams.setMarket("US");
+        clientSearchParams.setLimit(10);
+        clientSearchParams.setOffset(10);
+        clientSearchParams.setInclude_external("audio");
         assertNotNull(client.searchForItem(client));
 
     }
