@@ -63,3 +63,11 @@ When you create an instance of `SpotifyClient` using the constructors listed abo
 > setRedirectUri(String redirectUri) sets your redirect uri for acquiring the token
 
 **Step 3** : Acquire the access token by calling the method client.requestAuthCodeFlowCode(SpotifyClient client)
+
+---
+
+### [Album API Methods] (https://github.com/cthacker-udel/Java-Spotify-API/blob/master/src/test/java/getRequests/AlbumTest.java)
+
+**Step 1** : Access Album Instance by the method getAlbum() available with your SpotifyClient instance
+
+**Step 2** : Access the methods in the album instance, such as addAlbumId, and the setter and getters for individual query options for each request
