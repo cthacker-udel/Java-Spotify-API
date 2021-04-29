@@ -40,6 +40,10 @@ public class ShowsTest {
     @Test
     void testGetMultipleShows() throws IOException {
 
+        Show clientShow = client.getShow();
+        clientShow.addShowId("5CfCWKI5pZ28U0uOzXkDHe");
+        clientShow.addShowId("5as3aKmN2k11yfDDDSrvaZ");
+        clientShow.setMarket("ES");
         assertNotNull(client.getMultipleShows(client));
 
     }
@@ -47,6 +51,10 @@ public class ShowsTest {
     @Test
     void testGetSpecificShow() throws IOException{
 
+        Show clientShow = client.getShow();
+        clientShow.addShowId("38bS44xjbVVZ3No3ByF1dJ");
+        clientShow.addShowId("5as3aKmN2k11yfDDDSrvaZ");
+        clientShow.setMarket("ES");
         assertNotNull(client.getSpecificShow(client));
 
     }
@@ -54,6 +62,12 @@ public class ShowsTest {
     @Test
     void testGetShowsEpisodes() throws IOException{
 
+        Show clientShow = client.getShow();
+        clientShow.addShowId("38bS44xjbVVZ3No3ByF1dJ");
+        clientShow.addShowId("5as3aKmN2k11yfDDDSrvaZ");
+        clientShow.setMarket("ES");
+        clientShow.setLimit(10);
+        clientShow.setOffset(5);
         assertNotNull(client.getShowsEpisodes(client));
 
     }
