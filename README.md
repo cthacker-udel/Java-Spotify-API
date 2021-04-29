@@ -71,4 +71,4 @@ When you create an instance of `SpotifyClient` using the constructors listed abo
 
 **Step 1** : Access Album Instance by the method getAlbum() available with your SpotifyClient instance
 
-**Step 2** : Access the methods in the album instance, such as addAlbumId, and the setter and getters for individual query options for each request, all parameters are supplied in the tests file, under each type of request.
+**Step 2** : Access the methods in the album instance, such as *addAlbumId*, and the setter and getters for individual query options for each request, all parameters are supplied in the tests file, under each type of request.
