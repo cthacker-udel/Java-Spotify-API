@@ -47,6 +47,7 @@ When you create an instance of `SpotifyClient` using the constructors listed abo
 
 > For reference on Implementation of SpotifyClient in coordination with SpotifyRestAPI, check the [Test package](https://github.com/cthacker-udel/Java-Spotify-API/tree/master/src/test/java) (**specifically the [getRequests](https://github.com/cthacker-udel/Java-Spotify-API/tree/master/src/test/java/getRequests) package**)
 
+---
 
 ### [Oauth Methods](https://github.com/cthacker-udel/Java-Spotify-API/blob/master/src/test/java/Client/SpotifyRestAPITest.java)
 
