@@ -66,7 +66,7 @@ When you create an instance of `SpotifyClient` using the constructors listed abo
 
 ---
 
-### [Album API Methods] (https://github.com/cthacker-udel/Java-Spotify-API/blob/master/src/test/java/getRequests/AlbumTest.java)
+### [Album API Methods](https://github.com/cthacker-udel/Java-Spotify-API/blob/master/src/test/java/getRequests/AlbumTest.java)
 
 **Step 1** : Access Album Instance by the method getAlbum() available with your SpotifyClient instance
 
