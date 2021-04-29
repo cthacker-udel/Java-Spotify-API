@@ -68,6 +68,7 @@ When you create an instance of `SpotifyClient` using the constructors listed abo
 
 ### [Album API Methods](https://github.com/cthacker-udel/Java-Spotify-API/blob/master/src/test/java/getRequests/AlbumTest.java)
 
+
 **Step 1** : Access Album Instance by the method getAlbum() available with your SpotifyClient instance
 
 **Step 2** : Access the methods in the album instance, such as addAlbumId, and the setter and getters for individual query options for each request, all parameters are supplied in the tests file, under each type of request.
