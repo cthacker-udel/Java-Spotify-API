@@ -2,6 +2,7 @@ package getRequests;
 
 import Client.SpotifyClient;
 import Client.SpotifyLogin;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -30,37 +31,55 @@ public class TracksTest {
         }
     }
 
+    @BeforeEach
+    void init(){
+        Track clientTrack = client.getTrackIds();
+        clientTrack.clearQueryParams();
+    }
+
     @Test
     void testGetSeveralTracks() throws IOException{
-
+        Track clientTrack = client.getTrackIds();
+        clientTrack.addTrackId("3n3Ppam7vgaVa1iaRUc9Lp");
+        clientTrack.addTrackId("3twNvmDtFQtAd5gMKedhLD");
+        clientTrack.setMarket("ES");
         assertNotNull(client.getMultipleTracks(client));
 
     }
 
     @Test
     void testGetSpecificTrack() throws IOException{
-
+        Track clientTrack = client.getTrackIds();
+        clientTrack.addTrackId("3n3Ppam7vgaVa1iaRUc9Lp");
+        clientTrack.addTrackId("3twNvmDtFQtAd5gMKedhLD");
+        clientTrack.setMarket("ES");
         assertNotNull(client.getTrack(client));
 
     }
 
     @Test
     void testGetAudioFeaturesOfMultipleTracks() throws IOException{
-
+        Track clientTrack = client.getTrackIds();
+        clientTrack.addTrackId("3n3Ppam7vgaVa1iaRUc9Lp");
+        clientTrack.addTrackId("3twNvmDtFQtAd5gMKedhLD");
         assertNotNull(client.getAudioFeaturesForSeveralTracks(client));
 
     }
 
     @Test
     void testGetAudioFeaturesOfTrack() throws IOException{
-
+        Track clientTrack = client.getTrackIds();
+        clientTrack.addTrackId("3n3Ppam7vgaVa1iaRUc9Lp");
+        clientTrack.addTrackId("3twNvmDtFQtAd5gMKedhLD");
         assertNotNull(client.getTrackAudioFeature(client));
 
     }
 
     @Test
     void testGetAudioAnalysisOfTrack() throws IOException{
-
+        Track clientTrack = client.getTrackIds();
+        clientTrack.addTrackId("3n3Ppam7vgaVa1iaRUc9Lp");
+        clientTrack.addTrackId("3twNvmDtFQtAd5gMKedhLD");
         assertNotNull(client.getTrackAudioAnalysis(client));
 
     }

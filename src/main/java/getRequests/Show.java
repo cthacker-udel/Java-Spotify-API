@@ -31,7 +31,7 @@ public class Show extends SpotifyClient {
             queries.put("market",this.market);
         }
         if(showIds.size() > 0){
-            queries.put("ids",this.showIds);
+            queries.put("ids",String.join(",",this.showIds));
         }
         return queries;
     }

@@ -2278,7 +2278,7 @@ public class SpotifyRestAPI {
 
         trackInterface trackInterface = retrofit.create(Model.trackInterface.class);
 
-        Call<Controller.TrackController.MultipleTracks.BaseTrack> call = trackInterface.getMultipleTracks(getTokenString(client.getToken()),client.getTrackIds().convertTrackIds());
+        Call<Controller.TrackController.MultipleTracks.BaseTrack> call = trackInterface.getMultipleTracks(getTokenString(client.getToken()),client.getTrackIds().convertQueries());
 
         Response<Controller.TrackController.MultipleTracks.BaseTrack> response = call.execute();
 
@@ -2299,7 +2299,9 @@ public class SpotifyRestAPI {
 
         trackInterface trackInterface = retrofit.create(Model.trackInterface.class);
 
-        Call<Track> call = trackInterface.getATrack(getTokenString(client.getToken()),trackId);
+        client.getTrackIds().clearTrackIds();
+
+        Call<Track> call = trackInterface.getATrack(getTokenString(client.getToken()),trackId,client.getTrackIds().convertQueries());
 
         Response<Track> response = call.execute();
 

@@ -32,7 +32,17 @@ public class Track extends SpotifyClient {
         if(offset != null){
             queries.put("offset",this.offset);
         }
+        if(trackIds.size() > 0){
+            queries.put("ids",String.join(",",this.trackIds));
+        }
         return queries;
+    }
+
+    public void clearQueryParams(){
+        this.market = null;
+        this.limit = null;
+        this.offset = null;
+        this.trackIds.clear();
     }
 
     public String getMarket() {

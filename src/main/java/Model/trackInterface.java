@@ -6,18 +6,17 @@ import Controller.TrackController.AudioFeatures.BaseAudioFeature;
 import Controller.TrackController.MultipleTracks.BaseTrack;
 import Controller.TrackController.MultipleTracks.Track;
 import retrofit2.Call;
-import retrofit2.http.GET;
-import retrofit2.http.Header;
-import retrofit2.http.Path;
-import retrofit2.http.Query;
+import retrofit2.http.*;
+
+import java.util.HashMap;
 
 public interface trackInterface {
 
     @GET("https://api.spotify.com/v1/tracks")
-    Call<BaseTrack> getMultipleTracks(@Header("Authorization") String auth, @Query("ids") String ids);
+    Call<BaseTrack> getMultipleTracks(@Header("Authorization") String auth, @QueryMap HashMap<String,Object> queries);
 
     @GET("https://api.spotify.com/v1/tracks/{id}")
-    Call<Track> getATrack(@Header("Authorization") String auth, @Path("id") String trackId);
+    Call<Track> getATrack(@Header("Authorization") String auth, @Path("id") String trackId, @QueryMap HashMap<String,Object> queries);
 
     @GET("https://api.spotify.com/v1/audio-features")
     Call<BaseAudioFeature> getAudioFeaturesMultipleTracks(@Header("Authorization") String auth, @Query("ids") String ids);
