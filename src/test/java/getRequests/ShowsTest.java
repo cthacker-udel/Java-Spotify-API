@@ -2,6 +2,7 @@ package getRequests;
 
 import Client.SpotifyClient;
 import Client.SpotifyLogin;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -28,6 +29,12 @@ public class ShowsTest {
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    @BeforeEach
+    void init(){
+        Show clientShow = client.getShow();
+        clientShow.clearQueries();
     }
 
     @Test

@@ -2201,7 +2201,7 @@ public class SpotifyRestAPI {
 
         showInterface showInterface = retrofit.create(Model.showInterface.class);
 
-        Call<Controller.ShowController.MultipleShows.BaseShow> call = showInterface.getMultipleShows(getTokenString(client.getToken()),client.getShow().convertShowIds());
+        Call<Controller.ShowController.MultipleShows.BaseShow> call = showInterface.getMultipleShows(getTokenString(client.getToken()),client.getShow().convertQueries());
 
         Response<Controller.ShowController.MultipleShows.BaseShow> response = call.execute();
 
@@ -2220,7 +2220,11 @@ public class SpotifyRestAPI {
 
         showInterface showInterface = retrofit.create(Model.showInterface.class);
 
-        Call<Show> call = showInterface.getASpecificShow(getTokenString(client.getToken()),client.getShow().getShowIds().get(0));
+        String showId = client.getShow().getShowIds().get(0);
+
+        client.getShow().getShowIds().clear();
+
+        Call<Show> call = showInterface.getASpecificShow(getTokenString(client.getToken()),showId,client.getShow().convertQueries());
 
         Response<Show> response = call.execute();
 
@@ -2239,7 +2243,11 @@ public class SpotifyRestAPI {
 
         showInterface showInterface = retrofit.create(Model.showInterface.class);
 
-        Call<Controller.ShowController.BaseEpisode> call = showInterface.getAShowsEpisodes(getTokenString(client.getToken()),client.getShow().getShowIds().get(0));
+        String showId = client.getShow().getShowIds().get(0);
+
+        client.getShow().getShowIds().clear();
+
+        Call<Controller.ShowController.BaseEpisode> call = showInterface.getAShowsEpisodes(getTokenString(client.getToken()),showId,client.getShow().convertQueries());
 
         Response<Controller.ShowController.BaseEpisode> response = call.execute();
 

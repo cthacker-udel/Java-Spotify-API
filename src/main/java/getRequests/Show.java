@@ -30,7 +30,17 @@ public class Show extends SpotifyClient {
         if(market != null){
             queries.put("market",this.market);
         }
+        if(showIds.size() > 0){
+            queries.put("ids",this.showIds);
+        }
         return queries;
+    }
+
+    public void clearQueries(){
+        this.limit = null;
+        this.offset = null;
+        this.market = null;
+        this.showIds.clear();
     }
 
     public String getMarket() {
