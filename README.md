@@ -3,7 +3,7 @@
 ![Version](https://img.shields.io/badge/version-2.0.0-blue)
 ![dependencies](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen)
 ![Retrofit](https://img.shields.io/badge/retrofit-2.7.2-green)
-![Gson](https://img.shields.io/badge/Gson-2.9.0-green)
+![Gson](https://img.shields.io/badge/gson-2.9.0-green)
 
 ![GitHub stars](https://img.shields.io/github/stars/cthacker-udel/Java-Spotify-API?style=social&label=Star)
 ## General API Information
