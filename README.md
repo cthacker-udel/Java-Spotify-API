@@ -4,6 +4,8 @@
 ![dependencies](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen)
 ![Retrofit](https://img.shields.io/badge/retrofit-2.7.2-green)
 
+![GitHub stars](https://img.shields.io/github/stars/tterb/playmusic.svg?style=social&label=Star)]
+
 ## General API Information
 
 **All information contained within this repository is referenced from the [Spotify Web API Reference website](https://developer.spotify.com/documentation/web-api/reference/)**
