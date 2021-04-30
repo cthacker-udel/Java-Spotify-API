@@ -1,5 +1,7 @@
 # Public Rest API for Spotify - Cameron Thacker (4/1/2021)
 
+[![Version](https://badge.fury.io/gh/tterb%2FHyde.svg)]
+
 ## General API Information
 
 **All information contained within this repository is referenced from the [Spotify Web API Reference website](https://developer.spotify.com/documentation/web-api/reference/)**
