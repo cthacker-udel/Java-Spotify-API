@@ -7,7 +7,7 @@
 ![Selenium](https://img.shields.io/badge/selenium-4.0.0-green)
 ![WebdriverManager]https://img.shields.io/badge/WebdriverManager-3.7.1-green
 
-![GitHub stars](https://img.shields.io/github/stars/cthacker-udel/Java-Spotify-API?style=social&label=Star)
+[GitHub stars](https://img.shields.io/github/stars/cthacker-udel/Java-Spotify-API?style=social&label=Star)
 ## General API Information
 
 **All information contained within this repository is referenced from the [Spotify Web API Reference website](https://developer.spotify.com/documentation/web-api/reference/)**
