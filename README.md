@@ -5,7 +5,7 @@
 ![Retrofit](https://img.shields.io/badge/retrofit-2.7.2-green)
 ![Gson](https://img.shields.io/badge/gson-2.9.0-green)
 ![Selenium](https://img.shields.io/badge/selenium-4.0.0-green)
-![WebDriver-Manager](https://img.shields.io/badge/webdrivermanager-3.7.1-green)
+![WebdriverManager]https://img.shields.io/badge/WebdriverManager-3.7.1-green
 
 ![GitHub stars](https://img.shields.io/github/stars/cthacker-udel/Java-Spotify-API?style=social&label=Star)
 ## General API Information
