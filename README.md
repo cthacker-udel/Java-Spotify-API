@@ -4,7 +4,7 @@
 ![dependencies](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen)
 ![Retrofit](https://img.shields.io/badge/retrofit-2.7.2-green)
 
-![GitHub stars](https://img.shields.io/github/stars/tterb/playmusic.svg?style=social&label=Star)]
+[![GitHub stars](https://img.shields.io/github/stars/tterb/playmusic.svg?style=social&label=Star)]
 
 ## General API Information
 
