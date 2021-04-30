@@ -1,6 +1,6 @@
 # Public Rest API for Spotify - Cameron Thacker (4/1/2021)
 
-![Version](https://badge.fury.io/gh/tterb%2FHyde.svg)
+![Version](https://img.shields.io/badge/version-2.0.0-blue)
 
 ## General API Information
 
