@@ -44,7 +44,9 @@
 * `SpotifyClient client = new SpotifyClient("apikey","secretkey","accessToken");` 
   * creates an instance of SpotifyClient with API key `"apikey"` and Secret Key `"secretkey"` as well as access token `"accessToken"`
 
-### [Client package](https://github.com/cthacker-udel/Java-Spotify-API/tree/master/src/main/java/Client) → [SpotifyRestAPI](https://github.com/cthacker-udel/Java-Spotify-API/blob/master/src/main/java/Client/SpotifyRestAPI.java)
+---
+
+### [SpotifyRestAPI](https://github.com/cthacker-udel/Java-Spotify-API/blob/master/src/main/java/Client/SpotifyRestAPI.java)
 
  * For reference on Implementation of SpotifyClient in coordination with SpotifyRestAPI, check the [Test package](https://github.com/cthacker-udel/Java-Spotify-API/tree/master/src/test/java) (**specifically the [getRequests](https://github.com/cthacker-udel/Java-Spotify-API/tree/master/src/test/java/getRequests) package**)
 
