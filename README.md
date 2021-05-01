@@ -67,11 +67,14 @@ When you create an instance of `SpotifyClient` using the constructors listed abo
 
 **Step 2** : Add username or email,password,and this redirect uri: http://localhost:8888/callback/ and add these values by acquiring an instance of the Spotify Login by using the method client.getLogin(), and using the appropriate methods outlined
 
-> setEmailOrUsername(String usernameoremail) sets your email or username for acquiring access token
+* `setEmailOrUsername(String usernameoremail);` 
+  * sets your email or username for acquiring access token
 
-> setPassword(String password) sets your password for logging into spotify to acquire token
+* `setPassword(String password)`
+  * sets your password for logging into spotify to acquire token
 
-> setRedirectUri(String redirectUri) sets your redirect uri for acquiring the token
+* `setRedirectUri(String redirectUri);`
+  * sets your redirect uri for acquiring the token
 
 **Step 3** : Acquire the access token by calling the method client.requestAuthCodeFlowCode(SpotifyClient client)
 
