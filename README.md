@@ -31,9 +31,10 @@
   * Create an instance of `SpotifyClient` by calling the constructors listed in this [file](https://github.com/cthacker-udel/Java-Spotify-API/blob/master/src/main/java/Client/SpotifyClient.java)
   * When you create an instance of `SpotifyClient` using the constructors listed above, you can utilize the methods listed in `SpotifyRestAPI` listed in this [file](https://github.com/cthacker-udel/Java-Spotify-API/blob/master/src/main/java/Client/SpotifyRestAPI.java)
 
----
 
 ## Examples
+
+---
 
 ### [SpotifyClient](https://github.com/cthacker-udel/Java-Spotify-API/blob/master/src/main/java/Client/SpotifyClient.java)
 
