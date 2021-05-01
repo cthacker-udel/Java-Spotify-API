@@ -1,3 +1,12 @@
+/*
+
+@author Cameron Thacker
+@Github cthacker-udel
+https://github.com/cthacker-udel/Java-Spotify-API
+
+ */
+
+
 package Client;
 
 import Controller.AlbumController.MultipleAlbums.BaseAlbum;
@@ -324,6 +333,17 @@ public class SpotifyRestAPI {
 
      *************************************************************************/
 
+    /*
+
+    @param SpotifyClient object
+
+    @return BaseAlbum object
+
+    Gets Spotify Catalog information for multiple albums identified by their Spotify IDs
+
+
+     */
+
     public BaseAlbum getMultipleAlbums(SpotifyClient client) throws IOException {
 
         String url = "https://api.spotify.com/v1/albums/";
@@ -342,6 +362,16 @@ public class SpotifyRestAPI {
         return response.body();
     }
 
+    /*
+
+    @param SpotifyClient object
+
+    @return BaseAlbum object
+
+    Gets multiple album catalog information according to market
+
+     */
+
     public BaseAlbum getMultipleAlbumsMarket(SpotifyClient client) throws IOException {
 
         String url = "https://api.spotify.com/v1/albums/";
@@ -359,6 +389,16 @@ public class SpotifyRestAPI {
 
         return response.body();
     }
+
+    /*
+
+    @param SpotifyClient object
+
+    @return Controller.AlbumController.MultipleAlbums.Album object
+
+    Gets catalog information for a single album
+
+     */
 
 
     public Controller.AlbumController.MultipleAlbums.Album getSingleAlbum(SpotifyClient client) throws IOException {
@@ -380,6 +420,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    @param SpotifyClient object
+
+    @return Controller.AlbumController.MultipleAlbums.Album object
+
+    Gets catalog information for a single album according to market specified
+
+     */
+
     public Controller.AlbumController.MultipleAlbums.Album getSingleAlbumMarket(SpotifyClient client) throws IOException {
 
         String url = String.format("https://api.spotify.com/v1/albums/%s/",client.getAlbum().getAlbumIds().get(0));
@@ -399,6 +449,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    @param SpotifyClient object
+
+    @return Tracks object
+
+    Gets catalog information for an album's tracks
+
+     */
+
     public Tracks getAlbumsTracks(SpotifyClient client) throws IOException {
         String url = baseUrl + String.format("/artist%s/",client.getAlbum().getAlbumIds().get(0));
 
@@ -416,6 +476,16 @@ public class SpotifyRestAPI {
         return response.body();
 
     }
+
+    /*
+
+    @param SpotifyClient object
+
+    @return Tracks object
+
+    Gets catalog information for an album's tracks according to market specified
+
+     */
 
     public Tracks getAlbumsTracksMarket(SpotifyClient client) throws IOException {
         String url = baseUrl + String.format("/artist%s/",client.getAlbum().getAlbumIds().get(0));
@@ -435,6 +505,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    @param SpotifyClient object
+
+    @return Tracks object
+
+    Gets catalog information for an album's tracks and limited to number of tracks specified by limit query parameter
+
+     */
+
     public Tracks getAlbumsTracksLimit(SpotifyClient client) throws IOException {
         String url = baseUrl + String.format("/artist%s/",client.getAlbum().getAlbumIds().get(0));
 
@@ -452,6 +532,17 @@ public class SpotifyRestAPI {
         return response.body();
 
     }
+
+
+    /*
+
+    @param SpotifyClient object
+
+    @return Tracks object
+
+    Gets catalog information for an album's tracks and sets index of first track to return specified by offset query parameter
+
+     */
 
     public Tracks getAlbumsTracksOffset(SpotifyClient client) throws IOException {
         String url = baseUrl + String.format("/artist%s/",client.getAlbum().getAlbumIds().get(0));
@@ -471,6 +562,17 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    @param SpotifyClient object
+
+    @return Tracks object
+
+    Gets catalog information for an album's tracks according to market specified and limited to number of tracks specified by limit query parameter
+
+     */
+
+
     public Tracks getAlbumsTracksMarketLimit(SpotifyClient client) throws IOException {
         String url = baseUrl + String.format("/artist%s/",client.getAlbum().getAlbumIds().get(0));
 
@@ -488,6 +590,16 @@ public class SpotifyRestAPI {
         return response.body();
 
     }
+
+    /*
+
+    @param SpotifyClient object
+
+    @return Tracks object
+
+    Gets catalog information for an album's tracks according to market specified and sets index of first track to return specified by offset query parameter
+
+     */
 
     public Tracks getAlbumsTracksMarketOffset(SpotifyClient client) throws IOException {
         String url = baseUrl + String.format("/artist%s/",client.getAlbum().getAlbumIds().get(0));
@@ -507,6 +619,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    @param SpotifyClient object
+
+    @return Tracks object
+
+    Gets catalog information for an album's tracks, the amount of tracks specified by limit, and sets index of first track to return specified by offset query parameter
+
+     */
+
     public Tracks getAlbumsTracksLimitOffset(SpotifyClient client) throws IOException {
         String url = baseUrl + String.format("/artist%s/",client.getAlbum().getAlbumIds().get(0));
 
@@ -524,6 +646,16 @@ public class SpotifyRestAPI {
         return response.body();
 
     }
+
+    /*
+
+    @param SpotifyClient object
+
+    @return Tracks object
+
+    Gets catalog information for an album's tracks according to market specified, and the amount of tracks limited to the limit specified, and sets index of first track to return specified by offset query parameter
+
+     */
 
     public Tracks getAlbumsTracksMarketLimitOffset(SpotifyClient client) throws IOException {
         String url = baseUrl + String.format("/artist%s/",client.getAlbum().getAlbumIds().get(0));
