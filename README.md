@@ -81,6 +81,7 @@ You can view the progress towards the completion of the Project [here](https://g
 
 **Step 2** : Access the methods in the album instance, such as *addAlbumId*, and the setter and getters for individual query options for each request, all parameters are supplied in the tests file, under each type of request.
 
+--- 
 
 ### [Artist API Methods](https://github.com/cthacker-udel/Java-Spotify-API/blob/master/src/test/java/getRequests/ArtistTest.java)
 
