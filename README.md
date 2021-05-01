@@ -37,9 +37,6 @@ You can view the progress towards the completion of the Project [here](https://g
 
 ## Examples
 
-
-#### **SpotifyClient**
-
 ### [Client package](https://github.com/cthacker-udel/Java-Spotify-API/tree/master/src/main/java/Client) → [SpotifyClient](https://github.com/cthacker-udel/Java-Spotify-API/blob/master/src/main/java/Client/SpotifyClient.java)
 
 * `SpotifyClient client = new SpotifyClient();` 
