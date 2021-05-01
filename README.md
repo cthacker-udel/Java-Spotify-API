@@ -48,7 +48,8 @@ When you create an instance of `SpotifyClient` using the constructors listed abo
 * `SpotifyClient client = new SpotifyClient();` 
   * creates an instance of SpotifyClient with empty API key and Secret Key
 
-> `SpotifyClient client = new SpotifyClient("apikey","secretkey");` → creates an instance of SpotifyClient with API key `"apikey"` and Secret Key `"secretkey"` **recommended usage**
+* `SpotifyClient client = new SpotifyClient("apikey","secretkey");` 
+  * creates an instance of SpotifyClient with API key `"apikey"` and Secret Key `"secretkey"` **recommended usage**
 
 > `SpotifyClient client = new SpotifyClient("apikey","secretkey","accessToken");` → creates an instance of SpotifyClient with API key `"apikey"` and Secret Key `"secretkey"` as well as access token `"accessToken"`
 
