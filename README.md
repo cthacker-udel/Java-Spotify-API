@@ -32,7 +32,7 @@ You can view the progress towards the completion of the Project [here](https://g
 ## Usage
 
 * How to use the Java-Spotify-API wrapper 
-  * Create an instance of `SpotifyClient` by calling the constructors listed in this [file](https://github.com/cthacker-udel/Java-Spotify-   API/blob/master/src/main/java/Client/SpotifyClient.java)
+  * Create an instance of `SpotifyClient` by calling the constructors listed in this [file] (https://github.com/cthacker-udel/Java-Spotify-   API/blob/master/src/main/java/Client/SpotifyClient.java)
   * When you create an instance of `SpotifyClient` using the constructors listed above, you can utilize the methods listed in `SpotifyRestAPI` listed in this [file](https://github.com/cthacker-udel/Java-Spotify-API/blob/master/src/main/java/Client/SpotifyRestAPI.java)
 
 ### **Examples**
