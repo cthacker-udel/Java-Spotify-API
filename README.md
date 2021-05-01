@@ -45,7 +45,8 @@ When you create an instance of `SpotifyClient` using the constructors listed abo
 
 ### [Client package](https://github.com/cthacker-udel/Java-Spotify-API/tree/master/src/main/java/Client) → [SpotifyClient](https://github.com/cthacker-udel/Java-Spotify-API/blob/master/src/main/java/Client/SpotifyClient.java)
 
-> `SpotifyClient client = new SpotifyClient();` → creates an instance of SpotifyClient with empty API key and Secret Key
+* `SpotifyClient client = new SpotifyClient();` 
+  * creates an instance of SpotifyClient with empty API key and Secret Key
 
 > `SpotifyClient client = new SpotifyClient("apikey","secretkey");` → creates an instance of SpotifyClient with API key `"apikey"` and Secret Key `"secretkey"` **recommended usage**
 
