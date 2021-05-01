@@ -33,7 +33,7 @@
 
 ## Examples
 
-### [Client package](https://github.com/cthacker-udel/Java-Spotify-API/tree/master/src/main/java/Client) → [SpotifyClient](https://github.com/cthacker-udel/Java-Spotify-API/blob/master/src/main/java/Client/SpotifyClient.java)
+### [SpotifyClient](https://github.com/cthacker-udel/Java-Spotify-API/blob/master/src/main/java/Client/SpotifyClient.java)
 
 * `SpotifyClient client = new SpotifyClient();` 
   * creates an instance of SpotifyClient with empty API key and Secret Key
