@@ -34,7 +34,6 @@
 
 ## Examples
 
----
 
 ### [SpotifyClient](https://github.com/cthacker-udel/Java-Spotify-API/blob/master/src/main/java/Client/SpotifyClient.java)
 
