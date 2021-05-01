@@ -73,19 +73,29 @@ import static java.lang.Thread.sleep;
 
 public class SpotifyRestAPI {
 
-    String requestType;
+    /*
+
+    baseUrl = base url endpoint for Rest API calls
+
+     */
 
     String baseUrl = "https://api.spotify.com";
 
+    /*
+
+    Default no-arg constructor
+
+     */
 
     public SpotifyRestAPI(){
         super();
     }
 
-    public SpotifyRestAPI(String requestType) {
-        super();
-        this.requestType = requestType;
-    }
+    /*
+
+    Get default content-type header
+
+     */
 
     public String getContentType(){
 
@@ -93,9 +103,21 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    Generate default Authorization header
+
+     */
+
     public String getTokenString(String token){
         return String.format(" Bearer %s",token);
     }
+
+    /*
+
+    Generate HTML Basic Auth to acquire Refresh Token
+
+     */
 
     public String getRefreshTokenString(String clientId, String clientSecret){
         byte[] clientIdEncoded = Base64.getEncoder().encode(clientId.getBytes(StandardCharsets.UTF_8));
