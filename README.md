@@ -77,7 +77,7 @@
 ### [Album API Methods](https://github.com/cthacker-udel/Java-Spotify-API/blob/master/src/test/java/getRequests/AlbumTest.java)
 
 
-**Step 1** : Access Album Instance by the method getAlbum() available with your SpotifyClient instance
+**Step 1** : Access Album Instance by the method `getAlbum()` available with your SpotifyClient instance
 
 **Step 2** : Access the methods in the album instance, such as *addAlbumId*, and the setter and getters for individual query options for each request, all parameters are supplied in the tests file, under each type of request.
 
@@ -85,7 +85,7 @@
 
 ### [Artist API Methods](https://github.com/cthacker-udel/Java-Spotify-API/blob/master/src/test/java/getRequests/ArtistTest.java)
 
-**Step 1** : Access Artist Instance by the method getArtists() available with your SpotifyClient instance
+**Step 1** : Access Artist Instance by the method `getArtists()` available with your SpotifyClient instance
 
 **Step 2** : Access the methods in the artist interface, such as *addArtistId*, and the setter and getters for individual query parameters, all query parameters are supplied in the tests file, under each type of request.
 
