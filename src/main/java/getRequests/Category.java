@@ -38,6 +38,16 @@ public class Category extends SpotifyClient {
         return queryParams;
     }
 
+    public void clearQueryParams(){
+
+        this.country = null;
+        this.locale = null;
+        this.limit = null;
+        this.offset = null;
+        this.categoryId = null;
+
+    }
+
     public String getCategoryId() {
         return categoryId;
     }
