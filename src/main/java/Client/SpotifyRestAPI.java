@@ -990,7 +990,7 @@ public class SpotifyRestAPI {
 
     @return ArtistAlbum object
 
-    Get Spotify catalog information about artist's album filtered by include groups and limited to limit given
+    Get Spotify catalog information about artist's album filtered by include groups speficied and limited to limit given
 
      */
 
@@ -1019,7 +1019,7 @@ public class SpotifyRestAPI {
 
     @return ArtistAlbum object
 
-    Get Spotify catalog information about artist's album filtered by include groups and starting at index specified by offset
+    Get Spotify catalog information about artist's album filtered by include groups specified and starting at index specified by offset
 
      */
 
@@ -1048,7 +1048,7 @@ public class SpotifyRestAPI {
 
     @return ArtistAlbum object
 
-    Get Spotify catalog information about artist's album according to country given and limited to the amount specified by limit
+    Get Spotify catalog information about artist's album filtered by country given and limited to the amount specified by limit
 
      */
 
@@ -1077,7 +1077,7 @@ public class SpotifyRestAPI {
 
     @return ArtistAlbum object
 
-    Get Spotify catalog information about artist's album according to country given and starting at index specified by offset
+    Get Spotify catalog information about artist's album filtered by country given and starting at index specified by offset
 
      */
 
