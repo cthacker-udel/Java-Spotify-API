@@ -54,8 +54,8 @@ Controller/PlaylistController/PlaylistItems/Track.java
  Controller.PlaylistController.PlaylistItems.Track
 Controller/BrowseController/Album/Albums.java
  Controller.BrowseController.Album.Albums
-Model/showInterface.java
- Model.showInterface
+Controller/LibraryController/Episode/Image.java
+ Controller.LibraryController.Episode.Image
 Controller/ArtistController/BaseArtist.java
  Controller.ArtistController.BaseArtist
 Controller/PlayerController/Devices/basePlayerDevice.java
@@ -280,8 +280,8 @@ Controller/AlbumController/MultipleAlbums/ExternalIds.java
  Controller.AlbumController.MultipleAlbums.ExternalIds
 Controller/PlaylistController/SnapshotId.java
  Controller.PlaylistController.SnapshotId
-Model/trackInterface.java
- Model.trackInterface
+Model/personalizationInterface.java
+ Model.personalizationInterface
 Controller/PlayerController/CurrentTrack/ExternalUrls.java
  Controller.PlayerController.CurrentTrack.ExternalUrls
 Controller/BrowseController/Recommendations/Artist.java
@@ -406,12 +406,8 @@ Controller/PlaylistController/Image.java
  Controller.PlaylistController.Image
 Controller/PlayerController/CurrentTrack/Album.java
  Controller.PlayerController.CurrentTrack.Album
-Model/searchInterface.java
- Model.searchInterface
-Controller/LibraryController/Episode/Image.java
- Controller.LibraryController.Episode.Image
-Model/personalizationInterface.java
- Model.personalizationInterface
+Controller/PlayerController/CurrentTrack/baseCurrentTrack.java
+ Controller.PlayerController.CurrentTrack.baseCurrentTrack
 getRequests/Show.java
  getRequests.Show
 getRequests/Player.java
@@ -424,20 +420,24 @@ getRequests/Track.java
  getRequests.Track
 getRequests/Category.java
  getRequests.Category
-Controller/PlayerController/CurrentTrack/baseCurrentTrack.java
- Controller.PlayerController.CurrentTrack.baseCurrentTrack
+Model/showInterface.java
+ Model.showInterface
 Client/SpotifyClient.java
  Client.SpotifyClient
+Model/searchInterface.java
+ Model.searchInterface
+getRequests/Search.java
+ getRequests.Search
 getRequests/Episode.java
  getRequests.Episode
 Client/SpotifyRestAPI.java
  Client.SpotifyRestAPI
-getRequests/Item.java
- getRequests.Item
 getRequests/Seed.java
  getRequests.Seed
 Model/playlistInterface.java
  Model.playlistInterface
+Model/trackInterface.java
+ Model.trackInterface
 getRequests/Artist.java
  getRequests.Artist
 getRequests/Playlist.java
