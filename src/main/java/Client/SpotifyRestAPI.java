@@ -688,6 +688,17 @@ public class SpotifyRestAPI {
 
      *************************************************************************/
 
+    /*
+
+    @param SpotifyClient object
+
+    @return BaseArtist object
+
+    Get Spotify catalog information about several artists from their Spotify IDs
+
+
+     */
+
     public BaseArtist getMultipleArtists(SpotifyClient client) throws IOException {
 
         String url = baseUrl + "/v1/artists/";
@@ -709,6 +720,17 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    @param SpotifyClient object
+
+    @return Aritst object
+
+    Get Information about a Single Spotify Artist identified by their unique Spotify ID
+
+
+     */
+
     public Artist getSingleArtist(SpotifyClient client) throws IOException {
 
         String url = baseUrl + String.format("/v1/artists/%s/",client.getArtists().getArtistsIDs().get(0));
@@ -727,6 +749,18 @@ public class SpotifyRestAPI {
         return response.body();
     }
 
+    /*
+
+
+    @param SpotifyClient object
+
+    @return ArtistTopTrack object
+
+    Get Spotify catalog information about Artist's top track according to country specified
+
+
+     */
+
     public ArtistTopTrack getArtistsTopTrack(SpotifyClient client) throws IOException {
 
         String url = baseUrl + "/v1/artists/{id}/top-tracks/";
@@ -744,6 +778,17 @@ public class SpotifyRestAPI {
 
         return response.body();
     }
+
+    /*
+
+    @param SpotifyClient object
+
+    @return BaseArtist object
+
+    Get Spotify catalog information about artists similar to given artist
+
+
+     */
 
     public BaseArtist getRelatedArtists(SpotifyClient client) throws IOException {
 
@@ -764,6 +809,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    @param SpotifyClient object
+
+    @return ArtistAlbum object
+
+    Get Spotify catalog information about artist's album
+
+     */
+
     public ArtistAlbum getArtistAlbums(SpotifyClient client) throws IOException {
 
         String url = baseUrl + String.format("/v1/artists/%s/albums/",client.getArtists().getArtistsIDs().get(0));
@@ -782,6 +837,16 @@ public class SpotifyRestAPI {
         return response.body();
 
     }
+
+    /*
+
+    @param SpotifyClient object
+
+    @return ArtistAlbum object
+
+    Get Spotify catalog information about artist's album with filters applied (include groups)
+
+     */
 
 
     public ArtistAlbum getArtistAlbumsIncludeGroups(SpotifyClient client) throws IOException {
@@ -803,6 +868,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    @param SpotifyClient object
+
+    @return ArtistAlbum object
+
+    Get Spotify catalog information about artist's album according to country given
+
+     */
+
     public ArtistAlbum getArtistAlbumsMarket(SpotifyClient client) throws IOException {
 
         String url = baseUrl + String.format("/v1/artists/%s/albums/",client.getArtists().getArtistsIDs().get(0));
@@ -821,6 +896,16 @@ public class SpotifyRestAPI {
         return response.body();
 
     }
+
+    /*
+
+    @param SpotifyClient object
+
+    @return ArtistAlbum object
+
+    Get Spotify catalog information about artist's album with limited amount given specified by limit value
+
+     */
 
     public ArtistAlbum getArtistAlbumsLimit(SpotifyClient client) throws IOException {
 
@@ -841,6 +926,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    @param SpotifyClient object
+
+    @return ArtistAlbum object
+
+    Get Spotify catalog information about artist's album with starting at response index specified by offset
+
+     */
+
     public ArtistAlbum getArtistAlbumsOffset(SpotifyClient client) throws IOException {
 
         String url = baseUrl + String.format("/v1/artists/%s/albums/",client.getArtists().getArtistsIDs().get(0));
@@ -859,6 +954,16 @@ public class SpotifyRestAPI {
         return response.body();
 
     }
+
+    /*
+
+    @param SpotifyClient object
+
+    @return ArtistAlbum object
+
+    Get Spotify catalog information about artist's album filtered by country with market and filters specified by include groups
+
+     */
 
     public ArtistAlbum getArtistAlbumsIncludeGroupsMarket(SpotifyClient client) throws IOException {
 
@@ -879,6 +984,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    @param SpotifyClient object
+
+    @return ArtistAlbum object
+
+    Get Spotify catalog information about artist's album filtered by include groups and limited to limit given
+
+     */
+
     public ArtistAlbum getArtistAlbumsIncludeGroupsLimit(SpotifyClient client) throws IOException {
 
         String url = baseUrl + String.format("/v1/artists/%s/albums/",client.getArtists().getArtistsIDs().get(0));
@@ -897,6 +1012,16 @@ public class SpotifyRestAPI {
         return response.body();
 
     }
+
+    /*
+
+    @param SpotifyClient object
+
+    @return ArtistAlbum object
+
+    Get Spotify catalog information about artist's album filtered by include groups and starting at index specified by offset
+
+     */
 
     public ArtistAlbum getArtistAlbumsIncludeGroupsOffset(SpotifyClient client) throws IOException {
 
@@ -917,6 +1042,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    @param SpotifyClient object
+
+    @return ArtistAlbum object
+
+    Get Spotify catalog information about artist's album according to country given and limited to the amount specified by limit
+
+     */
+
     public ArtistAlbum getArtistAlbumsMarketLimit(SpotifyClient client) throws IOException {
 
         String url = baseUrl + String.format("/v1/artists/%s/albums/",client.getArtists().getArtistsIDs().get(0));
@@ -935,6 +1070,16 @@ public class SpotifyRestAPI {
         return response.body();
 
     }
+
+    /*
+
+    @param SpotifyClient object
+
+    @return ArtistAlbum object
+
+    Get Spotify catalog information about artist's album according to country given and starting at index specified by offset
+
+     */
 
     public ArtistAlbum getArtistAlbumsMarketOffset(SpotifyClient client) throws IOException {
 
@@ -955,6 +1100,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    @param SpotifyClient object
+
+    @return ArtistAlbum object
+
+    Get Spotify catalog information about artist's album limited to limit given and starting at index of offset given
+
+     */
+
     public ArtistAlbum getArtistAlbumsLimitOffset(SpotifyClient client) throws IOException {
 
         String url = baseUrl + String.format("/v1/artists/%s/albums/",client.getArtists().getArtistsIDs().get(0));
@@ -973,6 +1128,16 @@ public class SpotifyRestAPI {
         return response.body();
 
     }
+
+    /*
+
+    @param SpotifyClient object
+
+    @return ArtistAlbum object
+
+    Get Spotify catalog information about artist's album filtered by country given and include groups specified and also amount limited to limit given
+
+     */
 
     public ArtistAlbum getArtistAlbumsIncludeGroupsMarketLimit(SpotifyClient client) throws IOException {
 
@@ -993,6 +1158,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    @param SpotifyClient object
+
+    @return ArtistAlbum object
+
+    Get Spotify catalog information about artist's album filtered by country given and include groups specified and starting at index given by offset
+
+     */
+
     public ArtistAlbum getArtistAlbumsIncludeGroupsMarketOffset(SpotifyClient client) throws IOException {
 
         String url = baseUrl + String.format("/v1/artists/%s/albums/",client.getArtists().getArtistsIDs().get(0));
@@ -1011,6 +1186,16 @@ public class SpotifyRestAPI {
         return response.body();
 
     }
+
+    /*
+
+    @param SpotifyClient object
+
+    @return ArtistAlbum object
+
+    Get Spotify catalog information about artist's album filtered by include groups specified and starting at index given by offset and amount limited to limit given
+
+     */
 
 
     public ArtistAlbum getArtistAlbumsIncludeGroupsLimitOffset(SpotifyClient client) throws IOException {
@@ -1032,6 +1217,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    @param SpotifyClient object
+
+    @return ArtistAlbum object
+
+    Get Spotify catalog information about artist's album filtered by country given and starting at index given by offset and amount limited to limit given
+
+     */
+
     public ArtistAlbum getArtistAlbumsMarketLimitOffset(SpotifyClient client) throws IOException {
 
         String url = baseUrl + String.format("/v1/artists/%s/albums/",client.getArtists().getArtistsIDs().get(0));
@@ -1050,6 +1245,16 @@ public class SpotifyRestAPI {
         return response.body();
 
     }
+
+    /*
+
+    @param SpotifyClient object
+
+    @return ArtistAlbum object
+
+    Get Spotify catalog information about artist's album filtered by country given and include groups specified and starting at index given by offset and amount limited to limit given
+
+     */
 
     public ArtistAlbum getArtistAlbumsIncludeGroupsMarketLimitOffset(SpotifyClient client) throws IOException {
 
