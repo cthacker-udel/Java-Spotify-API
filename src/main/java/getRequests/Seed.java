@@ -206,6 +206,55 @@ public class Seed extends SpotifyClient {
 
     }
 
+    public void clearQueryParams(){
+
+          limit = null;
+          market = null;
+          minAcousticness = null;
+          maxAcousticness = null;
+          targetAcousticness = null;
+          minDanceability = null;
+          maxDanceability = null;
+          targetDanceability = null;
+          minDurationMS = null;
+          maxDurationMS = null;
+          targetDurationMS = null;
+          minEnergy = null;
+          maxEnergy = null;
+          targetEnergy = null;
+          minInstrumentalness = null;
+          maxInstrumentalness = null;
+          targetInstrumentalness = null;
+          minKey = null;
+          maxKey = null;
+          targetKey = null;
+          minLiveness = null;
+          maxLiveness = null;
+          targetLiveness = null;
+          minLoudness = null;
+          maxLoudness = null;
+          targetLoudness = null;
+          minMode = null;
+          maxMode = null;
+          targetMode = null;
+          minPopularity = null;
+          maxPopularity = null;
+          targetPopularity = null;
+          minSpeechiness = null;
+          maxSpeechiness = null;
+          targetSpeechiness = null;
+          minTempo = null;
+          maxTempo = null;
+          targetTempo = null;
+          minTimeSignature = null;
+          maxTimeSignature = null;
+          targetTimeSignature = null;
+          minValence = null;
+          maxValence = null;
+          targetValence = null;
+
+    }
+
     public Integer getLimit() {
         return limit;
     }

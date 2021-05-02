@@ -1289,6 +1289,17 @@ public class SpotifyRestAPI {
 
      *************************************************************************/
 
+    /*
+
+    @param SpotifyClient object
+
+    @return Controller.BrowseController.Album.BaseAlbum object
+
+    Get a list of new album releases featured in Spotify
+
+
+     */
+
     public Controller.BrowseController.Album.BaseAlbum getAllNewReleases(SpotifyClient client) throws IOException {
 
         String url = baseUrl + "/v1/browse/new-releases/";
@@ -1308,6 +1319,17 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    @param SpotifyClient object
+
+    @return BasePlaylist object
+
+    Get a list of Spotify featured Playlists
+
+
+     */
+
     public BasePlaylist getAllFeaturedPlaylists(SpotifyClient client) throws IOException {
 
         String url = baseUrl + "/v1/browse/featured-playlists/";
@@ -1325,6 +1347,16 @@ public class SpotifyRestAPI {
 
         return response.body();
     }
+
+    /*
+
+    @param SpotifyClient object
+
+    @return BaseCategory object
+
+    Get a list of categories used to tag items in Spotify
+
+     */
 
     public BaseCategory getAllCategories(SpotifyClient client) throws IOException {
 
@@ -1345,9 +1377,19 @@ public class SpotifyRestAPI {
 
     }
 
-    public Category getSingleCategory(SpotifyClient client, String categoryId) throws IOException{
+    /*
 
-        String url = baseUrl + String.format("/v1/browse/categories/%s/",categoryId);
+    @param SpotifyClient object
+
+    @return Category object
+
+    Get single category used to tag items in Spotify
+
+     */
+
+    public Category getSingleCategory(SpotifyClient client) throws IOException{
+
+        String url = baseUrl + String.format("/v1/browse/categories/%s/",client.getCategory().getCategoryId());
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url)
@@ -1356,7 +1398,7 @@ public class SpotifyRestAPI {
 
         browseInterface browseInterface = retrofit.create(Model.browseInterface.class);
 
-        Call<Category> call = browseInterface.getSingleCategory(getTokenString(client.getToken()),categoryId,client.getCategory().convertQueryParams());
+        Call<Category> call = browseInterface.getSingleCategory(getTokenString(client.getToken()),client.getCategory().getCategoryId(),client.getCategory().convertQueryParams());
 
         Response<Category> response = call.execute();
 
@@ -1364,9 +1406,19 @@ public class SpotifyRestAPI {
 
     }
 
-    public BasePlaylist getCategoriesPlaylists(SpotifyClient client, String categoryId) throws IOException {
+    /*
 
-        String url = baseUrl + String.format("/v1/browse/categories/%s/playlists/",categoryId);
+    @param SpotifyClient object
+
+    @return BasePlaylist object
+
+    Get a list of Spotify's playlists tagged with particular category
+
+     */
+
+    public BasePlaylist getCategoriesPlaylists(SpotifyClient client) throws IOException {
+
+        String url = baseUrl + String.format("/v1/browse/categories/%s/playlists/",client.getCategory().getCategoryId());
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url)
@@ -1375,12 +1427,22 @@ public class SpotifyRestAPI {
 
         browseInterface browseInterface = retrofit.create(Model.browseInterface.class);
 
-        Call<BasePlaylist> call = browseInterface.getCategoriesPlaylists(getTokenString(client.getToken()),categoryId,client.getCategory().convertQueryParams());
+        Call<BasePlaylist> call = browseInterface.getCategoriesPlaylists(getTokenString(client.getToken()),client.getCategory().getCategoryId(),client.getCategory().convertQueryParams());
 
         Response<BasePlaylist> response = call.execute();
 
         return response.body();
     }
+
+    /*
+
+    @param SpotifyClient object
+
+    @return BaseRecommendation Object
+
+    Generate recommendation based on seed data given
+
+     */
 
     public BaseRecommendation getRecommendations(SpotifyClient client) throws IOException {
 
@@ -1399,6 +1461,16 @@ public class SpotifyRestAPI {
 
         return response.body();
     }
+
+    /*
+
+    @param SpotifyClient object
+
+    @return RecommendationGenreList Object
+
+    Get a list of available genres seed parameter values
+
+     */
 
     public RecommendationGenreList getRecommendationGenres(SpotifyClient client) throws IOException {
 

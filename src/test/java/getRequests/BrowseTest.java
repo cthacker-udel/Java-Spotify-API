@@ -7,7 +7,6 @@ import Controller.BrowseController.Categories.Category;
 import Controller.BrowseController.Playlist.BasePlaylist;
 import Controller.BrowseController.Recommendations.BaseRecommendation;
 import Controller.BrowseController.Recommendations.RecommendationGenreList;
-import org.junit.After;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -236,7 +235,9 @@ class BrowseTest {
     @Test
     void singleCategoryTest() throws IOException{
 
-        Category category = client.getSingleCategory(client,"dinner");
+        getRequests.Category clientCategory = client.getCategory();
+        clientCategory.setCategoryId("dinner");
+        Category category = client.getSingleCategory(client);
         assertNotNull(category);
 
     }
@@ -245,8 +246,9 @@ class BrowseTest {
     void singleCategoryTestCountry() throws IOException{
 
         getRequests.Category category = client.getCategory();
+        category.setCategoryId("dinner");
         category.setCountry("US");
-        Category singleCategory = client.getSingleCategory(client,"dinner");
+        Category singleCategory = client.getSingleCategory(client);
         assertNotNull(singleCategory);
 
     }
@@ -256,7 +258,8 @@ class BrowseTest {
 
         getRequests.Category category = client.getCategory();
         category.setLocale("sv_SE");
-        Category singleCategory = client.getSingleCategory(client,"dinner");
+        category.setCategoryId("dinner");
+        Category singleCategory = client.getSingleCategory(client);
         assertNotNull(singleCategory);
 
     }
@@ -266,7 +269,9 @@ class BrowseTest {
     @Test
     void categoryPlaylistTest() throws IOException{
 
-        BasePlaylist categoryPlaylists = client.getCategoriesPlaylists(client,"dinner");
+        getRequests.Category category = client.getCategory();
+        category.setCategoryId("dinner");
+        BasePlaylist categoryPlaylists = client.getCategoriesPlaylists(client);
         assertNotNull(categoryPlaylists);
 
     }
@@ -276,7 +281,8 @@ class BrowseTest {
 
         getRequests.Category category = client.getCategory();
         category.setCountry("US");
-        BasePlaylist categoryPlaylists = client.getCategoriesPlaylists(client,"dinner");
+        category.setCategoryId("dinner");
+        BasePlaylist categoryPlaylists = client.getCategoriesPlaylists(client);
         assertNotNull(categoryPlaylists);
 
     }
@@ -286,7 +292,8 @@ class BrowseTest {
 
         getRequests.Category category = client.getCategory();
         category.setLimit(5);
-        BasePlaylist categoryPlaylists = client.getCategoriesPlaylists(client,"dinner");
+        category.setCategoryId("dinner");
+        BasePlaylist categoryPlaylists = client.getCategoriesPlaylists(client);
         assertNotNull(categoryPlaylists);
 
     }
@@ -296,7 +303,8 @@ class BrowseTest {
 
         getRequests.Category category = client.getCategory();
         category.setOffset(10);
-        BasePlaylist categoryPlaylists = client.getCategoriesPlaylists(client,"dinner");
+        category.setCategoryId("dinner");
+        BasePlaylist categoryPlaylists = client.getCategoriesPlaylists(client);
         assertNotNull(categoryPlaylists);
 
     }
