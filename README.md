@@ -14,11 +14,11 @@
 
 * The base http client code is contained within the class called : [Spotify Client](https://github.com/cthacker-udel/Java-Spotify-API/blob/master/src/main/java/Client/SpotifyClient.java)
 
-* The Rest API methods that interact with the Retrofit interface are located at the class called : [Spotify Rest API](https://github.com/cthacker-udel/Java-Spotify-API/blob/master/src/main/java/Client/SpotifyRestAPI.java)
+* The Rest API methods that interact with the [Retrofit](https://square.github.io/retrofit/) interface are located at the class called : [Spotify Rest API](https://github.com/cthacker-udel/Java-Spotify-API/blob/master/src/main/java/Client/SpotifyRestAPI.java)
 
 * The Interfaces corresponding to section in the Web API Reference are located in the Model folder located here : [Model](https://github.com/cthacker-udel/Java-Spotify-API/tree/master/src/main/java/Model)
 
-* Majority of requests are made via Retrofit interface, only 1 request is made via Selenium, and that is generating the access tokens! The tests listed under [this](https://github.com/cthacker-udel/Java-Spotify-API/tree/master/src/test/java) folder have been tested for functionality, if any functions do not function properly, please raise an issue! Raise an issue [here](https://github.com/cthacker-udel/Java-Spotify-API/issues/new)
+* Majority of requests are made via Retrofit interface, only 1 request is made via [Selenium](https://www.selenium.dev/documentation/en/), and that is generating the access tokens! The tests listed under [this](https://github.com/cthacker-udel/Java-Spotify-API/tree/master/src/test/java) folder have been tested for functionality, if any functions do not function properly, please raise an issue! Raise an issue [here](https://github.com/cthacker-udel/Java-Spotify-API/issues/new)
 
 **All additions and recommendations are welcome!**
 
