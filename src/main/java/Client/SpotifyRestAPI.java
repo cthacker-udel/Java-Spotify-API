@@ -1569,6 +1569,16 @@ public class SpotifyRestAPI {
 
      *************************************************************************/
 
+    /*
+
+    @param - SpotifyClient object
+    @return boolean
+
+    Add the current user as a follower of a playlist
+
+
+     */
+
     public boolean followAPlaylist(SpotifyClient client) throws IOException {
 
         String url = baseUrl + String.format("/v1/playlists/%s/followers/",client.getFollow().getPlayListId());
@@ -1588,6 +1598,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    @param SpotifyClient object
+    @return boolean
+
+    Remove the current user as a follower of a playlist
+
+
+     */
+
     public boolean unfollowPlaylist(SpotifyClient client) throws IOException{
 
         String url = baseUrl + String.format("/v1/playlists/%s/followers/",client.getFollow().getPlayListId());
@@ -1606,6 +1626,16 @@ public class SpotifyRestAPI {
         return response.isSuccessful();
 
     }
+
+    /*
+
+    @param SpotifyClient object
+    @return boolean
+
+    Check to see if one or more Spotify users are following a specified playlist
+
+
+     */
 
 
     public boolean checkUsersFollowPlaylist(SpotifyClient client) throws IOException {
@@ -1627,6 +1657,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    @param SpotifyClient object
+    @return Controller.FollowController.BaseArtist object
+
+    Get the current user's followed artists
+
+
+     */
+
     public Controller.FollowController.BaseArtist getUsersArtistsFollowed(SpotifyClient client) throws IOException {
 
         String url = baseUrl + "/v1/me/following/";
@@ -1646,6 +1686,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    @param SpotifyClient object
+    @return boolean
+
+    Add the current user as a follower of one or more artists or other Spotify users
+
+
+     */
+
     public boolean followArtistOrUser(SpotifyClient client) throws IOException {
 
         String url = baseUrl + "/v1/me/following/";
@@ -1663,6 +1713,16 @@ public class SpotifyRestAPI {
 
         return response.isSuccessful();
     }
+
+    /*
+
+    @param SpotifyClient object
+    @return boolean
+
+    Remove the current user as a follower of one or more artists or other Spotify users
+
+
+     */
 
     public boolean unfollowArtistOrUser(SpotifyClient client) throws IOException {
 
@@ -1682,6 +1742,16 @@ public class SpotifyRestAPI {
         return response.isSuccessful();
 
     }
+
+    /*
+
+    @param SpotifyClient object
+    @return boolean
+
+    Check to see if the current user is following one or more artists or other Spotify users
+
+
+     */
 
     public boolean getFollwingStateOfUserOrArtist(SpotifyClient client) throws IOException {
 
