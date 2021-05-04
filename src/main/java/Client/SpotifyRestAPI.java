@@ -1783,6 +1783,16 @@ public class SpotifyRestAPI {
 
      *************************************************************************/
 
+    /*
+
+    @param SpotifyClient object
+    @return Controller.LibraryController.BaseAlbum object
+
+    Get a list of the albums saved in the current Spotify user's "Your Music" library
+
+
+     */
+
     public Controller.LibraryController.BaseAlbum getUserSavedAlbums(SpotifyClient client) throws IOException {
 
         String url = baseUrl + "/v1/me/albums/";
@@ -1801,6 +1811,16 @@ public class SpotifyRestAPI {
         return response.body();
 
     }
+
+    /*
+
+    @param SpotifyClient object
+    @return boolean
+
+    Save one or more albums to the current user's "Your music" library
+
+
+     */
 
     public boolean saveAlbumsCurrUser(SpotifyClient client) throws IOException {
 
@@ -1822,6 +1842,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    @param SpotifyClient object
+    @return boolean
+
+    Remove one or more albums from the current user's "Your music" library
+
+
+     */
+
     public boolean removeAlbumsCurrUser(SpotifyClient client) throws IOException {
 
         String url = baseUrl + "/v1/me/albums/";
@@ -1842,6 +1872,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    @param SpotifyClient object
+    @return boolean
+
+    Check if one or more albums is already saved in the current Spotify user's "Your music" library
+
+
+     */
+
     public boolean checkUserSavedAlbums(SpotifyClient client) throws IOException {
 
         String url = baseUrl + "/v1/me/albums/contains/";
@@ -1860,6 +1900,16 @@ public class SpotifyRestAPI {
         return response.isSuccessful();
     }
 
+    /*
+
+    @param SpotifyClient object
+    @return BaseTrack object
+
+    Get a list of songs saved in the current Spotify user's "Your Music" library
+
+
+     */
+
     public BaseTrack getUserSavedTracks(SpotifyClient client) throws IOException {
 
         String url = baseUrl + "/v1/me/tracks/";
@@ -1877,6 +1927,15 @@ public class SpotifyRestAPI {
 
         return response.body();
     }
+
+    /*
+
+    @param SpotifyClient object
+    @return boolean
+
+    Save one or more tracks to the current User's "Your Music" library
+
+     */
 
     public boolean saveTracksForUser(SpotifyClient client) throws IOException {
 
@@ -1897,6 +1956,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    @param SpotifyClient object
+    @return boolean
+
+    Remove one or more tracks from the current user's "Your music" library
+
+
+     */
+
     public boolean removeUserSavedTracks(SpotifyClient client) throws IOException {
 
         String url = baseUrl + "/v1/me/tracks/";
@@ -1915,6 +1984,16 @@ public class SpotifyRestAPI {
         return response.isSuccessful();
 
     }
+
+    /*
+
+    @param SpotifyClient object
+    @return boolean
+
+    Check if one or more tracks is already saved in the current Spotify user's "Your Music" library
+
+
+     */
 
     public boolean checkUserHasTracks(SpotifyClient client) throws IOException {
 
@@ -1935,6 +2014,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    @param SpotifyClient object
+    @return Controller.LibraryController.Episode.BaseEpisode
+
+    Get a list of the episodes saved in the current Spotify user's library
+
+
+     */
+
     public Controller.LibraryController.Episode.BaseEpisode getUserSavedEpisodes(SpotifyClient client) throws IOException {
 
         String url = baseUrl + "/v1/me/tracks/contains/";
@@ -1953,6 +2042,15 @@ public class SpotifyRestAPI {
         return response.body();
 
     }
+
+    /*
+
+    @param SpotifyClient object
+    @return boolean
+
+    Save one or more episodes to the current User's library
+
+     */
 
     public boolean saveEpisodeForUser(SpotifyClient client) throws IOException {
 
@@ -1974,6 +2072,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    @param SpotifyClient object
+    @return boolean
+
+    Remove one or more episodes from the current user's library
+
+
+     */
+
     public boolean removeUserSavedEpisodes(SpotifyClient client) throws IOException {
 
         String url = baseUrl + "/v1/me/episodes/";
@@ -1992,6 +2100,16 @@ public class SpotifyRestAPI {
         return response.isSuccessful();
 
     }
+
+    /*
+
+    @param SpotifyClient object
+    @return boolean
+
+    Check if one or more episodes is already saved in the current Spotify user's "Your Episodes" library
+
+
+     */
 
     public boolean checkIfUserHasSavedEpisodes(SpotifyClient client) throws IOException {
 
@@ -2012,6 +2130,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+     @param SpotifyClient object
+     @return BaseShow object
+
+     Get a list of shows saved in the current Spotify User's library
+
+
+     */
+
     public BaseShow getUserSavedShows(SpotifyClient client) throws IOException {
 
         String url = baseUrl + "/v1/me/shows/";
@@ -2030,6 +2158,16 @@ public class SpotifyRestAPI {
         return response.body();
 
     }
+
+    /*
+
+    @param SpotifyClient object
+    @return boolean
+
+    Save one or more shows to current Spotify User's library
+
+
+     */
 
     public boolean saveShowsForCurrentUser(SpotifyClient client) throws IOException {
 
@@ -2050,6 +2188,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    @param SpotifyClient object
+    @return boolean
+
+    Delete one or more shows from the current Spotify user's library
+
+
+     */
+
     public boolean removeUserSavedShows(SpotifyClient client) throws IOException {
 
         String url = baseUrl + "/v1/me/shows/";
@@ -2068,6 +2216,16 @@ public class SpotifyRestAPI {
         return response.isSuccessful();
 
     }
+
+    /*
+
+    @param SpotifyClient object
+    @return boolean
+
+    Check if one or more shows is already saved in the current Spotify user's library
+
+
+     */
 
     public boolean checkUserHasSavedShows(SpotifyClient client) throws IOException {
 
