@@ -2300,6 +2300,16 @@ public class SpotifyRestAPI {
 
      *************************************************************************/
 
+    /*
+
+    @param SpotifyClient object
+    @return baseUserTopTracksAndArtists object
+
+    Get the current user's top artists and tracks based on calculated affinity
+
+
+     */
+
 
     public baseUserTopTracksAndArtists getUserTopTracksAndArtists(SpotifyClient client) throws IOException {
 
