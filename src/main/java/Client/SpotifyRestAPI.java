@@ -1,4 +1,4 @@
-/*
+/***
 
 @author Cameron Thacker
 @Github cthacker-udel
@@ -71,7 +71,7 @@ import getRequests.Album;
 import static java.lang.Thread.sleep;
 
 
-/*
+/**
 
     Spotify Rest API Class
     Implements all Spotify Rest API Methods
@@ -82,7 +82,7 @@ import static java.lang.Thread.sleep;
 
 public class SpotifyRestAPI {
 
-    /*
+    /**
 
     baseUrl = base url endpoint for Rest API calls
 
@@ -90,7 +90,7 @@ public class SpotifyRestAPI {
 
     String baseUrl = "https://api.spotify.com";
 
-    /*
+    /**
 
     Default no-arg constructor
 
@@ -100,7 +100,7 @@ public class SpotifyRestAPI {
         super();
     }
 
-    /*
+    /**
 
     Get default content-type header
 
@@ -112,7 +112,7 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     Generate default Authorization header
 
@@ -122,7 +122,7 @@ public class SpotifyRestAPI {
         return String.format(" Bearer %s",token);
     }
 
-    /*
+    /**
 
     Generate HTML Basic Auth to acquire Refresh Token
 
@@ -134,7 +134,7 @@ public class SpotifyRestAPI {
         return String.format(" Basic %s:%s",new String(clientIdEncoded,StandardCharsets.UTF_8),new String(clientSecretEncoded,StandardCharsets.UTF_8));
     }
 
-    /*
+    /**
 
     Authorization Method <--- generates token that expires
 
@@ -159,7 +159,7 @@ public class SpotifyRestAPI {
         return implicitGrantResponse.body().getToken();
     }
 
-    /*
+    /**
 
     Authorization Method - Access User Profile - Generate Access Token Code to generate Refresh Token and AccessToken
 
@@ -246,7 +246,7 @@ public class SpotifyRestAPI {
         return code;
     }
 
-    /*
+    /**
 
 
     Authorization - Generate Access Token And Refresh Token
@@ -278,7 +278,7 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
 
         Authorization - Refresh Access Token
@@ -305,7 +305,7 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
         Authorization - Getters for Access Token and Refresh Token
 
@@ -323,7 +323,7 @@ public class SpotifyRestAPI {
 
     }
 
-    /************************************************************************
+    /*************************************************************************
 
 
 
@@ -333,11 +333,11 @@ public class SpotifyRestAPI {
 
      *************************************************************************/
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return BaseAlbum object
+    @return BaseAlbum object -
 
     Gets Spotify Catalog information for multiple albums identified by their Spotify IDs
 
@@ -362,11 +362,11 @@ public class SpotifyRestAPI {
         return response.body();
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return BaseAlbum object
+    @return BaseAlbum object -
 
     Gets multiple album catalog information according to market
 
@@ -390,11 +390,11 @@ public class SpotifyRestAPI {
         return response.body();
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return Controller.AlbumController.MultipleAlbums.Album object
+    @return Controller.AlbumController.MultipleAlbums.Album object -
 
     Gets catalog information for a single album
 
@@ -420,11 +420,11 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return Controller.AlbumController.MultipleAlbums.Album object
+    @return Controller.AlbumController.MultipleAlbums.Album object -
 
     Gets catalog information for a single album according to market specified
 
@@ -449,11 +449,11 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return Tracks object
+    @return Tracks object -
 
     Gets catalog information for an album's tracks
 
@@ -477,11 +477,11 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return Tracks object
+    @return Tracks object -
 
     Gets catalog information for an album's tracks according to market specified
 
@@ -505,11 +505,11 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return Tracks object
+    @return Tracks object -
 
     Gets catalog information for an album's tracks and limited to number of tracks specified by limit query parameter
 
@@ -534,11 +534,11 @@ public class SpotifyRestAPI {
     }
 
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return Tracks object
+    @return Tracks object -
 
     Gets catalog information for an album's tracks and sets index of first track to return specified by offset query parameter
 
@@ -562,11 +562,11 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return Tracks object
+    @return Tracks object -
 
     Gets catalog information for an album's tracks according to market specified and limited to number of tracks specified by limit query parameter
 
@@ -591,11 +591,11 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return Tracks object
+    @return Tracks object -
 
     Gets catalog information for an album's tracks according to market specified and sets index of first track to return specified by offset query parameter
 
@@ -619,11 +619,11 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return Tracks object
+    @return Tracks object -
 
     Gets catalog information for an album's tracks, the amount of tracks specified by limit, and sets index of first track to return specified by offset query parameter
 
@@ -647,11 +647,11 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return Tracks object
+    @return Tracks object -
 
     Gets catalog information for an album's tracks according to market specified, and the amount of tracks limited to the limit specified, and sets index of first track to return specified by offset query parameter
 
@@ -678,7 +678,7 @@ public class SpotifyRestAPI {
 
 
 
-    /************************************************************************
+    /*************************************************************************
 
 
 
@@ -688,11 +688,11 @@ public class SpotifyRestAPI {
 
      *************************************************************************/
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return BaseArtist object
+    @return BaseArtist object -
 
     Get Spotify catalog information about several artists from their Spotify IDs
 
@@ -720,11 +720,11 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return Aritst object
+    @return Aritst object -
 
     Get Information about a Single Spotify Artist identified by their unique Spotify ID
 
@@ -749,12 +749,12 @@ public class SpotifyRestAPI {
         return response.body();
     }
 
-    /*
+    /**
 
 
     @param SpotifyClient object
 
-    @return ArtistTopTrack object
+    @return ArtistTopTrack object -
 
     Get Spotify catalog information about Artist's top track according to country specified
 
@@ -779,11 +779,11 @@ public class SpotifyRestAPI {
         return response.body();
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return BaseArtist object
+    @return BaseArtist object -
 
     Get Spotify catalog information about artists similar to given artist
 
@@ -809,11 +809,11 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return ArtistAlbum object
+    @return ArtistAlbum object -
 
     Get Spotify catalog information about artist's album
 
@@ -838,11 +838,11 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return ArtistAlbum object
+    @return ArtistAlbum object -
 
     Get Spotify catalog information about artist's album with filters applied (include groups)
 
@@ -868,11 +868,11 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return ArtistAlbum object
+    @return ArtistAlbum object -
 
     Get Spotify catalog information about artist's album according to country given
 
@@ -897,11 +897,11 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return ArtistAlbum object
+    @return ArtistAlbum object -
 
     Get Spotify catalog information about artist's album with limited amount given specified by limit value
 
@@ -926,11 +926,11 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return ArtistAlbum object
+    @return ArtistAlbum object -
 
     Get Spotify catalog information about artist's album with starting at response index specified by offset
 
@@ -955,11 +955,11 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return ArtistAlbum object
+    @return ArtistAlbum object -
 
     Get Spotify catalog information about artist's album filtered by country with market and filters specified by include groups
 
@@ -984,11 +984,11 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return ArtistAlbum object
+    @return ArtistAlbum object -
 
     Get Spotify catalog information about artist's album filtered by include groups speficied and limited to limit given
 
@@ -1013,11 +1013,11 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return ArtistAlbum object
+    @return ArtistAlbum object -
 
     Get Spotify catalog information about artist's album filtered by include groups specified and starting at index specified by offset
 
@@ -1042,11 +1042,11 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return ArtistAlbum object
+    @return ArtistAlbum object -
 
     Get Spotify catalog information about artist's album filtered by country given and limited to the amount specified by limit
 
@@ -1071,11 +1071,11 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return ArtistAlbum object
+    @return ArtistAlbum object -
 
     Get Spotify catalog information about artist's album filtered by country given and starting at index specified by offset
 
@@ -1100,11 +1100,11 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return ArtistAlbum object
+    @return ArtistAlbum object -
 
     Get Spotify catalog information about artist's album limited to limit given and starting at index of offset given
 
@@ -1129,11 +1129,11 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return ArtistAlbum object
+    @return ArtistAlbum object -
 
     Get Spotify catalog information about artist's album filtered by country given and include groups specified and also amount limited to limit given
 
@@ -1158,11 +1158,11 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return ArtistAlbum object
+    @return ArtistAlbum object -
 
     Get Spotify catalog information about artist's album filtered by country given and include groups specified and starting at index given by offset
 
@@ -1187,11 +1187,11 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return ArtistAlbum object
+    @return ArtistAlbum object -
 
     Get Spotify catalog information about artist's album filtered by include groups specified and starting at index given by offset and amount limited to limit given
 
@@ -1217,11 +1217,11 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return ArtistAlbum object
+    @return ArtistAlbum object -
 
     Get Spotify catalog information about artist's album filtered by country given and starting at index given by offset and amount limited to limit given
 
@@ -1246,11 +1246,11 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return ArtistAlbum object
+    @return ArtistAlbum object -
 
     Get Spotify catalog information about artist's album filtered by country given and include groups specified and starting at index given by offset and amount limited to limit given
 
@@ -1279,7 +1279,7 @@ public class SpotifyRestAPI {
 
 
 
-    /************************************************************************
+    /*************************************************************************
 
 
 
@@ -1289,11 +1289,11 @@ public class SpotifyRestAPI {
 
      *************************************************************************/
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return Controller.BrowseController.Album.BaseAlbum object
+    @return Controller.BrowseController.Album.BaseAlbum object -
 
     Get a list of new album releases featured in Spotify
 
@@ -1319,11 +1319,11 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return BasePlaylist object
+    @return BasePlaylist object -
 
     Get a list of Spotify featured Playlists
 
@@ -1348,11 +1348,11 @@ public class SpotifyRestAPI {
         return response.body();
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return BaseCategory object
+    @return BaseCategory object -
 
     Get a list of categories used to tag items in Spotify
 
@@ -1377,11 +1377,11 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return Category object
+    @return Category object -
 
     Get single category used to tag items in Spotify
 
@@ -1406,11 +1406,11 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return BasePlaylist object
+    @return BasePlaylist object -
 
     Get a list of Spotify's playlists tagged with particular category
 
@@ -1434,11 +1434,11 @@ public class SpotifyRestAPI {
         return response.body();
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return BaseRecommendation Object
+    @return BaseRecommendation object -
 
     Generate recommendation based on seed data given
 
@@ -1462,11 +1462,11 @@ public class SpotifyRestAPI {
         return response.body();
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
 
-    @return RecommendationGenreList Object
+    @return RecommendationGenreList object -
 
     Get a list of available genres seed parameter values
 
@@ -1491,7 +1491,7 @@ public class SpotifyRestAPI {
 
     }
 
-    /************************************************************************
+    /*************************************************************************
 
 
 
@@ -1501,10 +1501,10 @@ public class SpotifyRestAPI {
 
      *************************************************************************/
 
-    /*
+    /**
 
     @param - SpotifyClient object
-    @return - BaseEpisode Object
+    @return - BaseEpisode object -
 
     Get Spotify catalog information for several episodes according to Spotify Episode IDs given
 
@@ -1530,10 +1530,10 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
-    @return Controller.EpisodeControll.Episode Object
+    @return Controller.EpisodeControll.Episode object -
 
     Get Spotify Catalog information for a single episode from Spotify Episode ID given
 
@@ -1559,7 +1559,7 @@ public class SpotifyRestAPI {
 
     }
 
-    /************************************************************************
+    /*************************************************************************
 
 
 
@@ -1569,10 +1569,10 @@ public class SpotifyRestAPI {
 
      *************************************************************************/
 
-    /*
+    /**
 
     @param - SpotifyClient object
-    @return boolean
+    @return boolean -
 
     Add the current user as a follower of a playlist
 
@@ -1598,10 +1598,10 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
-    @return boolean
+    @return boolean -
 
     Remove the current user as a follower of a playlist
 
@@ -1627,10 +1627,10 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
-    @return boolean
+    @return boolean -
 
     Check to see if one or more Spotify users are following a specified playlist
 
@@ -1657,10 +1657,10 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
-    @return Controller.FollowController.BaseArtist object
+    @return Controller.FollowController.BaseArtist object -
 
     Get the current user's followed artists
 
@@ -1686,10 +1686,10 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
-    @return boolean
+    @return boolean -
 
     Add the current user as a follower of one or more artists or other Spotify users
 
@@ -1714,10 +1714,10 @@ public class SpotifyRestAPI {
         return response.isSuccessful();
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
-    @return boolean
+    @return boolean -
 
     Remove the current user as a follower of one or more artists or other Spotify users
 
@@ -1743,10 +1743,10 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
-    @return boolean
+    @return boolean -
 
     Check to see if the current user is following one or more artists or other Spotify users
 
@@ -1773,7 +1773,7 @@ public class SpotifyRestAPI {
 
     }
 
-    /************************************************************************
+    /*************************************************************************
 
 
 
@@ -1783,10 +1783,10 @@ public class SpotifyRestAPI {
 
      *************************************************************************/
 
-    /*
+    /**
 
     @param SpotifyClient object
-    @return Controller.LibraryController.BaseAlbum object
+    @return Controller.LibraryController.BaseAlbum object -
 
     Get a list of the albums saved in the current Spotify user's "Your Music" library
 
@@ -1812,10 +1812,10 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
-    @return boolean
+    @return boolean -
 
     Save one or more albums to the current user's "Your music" library
 
@@ -1842,10 +1842,10 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
-    @return boolean
+    @return boolean -
 
     Remove one or more albums from the current user's "Your music" library
 
@@ -1872,10 +1872,10 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
-    @return boolean
+    @return boolean -
 
     Check if one or more albums is already saved in the current Spotify user's "Your music" library
 
@@ -1900,10 +1900,10 @@ public class SpotifyRestAPI {
         return response.isSuccessful();
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
-    @return BaseTrack object
+    @return BaseTrack object -
 
     Get a list of songs saved in the current Spotify user's "Your Music" library
 
@@ -1928,10 +1928,10 @@ public class SpotifyRestAPI {
         return response.body();
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
-    @return boolean
+    @return boolean -
 
     Save one or more tracks to the current User's "Your Music" library
 
@@ -1956,10 +1956,10 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
-    @return boolean
+    @return boolean -
 
     Remove one or more tracks from the current user's "Your music" library
 
@@ -1985,10 +1985,10 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
-    @return boolean
+    @return boolean -
 
     Check if one or more tracks is already saved in the current Spotify user's "Your Music" library
 
@@ -2014,10 +2014,10 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
-    @return Controller.LibraryController.Episode.BaseEpisode
+    @return Controller.LibraryController.Episode.BaseEpisode object -
 
     Get a list of the episodes saved in the current Spotify user's library
 
@@ -2043,10 +2043,10 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
-    @return boolean
+    @return boolean -
 
     Save one or more episodes to the current User's library
 
@@ -2072,10 +2072,10 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
-    @return boolean
+    @return boolean -
 
     Remove one or more episodes from the current user's library
 
@@ -2101,10 +2101,10 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
-    @return boolean
+    @return boolean -
 
     Check if one or more episodes is already saved in the current Spotify user's "Your Episodes" library
 
@@ -2130,10 +2130,10 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
      @param SpotifyClient object
-     @return BaseShow object
+     @return BaseShow object -
 
      Get a list of shows saved in the current Spotify User's library
 
@@ -2159,10 +2159,10 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
-    @return boolean
+    @return boolean -
 
     Save one or more shows to current Spotify User's library
 
@@ -2188,10 +2188,10 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
-    @return boolean
+    @return boolean -
 
     Delete one or more shows from the current Spotify user's library
 
@@ -2217,10 +2217,10 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param SpotifyClient object
-    @return boolean
+    @return boolean -
 
     Check if one or more shows is already saved in the current Spotify user's library
 
@@ -2247,7 +2247,7 @@ public class SpotifyRestAPI {
     }
 
 
-    /************************************************************************
+    /*************************************************************************
 
 
 
@@ -2258,7 +2258,7 @@ public class SpotifyRestAPI {
      *************************************************************************/
 
 
-    /*
+    /**
 
     @param SpotifyClient object
     @return List<String>
@@ -2290,7 +2290,7 @@ public class SpotifyRestAPI {
     }
 
 
-    /************************************************************************
+    /*************************************************************************
 
 
 
@@ -2300,10 +2300,10 @@ public class SpotifyRestAPI {
 
      *************************************************************************/
 
-    /*
+    /**
 
     @param SpotifyClient object
-    @return baseUserTopTracksAndArtists object
+    @return baseUserTopTracksAndArtists object -
 
     Get the current user's top artists and tracks based on calculated affinity
 
@@ -2330,7 +2330,7 @@ public class SpotifyRestAPI {
 
     }
 
-    /************************************************************************
+    /*************************************************************************
 
 
 
@@ -2609,7 +2609,7 @@ public class SpotifyRestAPI {
     }
 
 
-    /************************************************************************
+    /*************************************************************************
 
 
 
@@ -2849,7 +2849,7 @@ public class SpotifyRestAPI {
 
     }
 
-    /************************************************************************
+    /*************************************************************************
 
 
 
@@ -2879,7 +2879,7 @@ public class SpotifyRestAPI {
     }
 
 
-    /************************************************************************
+    /*************************************************************************
 
 
 
@@ -2956,7 +2956,7 @@ public class SpotifyRestAPI {
     }
 
 
-    /************************************************************************
+    /*************************************************************************
 
 
 
@@ -3070,7 +3070,7 @@ public class SpotifyRestAPI {
 
     }
 
-    /************************************************************************
+    /*************************************************************************
 
 
 
