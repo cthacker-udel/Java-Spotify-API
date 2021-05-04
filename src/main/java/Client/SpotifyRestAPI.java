@@ -2246,6 +2246,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    @param SpotifyClient object
+    @return List<String>
+
+    Get the list of markets where Spotify is available
+
+
+     */
+
 
     /************************************************************************
 
