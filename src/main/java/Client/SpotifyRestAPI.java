@@ -2246,16 +2246,6 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
-
-    @param SpotifyClient object
-    @return List<String>
-
-    Get the list of markets where Spotify is available
-
-
-     */
-
 
     /************************************************************************
 
@@ -2266,6 +2256,17 @@ public class SpotifyRestAPI {
 
 
      *************************************************************************/
+
+
+    /*
+
+    @param SpotifyClient object
+    @return List<String>
+
+    Get the list of markets where Spotify is available
+
+
+     */
 
 
     public List<String> getAvailableMarkets(SpotifyClient client) throws IOException {
