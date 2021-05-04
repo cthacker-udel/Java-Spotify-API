@@ -1501,6 +1501,16 @@ public class SpotifyRestAPI {
 
      *************************************************************************/
 
+    /*
+
+    @param - SpotifyClient object
+    @return - BaseEpisode Object
+
+    Get Spotify catalog information for several episodes according to Spotify Episode IDs given
+
+
+     */
+
     public BaseEpisode getMultipleEpisodes(SpotifyClient client) throws IOException {
 
         String url = baseUrl + "/v1/episodes/";
@@ -1519,6 +1529,16 @@ public class SpotifyRestAPI {
         return response.body();
 
     }
+
+    /*
+
+    @param SpotifyClient object
+    @return Controller.EpisodeControll.Episode Object
+
+    Get Spotify Catalog information for a single episode from Spotify Episode ID given
+
+
+     */
 
     public Controller.EpisodeController.Episode getSingleEpisode(SpotifyClient client) throws IOException{
 
