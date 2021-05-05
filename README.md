@@ -93,8 +93,9 @@
 
 ### [Browse API Methods](https://github.com/cthacker-udel/Java-Spotify-API/blob/master/src/test/java/getRequests/BrowseTest.java)
 
-* Step 1
+**Step 1**
   * Access browse seed instance by utilizing the method `.getSeed()` with your SpotifyClient instance
     * Once the seed instance has been created, add Artist, Track IDs by utilizing the method `.addSeedArtist("ID")` and `.addSeedTrack("ID")`, and also adding the genre name (as a String) with the method `.addSeedGenre(String genreName)`
-* Step 2
+
+**Step 2**
   * Once the seed has been given values for either artist, track, or genre, observe which instances need to be utilized for individual method calls by referencing this file : [BrowseTest.java](https://github.com/cthacker-udel/Java-Spotify-API/blob/master/src/test/java/getRequests/BrowseTest.java)
