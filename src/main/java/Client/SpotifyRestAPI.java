@@ -2340,7 +2340,7 @@ public class SpotifyRestAPI {
 
      *************************************************************************/
     
-    /*
+    /**
     
     @param client object - SpotifyClient instance
     @return baseUserPlayback object
@@ -2370,7 +2370,7 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param client object - SpotifyClient instance
     @return boolean
@@ -2399,7 +2399,7 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param client object - SpotifyCLient instance
     @return basePlayerDevice object
@@ -2428,7 +2428,7 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param client object - SpotifyClient instance
     @return baseCurrentTrack object
@@ -2456,7 +2456,7 @@ public class SpotifyRestAPI {
         return response.body();
     }
 
-    /*
+    /**
 
     @param client object - SpotifyClient instance
     @return boolean
@@ -2488,7 +2488,7 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param client object - SpotifyClient instance
     @return boolean
@@ -2518,7 +2518,7 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param client object - SpotifyClient instance
     @return boolean
@@ -2547,7 +2547,7 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param client object - SpotifyClient instance
     @return boolean
@@ -2576,7 +2576,7 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param client object - SpotifyClient instance
     @return boolean
@@ -2605,7 +2605,7 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param client object - SpotifyClient instance
     @return boolean
@@ -2634,7 +2634,7 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param client object - SpotifyClient instance
     @return boolean
@@ -2663,7 +2663,7 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param client object - SpotifyClient instance
     @return boolean
@@ -2692,7 +2692,7 @@ public class SpotifyRestAPI {
 
     }
 
-    /*
+    /**
 
     @param client object - SpotifyClient instance
     @return Controller.PlayerController.CurrentUserRecentTrack.BaseTrack object
@@ -2720,7 +2720,7 @@ public class SpotifyRestAPI {
         return response.body();
     }
 
-    /*
+    /**
 
     @param client object - SpotifyClient instance
     @return boolean
@@ -2752,7 +2752,7 @@ public class SpotifyRestAPI {
     }
 
 
-    /*************************************************************************
+    /**************************************************************************
 
 
 
@@ -2761,6 +2761,17 @@ public class SpotifyRestAPI {
 
 
      *************************************************************************/
+
+
+    /**
+
+    @param client object - SpotifyClient instance
+    @return Controller.PlaylistController.UserPlaylists.BasePlaylist object
+
+    Get a list of the playlists owned or followed by the current Spotify user
+
+
+     */
 
     public Controller.PlaylistController.UserPlaylists.BasePlaylist getListCurrUserPlaylists(SpotifyClient client) throws IOException {
 
@@ -2781,6 +2792,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /**
+
+    @param client object - SpotifyClient instance
+    @return Controller.PlaylistController.UserPlaylists.BasePlaylist object
+
+    Get a list of the playlists owned or followed by a Spotify user
+
+
+     */
+
     public Controller.PlaylistController.UserPlaylists.BasePlaylist getListUserPlaylists(SpotifyClient client) throws IOException {
 
         String url = baseUrl + String.format("/v1/users/%s/playlists/",client.getPlaylist().getUserId());
@@ -2799,6 +2820,16 @@ public class SpotifyRestAPI {
         return response.body();
 
     }
+
+    /**
+
+    @param client object - SpotifyClient instance
+    @return Controller.PlaylistController.UserPlaylists.CreatePlaylist.BasePlaylist object
+
+    Create a playlist for a Spotify user
+
+
+     */
 
     public Controller.PlaylistController.UserPlaylists.CreatePlaylist.BasePlaylist createAPlaylist(SpotifyClient client) throws IOException {
 
@@ -2821,6 +2852,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /**
+
+    @param client object - SpotifyClient instance
+    @return Playlist object
+
+    Get a playlist owned by a Spotify user
+
+
+     */
+
     public Playlist getAPlaylist(SpotifyClient client) throws IOException {
 
         String url = baseUrl + String.format("/v1/playlists/%s/",client.getPlaylist().getPlaylistId());
@@ -2841,6 +2882,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /**
+
+    @param client object - SpotifyClient instance
+    @return boolean
+
+    Change a playlist's name and public/private state
+
+
+     */
+
     public boolean changePlaylistDetails(SpotifyClient client) throws IOException {
 
         String url = baseUrl + String.format("/v1/playlists/%s/",client.getPlaylist().getPlaylistId());
@@ -2858,6 +2909,16 @@ public class SpotifyRestAPI {
 
         return response.isSuccessful();
     }
+
+    /**
+
+    @param client object - SpotifyClient instance
+    @return BasePlaylistItems object
+
+    Get full details of the items of a playlist owned by a Spotify user
+
+
+     */
 
     public BasePlaylistItems getPlaylistItems(SpotifyClient client) throws IOException {
 
@@ -2878,6 +2939,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /**
+
+    @param client object - SpotifyClient instance
+    @return SnapshotId object
+
+    Add one or mroe items to a user's playlist
+
+
+     */
+
     public SnapshotId addItemsToPlaylist(SpotifyClient client) throws IOException {
 
         String url = baseUrl + String.format("/v1/playlists/%s/tracks/",client.getPlaylist().getPlaylistId());
@@ -2896,6 +2967,20 @@ public class SpotifyRestAPI {
         return response.body();
 
     }
+
+    /**
+
+    @param client object - SpotifyClient instance
+    @return SnapshotId object
+
+    Either reorder or replace items in a playlist depending on the request’s parameters.
+    To reorder items, include range_start, insert_before, range_length and snapshot_id in the request’s body.
+    To replace items, include uris as either a query parameter or in the request’s body.
+    Replacing items in a playlist will overwrite its existing items.
+    This operation can be used for replacing or clearing items in a playlist.
+
+
+     */
 
     public SnapshotId reorderOrReplacePlaylistItems(SpotifyClient client) throws IOException {
 
@@ -2916,6 +3001,15 @@ public class SpotifyRestAPI {
 
     }
 
+    /**
+
+    @param client object - SpotifyClient instance
+    @return SnapshotId object
+
+    To reorder items, include range_start, insert_before, range_length and snapshot_id in the request’s body.
+
+     */
+
     public SnapshotId reorderPlaylistItems(SpotifyClient client) throws IOException {
 
         String url = baseUrl + String.format("/v1/playlists/%s/tracks/",client.getPlaylist().getPlaylistId());
@@ -2934,6 +3028,15 @@ public class SpotifyRestAPI {
         return response.body();
 
     }
+
+    /**
+
+    @param client object - SpotifyClient instance
+    @return SnapshotId object
+
+    Remove one or more items from a user's playlist
+
+     */
 
     public SnapshotId removePlaylistItems(SpotifyClient client) throws IOException {
 
@@ -2954,6 +3057,15 @@ public class SpotifyRestAPI {
 
     }
 
+    /**
+
+    @param client object - SpotifyClient instance
+    @return CoverImage object
+
+    Get the current image associated with a specific playlist
+
+     */
+
     public CoverImage getPlaylistCoverImage(SpotifyClient client) throws IOException {
 
         String url = baseUrl + String.format("/v1/playlists/%s/images/",client.getPlaylist().getPlaylistId());
@@ -2972,6 +3084,16 @@ public class SpotifyRestAPI {
         return response.body();
 
     }
+
+    /**
+
+    @param client object - SpotifyClient instance
+    @return boolean
+
+    Replace the image used to represetn a specific playlist
+
+
+     */
 
     public boolean uploadCustomPlaylistImage(SpotifyClient client) throws IOException {
 
@@ -2992,7 +3114,7 @@ public class SpotifyRestAPI {
 
     }
 
-    /*************************************************************************
+    /**************************************************************************
 
 
 
@@ -3022,7 +3144,7 @@ public class SpotifyRestAPI {
     }
 
 
-    /*************************************************************************
+    /**************************************************************************
 
 
 
@@ -3099,7 +3221,7 @@ public class SpotifyRestAPI {
     }
 
 
-    /*************************************************************************
+    /**************************************************************************
 
 
 
@@ -3213,7 +3335,7 @@ public class SpotifyRestAPI {
 
     }
 
-    /*************************************************************************
+    /**************************************************************************
 
 
 
