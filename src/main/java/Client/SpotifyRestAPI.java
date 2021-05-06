@@ -335,7 +335,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return BaseAlbum object -
 
@@ -364,7 +364,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return BaseAlbum object -
 
@@ -392,7 +392,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return Controller.AlbumController.MultipleAlbums.Album object -
 
@@ -422,7 +422,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return Controller.AlbumController.MultipleAlbums.Album object -
 
@@ -451,7 +451,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return Tracks object -
 
@@ -479,7 +479,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return Tracks object -
 
@@ -507,7 +507,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return Tracks object -
 
@@ -536,7 +536,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return Tracks object -
 
@@ -564,7 +564,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return Tracks object -
 
@@ -593,7 +593,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return Tracks object -
 
@@ -621,7 +621,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return Tracks object -
 
@@ -649,7 +649,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return Tracks object -
 
@@ -690,7 +690,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return BaseArtist object -
 
@@ -722,7 +722,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return Aritst object -
 
@@ -752,7 +752,7 @@ public class SpotifyRestAPI {
     /**
 
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return ArtistTopTrack object -
 
@@ -781,7 +781,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return BaseArtist object -
 
@@ -811,7 +811,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return ArtistAlbum object -
 
@@ -840,7 +840,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return ArtistAlbum object -
 
@@ -870,7 +870,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return ArtistAlbum object -
 
@@ -899,7 +899,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return ArtistAlbum object -
 
@@ -928,7 +928,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return ArtistAlbum object -
 
@@ -957,7 +957,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return ArtistAlbum object -
 
@@ -986,7 +986,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return ArtistAlbum object -
 
@@ -1015,7 +1015,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return ArtistAlbum object -
 
@@ -1044,7 +1044,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return ArtistAlbum object -
 
@@ -1073,7 +1073,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return ArtistAlbum object -
 
@@ -1102,7 +1102,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return ArtistAlbum object -
 
@@ -1131,7 +1131,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return ArtistAlbum object -
 
@@ -1160,7 +1160,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return ArtistAlbum object -
 
@@ -1189,7 +1189,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return ArtistAlbum object -
 
@@ -1219,7 +1219,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return ArtistAlbum object -
 
@@ -1248,7 +1248,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return ArtistAlbum object -
 
@@ -1291,7 +1291,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return Controller.BrowseController.Album.BaseAlbum object -
 
@@ -1321,7 +1321,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return BasePlaylist object -
 
@@ -1350,7 +1350,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return BaseCategory object -
 
@@ -1379,7 +1379,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return Category object -
 
@@ -1408,7 +1408,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return BasePlaylist object -
 
@@ -1436,7 +1436,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return BaseRecommendation object -
 
@@ -1464,7 +1464,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
 
     @return RecommendationGenreList object -
 
@@ -1532,7 +1532,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
     @return Controller.EpisodeControll.Episode object -
 
     Get Spotify Catalog information for a single episode from Spotify Episode ID given
@@ -1600,7 +1600,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
     @return boolean -
 
     Remove the current user as a follower of a playlist
@@ -1629,7 +1629,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
     @return boolean -
 
     Check to see if one or more Spotify users are following a specified playlist
@@ -1659,7 +1659,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
     @return Controller.FollowController.BaseArtist object -
 
     Get the current user's followed artists
@@ -1688,7 +1688,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
     @return boolean -
 
     Add the current user as a follower of one or more artists or other Spotify users
@@ -1716,7 +1716,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
     @return boolean -
 
     Remove the current user as a follower of one or more artists or other Spotify users
@@ -1745,7 +1745,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
     @return boolean -
 
     Check to see if the current user is following one or more artists or other Spotify users
@@ -1785,7 +1785,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
     @return Controller.LibraryController.BaseAlbum object -
 
     Get a list of the albums saved in the current Spotify user's "Your Music" library
@@ -1814,7 +1814,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
     @return boolean -
 
     Save one or more albums to the current user's "Your music" library
@@ -1844,7 +1844,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
     @return boolean -
 
     Remove one or more albums from the current user's "Your music" library
@@ -1874,7 +1874,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
     @return boolean -
 
     Check if one or more albums is already saved in the current Spotify user's "Your music" library
@@ -1902,7 +1902,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
     @return BaseTrack object -
 
     Get a list of songs saved in the current Spotify user's "Your Music" library
@@ -1930,7 +1930,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
     @return boolean -
 
     Save one or more tracks to the current User's "Your Music" library
@@ -1958,7 +1958,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
     @return boolean -
 
     Remove one or more tracks from the current user's "Your music" library
@@ -1987,7 +1987,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
     @return boolean -
 
     Check if one or more tracks is already saved in the current Spotify user's "Your Music" library
@@ -2016,7 +2016,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
     @return Controller.LibraryController.Episode.BaseEpisode object -
 
     Get a list of the episodes saved in the current Spotify user's library
@@ -2045,7 +2045,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
     @return boolean -
 
     Save one or more episodes to the current User's library
@@ -2074,7 +2074,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
     @return boolean -
 
     Remove one or more episodes from the current user's library
@@ -2103,7 +2103,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
     @return boolean -
 
     Check if one or more episodes is already saved in the current Spotify user's "Your Episodes" library
@@ -2132,7 +2132,7 @@ public class SpotifyRestAPI {
 
     /**
 
-     @param SpotifyClient object
+     @param client object - SpotifyClient instance
      @return BaseShow object -
 
      Get a list of shows saved in the current Spotify User's library
@@ -2161,7 +2161,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
     @return boolean -
 
     Save one or more shows to current Spotify User's library
@@ -2190,7 +2190,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
     @return boolean -
 
     Delete one or more shows from the current Spotify user's library
@@ -2219,7 +2219,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
     @return boolean -
 
     Check if one or more shows is already saved in the current Spotify user's library
@@ -2260,7 +2260,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
     @return List<String>
 
     Get the list of markets where Spotify is available
@@ -2302,7 +2302,7 @@ public class SpotifyRestAPI {
 
     /**
 
-    @param SpotifyClient object
+    @param client object - SpotifyClient instance
     @return baseUserTopTracksAndArtists object -
 
     Get the current user's top artists and tracks based on calculated affinity
@@ -2339,6 +2339,17 @@ public class SpotifyRestAPI {
 
 
      *************************************************************************/
+    
+    /*
+    
+    @param client object - SpotifyClient instance
+    @return baseUserPlayback object
+
+    Get information about the user's current playback state, including track or episode, progress, and active device
+    
+    
+    
+     */
 
     public baseUserPlayback getInfoCurrentUserPlayback(SpotifyClient client) throws IOException {
 
@@ -2359,6 +2370,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    @param client object - SpotifyClient instance
+    @return boolean
+
+    Transfer user playback to a new device and determine if it should start playing
+
+
+     */
+
     public boolean transferUserPlaybackToNewDevice(SpotifyClient client) throws IOException {
 
         String url = baseUrl + "/v1/me/player/";
@@ -2377,6 +2398,16 @@ public class SpotifyRestAPI {
         return response.isSuccessful();
 
     }
+
+    /*
+
+    @param client object - SpotifyCLient instance
+    @return basePlayerDevice object
+
+    Get information about a user's available devicese
+
+
+     */
 
     public basePlayerDevice getUserAvailableDevices(SpotifyClient client) throws IOException {
 
@@ -2397,6 +2428,17 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    @param client object - SpotifyClient instance
+    @return baseCurrentTrack object
+
+    Get the object currently being played on the user's Spotify account
+
+
+
+     */
+
     public baseCurrentTrack getUserCurrentPlayingTrack(SpotifyClient client) throws IOException {
         String url = baseUrl + "/v1/me/player/currently-playing/";
 
@@ -2413,6 +2455,16 @@ public class SpotifyRestAPI {
 
         return response.body();
     }
+
+    /*
+
+    @param client object - SpotifyClient instance
+    @return boolean
+
+    Start a new context or resume current playback on the user's active device
+
+
+     */
 
     public boolean startOrResumeAUsersPlayback(SpotifyClient client) throws IOException {
 
@@ -2436,6 +2488,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    @param client object - SpotifyClient instance
+    @return boolean
+
+    Pause playback on the user's account
+
+
+     */
+
     public boolean pauseUserPlayback(SpotifyClient client) throws IOException {
 
         String url = baseUrl + "/v1/me/player/pause/";
@@ -2456,6 +2518,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    @param client object - SpotifyClient instance
+    @return boolean
+
+    Skips to next track in the user's queue
+
+
+     */
+
     public boolean skipUserPlaybackToNextTrack(SpotifyClient client) throws IOException {
 
         String url = baseUrl + "/v1/me/player/next/";
@@ -2474,6 +2546,16 @@ public class SpotifyRestAPI {
         return response.isSuccessful();
 
     }
+
+    /*
+
+    @param client object - SpotifyClient instance
+    @return boolean
+
+    Skips to previous track in the user's queue
+
+
+     */
 
     public boolean skipUserPlaybackToPreviousTrack(SpotifyClient client) throws IOException {
 
@@ -2494,6 +2576,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    @param client object - SpotifyClient instance
+    @return boolean
+
+    Seeks to the given position in the user's currently playing track
+
+
+     */
+
     public boolean seekToPositionInCurrentUserTrack(SpotifyClient client) throws IOException {
 
         String url = baseUrl + "/v1/me/player/seek/";
@@ -2512,6 +2604,16 @@ public class SpotifyRestAPI {
         return response.isSuccessful();
 
     }
+
+    /*
+
+    @param client object - SpotifyClient instance
+    @return boolean
+
+    Set the repeat mode for the user's playback. Options are repeat-track, repeat-context, and off
+
+
+     */
 
     public boolean setRepeatModeOnUserPlayback(SpotifyClient client) throws IOException {
 
@@ -2532,6 +2634,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    @param client object - SpotifyClient instance
+    @return boolean
+
+    Set the volume for the user's current playback device
+
+
+     */
+
     public boolean setVolumeUserPlayback(SpotifyClient client) throws IOException {
 
         String url = baseUrl + "/v1/me/player/volume/";
@@ -2550,6 +2662,16 @@ public class SpotifyRestAPI {
         return response.isSuccessful();
 
     }
+
+    /*
+
+    @param client object - SpotifyClient instance
+    @return boolean
+
+    Toggle shuffle on or off for user's playback
+
+
+     */
 
     public boolean toggleShuffleForUserPlayback(SpotifyClient client) throws IOException {
 
@@ -2570,6 +2692,16 @@ public class SpotifyRestAPI {
 
     }
 
+    /*
+
+    @param client object - SpotifyClient instance
+    @return Controller.PlayerController.CurrentUserRecentTrack.BaseTrack object
+
+    Get tracks from the current user's recently played tracks.
+
+
+     */
+
     public Controller.PlayerController.CurrentUserRecentTrack.BaseTrack getCurrUserRecentPlayedTracks(SpotifyClient client) throws IOException {
 
         String url = baseUrl + "/v1/me/player/recently-played/";
@@ -2587,6 +2719,17 @@ public class SpotifyRestAPI {
 
         return response.body();
     }
+
+    /*
+
+    @param client object - SpotifyClient instance
+    @return boolean
+
+
+    Add an item to the end of the user's current playback queue
+
+
+     */
 
     public boolean addItemtoQueue(SpotifyClient client) throws IOException {
 
