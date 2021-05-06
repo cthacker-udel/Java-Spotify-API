@@ -1,4 +1,4 @@
-/***
+/*
 
 @author Cameron Thacker
 @Github cthacker-udel
@@ -66,7 +66,6 @@ import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.List;
-import getRequests.Album;
 
 import static java.lang.Thread.sleep;
 
@@ -154,6 +153,7 @@ public class SpotifyRestAPI {
 
         Response<Controller.baseAuthResponse> implicitGrantResponse = implicitGrantCall.execute();
 
+        assert implicitGrantResponse.body() != null;
         client.setToken(implicitGrantResponse.body().getToken());
 
         return implicitGrantResponse.body().getToken();
