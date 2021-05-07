@@ -7,23 +7,154 @@ import java.io.IOException;
 
 public class SpotifyClient extends SpotifyRestAPI{
 
+    /*
+
+    Instance attributes
+
+     */
+
+    /**
+
+     private String secretKey - Api interface secret key
+
+     */
+
     private String secretKey;
+
+    /**
+
+    private String apiKey - Api interface api key
+
+     */
+
     private String apiKey;
+
+    /**
+
+    private String token - Api interface token
+
+     */
+
     private String token;
+
+    /**
+
+    private Album album - Api interface Album object
+
+     */
+
     private Album album;
+
+    /**
+
+    private Artist artists - Api interface Artist Object
+
+     */
+
     private Artist artists;
+
+    /**
+
+    private String ISOCountryCode - Api interface ISO Country Code (US,EU)
+
+     */
+
     private String ISOCountryCode;
+
+    /**
+
+    private Seed seed - Api interface Seed object
+
+     */
+
     private Seed seed;
+
+    /**
+
+    private Episode episodes - Api interface Episode object
+
+     */
+
     private Episode episodes;
+
+    /**
+
+    private Follow follow - Api interface Follow object
+
+     */
+
     private Follow follow;
+
+    /**
+
+    private User userIds - Api interface User object
+
+     */
+
     private User userIds;
+
+    /**
+
+    private Track trackIds - Api interface Track object
+
+     */
+
     private Track trackIds;
+
+    /**
+
+    private Show show - Api interface Show object
+
+     */
+
     private Show show;
+
+    /**
+
+    private Player player - Api interface Player object
+
+     */
+
     private Player player;
+
+    /**
+
+    private Playlist playlist - Api interface Playlist object
+
+     */
+
     private Playlist playlist;
+
+    /**
+
+    private Search search - Api interface Search object
+
+     */
+
     private Search search;
+
+    /**
+
+    private SpotifyLogin login - Spotify Login credentials used for logging in and acquiring access token to utilize REST API methods
+
+     */
+
     private SpotifyLogin login;
+
+    /**
+
+    private Category category - Api interface Category object
+
+     */
+
     private Category category;
+
+    /**
+
+    private Personalization personalization - Api interface Personalization object
+
+     */
+
     private Personalization personalization;
 
     public SpotifyClient(){
