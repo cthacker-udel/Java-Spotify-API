@@ -168,8 +168,6 @@ public class SpotifyClient extends SpotifyRestAPI{
         super();
         this.apiKey = "defaultapikey";
         this.secretKey = "defaultsecretkey";
-        this.secretKey = secretKey;
-        this.apiKey = apiKey;
         implicitGrantTokenRequest();
         this.album = new Album();
         this.artists = new Artist();

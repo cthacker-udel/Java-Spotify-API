@@ -1,5 +1,6 @@
 package Client;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class SpotifyLogin extends SpotifyClient {
@@ -74,8 +75,10 @@ public class SpotifyLogin extends SpotifyClient {
      *
      */
 
-    public SpotifyLogin(){
+    public SpotifyLogin() throws IOException {
         super();
+        this.emailOrUsername = "default email or username";
+        this.password = "default password";
         this.scopes = new ArrayList<>();
     }
 
@@ -85,7 +88,7 @@ public class SpotifyLogin extends SpotifyClient {
      * @param password - Password of the user's Spotify account
      */
 
-    public SpotifyLogin(String username, String password){
+    public SpotifyLogin(String username, String password) throws IOException {
         this.emailOrUsername = username;
         this.password = password;
         this.scopes = new ArrayList<>();
@@ -122,7 +125,7 @@ public class SpotifyLogin extends SpotifyClient {
 
     /**
      *
-     * @param scope - String - scope to add to the ArrayList to specify which scopes should be applied when generating access token
+     * @param scope - String - scope to add to the Scopes ArrayList to specify which scopes should be applied when generating access token
      */
 
     public void addScope(String scope){
