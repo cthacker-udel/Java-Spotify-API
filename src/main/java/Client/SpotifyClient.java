@@ -195,7 +195,7 @@ public class SpotifyClient extends SpotifyRestAPI{
         this.player = new Player();
         this.playlist = new Playlist();
         this.search = new Search();
-        login = new SpotifyLogin();
+        this.login = new SpotifyLogin();
         this.category = new Category();
         this.personalization = new Personalization();
     }
@@ -225,7 +225,7 @@ public class SpotifyClient extends SpotifyRestAPI{
         this.player = new Player();
         this.playlist = new Playlist();
         this.search = new Search();
-        login = new SpotifyLogin();
+        this.login = new SpotifyLogin();
         this.category = new Category();
         this.personalization = new Personalization();
     }

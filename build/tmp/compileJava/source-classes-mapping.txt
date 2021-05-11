@@ -408,6 +408,14 @@ Controller/PlayerController/CurrentTrack/Album.java
  Controller.PlayerController.CurrentTrack.Album
 Controller/PlayerController/CurrentTrack/baseCurrentTrack.java
  Controller.PlayerController.CurrentTrack.baseCurrentTrack
+Model/searchInterface.java
+ Model.searchInterface
+Model/trackInterface.java
+ Model.trackInterface
+Model/showInterface.java
+ Model.showInterface
+Model/playlistInterface.java
+ Model.playlistInterface
 getRequests/Show.java
  getRequests.Show
 getRequests/Player.java
@@ -420,12 +428,8 @@ getRequests/Track.java
  getRequests.Track
 getRequests/Category.java
  getRequests.Category
-Model/showInterface.java
- Model.showInterface
 Client/SpotifyClient.java
  Client.SpotifyClient
-Model/searchInterface.java
- Model.searchInterface
 getRequests/Search.java
  getRequests.Search
 getRequests/Episode.java
@@ -434,10 +438,6 @@ Client/SpotifyRestAPI.java
  Client.SpotifyRestAPI
 getRequests/Seed.java
  getRequests.Seed
-Model/playlistInterface.java
- Model.playlistInterface
-Model/trackInterface.java
- Model.trackInterface
 getRequests/Artist.java
  getRequests.Artist
 getRequests/Playlist.java
