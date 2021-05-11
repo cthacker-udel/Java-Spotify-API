@@ -3,6 +3,7 @@ package getRequests;
 
 import Client.SpotifyClient;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -16,7 +17,7 @@ public class Album extends SpotifyClient {
 
     private Integer offset;
 
-    public Album(){
+    public Album() {
         super();
         this.albumIds = new ArrayList<>();
     }

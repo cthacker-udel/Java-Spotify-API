@@ -164,25 +164,10 @@ public class SpotifyClient extends SpotifyRestAPI{
 
      */
 
-    public SpotifyClient() throws IOException {
+    public SpotifyClient() {
         super();
         this.apiKey = "defaultapikey";
         this.secretKey = "defaultsecretkey";
-        implicitGrantTokenRequest();
-        this.album = new Album();
-        this.artists = new Artist();
-        this.seed = new Seed();
-        this.episodes = new Episode();
-        this.follow = new Follow();
-        this.userIds = new User();
-        this.trackIds = new Track();
-        this.show = new Show();
-        this.player = new Player();
-        this.playlist = new Playlist();
-        this.search = new Search();
-        this.login = new SpotifyLogin();
-        this.category = new Category();
-        this.personalization = new Personalization();
     }
 
     /**
@@ -210,7 +195,7 @@ public class SpotifyClient extends SpotifyRestAPI{
         this.player = new Player();
         this.playlist = new Playlist();
         this.search = new Search();
-        this.login = new SpotifyLogin();
+        login = new SpotifyLogin();
         this.category = new Category();
         this.personalization = new Personalization();
     }
@@ -240,7 +225,7 @@ public class SpotifyClient extends SpotifyRestAPI{
         this.player = new Player();
         this.playlist = new Playlist();
         this.search = new Search();
-        this.login = new SpotifyLogin();
+        login = new SpotifyLogin();
         this.category = new Category();
         this.personalization = new Personalization();
     }
@@ -276,11 +261,11 @@ public class SpotifyClient extends SpotifyRestAPI{
     /**
      * Updates the SpotifyClient's SpotifyLogin instance to the SpotifyLogin instance passed into the function
      * @return void
-     * @param login - SpotifyLogin instance
+     * @param newLogin - SpotifyLogin instance
      */
 
-    public void setLogin(SpotifyLogin login) {
-        this.login = login;
+    public void setLogin(SpotifyLogin newLogin) {
+        login = newLogin;
     }
 
     /**

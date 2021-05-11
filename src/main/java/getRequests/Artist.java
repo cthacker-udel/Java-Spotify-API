@@ -2,6 +2,7 @@ package getRequests;
 
 import Client.SpotifyClient;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Artist extends SpotifyClient {
@@ -16,7 +17,7 @@ public class Artist extends SpotifyClient {
 
     private Integer offset;
 
-    public Artist(){
+    public Artist() {
         super();
         this.artists = new ArrayList<>();
         this.includeGroups = new ArrayList<>();
