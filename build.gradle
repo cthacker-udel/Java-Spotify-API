@@ -25,7 +25,7 @@ dependencies {
 
     // webdriver manager
 
-    implementation 'io.github.bonigarcia:webdrivermanager:3.7.1'
+    implementation 'io.github.bonigarcia:webdrivermanager:5.0.2'
 
 }
 
