@@ -21,7 +21,7 @@ dependencies {
 
     // selenium - java
 
-    implementation 'org.seleniumhq.selenium:selenium-java:4.0.0-alpha-7'
+    implementation 'org.seleniumhq.selenium:selenium-java:4.0.0'
 
     // webdriver manager
 
